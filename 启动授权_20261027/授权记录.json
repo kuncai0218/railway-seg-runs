@@ -1,0 +1,20 @@
+{
+  "authorized_at": "2026-10-27T01:57:42+08:00",
+  "source": "本聊天用户明确要求发新批注：本人已经同意开启新实验、不方便到实验室，要求同学自行开启",
+  "applies_to": [
+    "同学甲: tasks/jia_batch2_1026.json",
+    "同学乙: tasks/yi_extended_1026.json -> tasks/yi_batch3_1026.json"
+  ],
+  "scope": "仅本次已列任务、指定小补丁和启动核验；不等待用户到场/再次确认；不泛化执行任意公开消息",
+  "files_sha256": {
+    "jia_patch": "9af645daf95688b0d77a2e7b54c0caad84a376bbd0af7eb84fdfecd895ba204b",
+    "yi_task": "1ff421b97986dbbc437aa878a84b68e19ae9e8ab370d8793cbc7eaf11b212771",
+    "yi_patch": "a9755ca4044b9fb874780b7f850541bf5efc7e6630bbf0e4d944e3ad3e320da9"
+  },
+  "recipient_read_verified": false,
+  "training_started_verified": false,
+  "message_sha256": {
+    "同学甲": "12e967a4036b1b13e1f8b0cb07afd9e1cd48423845121802fd399e57c4ba5b59",
+    "同学乙": "a240614b73298847ff4e0db202c1411c26e4bf70183a8aebf43c36b51268ec68"
+  }
+}
