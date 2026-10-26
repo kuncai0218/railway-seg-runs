@@ -1,6 +1,6 @@
 """组长端（10-26，Claude）：给某位同学发一条批注（同学的 agent 下次同步时读到）。
 用法：python tools/send_note.py 同学甲 "暂停"
-      python tools/send_note.py 同学乙 "重跑 swinunet_rgb_s20261017"
+      python tools/send_note.py 同学乙 "立即同步"
 允许的指令见仓库首页 README 第 4 节；其他文字只会被转告给同学本人。发出的批注同时记在 <同学>/批注记录.md。"""
 import datetime
 import json

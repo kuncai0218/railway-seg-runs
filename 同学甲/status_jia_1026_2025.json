@@ -1,0 +1,39 @@
+{
+ "name": "同学甲",
+ "time": "2026-10-26 20:25:41",
+ "task_file": "同学甲.json",
+ "status_table": "任务                           阶段     进度\nswinunet_12b                 试学习率   0/3\nswinunet_12b_s20261017       正式     0/9  （学习率未定）\nswinunet_12b_s20261018       正式     0/9  （学习率未定）\nswinunet_12b_s20261019       正式     0/9  （学习率未定）\n",
+ "runner_log_tail": [],
+ "self_check": {
+  "versions": {
+   "python": "3.10.22",
+   "torch": "2.5.1+cu121",
+   "cuda": "12.1",
+   "timm": "1.0.29",
+   "smp": "0.5.0",
+   "numpy": "2.2.6"
+  },
+  "gpu": {
+   "name": "NVIDIA TITAN RTX",
+   "capability": "7.5",
+   "total_gb": 23.5,
+   "free_gb": 22.6,
+   "amp": "fp16"
+  },
+  "smoke": {
+   "swin_optical_bands": {
+    "peak_gpu_gb": 2.964
+   }
+  },
+  "speed": {
+   "seconds_per_step": 0.098,
+   "est_minutes_per_part": 8.5
+  },
+  "passed": true
+ },
+ "chosen_lr": {},
+ "parts": {},
+ "curves": {},
+ "failures": {},
+ "error_logs": {}
+}

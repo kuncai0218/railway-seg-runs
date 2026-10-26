@@ -2,7 +2,7 @@
 
 放在实验包的 code/ 目录里，在实验包根目录运行：
     python code/sync_status.py --name 同学甲 --task tasks/同学甲.json            # 同步一次
-    python code/sync_status.py --name 同学甲 --task tasks/同学甲.json --loop 1800  # 每 30 分钟同步一次，一直运行
+    python code/sync_status.py --name 同学甲 --task tasks/同学甲.json --loop 3600  # 每小时同步一次，一直运行
 每次同步：
   1. 发一条状态消息（一句话摘要）+ 一个附件 status_<名字>_<时间>.json（进度表、各部分精度、学习率选择、训练曲线、日志末尾、出错信息）；
   2. 读取批注话题里的新批注，追加到 results/批注_收到.md，并在屏幕上打印出来。
