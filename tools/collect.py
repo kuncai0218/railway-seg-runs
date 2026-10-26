@@ -34,7 +34,10 @@ def runtime_status(snapshot):
             tasks[end.group(1)] = 'completed' if int(end.group(2)) == 0 else 'failed'
             state = 'between_tasks' if int(end.group(2)) == 0 else 'failed'
         elif '全部任务结束' in line:
-            state = 'failed' if '出错' in line else 'completed'
+            # A successful runner prints “没有出错”; that is not a failure.
+            listed = re.search(r'出错的[:：]\s*\[([^\]]*)\]', line)
+            failed = any(value == 'failed' for value in tasks.values()) or bool(listed and listed.group(1).strip())
+            state = 'failed' if failed else 'completed'
     failures = sorted(name for name, status in tasks.items() if status == 'failed')
     history = sum(1 for line in lines if re.search(r'返回码\s+(?!0\b)-?\d+', line))
     return {'source_snapshot_at': snapshot.get('time'), 'state': state,
