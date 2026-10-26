@@ -1,8 +1,11 @@
 {
-  "source_snapshot_at": "2026-10-26 23:27:16",
-  "state": "running",
-  "completed_parts": 32,
+  "source_snapshot_at": "2026-10-27 00:27:19",
+  "state": "unknown",
+  "completed_parts": 42,
   "current_run_failed_tasks": [],
   "historical_failure_events": 0,
-  "latest_runner_line": "10-26 22:31:17 开始 unet_r34_12b_s20261017"
+  "latest_runner_line": "10-27 00:26:09 开始 swinupernet_12b_s20261019",
+  "log_context_mismatch": true,
+  "reported_task_file": "同学丙.json",
+  "log_task_file": "本机丙_第二批.json"
 }
