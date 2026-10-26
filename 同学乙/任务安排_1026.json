@@ -1,7 +1,7 @@
 {
   "batch": "yi_batch2_1026",
   "assigned_at": "2026-10-26T23:02:30+08:00",
-  "state": "prepared_not_started",
+  "state": "published_waiting_peer_start",
   "task_file": "tasks/yi_batch2_1026.json",
   "expected_new_parts": 15,
   "rgb_new_seeds": [
@@ -13,5 +13,10 @@
   ],
   "crop128_review": "read_only",
   "peer_started_verified": false,
-  "prompt_url": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_第二批任务_1026.md"
+  "prompt_url": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_第二批任务_1026.md",
+  "published_commit": "8a91e51f4b3b23521e8ab44f42527af24118c9a9",
+  "note_id": "LzBzx5nETqdX",
+  "note_sent_at": "2026-10-26T23:04:00+08:00",
+  "peer_received_verified": false,
+  "task_sha256": "06c038d9532fb32ba6efa815b4204a39f3d5ea7c37600e8720ec6943740064f8"
 }
