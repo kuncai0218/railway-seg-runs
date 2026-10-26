@@ -7,7 +7,7 @@
 
 | 方向 | 话题 | 谁写 | 谁读 |
 |---|---|---|---|
-| 状态 | `railseg-d4a86d-status-jia` / `-yi` / `-bing` | 同学的 agent（每 30 分钟一次） | 组长端每 30 分钟抓取，存进本仓库 |
+| 状态 | `railseg-d4a86d-status-jia` / `-yi` / `-bing` | 同学的 agent（每小时一次） | 组长端每 30 分钟抓取，存进本仓库 |
 | 批注 | `railseg-d4a86d-notes-jia` / `-yi` / `-bing` | 组长（`tools/send_note.py`） | 同学的 agent（每次同步时读取） |
 
 jia = 同学甲，yi = 同学乙，bing = 同学丙。ntfy.sh 上的消息只保留约 12 小时、附件约 3 小时，长期存档以本仓库为准。
@@ -21,7 +21,7 @@ jia = 同学甲，yi = 同学乙，bing = 同学丙。ntfy.sh 上的消息只保
 ## 3 工具
 - `tools/sync_status.py`：同学端，放进实验包的 `code/` 目录。
   - 单次同步：`python code/sync_status.py --name 同学甲 --task tasks/同学甲.json`
-  - 持续同步：上面命令末尾加 `--loop 1800`
+  - 持续同步：上面命令末尾加 `--loop 3600`（每小时一次）
 - `tools/collect.py`：组长端，抓取三人状态，存档并推送到本仓库。
 - `tools/send_note.py`：组长端，发批注，例如 `python tools/send_note.py 同学甲 "暂停"`。
 

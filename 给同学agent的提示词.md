@@ -12,10 +12,10 @@
    - Windows PowerShell：`Invoke-WebRequest -Uri <上面地址> -OutFile code/sync_status.py`
    - Linux：`curl -L -o code/sync_status.py <上面地址>`
 4. 如果实验还没在跑，按执行指南第 4 步启动：`python code/run_tasks.py --task tasks/{同学X}.json`。已经在跑就不要重复启动；先用 `--status` 看一下，避免同一个实验跑两份。
-5. 另开一个后台进程，启动持续同步（每 30 分钟一次，一直运行）：
-   `python code/sync_status.py --name {同学X} --task tasks/{同学X}.json --loop 1800`
+5. 另开一个后台进程，启动持续同步（每小时一次，一直运行）：
+   `python code/sync_status.py --name {同学X} --task tasks/{同学X}.json --loop 3600`
 
-## 二、之后每 30 分钟检查一次
+## 二、之后每小时检查并汇报一次
 1. 看实验是否还在跑：`python code/run_tasks.py --task tasks/{同学X}.json --status`，以及 `results/runner_log.txt` 末尾几行。
 2. 看同步脚本是否还在运行，没在运行就按第一节第 5 步重启。
 3. 看 `results/批注_收到.md` 有没有新的批注（组长通过 ntfy.sh 发来，同步脚本收到后会追加到这个文件）。
