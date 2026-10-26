@@ -1,22 +1,50 @@
 {
-  "batch": "yi_batch2_1026",
-  "assigned_at": "2026-10-26T23:02:30+08:00",
+  "batch": "yi_extended_1026",
+  "assigned_at": "2026-10-26T23:12:36+08:00",
   "state": "published_waiting_peer_start",
-  "task_file": "tasks/yi_batch2_1026.json",
-  "expected_new_parts": 15,
-  "rgb_new_seeds": [
-    20261019
+  "source_package": "同学丙_分割公平比较包_1026.zip",
+  "task_file": "tasks/yi_extended_1026.json",
+  "source_package_parts": 42,
+  "prior_pending_parts_max": 15,
+  "expected_new_parts_max": 57,
+  "expected_cumulative_parts_max": 84,
+  "queue_order": [
+    "swinupernet_12b",
+    "unet_r34_12b",
+    "swinunet_rgb_第三种子",
+    "swinunet_12b_c256_lr3e-4_补种子"
   ],
-  "crop256_thirdfold_new_seeds": [
-    20261018,
-    20261019
-  ],
-  "crop128_review": "read_only",
-  "peer_started_verified": false,
-  "prompt_url": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_第二批任务_1026.md",
-  "published_commit": "8a91e51f4b3b23521e8ab44f42527af24118c9a9",
-  "note_id": "LzBzx5nETqdX",
-  "note_sent_at": "2026-10-26T23:04:00+08:00",
+  "if_prior_queue_running": "finish_then_switch_without_parallel_runner",
+  "reporting_identity": "同学乙",
+  "gpu": "Titan RTX",
+  "amp": "fp16",
   "peer_received_verified": false,
-  "task_sha256": "06c038d9532fb32ba6efa815b4204a39f3d5ea7c37600e8720ec6943740064f8"
+  "peer_started_verified": false,
+  "published_commit": "4510f0c8c1a1850d485b8787f76782d030f8b8a4",
+  "note_id": "jmJ3trxR1diM",
+  "note_sent_at": "2026-10-26T23:12:36+08:00",
+  "prompt_url": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_追加原丙任务_1026.md",
+  "task_sha256": "1ff421b97986dbbc437aa878a84b68e19ae9e8ab370d8793cbc7eaf11b212771",
+  "previous_assignment": {
+    "batch": "yi_batch2_1026",
+    "assigned_at": "2026-10-26T23:02:30+08:00",
+    "state": "merged_into_yi_extended_1026",
+    "task_file": "tasks/yi_batch2_1026.json",
+    "expected_new_parts": 15,
+    "rgb_new_seeds": [
+      20261019
+    ],
+    "crop256_thirdfold_new_seeds": [
+      20261018,
+      20261019
+    ],
+    "crop128_review": "read_only",
+    "peer_started_verified": false,
+    "prompt_url": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_第二批任务_1026.md",
+    "published_commit": "8a91e51f4b3b23521e8ab44f42527af24118c9a9",
+    "note_id": "LzBzx5nETqdX",
+    "note_sent_at": "2026-10-26T23:04:00+08:00",
+    "peer_received_verified": false,
+    "task_sha256": "06c038d9532fb32ba6efa815b4204a39f3d5ea7c37600e8720ec6943740064f8"
+  }
 }
