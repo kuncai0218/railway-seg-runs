@@ -1,9 +1,19 @@
 {
  "name": "同学甲",
- "time": "2026-10-26 20:25:41",
+ "time": "2026-10-26 20:34:47",
  "task_file": "同学甲.json",
  "status_table": "任务                           阶段     进度\nswinunet_12b                 试学习率   0/3\nswinunet_12b_s20261017       正式     0/9  （学习率未定）\nswinunet_12b_s20261018       正式     0/9  （学习率未定）\nswinunet_12b_s20261019       正式     0/9  （学习率未定）\n",
- "runner_log_tail": [],
+ "runner_log_tail": [
+  "10-26 20:25:42 任务文件 同学甲.json（同学甲），混合精度 fp16",
+  "10-26 20:25:42 开始 swinunet_12b_lr0.0001_sweep",
+  "10-26 20:27:41 结束 swinunet_12b_lr0.0001_sweep，返回码 1（出错，详见 results/logs/swinunet_12b_lr0.0001_sweep.log 末尾）",
+  "10-26 20:27:41 开始 swinunet_12b_lr0.0003_sweep",
+  "10-26 20:27:43 结束 swinunet_12b_lr0.0003_sweep，返回码 1（出错，详见 results/logs/swinunet_12b_lr0.0003_sweep.log 末尾）",
+  "10-26 20:27:43 开始 swinunet_12b_lr0.0006_sweep",
+  "10-26 20:27:46 结束 swinunet_12b_lr0.0006_sweep，返回码 1（出错，详见 results/logs/swinunet_12b_lr0.0006_sweep.log 末尾）",
+  "10-26 20:27:46 swinunet_12b 学习率还没选出来（试学习率有失败），跳过正式实验",
+  "10-26 20:27:46 全部任务结束；出错的：['swinunet_12b_lr0.0001_sweep', 'swinunet_12b_lr0.0003_sweep', 'swinunet_12b_lr0.0006_sweep', 'swinunet_12b']，请把 results/logs 里对应日志发回"
+ ],
  "self_check": {
   "versions": {
    "python": "3.10.22",
@@ -33,7 +43,42 @@
  },
  "chosen_lr": {},
  "parts": {},
- "curves": {},
- "failures": {},
- "error_logs": {}
+ "curves": {
+  "pred_swinunet_12b_lr0.0001_sweep/r3_2024/state_A": [
+   [
+    500,
+    0.6661
+   ],
+   [
+    1000,
+    0.7017
+   ]
+  ]
+ },
+ "failures": {
+  "pred_swinunet_12b_lr0.0001_sweep": "CUDA error: unspecified launch failure\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n"
+ },
+ "error_logs": {
+  "swinunet_12b_lr0.0003_sweep": [
+   "/home/user/anaconda3/envs/segpkg/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)",
+   "  return torch._C._cuda_getDeviceCount() > 0",
+   "Traceback (most recent call last):",
+   "  File \"/home/user/同学分割实验包_1026/code/train_study.py\", line 448, in <module>",
+   "    main()",
+   "  File \"/home/user/同学分割实验包_1026/code/train_study.py\", line 360, in main",
+   "    raise RuntimeError('A CUDA GPU is required; refusing silent CPU formal training')",
+   "RuntimeError: A CUDA GPU is required; refusing silent CPU formal training"
+  ],
+  "swinunet_12b_lr0.0006_sweep": [
+   "/home/user/anaconda3/envs/segpkg/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)",
+   "  return torch._C._cuda_getDeviceCount() > 0",
+   "Traceback (most recent call last):",
+   "  File \"/home/user/同学分割实验包_1026/code/train_study.py\", line 448, in <module>",
+   "    main()",
+   "  File \"/home/user/同学分割实验包_1026/code/train_study.py\", line 360, in main",
+   "    raise RuntimeError('A CUDA GPU is required; refusing silent CPU formal training')",
+   "RuntimeError: A CUDA GPU is required; refusing silent CPU formal training"
+  ],
+  "10-26 20:27:46 全部任务结束；出错的：['swinunet_12b_lr0.0001_sweep', 'swinunet_12b_lr0.0003_sweep', 'swinunet_12b_lr0.0006_sweep', 'swinunet_12b']": []
+ }
 }
