@@ -18,6 +18,6 @@ q = urllib.parse.urlencode({'title': f'给{name}的批注'})
 req = urllib.request.Request(f'https://ntfy.sh/railseg-{SUFFIX}-notes-{SLUG[name]}?{q}', data=text.encode('utf-8'), method='POST')
 r = json.loads(urllib.request.urlopen(req, timeout=60).read())
 d = REPO / name; d.mkdir(exist_ok=True)
-with open(d / '批注记录.md', 'a', encoding='utf-8') as f:
+with open(d / '批注记录.md', 'a', encoding='utf-8', newline='\n') as f:
     f.write(f"\n- {datetime.datetime.now():%Y-%m-%d %H:%M}（编号 {r['id']}）：{text}\n")
 print('已发送', r['id'], text)
