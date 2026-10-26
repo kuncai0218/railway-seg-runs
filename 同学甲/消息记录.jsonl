@@ -1,3 +1,5 @@
 {"id": "6jdOOPOa9Pxw", "time": "2026-10-26 20:25:42", "message": "同学甲 | 已完成 0 个部分 | 出错 0 处", "attachment": "status_jia_1026_2025.json"}
 {"id": "GmBdkP3z4GDK", "time": "2026-10-26 20:34:47", "message": "同学甲 | 已完成 0 个部分 | 出错 4 处 | 最近出错：12b_lr0.0006_sweep', 'swinunet_12b']，请把 results/logs 里对应日志发回", "attachment": "status_jia_1026_2034.json"}
 {"id": "uPCrngwzwvrD", "time": "2026-10-26 21:34:50", "message": "同学甲 | 已完成 10 个部分 | 出错 4 处 | 最新 swinunet_12b_s20261017/r3_2024/state_full mIoU 0.735 | 最近出错：12b_lr0.0006_sweep', 'swinunet_12b']，请把 results/logs 里对应日志发回", "attachment": "status_jia_1026_2134.json"}
+{"id": "jgAAWBTBnE2y", "time": "2026-10-26 22:19:15", "message": "同学甲 | 已完成 18 个部分 | 出错 4 处 | 最新 swinunet_12b_s20261018/r3_2023b/state_B mIoU 0.818 | 最近出错：12b_lr0.0006_sweep', 'swinunet_12b']，请把 results/logs 里对应日志发回", "attachment": "status_jia_1026_2219.json"}
+{"id": "3s5KiAs3dagV", "time": "2026-10-26 22:34:52", "message": "同学甲 | 已完成 20 个部分 | 出错 4 处 | 最新 swinunet_12b_s20261018/r3_2024/state_A mIoU 0.800 | 最近出错：12b_lr0.0006_sweep', 'swinunet_12b']，请把 results/logs 里对应日志发回", "attachment": "status_jia_1026_2234.json"}
