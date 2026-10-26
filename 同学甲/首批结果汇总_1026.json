@@ -1,0 +1,63 @@
+{
+  "source_snapshot_at": "2026-10-26 23:34:53",
+  "queue_completed_at": "2026-10-26 23:28:38",
+  "model": "Swin V2-Tiny + U-Net",
+  "input": "12 bands",
+  "completed_parts": 30,
+  "lr_sweep_parts": 3,
+  "formal_parts": 27,
+  "seed_count": 3,
+  "fold_count": 3,
+  "chosen_lr": 0.0006,
+  "seeds": {
+    "20261017": {
+      "development_crossfit": {
+        "r3_2023a": 0.8159441946582952,
+        "r3_2023b": 0.8104719533527642,
+        "r3_2024": 0.8077195788836841
+      },
+      "test": {
+        "r3_2023a": 0.7618982057849489,
+        "r3_2023b": 0.7709699273680446,
+        "r3_2024": 0.7349514109719161
+      },
+      "development_three_fold_mean": 0.8113785756315811,
+      "test_three_fold_mean": 0.7559398480416365
+    },
+    "20261018": {
+      "development_crossfit": {
+        "r3_2023a": 0.817665612560074,
+        "r3_2023b": 0.8126206024606386,
+        "r3_2024": 0.8070900756097789
+      },
+      "test": {
+        "r3_2023a": 0.758094742278567,
+        "r3_2023b": 0.7735372622851816,
+        "r3_2024": 0.731509681043961
+      },
+      "development_three_fold_mean": 0.8124587635434971,
+      "test_three_fold_mean": 0.7543805618692365
+    },
+    "20261019": {
+      "development_crossfit": {
+        "r3_2023a": 0.8177582423174499,
+        "r3_2023b": 0.8127159388696115,
+        "r3_2024": 0.8090380272547989
+      },
+      "test": {
+        "r3_2023a": 0.7575785669440662,
+        "r3_2023b": 0.769636606708172,
+        "r3_2024": 0.7321964019326501
+      },
+      "development_three_fold_mean": 0.8131707361472867,
+      "test_three_fold_mean": 0.7531371918616294
+    }
+  },
+  "test_miou_mean": 0.7544858672575008,
+  "test_miou_seed_mean_sample_std": 0.0014042924675547784,
+  "aggregation": "先每种子三折等权平均，再跨三个种子等权平均；样本标准差只描述三个种子均值离散，不是置信区间",
+  "current_failed_tasks": [],
+  "historical_cuda_issue": "resolved_verified",
+  "pack_note_id": "lOrzuq4sNoQG",
+  "pack_received": false
+}
