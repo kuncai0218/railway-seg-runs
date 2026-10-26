@@ -23,6 +23,8 @@ def runtime_status(snapshot):
     lines = snapshot.get('runner_log_tail') or []
     starts = [i for i, line in enumerate(lines) if ' 任务文件 ' in line]
     current = lines[starts[-1]:] if starts else lines
+    context = re.search(r' 任务文件 ([^（\s]+)', current[0]) if starts else None
+    mismatch = bool(snapshot.get('task_file') and context and snapshot['task_file'] != context.group(1))
     tasks = {}
     state = 'unknown'
     for line in current:
@@ -41,15 +43,22 @@ def runtime_status(snapshot):
             state = 'failed' if failed else 'completed'
     failures = sorted(name for name, status in tasks.items() if status == 'failed')
     history = sum(1 for line in lines if re.search(r'返回码\s+(?!0\b)-?\d+', line))
-    return {'source_snapshot_at': snapshot.get('time'), 'state': state,
+    result = {'source_snapshot_at': snapshot.get('time'), 'state': state,
             'completed_parts': len(snapshot.get('parts') or {}),
             'current_run_failed_tasks': failures, 'historical_failure_events': history,
             'latest_runner_line': current[-1] if current else None}
+    if mismatch:
+        # A dry run of another task can append a successful ending to this shared log.
+        result.update(state='unknown', current_run_failed_tasks=[], log_context_mismatch=True,
+                      reported_task_file=snapshot['task_file'], log_task_file=context.group(1))
+    return result
 
 
 def status_summary(status):
     label = {'running': '运行中', 'between_tasks': '上一项已完成，等待后续日志',
              'completed': '队列已结束', 'failed': '当前运行有失败', 'unknown': '等待运行记录'}[status['state']]
+    if status.get('log_context_mismatch'):
+        label = '日志属于另一任务，运行状态待核实'
     summary = f"已完成 {status['completed_parts']} 个部分；{label}"
     summary += f"；本轮失败 {len(status['current_run_failed_tasks'])} 项"
     if status['historical_failure_events']:

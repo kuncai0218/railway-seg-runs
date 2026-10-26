@@ -40,6 +40,20 @@ class RuntimeStatusTests(unittest.TestCase):
         self.assertEqual(result['state'], 'completed')
         self.assertEqual(result['current_run_failed_tasks'], [])
 
+    def test_other_task_dry_run_does_not_complete_or_fail_reported_queue(self):
+        for ending in ('全部任务结束，没有出错', "全部任务结束；出错的：['foreign']"):
+            with self.subTest(ending=ending):
+                result = runtime_status({
+                    'task_file': '同学丙.json',
+                    'runner_log_tail': [
+                        '10-26 17:56:01 任务文件 同学丙.json（同学丙），混合精度 bf16',
+                        '10-26 22:31:17 开始 unet_r34_12b_s20261017',
+                        '10-26 23:15:26 任务文件 本机丙_第三批.json（本机3090），混合精度 fp16',
+                        '10-26 23:15:26 ' + ending]})
+                self.assertEqual(result['state'], 'unknown')
+                self.assertTrue(result['log_context_mismatch'])
+                self.assertEqual(result['current_run_failed_tasks'], [])
+
 
 if __name__ == '__main__':
     unittest.main()
