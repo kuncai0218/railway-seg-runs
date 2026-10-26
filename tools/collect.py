@@ -90,10 +90,16 @@ def poll(topic):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--no-push', action='store_true'); a = ap.parse_args()
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--no-push', action='store_true')
+    ap.add_argument('--peers', nargs='+', choices=list(PEOPLE), help='只采集指定来源；jia yi模式单独生成甲乙页面')
+    a = ap.parse_args()
+    selected = {slug: PEOPLE[slug] for slug in (a.peers or PEOPLE)}
+    all_sources = set(selected) == set(PEOPLE)
+    page = REPO / ('最新状态.md' if all_sources else '甲乙最新状态.md')
     rows, changed = [], 0
     written = set()
-    for slug, name in PEOPLE.items():
+    for slug, name in selected.items():
         d = REPO / name; d.mkdir(exist_ok=True)
         seen_f = d / '.seen.json'
         seen = set(json.loads(seen_f.read_text('utf-8'))) if seen_f.exists() else set()
@@ -125,7 +131,7 @@ def main():
         last = (d / '消息记录.jsonl').read_text('utf-8').splitlines()[-1] if (d / '消息记录.jsonl').exists() else None
         rows.append((name, json.loads(last) if last else None))
     derived_changed = False
-    lines = ['# 实验队列最新状态', '', f'更新于 {datetime.datetime.now():%Y-%m-%d %H:%M}', '', '| 执行方 | 快照时间 | 状态与进度 |', '|---|---|---|']
+    lines = ['# 实验队列最新状态' if all_sources else '# 甲乙最新状态', '', f'更新于 {datetime.datetime.now():%Y-%m-%d %H:%M}', '', '| 执行方 | 快照时间 | 状态与进度 |', '|---|---|---|']
     for name, r in rows:
         snapshot = REPO / name / '最新状态.json'
         when = r['time'] if r else '—'
@@ -145,12 +151,12 @@ def main():
                 summary += f'；快照解析失败：{type(exc).__name__}'
         summary = summary.replace('|', '／').replace('\n', ' ')
         lines.append(f"| {DISPLAY_NAMES.get(name, name)} | {when} | {summary} |")
-    lines += ['', '外部同学只有甲、乙两位；原“同学丙”是组长本机3090代跑队列的内部标识，目录和消息话题沿用旧名。', '', '状态以所列时间的快照为准；本轮失败按最近一次运行记录判定，保留的历史错误不代表当前故障。']
-    page = REPO / '最新状态.md'
+    scope_note = '外部同学只有甲、乙两位；原“同学丙”是组长本机3090代跑队列的内部标识，目录和消息话题沿用旧名。' if all_sources else '本页只监视甲、乙；本机和服务器训练已交由其他接管者负责。'
+    lines += ['', scope_note, '', '状态以所列时间的快照为准；本轮失败按最近一次运行记录判定，保留的历史错误不代表当前故障。']
     table_changed = not page.exists() or page.read_text(encoding='utf-8').splitlines()[4:] != lines[4:]
     if changed or table_changed:
-        (REPO / '最新状态.md').write_text('\n'.join(lines) + '\n', encoding='utf-8', newline='\n')
-        written.add(REPO / '最新状态.md')
+        page.write_text('\n'.join(lines) + '\n', encoding='utf-8', newline='\n')
+        written.add(page)
     print('\n'.join(lines))
     print(f'新消息 {changed} 条')
     if (changed or table_changed or derived_changed) and not a.no_push:
