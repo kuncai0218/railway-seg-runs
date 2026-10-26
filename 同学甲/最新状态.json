@@ -1,6 +1,6 @@
 {
  "name": "同学甲",
- "time": "2026-10-27 00:34:56",
+ "time": "2026-10-27 01:34:58",
  "task_file": "同学甲.json",
  "status_table": "任务                           阶段     进度\nswinunet_12b                 试学习率   3/3\nswinunet_12b_s20261017       正式     9/9  学习率 0.0006\nswinunet_12b_s20261018       正式     9/9  学习率 0.0006\nswinunet_12b_s20261019       正式     9/9  学习率 0.0006\n",
  "runner_log_tail": [
