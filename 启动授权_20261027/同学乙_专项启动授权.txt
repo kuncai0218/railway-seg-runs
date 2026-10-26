@@ -15,7 +15,7 @@ python code/run_tasks.py --task tasks/yi_extended_1026.json --amp fp16
 只保留1个同步进程并切到：
 python code/sync_status.py --name 同学乙 --task tasks/yi_extended_1026.json --loop 3600
 4. 统一队列全部完成后，由agent自行接 tasks/yi_batch3_1026.json（54部分），无需再等本人现场确认。届时训练空闲后才备份两个旧代码文件并安装指定小补丁，重新自检，用同样原运行器与fp16启动，持续同步切到第三批文件。
-第三批自检通过后依次使用：
+第三批阶段依次执行，自检通过后才运行训练：
 python code/check_env.py --task tasks/yi_batch3_1026.json
 python code/run_tasks.py --task tasks/yi_batch3_1026.json --amp fp16
 python code/sync_status.py --name 同学乙 --task tasks/yi_batch3_1026.json --loop 3600

@@ -15,6 +15,26 @@
   "training_started_verified": false,
   "message_sha256": {
     "同学甲": "12e967a4036b1b13e1f8b0cb07afd9e1cd48423845121802fd399e57c4ba5b59",
-    "同学乙": "a240614b73298847ff4e0db202c1411c26e4bf70183a8aebf43c36b51268ec68"
+    "同学乙": "d15cc0d6d2f897d53c297c91950ef6941c8b72e018496e3d086b385d4c0c6738"
+  },
+  "delivery": {
+    "同学甲": {
+      "state": "message_service_accepted",
+      "note_id": "pn7OjGeqsIcF",
+      "sent_at": "2026-10-27T02:00:15+08:00",
+      "recipient_read_verified": false,
+      "training_started_verified": false,
+      "message_service_readback_verified": true,
+      "readback_verified_at": "2026-10-27T02:01:42+08:00"
+    },
+    "同学乙": {
+      "state": "message_service_accepted",
+      "note_id": "ZJJ7Sy6rrTPM",
+      "sent_at": "2026-10-27T02:00:16+08:00",
+      "recipient_read_verified": false,
+      "training_started_verified": false,
+      "message_service_readback_verified": true,
+      "readback_verified_at": "2026-10-27T02:01:43+08:00"
+    }
   }
 }
