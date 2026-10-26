@@ -1,0 +1,72 @@
+{
+  "person": "同学乙",
+  "gpu": "Titan RTX（24 GB，fp16）",
+  "说明": "当前统一追加队列：先跑用户指定原丙包中的Swin UPerNet 12波段、ResNet-34 U-Net 12波段，两模型各3个学习率试验+2种子三折full/A/B，共42部分；再接此前已安排的RGB第三种子与crop256固定学习率补种子15部分。已有部分自动跳过，不开两个运行器。原包的丙仅为文件旧名，此任务始终按同学乙汇报。",
+  "additional_parts_from_attached_package": 42,
+  "prior_pending_parts_max": 15,
+  "expected_additional_parts_max": 57,
+  "expected_total_parts_max": 84,
+  "source_zip": "同学丙_分割公平比较包_1026.zip",
+  "jobs": [
+    {
+      "id": "swinupernet_12b",
+      "arch": "swin_upernet",
+      "input": "bands",
+      "iters": 4000,
+      "batch": 8,
+      "crop": 256,
+      "lr_candidates": [
+        0.0001,
+        0.0003,
+        0.0006
+      ],
+      "seeds": [
+        20261017,
+        20261018
+      ]
+    },
+    {
+      "id": "unet_r34_12b",
+      "arch": "unet_control",
+      "input": "bands",
+      "iters": 4000,
+      "batch": 8,
+      "crop": 256,
+      "lr_candidates": [
+        0.0002,
+        0.0005,
+        0.001
+      ],
+      "seeds": [
+        20261017,
+        20261018
+      ]
+    },
+    {
+      "id": "swinunet_rgb",
+      "arch": "swin_optical",
+      "input": "rgb",
+      "iters": 4000,
+      "batch": 8,
+      "crop": 256,
+      "lr_from": "swinunet_rgb",
+      "seeds": [
+        20261019
+      ]
+    },
+    {
+      "id": "swinunet_12b_c256_lr3e-4",
+      "arch": "swin_optical",
+      "input": "bands",
+      "iters": 4000,
+      "batch": 8,
+      "crop": 256,
+      "lr_fixed": 0.0003,
+      "seeds": [
+        20261018,
+        20261019
+      ],
+      "folds": "r3_2024"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "source_zip": "同学丙_分割公平比较包_1026.zip",
+  "source_zip_bytes": 2177527332,
+  "original_yi_zip": "同学乙_分割公平比较包_1026.zip",
+  "comparison": "Shared code/data/weights members have equal uncompressed size and CRC32 in both archives; SHA256 below was streamed from the supplied source archive.",
+  "generated_at": "2026-10-26T23:08:19+08:00",
+  "files": [
+    {
+      "path": "code/check_env.py",
+      "bytes": 5681,
+      "crc32": "b6d35a92",
+      "sha256": "5ad1b3a2407c046e3b75c3eff3f354c6f0e2ed717ae34f3f4971760c69f499b8"
+    },
+    {
+      "path": "code/pack_results.py",
+      "bytes": 1464,
+      "crc32": "01192ab7",
+      "sha256": "1c58c8e4264010358c1b032040d7a855d9ee7930e0658154434844d0e1754240"
+    },
+    {
+      "path": "code/run_tasks.py",
+      "bytes": 7802,
+      "crc32": "b65a0367",
+      "sha256": "b84e78f66c3435cbf06439f3696c6c3e174d99a68c1b862eeea290778f48630f"
+    },
+    {
+      "path": "code/state_io.py",
+      "bytes": 982,
+      "crc32": "51df8f3a",
+      "sha256": "626e7f0a8d36efc82410d3a30bd80ab8b58ef5b0c5fe60b37d585359cb24283d"
+    },
+    {
+      "path": "code/study_data.py",
+      "bytes": 2895,
+      "crc32": "e590b44f",
+      "sha256": "6853b65f248e627ed83466d7982a77e5f25ea8befecef488cf4ac7bc6ab0f05d"
+    },
+    {
+      "path": "code/study_models.py",
+      "bytes": 7987,
+      "crc32": "95f989e1",
+      "sha256": "dde204ae41ef6459a66b5f5bdd3ab73331781064794eec81531d89c8840a868b"
+    },
+    {
+      "path": "code/train_study.py",
+      "bytes": 24752,
+      "crc32": "882d8b98",
+      "sha256": "cbd68d7109ecff3977100b8daaa5fa541ecd270e9634c1dd65476a0f6d6e047f"
+    },
+    {
+      "path": "code/assets/provenance.json",
+      "bytes": 114124,
+      "crc32": "170b9ad9",
+      "sha256": "f9ef411d58890be4d47e74e139d189fc2ab94e2f300b78d3bb84cbe8282b49ee"
+    },
+    {
+      "path": "code/assets/temporal.json",
+      "bytes": 106209,
+      "crc32": "11bfb0d9",
+      "sha256": "8a5eb69e9a284c7769888848a89387242edc53814586efc87533af2c8133d6c1"
+    },
+    {
+      "path": "code/results/说明.txt",
+      "bytes": 31,
+      "crc32": "b5259c1d",
+      "sha256": "43cc07f99dda7c1450c7db5a4b615e02c3f31516846979f5230c01fb3a5bcdce"
+    },
+    {
+      "path": "data/d_c23_r3/index.json",
+      "bytes": 24382,
+      "crc32": "ab57bdf9",
+      "sha256": "ad436ba7cda446e879a67ebd8416c52c317d4dbd12db588f42cac106af273e0a"
+    },
+    {
+      "path": "data/d_c23_r3/inputs_f16.npy",
+      "bytes": 1950351488,
+      "crc32": "64c9df48",
+      "sha256": "599520a31b500791668d1e4dd169a4c2dd5640f653484b5e356db0f1776f8748"
+    },
+    {
+      "path": "data/d_c23_r3/labels_u8.npy",
+      "bytes": 31457408,
+      "crc32": "4c5618f6",
+      "sha256": "4f24b96882bd4b2d0dbff5b2d3daba917cf52ecc237ac6aca47abb7190419b08"
+    },
+    {
+      "path": "data/d_c23_r3/norm.json",
+      "bytes": 1863,
+      "crc32": "97a21edd",
+      "sha256": "a0763b59c7bf2cf64129492e1408858cf750bcfa9a7261f3f2b6d545f1c79493"
+    },
+    {
+      "path": "data/d_c23_r3/splits_periods.json",
+      "bytes": 19876,
+      "crc32": "2904e7b5",
+      "sha256": "830f97e74defca9d20af7cb18b24cec31cca7d8dde8f7b555472ba789f4c2ac0"
+    },
+    {
+      "path": "data/d_c23_r3/说明.txt",
+      "bytes": 151,
+      "crc32": "1f0b0c5e",
+      "sha256": "c4ff15da8fd5c4ce51fa34cb9b8a7fa4309cbbc9cae9657bbdb0f8fd5e62daec"
+    },
+    {
+      "path": "weights/encoders.json",
+      "bytes": 446,
+      "crc32": "89323518",
+      "sha256": "fd35c7a914113910f9ff6dd26ee46c49630574f9058fd02ae0732766eb824550"
+    },
+    {
+      "path": "weights/swinv2_unet_encoder.pth",
+      "bytes": 110393409,
+      "crc32": "504a6946",
+      "sha256": "5262ea26c2d3a62b8960845faa20a972293b075ce6bf891ef6ce35850aca2cb7"
+    },
+    {
+      "path": "weights/unet_control_encoder.pth",
+      "bytes": 85278421,
+      "crc32": "4bcdac95",
+      "sha256": "2fa85b6042deddc61f13107b0a414a2527adb6b926e9f86d592234d1ed5a99ca"
+    }
+  ]
+}
