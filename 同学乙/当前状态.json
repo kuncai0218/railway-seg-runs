@@ -1,8 +1,8 @@
 {
-  "source_snapshot_at": "2026-10-26 21:15:06",
-  "state": "running",
-  "completed_parts": 24,
+  "source_snapshot_at": "2026-10-26 22:15:09",
+  "state": "failed",
+  "completed_parts": 27,
   "current_run_failed_tasks": [],
   "historical_failure_events": 0,
-  "latest_runner_line": "10-26 21:08:01 开始 swinunet_12b_c128_lr3e-4_s20261017"
+  "latest_runner_line": "10-26 21:41:15 全部任务结束，没有出错"
 }
