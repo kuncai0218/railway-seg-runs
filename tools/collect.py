@@ -1,4 +1,4 @@
-"""组长端（10-26，Claude）：从 ntfy.sh 抓三位同学的状态消息和附件，存进本仓库并推送到 GitHub 做存档。
+"""组长端（10-26，Claude）：从 ntfy.sh 抓甲、乙和本机代跑队列的状态消息和附件，存档到 GitHub。
 在仓库根目录运行：python tools/collect.py            （抓一次；本机 Codex 每 30 分钟运行一次）
           python tools/collect.py --no-push  （只存本地，不推送）
 ntfy.sh 上的消息只保留约 12 小时、附件约 3 小时，所以要定时抓。"""
@@ -14,6 +14,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 SUFFIX = 'd4a86d'
 PEOPLE = {'jia': '同学甲', 'yi': '同学乙', 'bing': '同学丙'}
+DISPLAY_NAMES = {'同学丙': '本机3090（原丙队列）'}
 MAX_ATTACHMENT = 12 * 2**20
 
 
@@ -115,7 +116,7 @@ def main():
         last = (d / '消息记录.jsonl').read_text('utf-8').splitlines()[-1] if (d / '消息记录.jsonl').exists() else None
         rows.append((name, json.loads(last) if last else None))
     derived_changed = False
-    lines = ['# 各同学最新状态', '', f'更新于 {datetime.datetime.now():%Y-%m-%d %H:%M}', '', '| 同学 | 快照时间 | 状态与进度 |', '|---|---|---|']
+    lines = ['# 实验队列最新状态', '', f'更新于 {datetime.datetime.now():%Y-%m-%d %H:%M}', '', '| 执行方 | 快照时间 | 状态与进度 |', '|---|---|---|']
     for name, r in rows:
         snapshot = REPO / name / '最新状态.json'
         when = r['time'] if r else '—'
@@ -134,8 +135,8 @@ def main():
             except (OSError, ValueError, TypeError) as exc:
                 summary += f'；快照解析失败：{type(exc).__name__}'
         summary = summary.replace('|', '／').replace('\n', ' ')
-        lines.append(f"| {name} | {when} | {summary} |")
-    lines += ['', '状态以所列时间的快照为准；本轮失败按最近一次运行记录判定，保留的历史错误不代表当前故障。']
+        lines.append(f"| {DISPLAY_NAMES.get(name, name)} | {when} | {summary} |")
+    lines += ['', '外部同学只有甲、乙两位；原“同学丙”是组长本机3090代跑队列的内部标识，目录和消息话题沿用旧名。', '', '状态以所列时间的快照为准；本轮失败按最近一次运行记录判定，保留的历史错误不代表当前故障。']
     page = REPO / '最新状态.md'
     table_changed = not page.exists() or page.read_text(encoding='utf-8').splitlines()[4:] != lines[4:]
     if changed or table_changed:

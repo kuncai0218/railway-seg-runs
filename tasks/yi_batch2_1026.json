@@ -1,0 +1,29 @@
+{
+  "person": "同学乙",
+  "gpu": "Titan RTX（24 GB，fp16）",
+  "说明": "第二批：沿用已完成首批的模型、数据、划分和预算。RGB 补种子 20261019（3 折×full/A/B=9 部分）；12 波段 crop256、固定 lr=3e-4 的第三折补种子 20261018、20261019（6 部分）。合计新增 15 部分。crop128 旧结果保留，先做只读复核，不在本批重跑。",
+  "expected_new_parts": 15,
+  "jobs": [
+    {
+      "id": "swinunet_rgb",
+      "arch": "swin_optical",
+      "input": "rgb",
+      "iters": 4000,
+      "batch": 8,
+      "crop": 256,
+      "lr_from": "swinunet_rgb",
+      "seeds": [20261019]
+    },
+    {
+      "id": "swinunet_12b_c256_lr3e-4",
+      "arch": "swin_optical",
+      "input": "bands",
+      "iters": 4000,
+      "batch": 8,
+      "crop": 256,
+      "lr_fixed": 0.0003,
+      "seeds": [20261018, 20261019],
+      "folds": "r3_2024"
+    }
+  ]
+}

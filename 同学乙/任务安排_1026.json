@@ -1,0 +1,17 @@
+{
+  "batch": "yi_batch2_1026",
+  "assigned_at": "2026-10-26T23:02:30+08:00",
+  "state": "prepared_not_started",
+  "task_file": "tasks/yi_batch2_1026.json",
+  "expected_new_parts": 15,
+  "rgb_new_seeds": [
+    20261019
+  ],
+  "crop256_thirdfold_new_seeds": [
+    20261018,
+    20261019
+  ],
+  "crop128_review": "read_only",
+  "peer_started_verified": false,
+  "prompt_url": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_第二批任务_1026.md"
+}
