@@ -1,8 +1,8 @@
 {
  "name": "同学乙",
- "time": "2026-10-27 11:15:38",
- "task_file": "同学乙.json",
- "status_table": "任务                           阶段     进度\nswinunet_rgb                 试学习率   3/3\nswinunet_rgb_s20261017       正式     9/9  学习率 0.0006\nswinunet_rgb_s20261018       正式     9/9  学习率 0.0006\nswinunet_12b_c256_lr3e-4_s20261017 正式     3/3  学习率 0.0003\nswinunet_12b_c128_lr3e-4_s20261017 正式     3/3  学习率 0.0003\n",
+ "time": "2026-10-27 12:04:36",
+ "task_file": "yi_extended_1026.json",
+ "status_table": "任务                           阶段     进度\nswinupernet_12b              试学习率   0/3\nswinupernet_12b_s20261017    正式     0/9  （学习率未定）\nswinupernet_12b_s20261018    正式     0/9  （学习率未定）\nunet_r34_12b                 试学习率   0/3\nunet_r34_12b_s20261017       正式     0/9  （学习率未定）\nunet_r34_12b_s20261018       正式     0/9  （学习率未定）\nswinunet_rgb_s20261019       正式     0/9  学习率 0.0006\nswinunet_12b_c256_lr3e-4_s20261018 正式     0/3  学习率 0.0003\nswinunet_12b_c256_lr3e-4_s20261019 正式     0/3  学习率 0.0003\n",
  "runner_log_tail": [
   "10-26 17:24:14 任务文件 同学乙.json（同学乙），混合精度 fp16",
   "10-26 17:24:14 开始 swinunet_rgb_lr0.0001_sweep",
@@ -20,7 +20,9 @@
   "10-26 21:08:01 结束 swinunet_12b_c256_lr3e-4_s20261017，返回码 0",
   "10-26 21:08:01 开始 swinunet_12b_c128_lr3e-4_s20261017",
   "10-26 21:41:15 结束 swinunet_12b_c128_lr3e-4_s20261017，返回码 0",
-  "10-26 21:41:15 全部任务结束，没有出错"
+  "10-26 21:41:15 全部任务结束，没有出错",
+  "10-27 12:03:53 任务文件 yi_extended_1026.json（同学乙），混合精度 fp16",
+  "10-27 12:03:53 开始 swinupernet_12b_lr0.0001_sweep"
  ],
  "self_check": {
   "versions": {
@@ -39,6 +41,12 @@
    "amp": "fp16"
   },
   "smoke": {
+   "swin_upernet_bands": {
+    "peak_gpu_gb": 9.722
+   },
+   "unet_control_bands": {
+    "peak_gpu_gb": 3.01
+   },
    "swin_optical_rgb": {
     "peak_gpu_gb": 3.577
    },
@@ -47,8 +55,8 @@
    }
   },
   "speed": {
-   "seconds_per_step": 0.204,
-   "est_minutes_per_part": 15.6
+   "seconds_per_step": 0.284,
+   "est_minutes_per_part": 20.9
   },
   "passed": true
  },
