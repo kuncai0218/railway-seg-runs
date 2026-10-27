@@ -23,3 +23,6 @@
 {"id": "onPnGb8dEWvZ", "time": "2026-10-27 16:42:21", "message": "同学乙 | 已完成 18 个部分 | 出错 0 处 | 最新 d2ls_rgb_s20261019/r3_2023a/state_B mIoU 0.832", "attachment": "status_yi_1027_1642.json"}
 {"id": "4IbztoQZaGpo", "time": "2026-10-27 17:32:27", "message": "同学乙 | 已完成 23 个部分 | 出错 0 处 | 最新 d2ls_12b_a2_hist_s20261018/r3_2024/state_A mIoU 0.841", "attachment": "status_yi_1027_1732.json"}
 {"id": "FdGTQIXf7QGa", "time": "2026-10-27 17:42:23", "message": "同学乙 | 已完成 24 个部分 | 出错 0 处 | 最新 d2ls_rgb_s20261019/r3_2024/state_full mIoU 0.729", "attachment": "status_yi_1027_1742.json"}
+{"id": "opnaAivzPfU7", "time": "2026-10-27 18:21:06", "message": "同学乙 | 已完成 26 个部分 | 出错 4 处 | 最新 d2ls_rgb_s20261019/r3_2024/state_B mIoU 0.838 | 最近出错：10-27 18:20:35 全部任务结束，没有出错", "attachment": "status_yi_1027_1821.json"}
+{"id": "vI2gH0vOL362", "time": "2026-10-27 18:23:35", "message": "同学乙 | 已完成 26 个部分 | 出错 4 处 | 最新 d2ls_rgb_s20261019/r3_2024/state_B mIoU 0.838 | 最近出错：10-27 18:20:35 全部任务结束，没有出错", "attachment": "status_yi_1027_1823.json"}
+{"id": "5JFPfSn5HI5c", "time": "2026-10-27 18:42:26", "message": "同学乙 | 已完成 27 个部分 | 出错 4 处 | 最新 d2ls_12b_a2_all_s20261018/r3_2023a/state_full mIoU 0.815 | 最近出错：10-27 18:20:35 全部任务结束，没有出错", "attachment": "status_yi_1027_1842.json"}
