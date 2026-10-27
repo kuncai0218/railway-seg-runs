@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-10-27T17:31:14+08:00",
+ "更新时间": "2026-10-28T00:53:22+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）"
@@ -26,6 +26,17 @@
    "任务文件": [
     "tasks/yi_d2ls_1027a.json",
     "tasks/yi_d2ls_1027b.json"
+   ],
+   "最多同时训练": 2
+  },
+  {
+   "编号": "yi-d2ls-1028",
+   "状态": "待执行（现在只有 1 个训练在跑就立即启动；2 个都在跑就等其中一个结束）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1028.md（新包解压到 d2ls_pkg_1027 旁边；把旧包 weights 里的 convnext_base-6075fbad.pth 复制过来，不用重新下载；原 a、b 队列照常跑完）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1028.zip",
+   "实验包SHA256": "2ce9d9814c6d659d7bb60e0d7a4c46ece9fcf4752d720ffde1507a9df2088af9",
+   "任务文件": [
+    "tasks/yi_d2ls_1028.json"
    ],
    "最多同时训练": 2
   }
