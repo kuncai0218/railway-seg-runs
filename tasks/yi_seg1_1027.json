@@ -1,0 +1,30 @@
+{
+ "person": "同学乙（分割第一步补第 3 个种子，在原实验包里跑）",
+ "说明": "分割第一步：只输入 RGB 时的两个强基线补第 3 个随机种子；统一预算 4000 步 × 批量 8 × 切块 256；学习率固定为已选出的值（Swin V2 U-Net RGB 0.0006，乙 10-26 自己选出；ResNet-34 U-Net 0.0005，组长本机选出）。",
+ "jobs": [
+  {
+   "id": "swinunet_rgb",
+   "arch": "swin_optical",
+   "input": "rgb",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0006,
+   "seeds": [
+    20261019
+   ]
+  },
+  {
+   "id": "unet_r34_rgb",
+   "arch": "unet_control",
+   "input": "rgb",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0005,
+   "seeds": [
+    20261019
+   ]
+  }
+ ]
+}
