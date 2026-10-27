@@ -1,8 +1,11 @@
 {
-  "source_snapshot_at": "2026-10-27 16:27:52",
-  "state": "running",
-  "completed_parts": 65,
+  "source_snapshot_at": "2026-10-27 17:18:30",
+  "state": "unknown",
+  "completed_parts": 0,
   "current_run_failed_tasks": [],
-  "historical_failure_events": 3,
-  "latest_runner_line": "10-27 15:05:07 开始 fuse_clear_s20261017"
+  "historical_failure_events": 1,
+  "latest_runner_line": "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:05:06.897716+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 200, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
+  "log_context_mismatch": true,
+  "reported_task_file": "jia_d2ls_1027_status.json",
+  "log_task_file": "jia_d2ls_1027b.json"
 }
