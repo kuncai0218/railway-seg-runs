@@ -1,8 +1,8 @@
 {
-  "source_snapshot_at": "2026-10-27 13:27:42",
+  "source_snapshot_at": "2026-10-27 14:27:45",
   "state": "running",
-  "completed_parts": 47,
+  "completed_parts": 53,
   "current_run_failed_tasks": [],
   "historical_failure_events": 3,
-  "latest_runner_line": "10-27 12:00:52 开始 fuse_gated_all_s20261018"
+  "latest_runner_line": "10-27 13:32:53 开始 fuse_gated_all_s20261019"
 }
