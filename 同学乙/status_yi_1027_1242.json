@@ -1,0 +1,18 @@
+{
+ "name": "同学乙",
+ "time": "2026-10-27 12:42:10",
+ "task_file": "yi_d2ls_1027_status.json",
+ "status_table": "任务                           阶段     进度\nd2ls_12b_a2_hist_s20261018   正式     0/9  学习率 0.0004\nd2ls_12b_a2_all_s20261018    正式     0/9  学习率 0.0004\nd2ls_12b_a2_all_s20261019    正式     0/9  学习率 0.0004\nd2ls_12b_s20261019           正式     0/9  学习率 0.0004\nd2ls_rgb_s20261019           正式     0/9  学习率 0.0004\n",
+ "runner_log_tail": [
+  "10-27 12:38:28 任务文件 yi_d2ls_1027a.json（同学乙（D2LS 分割第二步 a）），混合精度 fp16",
+  "10-27 12:38:28 开始 d2ls_12b_a2_hist_s20261018",
+  "10-27 12:40:14 任务文件 yi_d2ls_1027b.json（同学乙（D2LS 分割第一步补第 3 个种子）），混合精度 fp16",
+  "10-27 12:40:14 开始 d2ls_12b_s20261019"
+ ],
+ "self_check": null,
+ "chosen_lr": {},
+ "parts": {},
+ "curves": {},
+ "failures": {},
+ "error_logs": {}
+}
