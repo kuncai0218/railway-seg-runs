@@ -1,8 +1,8 @@
 {
  "name": "同学甲",
- "time": "2026-10-27 17:18:30",
+ "time": "2026-10-27 18:03:41",
  "task_file": "jia_d2ls_1027_status.json",
- "status_table": "任务                           阶段     进度\nd2ls_12b_a2_prev_s20261018   正式     0/9  学习率 0.0004\nd2ls_12b_a2_terrain_s20261018 正式     0/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261018  正式     0/9  学习率 0.0004\nd2ls_12b_a2_prev_s20261019   正式     0/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261019  正式     0/9  学习率 0.0004\nd2ls_12b_a2_hist_s20261017   正式     0/9  学习率 0.0004\n",
+ "status_table": "任务                           阶段     进度\nd2ls_12b_a2_prev_s20261018   正式     2/9  学习率 0.0004\nd2ls_12b_a2_terrain_s20261018 正式     0/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261018  正式     0/9  学习率 0.0004\nd2ls_12b_a2_prev_s20261019   正式     2/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261019  正式     0/9  学习率 0.0004\nd2ls_12b_a2_hist_s20261017   正式     0/9  学习率 0.0004\n",
  "runner_log_tail": [
   "10-27 16:48:24 AGENT_CHECK 结束 d2ls_environment_check，返回码 1（出错：原Python3.10缺少hashlib.file_digest；正在准备独立兼容环境，代码和参数不改）",
   "10-27 17:01:53 AGENT_CHECK 自检通过：独立Python3.12，训练依赖版本全部与原环境一致；原Python3.10兼容问题已解决，模型代码与参数未改",
@@ -13,7 +13,8 @@
   "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"a\", \"task\": \"tasks/jia_d2ls_1027a.json\", \"wrapper_pid\": 107530, \"runner_pid\": 107540, \"train_pid\": 107541, \"progress_time\": \"2026-10-27T17:02:02.506217+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
   "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"a\", \"task\": \"tasks/jia_d2ls_1027a.json\", \"wrapper_pid\": 107530, \"runner_pid\": 107540, \"train_pid\": 107541, \"progress_time\": \"2026-10-27T17:05:30.185158+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 700, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
   "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:03:47.204279+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
-  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:05:06.897716+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 200, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}"
+  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:05:06.897716+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 200, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
+  "10-27 17:23:14 AGENT_MONITOR a=d2ls_12b_a2_prev_s20261018 r3_2023a/full 3300/4000; b=d2ls_12b_a2_prev_s20261019 r3_2023a/full 2800/4000; 已完成0/54; 平台同步900秒; 原Python3.10文件校验兼容问题已由独立Python3.12环境解决，当前训练异常0"
  ],
  "self_check": {
   "passed": true,
@@ -69,8 +70,150 @@
   "original_failure_log_retained": "results/check_d2ls_a.log"
  },
  "chosen_lr": {},
- "parts": {},
- "curves": {},
+ "parts": {
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_A": {
+   "mIoU": 0.8756095238190984,
+   "OA": 0.954446568995833,
+   "IoU": [
+    0.8801906631150989,
+    0.9458265224833852,
+    0.9000511644480178,
+    0.8387187934396847,
+    0.813260475609305
+   ],
+   "seconds_this_session": 1694.9,
+   "peak_gpu_gb": 4.691,
+   "time": "2026-10-27T17:56:24.208466+08:00"
+  },
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_full": {
+   "mIoU": 0.7915050231081706,
+   "OA": 0.9065712689450753,
+   "IoU": [
+    0.8210942453287584,
+    0.8796748220831174,
+    0.8181199631068842,
+    0.7396876560818499,
+    0.698948428940243
+   ],
+   "seconds_this_session": 1568.6,
+   "peak_gpu_gb": 10.774,
+   "time": "2026-10-27T17:28:07.211819+08:00"
+  },
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_A": {
+   "mIoU": 0.8727890183452282,
+   "OA": 0.9533696607547874,
+   "IoU": [
+    0.8754469773159013,
+    0.9447388446427772,
+    0.9005519427791108,
+    0.831425226540169,
+    0.8117821004481819
+   ],
+   "seconds_this_session": 1692.5,
+   "peak_gpu_gb": 4.691,
+   "time": "2026-10-27T17:59:25.661944+08:00"
+  },
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_full": {
+   "mIoU": 0.7890546036568172,
+   "OA": 0.9055408664970889,
+   "IoU": [
+    0.8204164474178757,
+    0.8790625759712161,
+    0.8182953481111458,
+    0.7337727881347204,
+    0.6937258586491283
+   ],
+   "seconds_this_session": 1651.9,
+   "peak_gpu_gb": 10.774,
+   "time": "2026-10-27T17:31:11.072207+08:00"
+  }
+ },
+ "curves": {
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_A": [
+   [
+    500,
+    0.7865
+   ],
+   [
+    1000,
+    0.8082
+   ],
+   [
+    1500,
+    0.8415
+   ],
+   [
+    2000,
+    0.8543
+   ],
+   [
+    2500,
+    0.8629
+   ],
+   [
+    3000,
+    0.8689
+   ],
+   [
+    3500,
+    0.8692
+   ],
+   [
+    4000,
+    0.8701
+   ]
+  ],
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_B": [
+   [
+    500,
+    0.7712
+   ],
+   [
+    1000,
+    0.8089
+   ]
+  ],
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_A": [
+   [
+    500,
+    0.7717
+   ],
+   [
+    1000,
+    0.8029
+   ],
+   [
+    1500,
+    0.8372
+   ],
+   [
+    2000,
+    0.8498
+   ],
+   [
+    2500,
+    0.8605
+   ],
+   [
+    3000,
+    0.8642
+   ],
+   [
+    3500,
+    0.867
+   ],
+   [
+    4000,
+    0.8674
+   ]
+  ],
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_B": [
+   [
+    500,
+    0.775
+   ]
+  ]
+ },
  "failures": {},
  "error_logs": {
   "d2ls_environment_check": [

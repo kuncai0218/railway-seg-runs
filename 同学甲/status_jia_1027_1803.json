@@ -1,0 +1,239 @@
+{
+ "name": "同学甲",
+ "time": "2026-10-27 18:03:41",
+ "task_file": "jia_d2ls_1027_status.json",
+ "status_table": "任务                           阶段     进度\nd2ls_12b_a2_prev_s20261018   正式     2/9  学习率 0.0004\nd2ls_12b_a2_terrain_s20261018 正式     0/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261018  正式     0/9  学习率 0.0004\nd2ls_12b_a2_prev_s20261019   正式     2/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261019  正式     0/9  学习率 0.0004\nd2ls_12b_a2_hist_s20261017   正式     0/9  学习率 0.0004\n",
+ "runner_log_tail": [
+  "10-27 16:48:24 AGENT_CHECK 结束 d2ls_environment_check，返回码 1（出错：原Python3.10缺少hashlib.file_digest；正在准备独立兼容环境，代码和参数不改）",
+  "10-27 17:01:53 AGENT_CHECK 自检通过：独立Python3.12，训练依赖版本全部与原环境一致；原Python3.10兼容问题已解决，模型代码与参数未改",
+  "10-27 17:01:54 任务文件 jia_d2ls_1027a.json（同学甲（D2LS 分割第二步 a）），混合精度 fp16",
+  "10-27 17:01:54 开始 d2ls_12b_a2_prev_s20261018",
+  "10-27 17:03:34 任务文件 jia_d2ls_1027b.json（同学甲（D2LS 分割第二步 b）），混合精度 fp16",
+  "10-27 17:03:34 开始 d2ls_12b_a2_prev_s20261019",
+  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"a\", \"task\": \"tasks/jia_d2ls_1027a.json\", \"wrapper_pid\": 107530, \"runner_pid\": 107540, \"train_pid\": 107541, \"progress_time\": \"2026-10-27T17:02:02.506217+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
+  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"a\", \"task\": \"tasks/jia_d2ls_1027a.json\", \"wrapper_pid\": 107530, \"runner_pid\": 107540, \"train_pid\": 107541, \"progress_time\": \"2026-10-27T17:05:30.185158+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 700, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
+  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:03:47.204279+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
+  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:05:06.897716+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 200, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
+  "10-27 17:23:14 AGENT_MONITOR a=d2ls_12b_a2_prev_s20261018 r3_2023a/full 3300/4000; b=d2ls_12b_a2_prev_s20261019 r3_2023a/full 2800/4000; 已完成0/54; 平台同步900秒; 原Python3.10文件校验兼容问题已由独立Python3.12环境解决，当前训练异常0"
+ ],
+ "self_check": {
+  "passed": true,
+  "time": "2026-10-27T17:01:53.802237+08:00",
+  "versions": {
+   "python": "3.12.12",
+   "torch": "2.5.1+cu121",
+   "torchvision": "0.20.1+cu121",
+   "timm": "1.0.29",
+   "smp": "0.5.0",
+   "numpy": "2.2.6"
+  },
+  "smoke": {
+   "time": "2026-10-27T16:59:29.581102+08:00",
+   "synthetic_smoke_only": true,
+   "formal_training": false,
+   "train_shape": [
+    8,
+    5,
+    256,
+    256
+   ],
+   "prediction_shape": [
+    1,
+    5,
+    256,
+    256
+   ],
+   "finite_loss": 2.2547607421875,
+   "finite_gradients": true,
+   "seconds": 4.17,
+   "peak_gpu_gb": 4.024,
+   "architecture": "D2LS",
+   "repository": "https://github.com/XavierJiezou/D2LS",
+   "author_source_sha256": "b203771c64394ddcec0ee8af63c5b48494bdbc02edd16043c7747ff4dbbcc111",
+   "checkpoint_sha256": "6075fbad31c688f9ed013922a59daf0fc2f4dc12e6e43bc01fa840c7bd1ca2cd",
+   "input": "aux",
+   "classes": 5,
+   "token_length": 5,
+   "interactor_layers": 3,
+   "auxiliary_weight": 0.4,
+   "contrastive_weight": 0.1,
+   "adaptation": "official architecture; five class tokens; zero-extra 12-to-RGB adapter for multispectral arm",
+   "trainable_parameters": 94027530
+  },
+  "original_environment_issue": "Python3.10缺少hashlib.file_digest；已通过独立Python3.12环境解决",
+  "original_training_dependencies_exactly_retained": true,
+  "additional_dependencies": [
+   "setuptools==78.1.0"
+  ],
+  "original_code_unchanged": true,
+  "self_check_log": "results/check_d2ls_a_py312.log",
+  "original_failure_log_retained": "results/check_d2ls_a.log"
+ },
+ "chosen_lr": {},
+ "parts": {
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_A": {
+   "mIoU": 0.8756095238190984,
+   "OA": 0.954446568995833,
+   "IoU": [
+    0.8801906631150989,
+    0.9458265224833852,
+    0.9000511644480178,
+    0.8387187934396847,
+    0.813260475609305
+   ],
+   "seconds_this_session": 1694.9,
+   "peak_gpu_gb": 4.691,
+   "time": "2026-10-27T17:56:24.208466+08:00"
+  },
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_full": {
+   "mIoU": 0.7915050231081706,
+   "OA": 0.9065712689450753,
+   "IoU": [
+    0.8210942453287584,
+    0.8796748220831174,
+    0.8181199631068842,
+    0.7396876560818499,
+    0.698948428940243
+   ],
+   "seconds_this_session": 1568.6,
+   "peak_gpu_gb": 10.774,
+   "time": "2026-10-27T17:28:07.211819+08:00"
+  },
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_A": {
+   "mIoU": 0.8727890183452282,
+   "OA": 0.9533696607547874,
+   "IoU": [
+    0.8754469773159013,
+    0.9447388446427772,
+    0.9005519427791108,
+    0.831425226540169,
+    0.8117821004481819
+   ],
+   "seconds_this_session": 1692.5,
+   "peak_gpu_gb": 4.691,
+   "time": "2026-10-27T17:59:25.661944+08:00"
+  },
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_full": {
+   "mIoU": 0.7890546036568172,
+   "OA": 0.9055408664970889,
+   "IoU": [
+    0.8204164474178757,
+    0.8790625759712161,
+    0.8182953481111458,
+    0.7337727881347204,
+    0.6937258586491283
+   ],
+   "seconds_this_session": 1651.9,
+   "peak_gpu_gb": 10.774,
+   "time": "2026-10-27T17:31:11.072207+08:00"
+  }
+ },
+ "curves": {
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_A": [
+   [
+    500,
+    0.7865
+   ],
+   [
+    1000,
+    0.8082
+   ],
+   [
+    1500,
+    0.8415
+   ],
+   [
+    2000,
+    0.8543
+   ],
+   [
+    2500,
+    0.8629
+   ],
+   [
+    3000,
+    0.8689
+   ],
+   [
+    3500,
+    0.8692
+   ],
+   [
+    4000,
+    0.8701
+   ]
+  ],
+  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_B": [
+   [
+    500,
+    0.7712
+   ],
+   [
+    1000,
+    0.8089
+   ]
+  ],
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_A": [
+   [
+    500,
+    0.7717
+   ],
+   [
+    1000,
+    0.8029
+   ],
+   [
+    1500,
+    0.8372
+   ],
+   [
+    2000,
+    0.8498
+   ],
+   [
+    2500,
+    0.8605
+   ],
+   [
+    3000,
+    0.8642
+   ],
+   [
+    3500,
+    0.867
+   ],
+   [
+    4000,
+    0.8674
+   ]
+  ],
+  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_B": [
+   [
+    500,
+    0.775
+   ]
+  ]
+ },
+ "failures": {},
+ "error_logs": {
+  "d2ls_environment_check": [
+   "torch 2.5.1+cu121 CUDA 可用",
+   "显卡 NVIDIA TITAN RTX ，混合精度用 fp16",
+   "下载 ConvNeXt-Base 官方预训练权重（约 340 MB）： https://download.pytorch.org/models/convnext_base-6075fbad.pth",
+   "下载完成，校验通过",
+   "冒烟训练（几分钟）……",
+   "Traceback (most recent call last):",
+   "  File \"/home/user/d2ls_pkg_1027/code/train_foundation.py\", line 462, in <module>",
+   "    main()",
+   "  File \"/home/user/d2ls_pkg_1027/code/train_foundation.py\", line 386, in main",
+   "    settings.update(data_files={n: sha256(args.data / n) for n in ['labels_u8.npy', 'index.json', 'splits_periods.json', 'norm.json']},",
+   "  File \"/home/user/d2ls_pkg_1027/code/train_foundation.py\", line 386, in <dictcomp>",
+   "    settings.update(data_files={n: sha256(args.data / n) for n in ['labels_u8.npy', 'index.json', 'splits_periods.json', 'norm.json']},",
+   "  File \"/home/user/d2ls_pkg_1027/code/foundation_models.py\", line 15, in sha256",
+   "    with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()",
+   "AttributeError: module 'hashlib' has no attribute 'file_digest'",
+   "冒烟训练失败（返回码 1），请把上面最后 30 行报错原样报告组长",
+   "/home/user/anaconda3/envs/segpkg/bin/python failed with exit status 1."
+  ]
+ }
+}
