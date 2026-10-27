@@ -1,8 +1,8 @@
 {
  "name": "同学甲",
- "time": "2026-10-27 09:35:15",
- "task_file": "同学甲.json",
- "status_table": "任务                           阶段     进度\nswinunet_12b                 试学习率   3/3\nswinunet_12b_s20261017       正式     9/9  学习率 0.0006\nswinunet_12b_s20261018       正式     9/9  学习率 0.0006\nswinunet_12b_s20261019       正式     9/9  学习率 0.0006\n",
+ "time": "2026-10-27 10:30:38",
+ "task_file": "jia_batch2_1026.json",
+ "status_table": "任务                           阶段     进度\nfuse_gated_all_s20261017     正式     0/9  学习率 0.0006\nfuse_gated_all_s20261018     正式     0/9  学习率 0.0006\nfuse_gated_all_s20261019     正式     0/9  学习率 0.0006\nfuse_clear_s20261017         正式     0/9  学习率 0.0006\nfuse_clear_s20261018         正式     0/9  学习率 0.0006\nfuse_clear_s20261019         正式     0/9  学习率 0.0006\nswinunet_12b_lr001_s20261017 正式     0/9  学习率 0.001\nswinunet_12b_lr001_s20261018 正式     0/9  学习率 0.001\n",
  "runner_log_tail": [
   "10-26 20:25:42 任务文件 同学甲.json（同学甲），混合精度 fp16",
   "10-26 20:25:42 开始 swinunet_12b_lr0.0001_sweep",
@@ -27,7 +27,11 @@
   "10-26 22:36:29 结束 swinunet_12b_s20261018，返回码 0",
   "10-26 22:36:29 开始 swinunet_12b_s20261019",
   "10-26 23:28:38 结束 swinunet_12b_s20261019，返回码 0",
-  "10-26 23:28:38 全部任务结束，没有出错"
+  "10-26 23:28:38 全部任务结束，没有出错",
+  "10-27 10:27:33 任务文件 jia_batch2_1026.json（同学甲），混合精度 fp16",
+  "10-27 10:27:33 开始 fuse_gated_all_s20261017",
+  "10-27 10:30:38 AGENT_START_RECEIPT {\"task\": \"tasks/jia_batch2_1026.json\", \"runner_pid\": 23741, \"train_pid\": 23745, \"sync_pid\": 23748, \"progress_time\": \"2026-10-27T10:27:38.370467+08:00\", \"name\": \"fuse_gated_all_s20261017\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1, \"total\": 4000, \"gpu_observation\": \"2026/10/27 10:30:38.257, 3384 MiB, 58 %, 79\"}",
+  "10-27 10:30:38 AGENT_START_RECEIPT {\"task\": \"tasks/jia_batch2_1026.json\", \"runner_pid\": 23741, \"train_pid\": 23745, \"sync_pid\": 23748, \"progress_time\": \"2026-10-27T10:30:24.392319+08:00\", \"name\": \"fuse_gated_all_s20261017\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1100, \"total\": 4000, \"gpu_observation\": \"2026/10/27 10:30:38.257, 3384 MiB, 58 %, 79\"}"
  ],
  "self_check": {
   "versions": {
@@ -42,17 +46,23 @@
    "name": "NVIDIA TITAN RTX",
    "capability": "7.5",
    "total_gb": 23.5,
-   "free_gb": 22.6,
+   "free_gb": 22.5,
    "amp": "fp16"
   },
   "smoke": {
+   "fusion_gated_aux": {
+    "peak_gpu_gb": 3.316
+   },
+   "fusion_concat_aux-clear": {
+    "peak_gpu_gb": 3.03
+   },
    "swin_optical_bands": {
     "peak_gpu_gb": 2.964
    }
   },
   "speed": {
-   "seconds_per_step": 0.098,
-   "est_minutes_per_part": 8.5
+   "seconds_per_step": 0.184,
+   "est_minutes_per_part": 14.3
   },
   "passed": true
  },
