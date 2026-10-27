@@ -20,7 +20,7 @@
   },
   {
    "编号": "jia-d2ls-1028",
-   "状态": "已取消（见“停止”第一条说明；10-28 03:00）",
+   "状态": "已取消（见“停止”中以 jia-d2ls-1028 开头的说明；10-28 03:00）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1028.md（新包解压到 d2ls_pkg_1027 旁边；把旧包 weights 里的 convnext_base-6075fbad.pth 复制过来，不用重新下载）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1028.zip",
    "实验包SHA256": "2ce9d9814c6d659d7bb60e0d7a4c46ece9fcf4752d720ffde1507a9df2088af9",
