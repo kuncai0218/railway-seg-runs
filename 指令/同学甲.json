@@ -1,9 +1,10 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-10-28T00:53:22+08:00",
+ "更新时间": "2026-10-28T02:52:13+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
-  "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）"
+  "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
+  "jia-d2ls-1028（tasks/jia_d2ls_1028a.json、jia_d2ls_1028b.json，S5a/S5b 第 3 个种子）：组长 10-28 03:00 取消——前两个种子已显示加入光谱指数对分割精度没有作用（与基线相差不到 0.002）。没开始就不要开；已经开始的，等当前这个部分训练完后停掉运行器，已完成的结果全部保留，不删除。"
  ],
  "队列": [
   {
@@ -19,7 +20,7 @@
   },
   {
    "编号": "jia-d2ls-1028",
-   "状态": "待执行（等 jia-d2ls-1027c 正在跑的两个任务结束后启动）",
+   "状态": "已取消（见“停止”第一条说明；10-28 03:00）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1028.md（新包解压到 d2ls_pkg_1027 旁边；把旧包 weights 里的 convnext_base-6075fbad.pth 复制过来，不用重新下载）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1028.zip",
    "实验包SHA256": "2ce9d9814c6d659d7bb60e0d7a4c46ece9fcf4752d720ffde1507a9df2088af9",
