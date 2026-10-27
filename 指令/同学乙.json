@@ -1,22 +1,23 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-10-27T17:20:18+08:00",
+ "更新时间": "2026-10-27T17:28:30+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
-  "tasks/yi_d2ls_1027b.json（d2ls_rgb 种子 20261019 组长那边已经跑完，正在跑的这一项现在就可以停；结果不需要）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）"
  ],
  "队列": [
   {
    "编号": "yi-d2ls-1027",
-   "状态": "继续执行（只跑 tasks/yi_d2ls_1027a.json：往年同期 20261018 跑完后接着跑全部辅助数据 20261018、20261019）",
+   "状态": "继续执行（a、b 两个任务文件都照常跑完）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_D2LS任务_1027.md",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1027.zip",
    "实验包SHA256": "c10a710fe452d94c919151c56c66970f0b18a435ae522559957ef46b77740826",
    "任务文件": [
-    "tasks/yi_d2ls_1027a.json"
+    "tasks/yi_d2ls_1027a.json",
+    "tasks/yi_d2ls_1027b.json"
    ],
    "最多同时训练": 2
   }
- ]
+ ],
+ "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。"
 }
