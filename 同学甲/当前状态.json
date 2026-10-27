@@ -1,8 +1,8 @@
 {
-  "source_snapshot_at": "2026-10-27 11:27:37",
+  "source_snapshot_at": "2026-10-27 12:27:39",
   "state": "running",
-  "completed_parts": 35,
+  "completed_parts": 41,
   "current_run_failed_tasks": [],
   "historical_failure_events": 3,
-  "latest_runner_line": "10-27 10:30:38 AGENT_START_RECEIPT {\"task\": \"tasks/jia_batch2_1026.json\", \"runner_pid\": 23741, \"train_pid\": 23745, \"sync_pid\": 23748, \"progress_time\": \"2026-10-27T10:30:24.392319+08:00\", \"name\": \"fuse_gated_all_s20261017\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1100, \"total\": 4000, \"gpu_observation\": \"2026/10/27 10:30:38.257, 3384 MiB, 58 %, 79\"}"
+  "latest_runner_line": "10-27 12:00:52 开始 fuse_gated_all_s20261018"
 }
