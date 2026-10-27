@@ -1,0 +1,16 @@
+{
+ "name": "同学乙",
+ "time": "2026-10-28 01:46:26",
+ "task_file": "yi_d2ls_1028_status.json",
+ "status_table": "任务                           阶段     进度\nd2ls_12b_a2_multiyear_drop50_cons_s20261019 正式     0/9  学习率 0.0004\n",
+ "runner_log_tail": [
+  "10-28 01:45:56 任务文件 yi_d2ls_1028.json（同学乙（10-28）），混合精度 fp16",
+  "10-28 01:45:56 开始 d2ls_12b_a2_multiyear_drop50_cons_s20261019"
+ ],
+ "self_check": null,
+ "chosen_lr": {},
+ "parts": {},
+ "curves": {},
+ "failures": {},
+ "error_logs": {}
+}

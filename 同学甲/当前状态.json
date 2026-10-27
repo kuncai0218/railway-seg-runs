@@ -1,10 +1,10 @@
 {
-  "source_snapshot_at": "2026-10-28 01:19:57",
+  "source_snapshot_at": "2026-10-28 01:50:02",
   "state": "unknown",
-  "completed_parts": 34,
+  "completed_parts": 36,
   "current_run_failed_tasks": [],
   "historical_failure_events": 1,
-  "latest_runner_line": "10-28 00:36:55 AGENT_MONITOR a=d2ls_12b_a2_terrain_s20261018 r3_2024/A 400/4000; b=d2ls_12b_a2_clear_s20261019 r3_2024/A 100/4000; 已完成32/54; 平台900秒循环正常，最近成功2026-10-28 00:34:51; 当前训练异常0，新批注0",
+  "latest_runner_line": "10-28 01:32:50 AGENT_MONITOR a=d2ls_12b_a2_clear_s20261018 r3_2023a/full 300/4000; b=d2ls_12b_a2_hist_s20261017 r3_2023a/full 1/4000; 已完成36/54，4/6正式run已完成; 平台900秒循环正常，最近成功2026-10-28 01:19:58; 当前训练异常0，新批注0",
   "log_context_mismatch": true,
   "reported_task_file": "jia_d2ls_1027_status.json",
   "log_task_file": "jia_d2ls_1027b.json"
