@@ -1,20 +1,20 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-10-27T11:38:27+08:00",
+ "更新时间": "2026-10-27T17:20:18+08:00",
  "停止": [
-  "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）"
+  "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
+  "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）"
  ],
  "队列": [
   {
-   "编号": "jia-d2ls-1027",
+   "编号": "jia-d2ls-1027c",
    "状态": "待执行",
-   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲_D2LS任务_1027.md",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲_D2LS任务_1027.md（步骤照旧，只是任务文件换成下面这个；先按说明下载并校验实验包，再把本任务文件放进实验包的 tasks 目录运行）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1027.zip",
    "实验包SHA256": "c10a710fe452d94c919151c56c66970f0b18a435ae522559957ef46b77740826",
-   "任务文件": [
-    "tasks/jia_d2ls_1027a.json",
-    "tasks/jia_d2ls_1027b.json"
-   ],
+   "任务文件URL": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/tasks/jia_d2ls_1027c.json",
+   "任务文件SHA256": "332fe515aef00f9df6193d4d6599e7f161cd24edf31cbfdd056c018b5b72bbca",
+   "在原实验包里运行": true,
    "最多同时训练": 2
   }
  ]
