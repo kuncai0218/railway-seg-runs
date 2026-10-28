@@ -1,0 +1,97 @@
+{
+ "person": "同学乙（状态汇总，只用于同步，不用于启动）",
+ "说明": "分割最终方案是 D2LS（12 个波段 + 多年地表统计 7 项，输入端拼接）。这一批把 7 项多年地表统计逐项去掉，看每一项对分割精度有没有用：x0 = 去掉水体出现频率、x1 = 去掉NDVI 10% 分位数、x2 = 去掉NDVI 中位数、x3 = 去掉NDVI 90% 分位数、x4 = 去掉BSI 中位数、x5 = 去掉耕作周期年份比例、x6 = 去掉无云观测次数。统一预算同前（4000 步 × 批量 8 × 切块 256，学习率 0.0004）。种子 20261017 在组长本机跑，甲跑 20261018，乙跑 20261019。",
+ "jobs": [
+  {
+   "id": "d2ls_12b_a2_multiyear_x0",
+   "input": "aux-multiyear~0",
+   "seeds": [
+    20261019
+   ],
+   "trainer": "train_foundation.py",
+   "arch": "d2ls",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0004
+  },
+  {
+   "id": "d2ls_12b_a2_multiyear_x1",
+   "input": "aux-multiyear~1",
+   "seeds": [
+    20261019
+   ],
+   "trainer": "train_foundation.py",
+   "arch": "d2ls",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0004
+  },
+  {
+   "id": "d2ls_12b_a2_multiyear_x2",
+   "input": "aux-multiyear~2",
+   "seeds": [
+    20261019
+   ],
+   "trainer": "train_foundation.py",
+   "arch": "d2ls",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0004
+  },
+  {
+   "id": "d2ls_12b_a2_multiyear_x3",
+   "input": "aux-multiyear~3",
+   "seeds": [
+    20261019
+   ],
+   "trainer": "train_foundation.py",
+   "arch": "d2ls",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0004
+  },
+  {
+   "id": "d2ls_12b_a2_multiyear_x4",
+   "input": "aux-multiyear~4",
+   "seeds": [
+    20261019
+   ],
+   "trainer": "train_foundation.py",
+   "arch": "d2ls",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0004
+  },
+  {
+   "id": "d2ls_12b_a2_multiyear_x5",
+   "input": "aux-multiyear~5",
+   "seeds": [
+    20261019
+   ],
+   "trainer": "train_foundation.py",
+   "arch": "d2ls",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0004
+  },
+  {
+   "id": "d2ls_12b_a2_multiyear_x6",
+   "input": "aux-multiyear~6",
+   "seeds": [
+    20261019
+   ],
+   "trainer": "train_foundation.py",
+   "arch": "d2ls",
+   "iters": 4000,
+   "batch": 8,
+   "crop": 256,
+   "lr_fixed": 0.0004
+  }
+ ]
+}

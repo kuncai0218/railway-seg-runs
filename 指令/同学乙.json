@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-10-28T00:53:22+08:00",
+ "更新时间": "2026-10-29T02:27:16+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）"
@@ -8,7 +8,7 @@
  "队列": [
   {
    "编号": "yi-check-1027-1745",
-   "状态": "待执行（立即，排在所有条目之前，不占 GPU）",
+   "状态": "已完成",
    "内容": [
     "1. 检查同步：状态快照最后一次是 10-27 15:42，之后没有再上传。确认同步进程还在、用的是 d2ls_pkg_1027 + tasks/yi_d2ls_1027_status.json，只留一个；断了就按原方式重启，并立即同步一次。",
     "2. 检查 b 队列：组长 10-27 下午推过一版有误的指令（提交 b4a1408，要求停掉 tasks/yi_d2ls_1027b.json），几分钟后已在 ac647bc 撤回。若你已据此停掉 b 队列或 d2ls_rgb_s20261019，请重新启动 b 队列（已完成的部分自动跳过，从断点接着跑）；没停就不用动。",
@@ -19,7 +19,7 @@
   },
   {
    "编号": "yi-d2ls-1027",
-   "状态": "继续执行（a、b 两个任务文件都照常跑完）",
+   "状态": "已完成",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_D2LS任务_1027.md",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1027.zip",
    "实验包SHA256": "c10a710fe452d94c919151c56c66970f0b18a435ae522559957ef46b77740826",
@@ -31,13 +31,35 @@
   },
   {
    "编号": "yi-d2ls-1028",
-   "状态": "待执行（现在只有 1 个训练在跑就立即启动；2 个都在跑就等其中一个结束）",
+   "状态": "已完成（种子 20261019 跑完，请按 1029 说明第 0 步打包回传）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1028.md（新包解压到 d2ls_pkg_1027 旁边；把旧包 weights 里的 convnext_base-6075fbad.pth 复制过来，不用重新下载；原 a、b 队列照常跑完）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1028.zip",
    "实验包SHA256": "2ce9d9814c6d659d7bb60e0d7a4c46ece9fcf4752d720ffde1507a9df2088af9",
    "任务文件": [
     "tasks/yi_d2ls_1028.json"
    ],
+   "最多同时训练": 2
+  },
+  {
+   "编号": "yi-pack-1029",
+   "状态": "待执行（立即，不占 GPU，排在下一条之前）",
+   "内容": "按 https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1029.md 第 0 步：在还没回传结果的旧包目录运行 python code/pack_results.py --name 同学乙，把 zip 交给同学本人上传网盘、链接发组长；已回传过的不用重复。"
+  },
+  {
+   "编号": "yi-d2ls-1029",
+   "状态": "待执行（上一条做完就启动；没有训练在跑时 a、b 两条队列都启动）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1029.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1029.zip",
+   "实验包SHA256": "61d8298450ad4aca435141c5edcd21a421b8d40505168bf00b345954c6a088d2",
+   "任务文件": [
+    "tasks/yi_d2ls_1029a.json",
+    "tasks/yi_d2ls_1029b.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_d2ls_1029a.json": "1a20f251df9803f85081af2a638c1ace73f306a79db8fbe1293e03c3d64b24fb",
+    "tasks/yi_d2ls_1029b.json": "52d8d19d69976e8855a154471929c6bb48857ff67060d7896b9be6da36e1ddbc"
+   },
+   "同步用任务文件": "tasks/yi_d2ls_1029_status.json",
    "最多同时训练": 2
   }
  ],
