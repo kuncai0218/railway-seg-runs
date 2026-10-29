@@ -1,10 +1,11 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-10-29T02:27:16+08:00",
+ "更新时间": "2026-10-29T09:41:09+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
-  "jia-d2ls-1028（tasks/jia_d2ls_1028a.json、jia_d2ls_1028b.json，S5a/S5b 第 3 个种子）：组长 10-28 03:00 取消——前两个种子已显示加入光谱指数对分割精度没有作用（与基线相差不到 0.002）。没开始就不要开；已经开始的，等当前这个部分训练完后停掉运行器，已完成的结果全部保留，不删除。"
+  "jia-d2ls-1028（tasks/jia_d2ls_1028a.json、jia_d2ls_1028b.json，S5a/S5b 第 3 个种子）：组长 10-28 03:00 取消——前两个种子已显示加入光谱指数对分割精度没有作用（与基线相差不到 0.002）。没开始就不要开；已经开始的，等当前这个部分训练完后停掉运行器，已完成的结果全部保留，不删除。",
+  "tasks/jia_d2ls_1029b.json（10-29 09:45 起改由组长本机跑：没开始就不要开；如果已经开始，跑完当前部分后停掉它的运行器，结果保留）"
  ],
  "队列": [
   {
@@ -37,20 +38,18 @@
   },
   {
    "编号": "jia-d2ls-1029",
-   "状态": "待执行（上一条做完就启动；没有训练在跑时 a、b 两条队列都启动）",
+   "状态": "待执行（10-29 09:45 改：只跑 a 队列 tasks/jia_d2ls_1029a.json，即 x0—x3；b 队列 x4—x6 已改由组长本机跑，不要启动 b）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1029.md",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1029.zip",
    "实验包SHA256": "61d8298450ad4aca435141c5edcd21a421b8d40505168bf00b345954c6a088d2",
    "任务文件": [
-    "tasks/jia_d2ls_1029a.json",
-    "tasks/jia_d2ls_1029b.json"
+    "tasks/jia_d2ls_1029a.json"
    ],
    "任务文件SHA256": {
-    "tasks/jia_d2ls_1029a.json": "a958f6729e221d0f226a708d7f21db71d3acad19d0e20228d248060565a42e97",
-    "tasks/jia_d2ls_1029b.json": "de41b6db19db5520656366aeb26a4af8676b954c8b4cda8a63c002931836325c"
+    "tasks/jia_d2ls_1029a.json": "a958f6729e221d0f226a708d7f21db71d3acad19d0e20228d248060565a42e97"
    },
    "同步用任务文件": "tasks/jia_d2ls_1029_status.json",
-   "最多同时训练": 2
+   "最多同时训练": 1
   }
  ]
 }
