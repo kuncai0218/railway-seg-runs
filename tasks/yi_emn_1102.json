@@ -1,0 +1,128 @@
+{
+ "person": "同学乙（11-02 公开数据 EuroMineNet）",
+ "说明": "EuroMineNet 逐年开采范围制图：错位历史对照、随机丢弃历史 0.3 和 0.7 各 3 个种子，另跑一个与组长本机相同的“单期 + 历史 种子17”用来量机器差异。每个任务固定 30 轮，参数写在 args 里，不要改。",
+ "jobs": [
+  {
+   "id": "emn_hist_s17",
+   "args": [
+    "--config",
+    "hist",
+    "--seed",
+    "17",
+    "--epochs",
+    "30"
+   ]
+  },
+  {
+   "id": "emn_histshuf_s17",
+   "args": [
+    "--config",
+    "histshuf",
+    "--seed",
+    "17",
+    "--epochs",
+    "30"
+   ]
+  },
+  {
+   "id": "emn_histshuf_s18",
+   "args": [
+    "--config",
+    "histshuf",
+    "--seed",
+    "18",
+    "--epochs",
+    "30"
+   ]
+  },
+  {
+   "id": "emn_histshuf_s19",
+   "args": [
+    "--config",
+    "histshuf",
+    "--seed",
+    "19",
+    "--epochs",
+    "30"
+   ]
+  },
+  {
+   "id": "emn_drop30_s17",
+   "args": [
+    "--config",
+    "drop",
+    "--seed",
+    "17",
+    "--epochs",
+    "30",
+    "--p",
+    "0.3"
+   ]
+  },
+  {
+   "id": "emn_drop30_s18",
+   "args": [
+    "--config",
+    "drop",
+    "--seed",
+    "18",
+    "--epochs",
+    "30",
+    "--p",
+    "0.3"
+   ]
+  },
+  {
+   "id": "emn_drop30_s19",
+   "args": [
+    "--config",
+    "drop",
+    "--seed",
+    "19",
+    "--epochs",
+    "30",
+    "--p",
+    "0.3"
+   ]
+  },
+  {
+   "id": "emn_drop70_s17",
+   "args": [
+    "--config",
+    "drop",
+    "--seed",
+    "17",
+    "--epochs",
+    "30",
+    "--p",
+    "0.7"
+   ]
+  },
+  {
+   "id": "emn_drop70_s18",
+   "args": [
+    "--config",
+    "drop",
+    "--seed",
+    "18",
+    "--epochs",
+    "30",
+    "--p",
+    "0.7"
+   ]
+  },
+  {
+   "id": "emn_drop70_s19",
+   "args": [
+    "--config",
+    "drop",
+    "--seed",
+    "19",
+    "--epochs",
+    "30",
+    "--p",
+    "0.7"
+   ]
+  }
+ ]
+}
