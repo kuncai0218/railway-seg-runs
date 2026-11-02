@@ -1,0 +1,186 @@
+{
+ "person": "同学乙（11-02 实验二：两期间隔漂移，EuroMineNet）",
+ "说明": "同一份 EuroMineNet 预处理数据上训练两期变化检测（孪生 U-Net）。四种训练方式：只用 1 年间隔、只用 5—6 年间隔、全部间隔、全部间隔并把间隔作为条件输入；各 3 个种子，每个固定 12000 步。参数写在 args 里，不要改。",
+ "jobs": [
+  {
+   "id": "emncd_gap1_s17",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1",
+    "--cond",
+    "0",
+    "--seed",
+    "17",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_gap1_s18",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1",
+    "--cond",
+    "0",
+    "--seed",
+    "18",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_gap1_s19",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1",
+    "--cond",
+    "0",
+    "--seed",
+    "19",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_gap56_s17",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "5,6",
+    "--cond",
+    "0",
+    "--seed",
+    "17",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_gap56_s18",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "5,6",
+    "--cond",
+    "0",
+    "--seed",
+    "18",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_gap56_s19",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "5,6",
+    "--cond",
+    "0",
+    "--seed",
+    "19",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_all_s17",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1,2,3,4,5,6",
+    "--cond",
+    "0",
+    "--seed",
+    "17",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_all_s18",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1,2,3,4,5,6",
+    "--cond",
+    "0",
+    "--seed",
+    "18",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_all_s19",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1,2,3,4,5,6",
+    "--cond",
+    "0",
+    "--seed",
+    "19",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_allcond_s17",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1,2,3,4,5,6",
+    "--cond",
+    "1",
+    "--seed",
+    "17",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_allcond_s18",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1,2,3,4,5,6",
+    "--cond",
+    "1",
+    "--seed",
+    "18",
+    "--steps",
+    "12000"
+   ]
+  },
+  {
+   "id": "emncd_allcond_s19",
+   "script": "emn_cd_train.py",
+   "eval": "emn_cd_eval.py",
+   "args": [
+    "--gaps",
+    "1,2,3,4,5,6",
+    "--cond",
+    "1",
+    "--seed",
+    "19",
+    "--steps",
+    "12000"
+   ]
+  }
+ ]
+}

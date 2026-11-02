@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-02T09:12:23+08:00",
+ "更新时间": "2026-11-02T11:31:19+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）"
@@ -102,6 +102,20 @@
     "预处理和冒烟检查做完后，在同步状态里写明：yi-emn-1102 预处理完成、emn_prep 目录位置、冒烟检查结果。"
    ],
    "评价口径": "保留原有微平均及变化指标，补充时间对宏平均 LCA/GCA 与年份范围；训练配置未改"
+  },
+  {
+   "编号": "yi-emn-cd-1102",
+   "状态": "待执行（接在 yi-emn-1102 的下载、预处理和冒烟检查之后；预处理完成就启动）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_实验二任务_1102.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_emn_cd_pkg_1102.zip",
+   "实验包SHA256": "b5619d160fe121ab3dbe754537d7d12953907d58d7a746997f9a1e352ad21e62",
+   "任务文件": [
+    "tasks/yi_emn_cd_1102.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_emn_cd_1102.json": "b6fda8213465858626b0b33f29b27cc8b7a86632c1db07f977961df7cc701a0d"
+   },
+   "最多同时训练": 2
   }
  ],
  "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。"
