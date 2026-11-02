@@ -1,109 +1,108 @@
 {
-  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-02T04:10:08+08:00",
-  "停止": [
-    "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
-    "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）"
-  ],
-  "队列": [
-    {
-      "编号": "yi-check-1027-1745",
-      "状态": "已完成",
-      "内容": [
-        "1. 检查同步：状态快照最后一次是 10-27 15:42，之后没有再上传。确认同步进程还在、用的是 d2ls_pkg_1027 + tasks/yi_d2ls_1027_status.json，只留一个；断了就按原方式重启，并立即同步一次。",
-        "2. 检查 b 队列：组长 10-27 下午推过一版有误的指令（提交 b4a1408，要求停掉 tasks/yi_d2ls_1027b.json），几分钟后已在 ac647bc 撤回。若你已据此停掉 b 队列或 d2ls_rgb_s20261019，请重新启动 b 队列（已完成的部分自动跳过，从断点接着跑）；没停就不用动。",
-        "3. 确认 a 队列在跑（往年同期 20261018 → 全部辅助 20261018 → 全部辅助 20261019），两个队列同时训练、总显存不超过原规定。",
-        "4. 回报：两个队列各自的运行器/训练进程号、当前部分和真实训练步数（间隔至少 60 秒采两次）、显存；第 2 条做了什么。",
-        "5. tasks/yi_seg1_1027.json 已取消；a、b 都结束后直接在 d2ls_pkg_1027 里打包 回传_同学乙_*.zip，不再回原包。"
-      ]
-    },
-    {
-      "编号": "yi-d2ls-1027",
-      "状态": "已完成",
-      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_D2LS任务_1027.md",
-      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1027.zip",
-      "实验包SHA256": "c10a710fe452d94c919151c56c66970f0b18a435ae522559957ef46b77740826",
-      "任务文件": [
-        "tasks/yi_d2ls_1027a.json",
-        "tasks/yi_d2ls_1027b.json"
-      ],
-      "最多同时训练": 2
-    },
-    {
-      "编号": "yi-d2ls-1028",
-      "状态": "已完成（种子 20261019 跑完，请按 1029 说明第 0 步打包回传）",
-      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1028.md（新包解压到 d2ls_pkg_1027 旁边；把旧包 weights 里的 convnext_base-6075fbad.pth 复制过来，不用重新下载；原 a、b 队列照常跑完）",
-      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1028.zip",
-      "实验包SHA256": "2ce9d9814c6d659d7bb60e0d7a4c46ece9fcf4752d720ffde1507a9df2088af9",
-      "任务文件": [
-        "tasks/yi_d2ls_1028.json"
-      ],
-      "最多同时训练": 2
-    },
-    {
-      "编号": "yi-pack-1029",
-      "状态": "待执行（立即，不占 GPU，先做这一条）",
-      "内容": "在 d2ls_pkg_1028（置零 + 一致性，种子 20261019）和 d2ls_pkg_1029（x0—x6，种子 20261019）两个目录分别运行 python code/pack_results.py --name 同学乙，把 zip 交给同学本人上传网盘、链接发组长；已回传过的不用重复。"
-    },
-    {
-      "编号": "yi-d2ls-1029",
-      "状态": "已完成（10-30 08:15 前 a、b 两条队列都已跑完；请按 yi-pack-1029 打包回传）",
-      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1029.md",
-      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1029.zip",
-      "实验包SHA256": "61d8298450ad4aca435141c5edcd21a421b8d40505168bf00b345954c6a088d2",
-      "任务文件": [
-        "tasks/yi_d2ls_1029a.json",
-        "tasks/yi_d2ls_1029b.json"
-      ],
-      "任务文件SHA256": {
-        "tasks/yi_d2ls_1029a.json": "1a20f251df9803f85081af2a638c1ace73f306a79db8fbe1293e03c3d64b24fb",
-        "tasks/yi_d2ls_1029b.json": "52d8d19d69976e8855a154471929c6bb48857ff67060d7896b9be6da36e1ddbc"
-      },
-      "同步用任务文件": "tasks/yi_d2ls_1029_status.json",
-      "最多同时训练": 2
-    },
-    {
-      "编号": "yi-sync-1029",
-      "状态": "作废（1029 已跑完；同步改用 1030 的状态文件，见 yi-d2ls-1030）",
-      "内容": "1029 说明第 5 步还没生效：10-29 04:13、05:13 发来的状态仍是旧包（1028 批，已完成 54 个部分）的，组长看不到 1029 的进度。请停掉旧包目录里的状态同步进程，只保留一个：在 d2ls_pkg_1029 目录运行 python code/sync_status.py --name 同学乙 --task tasks/yi_d2ls_1029_status.json --loop 3600 ，启动后立即同步一次，状态里写明 a、b 两条队列各自正在跑的任务名和步数。"
-    },
-    {
-      "编号": "yi-d2ls-1030",
-      "状态": "待执行（立即；先做上面的回传条目，再启动本条）",
-      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1030.md",
-      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1029.zip（沿用 d2ls_pkg_1029，已有就不用重新下载）",
-      "实验包SHA256": "61d8298450ad4aca435141c5edcd21a421b8d40505168bf00b345954c6a088d2",
-      "任务文件": [
-        "tasks/yi_d2ls_1030.json"
-      ],
-      "任务文件SHA256": {
-        "tasks/yi_d2ls_1030.json": "820f5998c90eb7e4e264129feb98217e54059781463c5f5ddd5e1d4cd6780788",
-        "tasks/yi_d2ls_1030_status.json": "0c8ef463ede5c119f53612911009ddedfc897b9dd47c74f9e13056b628ba7644"
-      },
-      "同步用任务文件": "tasks/yi_d2ls_1030_status.json",
-      "最多同时训练": 1
-    },
-    {
-      "编号": "yi-emn-1102",
-      "状态": "待执行",
-      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_公开数据任务_1102.md",
-      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_emn_pkg_1102.zip",
-      "实验包SHA256": "3568ce52d2b6aa0d558280f9b8b38787155a370200ec36ab10f6bb6086fa8e51",
-      "任务文件": [
-        "tasks/yi_emn_1102.json"
-      ],
-      "任务文件SHA256": {
-        "tasks/yi_emn_1102.json": "8d168d5d1e271d50c8490b1dff1f8f36f8f5e6ce8259d90191ba7113c8af4c86"
-      },
-      "最多同时训练": 2,
-      "下载前核验": "18.4 GB 数据必须先用少量数据证明目标连接走物理网卡直连；保持 VPN 开启。不能证明直连时先报告，不进行全量代理下载。",
-      "步骤": [
-        "读取说明并复用已有的校验一致数据；下载前核验直连。",
-        "校验代码包 SHA256，按说明预处理，修复后的 histshuf 冒烟检查通过后再训练。",
-        "依任务文件运行 10 个固定 30 轮实验，已经运行或完成的任务不重复启动；真实训练进展与发布状态分开记录。"
-      ],
-      "评价口径": "保留原有微平均及变化指标，补充时间对宏平均 LCA/GCA 与年份范围；训练配置未改"
-    }
-  ],
-  "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。"
+ "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
+ "更新时间": "2026-11-02T09:12:23+08:00",
+ "停止": [
+  "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
+  "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）"
+ ],
+ "队列": [
+  {
+   "编号": "yi-check-1027-1745",
+   "状态": "已完成",
+   "内容": [
+    "1. 检查同步：状态快照最后一次是 10-27 15:42，之后没有再上传。确认同步进程还在、用的是 d2ls_pkg_1027 + tasks/yi_d2ls_1027_status.json，只留一个；断了就按原方式重启，并立即同步一次。",
+    "2. 检查 b 队列：组长 10-27 下午推过一版有误的指令（提交 b4a1408，要求停掉 tasks/yi_d2ls_1027b.json），几分钟后已在 ac647bc 撤回。若你已据此停掉 b 队列或 d2ls_rgb_s20261019，请重新启动 b 队列（已完成的部分自动跳过，从断点接着跑）；没停就不用动。",
+    "3. 确认 a 队列在跑（往年同期 20261018 → 全部辅助 20261018 → 全部辅助 20261019），两个队列同时训练、总显存不超过原规定。",
+    "4. 回报：两个队列各自的运行器/训练进程号、当前部分和真实训练步数（间隔至少 60 秒采两次）、显存；第 2 条做了什么。",
+    "5. tasks/yi_seg1_1027.json 已取消；a、b 都结束后直接在 d2ls_pkg_1027 里打包 回传_同学乙_*.zip，不再回原包。"
+   ]
+  },
+  {
+   "编号": "yi-d2ls-1027",
+   "状态": "已完成",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_D2LS任务_1027.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1027.zip",
+   "实验包SHA256": "c10a710fe452d94c919151c56c66970f0b18a435ae522559957ef46b77740826",
+   "任务文件": [
+    "tasks/yi_d2ls_1027a.json",
+    "tasks/yi_d2ls_1027b.json"
+   ],
+   "最多同时训练": 2
+  },
+  {
+   "编号": "yi-d2ls-1028",
+   "状态": "已完成（种子 20261019 跑完，请按 1029 说明第 0 步打包回传）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1028.md（新包解压到 d2ls_pkg_1027 旁边；把旧包 weights 里的 convnext_base-6075fbad.pth 复制过来，不用重新下载；原 a、b 队列照常跑完）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1028.zip",
+   "实验包SHA256": "2ce9d9814c6d659d7bb60e0d7a4c46ece9fcf4752d720ffde1507a9df2088af9",
+   "任务文件": [
+    "tasks/yi_d2ls_1028.json"
+   ],
+   "最多同时训练": 2
+  },
+  {
+   "编号": "yi-pack-1029",
+   "状态": "待执行（立即，不占 GPU，先做这一条）",
+   "内容": "在 d2ls_pkg_1028（置零 + 一致性，种子 20261019）和 d2ls_pkg_1029（x0—x6，种子 20261019）两个目录分别运行 python code/pack_results.py --name 同学乙，把 zip 交给同学本人上传网盘、链接发组长；已回传过的不用重复。"
+  },
+  {
+   "编号": "yi-d2ls-1029",
+   "状态": "已完成（10-30 08:15 前 a、b 两条队列都已跑完；请按 yi-pack-1029 打包回传）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1029.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1029.zip",
+   "实验包SHA256": "61d8298450ad4aca435141c5edcd21a421b8d40505168bf00b345954c6a088d2",
+   "任务文件": [
+    "tasks/yi_d2ls_1029a.json",
+    "tasks/yi_d2ls_1029b.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_d2ls_1029a.json": "1a20f251df9803f85081af2a638c1ace73f306a79db8fbe1293e03c3d64b24fb",
+    "tasks/yi_d2ls_1029b.json": "52d8d19d69976e8855a154471929c6bb48857ff67060d7896b9be6da36e1ddbc"
+   },
+   "同步用任务文件": "tasks/yi_d2ls_1029_status.json",
+   "最多同时训练": 2
+  },
+  {
+   "编号": "yi-sync-1029",
+   "状态": "作废（1029 已跑完；同步改用 1030 的状态文件，见 yi-d2ls-1030）",
+   "内容": "1029 说明第 5 步还没生效：10-29 04:13、05:13 发来的状态仍是旧包（1028 批，已完成 54 个部分）的，组长看不到 1029 的进度。请停掉旧包目录里的状态同步进程，只保留一个：在 d2ls_pkg_1029 目录运行 python code/sync_status.py --name 同学乙 --task tasks/yi_d2ls_1029_status.json --loop 3600 ，启动后立即同步一次，状态里写明 a、b 两条队列各自正在跑的任务名和步数。"
+  },
+  {
+   "编号": "yi-d2ls-1030",
+   "状态": "待执行（立即；先做上面的回传条目，再启动本条）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1030.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1029.zip（沿用 d2ls_pkg_1029，已有就不用重新下载）",
+   "实验包SHA256": "61d8298450ad4aca435141c5edcd21a421b8d40505168bf00b345954c6a088d2",
+   "任务文件": [
+    "tasks/yi_d2ls_1030.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_d2ls_1030.json": "820f5998c90eb7e4e264129feb98217e54059781463c5f5ddd5e1d4cd6780788",
+    "tasks/yi_d2ls_1030_status.json": "0c8ef463ede5c119f53612911009ddedfc897b9dd47c74f9e13056b628ba7644"
+   },
+   "同步用任务文件": "tasks/yi_d2ls_1030_status.json",
+   "最多同时训练": 1
+  },
+  {
+   "编号": "yi-emn-1102",
+   "状态": "待执行（11-02 09:2x 改：只做下载、预处理和冒烟检查；任务文件 tasks/yi_emn_1102.json 里的 10 个训练已改由组长本机跑，不要启动）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_公开数据任务_1102.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_emn_pkg_1102.zip",
+   "实验包SHA256": "3568ce52d2b6aa0d558280f9b8b38787155a370200ec36ab10f6bb6086fa8e51",
+   "任务文件": [],
+   "任务文件SHA256": {
+    "tasks/yi_emn_1102.json": "8d168d5d1e271d50c8490b1dff1f8f36f8f5e6ce8259d90191ba7113c8af4c86"
+   },
+   "最多同时训练": 2,
+   "下载前核验": "18.4 GB 数据必须先用少量数据证明目标连接走物理网卡直连；保持 VPN 开启。不能证明直连时先报告，不进行全量代理下载。",
+   "步骤": [
+    "读取说明并复用已有的校验一致数据；下载前核验直连（见说明 0.1）。",
+    "校验代码包 SHA256，按说明第 0—4 步下载数据并预处理，再做 histshuf 冒烟检查，确认出现“全部完成”。",
+    "不要运行 tasks/yi_emn_1102.json。训练任务改为同一份数据上的两期变化检测（实验二），组长测通代码后会在本文件新增一条“yi-emn-cd-1102”并标为待执行，到时按那一条启动。",
+    "预处理和冒烟检查做完后，在同步状态里写明：yi-emn-1102 预处理完成、emn_prep 目录位置、冒烟检查结果。"
+   ],
+   "评价口径": "保留原有微平均及变化指标，补充时间对宏平均 LCA/GCA 与年份范围；训练配置未改"
+  }
+ ],
+ "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。"
 }
