@@ -1,9 +1,10 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-02T13:15:00+08:00",
+ "更新时间": "2026-11-02T15:20:00+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
-  "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）"
+  "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
+  "yi-emn-cd-1102（pub_emn_cd_pkg_1102 里的 tasks/yi_emn_cd_1102.json）：立即停止运行器和正在跑的两个训练进程，不等当前任务训练完；日志和已有输出原样保留，不删除。原因：代码用 torch.cuda.is_bf16_supported() 选精度，PyTorch 2.5 默认把软件模拟也算支持，Titan RTX 因此以模拟 bfloat16 运行（冒烟记录写着 bfloat16），约 2.7 秒/步；新包改为按显卡计算能力判断，Titan RTX 用 fp16。"
  ],
  "队列": [
   {
@@ -105,7 +106,7 @@
   },
   {
    "编号": "yi-emn-cd-1102",
-   "状态": "待执行（接在 yi-emn-1102 的下载、预处理和冒烟检查之后；预处理完成就启动）",
+   "状态": "已停止（11-02 15:20 组长改：精度误判，改由 yi-emn-cd-1102b 用新包重跑；旧包结果不用）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_实验二任务_1102.md",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_emn_cd_pkg_1102.zip",
    "实验包SHA256": "b5619d160fe121ab3dbe754537d7d12953907d58d7a746997f9a1e352ad21e62",
@@ -119,7 +120,7 @@
   },
   {
    "编号": "yi-emn-cd-diag-1102",
-   "状态": "待执行（立即；不要停止、不要重启正在跑的 yi-emn-cd-1102，参数一律不改）",
+   "状态": "取消（11-02 15:20：原因已查明，是精度误判，不用再诊断）",
    "原因": "yi-emn-cd-1102 的两个任务每 200 步用 546 秒（约 2.7 秒/步），且两个任务完全同步推进；组长 3090 上同一任务约 0.2 秒/步。两个任务步调一致，像是共用的磁盘读取或内存不够造成的，需要先诊断。",
    "工具": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/tools/warm_cache.py",
    "工具SHA256": "e6245e55803bf8018bdd8ef75b59f08ea0388329351d9e2ddf98344ef9e12bee",
@@ -128,6 +129,28 @@
     "2. 下载上面的工具到 pub_emn_cd_pkg_1102/code/ 并校验 SHA256，然后顺序读一遍训练数据（不修改任何文件，不停训练）：python -X utf8 code/warm_cache.py ../emn_prep/img_train.npy ../emn_prep/lab_train.npy",
     "3. 预读完成后，间隔至少 60 秒记录两个任务日志里最新的两条 step 行，算出预读后的每 200 步用时。",
     "4. 立即同步一次：写明执行的是 yi-emn-cd-diag-1102，附上第 1—3 步的全部输出。之后照常每小时同步。若预读后仍超过每 200 步 300 秒，只报告，不要自行改并行数、批量或精度，等组长指令。"
+   ]
+  },
+  {
+   "编号": "yi-emn-cd-1102b",
+   "状态": "待执行（立即；先按“停止”停掉 yi-emn-cd-1102，再启动本条）",
+   "原因": "代码用 torch.cuda.is_bf16_supported() 选精度，PyTorch 2.5 默认把软件模拟也算支持，Titan RTX 因此以模拟 bfloat16 运行（冒烟记录写着 bfloat16），约 2.7 秒/步；新包改为按显卡计算能力判断，Titan RTX 用 fp16。",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_实验二任务_1102.md（其余步骤、同步与打包要求不变，只是换用新包目录）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_emn_cd_pkg_1102b.zip",
+   "实验包SHA256": "ebcefcd9aef85941ca5decaa6f72f927f58beca8d4821418e648f2ff1f78be89",
+   "任务文件": [
+    "tasks/yi_emn_cd_1102.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_emn_cd_1102.json": "b6fda8213465858626b0b33f29b27cc8b7a86632c1db07f977961df7cc701a0d"
+   },
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 按“停止”停掉旧运行器和两个训练进程（任务管理器或 Stop-Process），保留 pub_emn_cd_pkg_1102 目录原样。",
+    "2. 下载新包并校验 SHA256，解压到 work_emn/pub_emn_cd_pkg_1102b/（与旧包分开）。可把旧包 weights 目录整个复制到新包目录，免得重新下载 ResNet-34 权重。",
+    "3. 冒烟：在新包目录运行 python -X utf8 code/emn_cd_train.py --data ../emn_prep --gaps 1,2,3,4,5,6 --cond 1 --smoke --out results/_smoke_cd，确认第一行写的是“精度 torch.float16”、末行“全部完成”。若仍是 bfloat16，停下报告。",
+    "4. 启动：python -X utf8 code/run_queue_pkg.py tasks/yi_emn_cd_1102.json --data ../emn_prep --max 2",
+    "5. 启动 1 分钟后，间隔至少 60 秒记录两个任务日志最新的 step 行，算出每 200 步用时（预计 1—2 分钟），然后立即同步，写明执行的是 yi-emn-cd-1102b。之后照常每小时同步，12 个任务结束后在新包目录运行 python -X utf8 code/pack_results_emn.py --name 同学乙 打包回传。"
    ]
   }
  ],
