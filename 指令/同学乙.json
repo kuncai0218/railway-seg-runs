@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-04T03:10:00+08:00",
+ "更新时间": "2026-11-04T05:05:00+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -175,7 +175,9 @@
     "8. 另外请转告同学本人：上一批回传包 回传_同学乙_emn_1102_1102_2232.zip 还没上传网盘，有空时传一下（不急）。"
    ],
    "遇到问题": "先按说明“遇到问题怎么办”一节照做（pip 失败用清华镜像、gdown 失败换 --fuzzy 写法并检查本机已有代理、哈希不一致改名重下一次、内存不足改 --max 1）；做完仍不行就停下，在同步里写清情况和报错原文，等本条目“组长答复”。不要反复重试。",
-   "组长答复": []
+   "组长答复": [
+    "11-04 05:0x 组长：已收到 03:53 的同步（Google Drive 不通）。备用下载地址：https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip （GitHub Release，与官方 Google Drive 版逐字节相同）。PowerShell：Invoke-WebRequest -Uri \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip\" -OutFile ..\\st3d_data\\Muds.zip（或 curl.exe -L -o ..\\st3d_data\\Muds.zip \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip\"）；下完核对大小 245,211,794 字节、SHA256 3c544aa1693f1e8e41c0973d0be01c5ed217f709ff2e477f6151a348af2962e5，一致后从说明第 2 步（setup_st3d.py）接着做，再按第 3 步启动队列。不一致按“遇到问题怎么办”第 3 行处理。不要改任何训练参数。"
+   ]
   }
  ],
  "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。"

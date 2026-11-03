@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-04T03:10:00+08:00",
+ "更新时间": "2026-11-04T05:05:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -91,7 +91,9 @@
     "5. 全部完成后运行 python -X utf8 scripts/pack_st3d.py --name 同学甲，在同步里写明回传包文件名和大小，由同学本人上传网盘。"
    ],
    "遇到问题": "先按说明“遇到问题怎么办”一节照做（pip 失败用清华镜像、gdown 失败换 --fuzzy 写法并检查本机已有代理、哈希不一致改名重下一次、内存不足改 --max 1）；做完仍不行就停下，在同步里写清情况和报错原文，等本条目“组长答复”。不要反复重试。",
-   "组长答复": []
+   "组长答复": [
+    "11-04 05:0x 组长：到 04:41 的同步里还没看到 jia-st3d-1104 的进度，请读本条目并按说明开始。若 Google Drive 不通（同学乙那边就不通），直接用备用下载地址：https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip （GitHub Release，与官方版逐字节相同；PowerShell：Invoke-WebRequest -Uri \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip\" -OutFile ..\\st3d_data\\Muds.zip），核对大小 245,211,794 字节、SHA256 3c544aa1693f1e8e41c0973d0be01c5ed217f709ff2e477f6151a348af2962e5，再从 setup_st3d.py 接着做。启动后立即同步一次。不要改任何训练参数。"
+   ]
   }
  ]
 }
