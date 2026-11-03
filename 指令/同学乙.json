@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-02T15:20:00+08:00",
+ "更新时间": "2026-11-04T03:00:00+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -151,6 +151,28 @@
     "3. 冒烟：在新包目录运行 python -X utf8 code/emn_cd_train.py --data ../emn_prep --gaps 1,2,3,4,5,6 --cond 1 --smoke --out results/_smoke_cd，确认第一行写的是“精度 torch.float16”、末行“全部完成”。若仍是 bfloat16，停下报告。",
     "4. 启动：python -X utf8 code/run_queue_pkg.py tasks/yi_emn_cd_1102.json --data ../emn_prep --max 2",
     "5. 启动 1 分钟后，间隔至少 60 秒记录两个任务日志最新的 step 行，算出每 200 步用时（预计 1—2 分钟），然后立即同步，写明执行的是 yi-emn-cd-1102b。之后照常每小时同步，12 个任务结束后在新包目录运行 python -X utf8 code/pack_results_emn.py --name 同学乙 打包回传。"
+   ]
+  },
+  {
+   "编号": "yi-st3d-1104",
+   "状态": "待执行（立即；上一批已完成，显卡空闲）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1104.zip",
+   "实验包SHA256": "15db097e9956a3d5e97b9be9c60c8c57fed40c517a44ec4863ddd1140036b163",
+   "任务文件": [
+    "tasks/yi_st3d_1104.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_st3d_1104.json": "15caeeba0b7bfd1c07021c645e46a338fa2672406b0487c2ab44ba1580536d3a"
+   },
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 按说明第 1—3 步：新建 work_st3d，下载并校验实验包后解压；缺包时只用 pip 装 torchmetrics、pandas、pyyaml、tqdm、gdown（不得改动已装的 torch）；用 gdown 从官方 Google Drive 下载 Muds.zip 到 work_st3d\\st3d_data。",
+    "2. 在实验包目录运行 python -X utf8 scripts/setup_st3d.py（校验、解压、建缓存、逐样本核对、测速），任何一步失败就停下报告。",
+    "3. 运行 python -X utf8 scripts/run_queue_st3d.py tasks/yi_st3d_1104.json --max N：物理内存 ≥ 64 GB 且空闲 ≥ 32 GB 用 N=2，否则 N=1。不改任务文件里的任何参数。",
+    "4. 启动后立即同步一次：编号、启动时间、运行器与训练进程号、显存、显卡名、内存总量与空闲、磁盘类型、setup 第 4 步核对结论和第 5 步测速 JSON、N。之后每小时同步各任务已完成轮数（epochs.jsonl 行数）和 train.log 最新的“第 X 轮 … 分钟”一行。",
+    "5. 全部完成后运行 python -X utf8 scripts/pack_st3d.py --name 同学乙，在同步里写明回传包文件名和大小，由同学本人上传网盘。",
+    "8. 另外请转告同学本人：上一批回传包 回传_同学乙_emn_1102_1102_2232.zip 还没上传网盘，有空时传一下（不急）。"
    ]
   }
  ],

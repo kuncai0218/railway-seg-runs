@@ -1,0 +1,5 @@
+{"说明": "同学甲 11-04：MUDS 单期模型（同网络去掉一切时间运算，论文设置）种子 42；MUDS 公开代码设置（lr 1e-3 恒定、100 轮）种子 42。",
+ "任务": [
+  {"名称": "muds_mono_s42", "参数": ["--data", "muds", "--arch", "mono", "--seed", "42", "--sched", "paper", "--lr", "1e-4", "--epochs", "250", "--workers", "3", "--eval_workers", "0", "--eval_batch", "16"]},
+  {"名称": "muds_code_s42", "参数": ["--data", "muds", "--seed", "42", "--sched", "code", "--lr", "1e-3", "--epochs", "100", "--workers", "3", "--eval_workers", "0", "--eval_batch", "16"]}
+ ]}

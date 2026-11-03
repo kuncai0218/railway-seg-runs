@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-10-30T11:14:26+08:00",
+ "更新时间": "2026-11-04T03:00:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -69,6 +69,27 @@
    },
    "同步用任务文件": "tasks/jia_d2ls_1030_status.json",
    "最多同时训练": 2
+  },
+  {
+   "编号": "jia-st3d-1104",
+   "状态": "待执行（立即；上一批已完成，显卡空闲）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1104.zip",
+   "实验包SHA256": "15db097e9956a3d5e97b9be9c60c8c57fed40c517a44ec4863ddd1140036b163",
+   "任务文件": [
+    "tasks/jia_st3d_1104.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/jia_st3d_1104.json": "35eca0c8c6dbb4122f8cd3a9fb37e1b06cdb03d7b2a4da6af08b69c8f5d27e64"
+   },
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 按说明第 1—3 步：新建 work_st3d，下载并校验实验包后解压；缺包时只用 pip 装 torchmetrics、pandas、pyyaml、tqdm、gdown（不得改动已装的 torch）；用 gdown 从官方 Google Drive 下载 Muds.zip 到 work_st3d\\st3d_data。",
+    "2. 在实验包目录运行 python -X utf8 scripts/setup_st3d.py（校验、解压、建缓存、逐样本核对、测速），任何一步失败就停下报告。",
+    "3. 运行 python -X utf8 scripts/run_queue_st3d.py tasks/jia_st3d_1104.json --max N：物理内存 ≥ 64 GB 且空闲 ≥ 32 GB 用 N=2，否则 N=1。不改任务文件里的任何参数。",
+    "4. 启动后立即同步一次：编号、启动时间、运行器与训练进程号、显存、显卡名、内存总量与空闲、磁盘类型、setup 第 4 步核对结论和第 5 步测速 JSON、N。之后每小时同步各任务已完成轮数（epochs.jsonl 行数）和 train.log 最新的“第 X 轮 … 分钟”一行。",
+    "5. 全部完成后运行 python -X utf8 scripts/pack_st3d.py --name 同学甲，在同步里写明回传包文件名和大小，由同学本人上传网盘。"
+   ]
   }
  ]
 }

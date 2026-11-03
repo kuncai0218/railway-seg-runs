@@ -1,0 +1,5 @@
+{"说明": "同学乙 11-04：MUDS 论文设置（lr 1e-4 余弦到 1e-6、250 轮）两个种子，对应组长云上 muds_paper_s42。",
+ "任务": [
+  {"名称": "muds_paper_s43", "参数": ["--data", "muds", "--seed", "43", "--sched", "paper", "--lr", "1e-4", "--epochs", "250", "--workers", "3", "--eval_workers", "0", "--eval_batch", "16"]},
+  {"名称": "muds_paper_s44", "参数": ["--data", "muds", "--seed", "44", "--sched", "paper", "--lr", "1e-4", "--epochs", "250", "--workers", "3", "--eval_workers", "0", "--eval_batch", "16"]}
+ ]}
