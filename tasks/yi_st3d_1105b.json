@@ -43,7 +43,9 @@
     "--eval_workers",
     "0",
     "--eval_batch",
-    "16"
+    "16",
+    "--test_every",
+    "0"
    ]
   }
  ]

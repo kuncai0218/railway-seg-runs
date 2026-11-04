@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-04T18:10:00+08:00",
+ "更新时间": "2026-11-05T00:15:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -100,12 +100,12 @@
    "状态": "待执行（jia-st3d-1104 两个任务都写出 final.json 后自动开始，不必等组长）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-05 追加任务”一节）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1105.zip",
-   "实验包SHA256": "5576e8e04c9ac5ec722da694bc0a476f7949bd61b0497857b4f6d62bb2b75fc2",
+   "实验包SHA256": "9d7ec8edfa1358ded77204aef2f25a2d70836e2e8845710dafb62dcf1ceb7f80",
    "任务文件": [
     "tasks/jia_st3d_1105a.json"
    ],
    "任务文件SHA256": {
-    "tasks/jia_st3d_1105a.json": "8c657d69fa08fe12f0e6f7fd75e4a86f61c1cfd71bc4b5801e09ef659d6e5f61"
+    "tasks/jia_st3d_1105a.json": "41a67e6e624c130fe8e6339b2f6a5211032d1a304b944c58995f167072fa9849"
    },
    "最多同时训练": 2,
    "步骤": [
@@ -115,19 +115,21 @@
     "4. 本条完成后自动接下一条（如有）；全部完成后运行 python -X utf8 scripts/pack_st3d.py --name 同学甲，回传包照旧由同学本人上传网盘。"
    ],
    "遇到问题": "同 jia/yi-st3d-1104 的“遇到问题怎么办”；新参数 --ctx_drop 和 --deterministic 都是第二版包才有的，报“unrecognized arguments”说明用错了旧包。",
-   "组长答复": []
+   "组长答复": [
+    "11-05 00:1x 更正（未开始前生效）：①方法原型（ctxdrop）任务加 --test_every 0，训练中和结束时都只评验证集（评价规范第 6 条）；②修正 --ctx_drop 抽到缺测月份时整样本无有效标签、损失为 nan 的问题。实验包和任务文件已重打，以本条目里的新 SHA256 为准；若已下载旧的第二版包，请删掉解压目录里的旧包（挪到 _待删除 也可）后重新下载解压。"
+   ]
   },
   {
    "编号": "jia-st3d-1105b",
    "状态": "待执行（jia-st3d-1105a 两个任务都写出 final.json 后自动开始，不必等组长）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-05 追加任务”一节）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1105.zip",
-   "实验包SHA256": "5576e8e04c9ac5ec722da694bc0a476f7949bd61b0497857b4f6d62bb2b75fc2",
+   "实验包SHA256": "9d7ec8edfa1358ded77204aef2f25a2d70836e2e8845710dafb62dcf1ceb7f80",
    "任务文件": [
     "tasks/jia_st3d_1105b.json"
    ],
    "任务文件SHA256": {
-    "tasks/jia_st3d_1105b.json": "262520c4ec8bf5230847cb88457319cc7ef9179496413c24bb024ac614e61ae6"
+    "tasks/jia_st3d_1105b.json": "a08071aa840d5c662bcc038153f95e614cd85e7105d3a038e200cc9db9cb3c98"
    },
    "最多同时训练": 2,
    "步骤": [
@@ -137,7 +139,9 @@
     "4. 本条完成后自动接下一条（如有）；全部完成后运行 python -X utf8 scripts/pack_st3d.py --name 同学甲，回传包照旧由同学本人上传网盘。"
    ],
    "遇到问题": "同 jia/yi-st3d-1104 的“遇到问题怎么办”；新参数 --ctx_drop 和 --deterministic 都是第二版包才有的，报“unrecognized arguments”说明用错了旧包。",
-   "组长答复": []
+   "组长答复": [
+    "11-05 00:1x 更正（未开始前生效）：①方法原型（ctxdrop）任务加 --test_every 0，训练中和结束时都只评验证集（评价规范第 6 条）；②修正 --ctx_drop 抽到缺测月份时整样本无有效标签、损失为 nan 的问题。实验包和任务文件已重打，以本条目里的新 SHA256 为准；若已下载旧的第二版包，请删掉解压目录里的旧包（挪到 _待删除 也可）后重新下载解压。"
+   ]
   }
  ]
 }
