@@ -1,0 +1,51 @@
+{
+ "说明": "同学甲 11-05 第二批：方法原型 p=0.3 的种子 43、44",
+ "任务": [
+  {
+   "名称": "muds_ctxdrop03_s43",
+   "参数": [
+    "--data",
+    "muds",
+    "--ctx_drop",
+    "0.3",
+    "--seed",
+    "43",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16"
+   ]
+  },
+  {
+   "名称": "muds_ctxdrop03_s44",
+   "参数": [
+    "--data",
+    "muds",
+    "--ctx_drop",
+    "0.3",
+    "--seed",
+    "44",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16"
+   ]
+  }
+ ]
+}

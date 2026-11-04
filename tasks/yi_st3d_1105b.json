@@ -1,0 +1,50 @@
+{
+ "说明": "同学乙 11-05 第二批：按作者的确定性计算模式复跑论文设置种子 42（复现核对）；随机去上下文 p=0.5 种子 43（方法原型的剂量对照）",
+ "任务": [
+  {
+   "名称": "muds_paper_det_s42",
+   "参数": [
+    "--data",
+    "muds",
+    "--seed",
+    "42",
+    "--deterministic",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16"
+   ]
+  },
+  {
+   "名称": "muds_ctxdrop05_s43",
+   "参数": [
+    "--data",
+    "muds",
+    "--ctx_drop",
+    "0.5",
+    "--seed",
+    "43",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "说明": "同学乙 11-05 第一批：MUDS 单期模型种子 43、44（病因检验需要 3 个种子）",
+ "任务": [
+  {
+   "名称": "muds_mono_s43",
+   "参数": [
+    "--data",
+    "muds",
+    "--arch",
+    "mono",
+    "--seed",
+    "43",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16"
+   ]
+  },
+  {
+   "名称": "muds_mono_s44",
+   "参数": [
+    "--data",
+    "muds",
+    "--arch",
+    "mono",
+    "--seed",
+    "44",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16"
+   ]
+  }
+ ]
+}

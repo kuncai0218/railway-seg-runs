@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-04T05:05:00+08:00",
+ "更新时间": "2026-11-04T18:10:00+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -178,6 +178,50 @@
    "组长答复": [
     "11-04 05:0x 组长：已收到 03:53 的同步（Google Drive 不通）。备用下载地址：https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip （GitHub Release，与官方 Google Drive 版逐字节相同）。PowerShell：Invoke-WebRequest -Uri \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip\" -OutFile ..\\st3d_data\\Muds.zip（或 curl.exe -L -o ..\\st3d_data\\Muds.zip \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip\"）；下完核对大小 245,211,794 字节、SHA256 3c544aa1693f1e8e41c0973d0be01c5ed217f709ff2e477f6151a348af2962e5，一致后从说明第 2 步（setup_st3d.py）接着做，再按第 3 步启动队列。不一致按“遇到问题怎么办”第 3 行处理。不要改任何训练参数。"
    ]
+  },
+  {
+   "编号": "yi-st3d-1105a",
+   "状态": "待执行（yi-st3d-1104 两个任务都写出 final.json 后自动开始，不必等组长）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-05 追加任务”一节）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1105.zip",
+   "实验包SHA256": "5576e8e04c9ac5ec722da694bc0a476f7949bd61b0497857b4f6d62bb2b75fc2",
+   "任务文件": [
+    "tasks/yi_st3d_1105a.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_st3d_1105a.json": "96941ed38fc58a90e61d58cc74791c93410848dcc70ff11a0227a474b0d32625"
+   },
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 第一次用到时：下载第二版实验包并校验 SHA256，解压到 work_st3d\\pub_st3d_pkg_1105\\（与旧包并列；旧包和 st3d_data、st3d_cache、st3d_runs 都不动、不删）。数据和缓存直接复用，不必再运行 setup_st3d.py。",
+    "2. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/yi_st3d_1105a.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。",
+    "3. 启动后同步一次：编号、启动时间、两个训练进程号、显存、各任务已完成轮数；之后照常每小时同步。",
+    "4. 本条完成后自动接下一条（如有）；全部完成后运行 python -X utf8 scripts/pack_st3d.py --name 同学乙，回传包照旧由同学本人上传网盘。"
+   ],
+   "遇到问题": "同 jia/yi-st3d-1104 的“遇到问题怎么办”；新参数 --ctx_drop 和 --deterministic 都是第二版包才有的，报“unrecognized arguments”说明用错了旧包。",
+   "组长答复": []
+  },
+  {
+   "编号": "yi-st3d-1105b",
+   "状态": "待执行（yi-st3d-1105a 两个任务都写出 final.json 后自动开始，不必等组长）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-05 追加任务”一节）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1105.zip",
+   "实验包SHA256": "5576e8e04c9ac5ec722da694bc0a476f7949bd61b0497857b4f6d62bb2b75fc2",
+   "任务文件": [
+    "tasks/yi_st3d_1105b.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/yi_st3d_1105b.json": "87a682981299175c40acea5b18b20b3755274fb6317aa1cc93c429eae31db469"
+   },
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 第一次用到时：下载第二版实验包并校验 SHA256，解压到 work_st3d\\pub_st3d_pkg_1105\\（与旧包并列；旧包和 st3d_data、st3d_cache、st3d_runs 都不动、不删）。数据和缓存直接复用，不必再运行 setup_st3d.py。",
+    "2. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/yi_st3d_1105b.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。",
+    "3. 启动后同步一次：编号、启动时间、两个训练进程号、显存、各任务已完成轮数；之后照常每小时同步。",
+    "4. 本条完成后自动接下一条（如有）；全部完成后运行 python -X utf8 scripts/pack_st3d.py --name 同学乙，回传包照旧由同学本人上传网盘。"
+   ],
+   "遇到问题": "同 jia/yi-st3d-1104 的“遇到问题怎么办”；新参数 --ctx_drop 和 --deterministic 都是第二版包才有的，报“unrecognized arguments”说明用错了旧包。",
+   "组长答复": []
   }
  ],
  "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。"
