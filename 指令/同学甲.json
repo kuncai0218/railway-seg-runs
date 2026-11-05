@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-05T14:30:00+08:00",
+ "更新时间": "2026-11-06T03:50:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -167,6 +167,28 @@
     "4. 本条跑完后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学甲，同步里写明文件名和大小，由同学本人上传网盘。"
    ],
    "遇到问题": "同 jia-st3d-1104 的“遇到问题怎么办”；--tpaste 是第三版包才有的参数，报“unrecognized arguments”说明用错了旧包。",
+   "组长答复": []
+  },
+  {
+   "编号": "jia-st3d-1106b",
+   "状态": "待执行（jia-st3d-1106a 两个任务都写出 final.json 并打包后自动开始，不必等组长）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-06 第四版包”一节）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107.zip",
+   "实验包SHA256": "d4cc7579315d4dae58ee87959935a20cbd69f114711f0b143c30031008da4fe3",
+   "任务文件": [
+    "tasks/jia_st3d_1106b.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/jia_st3d_1106b.json": "2f48035a2bc9f2d357fcd61d400a0718a7e9ff13e2ded1728e49e19d94dd0d76"
+   },
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 下载第四版实验包并校验 SHA256，解压到 work_st3d\\pub_st3d_pkg_1107\\（与旧包并列，旧包和数据、缓存、输出目录都不动、不删）。脚本与第三版相同，只多了本条任务文件；不必再运行 setup_st3d.py。",
+    "2. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/jia_st3d_1106b.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。",
+    "3. 启动后同步一次：编号、启动时间、两个训练进程号、显存、各任务已完成轮数；之后照常同步。",
+    "4. 本条跑完后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学甲，同步里写明文件名和大小，由同学本人上传网盘。"
+   ],
+   "遇到问题": "同 1104 条目的“遇到问题怎么办”；--tpaste / --ctx_drop 只有第三版及以后的包才有，报“unrecognized arguments”说明用错了旧包。",
    "组长答复": []
   }
  ]
