@@ -1,0 +1,57 @@
+{
+ "说明": "同学甲 11-06：方法原型——时间维剪贴增强 p=0.3（种子 42），以及剪贴增强 p=0.3 + 随机去上下文 p=0.3（种子 42）；开发阶段只评验证集",
+ "任务": [
+  {
+   "名称": "muds_tpaste03_s42",
+   "参数": [
+    "--data",
+    "muds",
+    "--tpaste",
+    "0.3",
+    "--seed",
+    "42",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  },
+  {
+   "名称": "muds_tpaste03_ctx03_s42",
+   "参数": [
+    "--data",
+    "muds",
+    "--tpaste",
+    "0.3",
+    "--ctx_drop",
+    "0.3",
+    "--seed",
+    "42",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  }
+ ]
+}

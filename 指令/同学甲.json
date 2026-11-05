@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-05T11:45:00+08:00",
+ "更新时间": "2026-11-05T13:30:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -123,7 +123,7 @@
   },
   {
    "编号": "jia-st3d-1105b",
-   "状态": "待执行（jia-st3d-1105a 两个任务都写出 final.json 后自动开始，不必等组长）",
+   "状态": "已取消（11-05 13:xx，尚未开始；改为 jia-st3d-1106a）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-05 追加任务”一节）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1105.zip",
    "实验包SHA256": "9d7ec8edfa1358ded77204aef2f25a2d70836e2e8845710dafb62dcf1ceb7f80",
@@ -145,6 +145,28 @@
    "组长答复": [
     "11-05 00:1x 更正（未开始前生效）：①方法原型（ctxdrop）任务加 --test_every 0，训练中和结束时都只评验证集（评价规范第 6 条）；②修正 --ctx_drop 抽到缺测月份时整样本无有效标签、损失为 nan 的问题。实验包和任务文件已重打，以本条目里的新 SHA256 为准；若已下载旧的第二版包，请删掉解压目录里的旧包（挪到 _待删除 也可）后重新下载解压。"
    ]
+  },
+  {
+   "编号": "jia-st3d-1106a",
+   "状态": "待执行（jia-st3d-1105a 两个任务都写出 final.json 后自动开始，不必等组长）",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-06 第三版包”一节）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1106.zip",
+   "实验包SHA256": "149dbe845f2a2c7776b226a9392ed102fdef33610dfeddda3012f9cb39fc9f30",
+   "任务文件": [
+    "tasks/jia_st3d_1106a.json"
+   ],
+   "任务文件SHA256": {
+    "tasks/jia_st3d_1106a.json": "df41f720ac68be94588c0a71fa89f1821dc0f806f9ef534fc1911c370fae5ccb"
+   },
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 下载第三版实验包并校验 SHA256，解压到 work_st3d\\pub_st3d_pkg_1106\\（与旧包并列，旧包和数据、缓存、输出目录都不动、不删）。不必再运行 setup_st3d.py。",
+    "2. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/jia_st3d_1106a.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。",
+    "3. 启动后同步一次：编号、启动时间、两个训练进程号、显存、各任务已完成轮数；之后照常每小时同步。",
+    "4. 本条跑完后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学甲，同步里写明文件名和大小，由同学本人上传网盘。"
+   ],
+   "遇到问题": "同 jia-st3d-1104 的“遇到问题怎么办”；--tpaste 是第三版包才有的参数，报“unrecognized arguments”说明用错了旧包。",
+   "组长答复": []
   }
  ]
 }
