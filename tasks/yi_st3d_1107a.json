@@ -1,0 +1,55 @@
+{
+ "说明": "同学乙 11-07：方法原型“区当标注者”在 MUDS 上的对照，λ=0.01 种子 44、λ=0.001 种子 42；开发阶段只评验证集",
+ "任务": [
+  {
+   "名称": "muds_rbias01_s44",
+   "参数": [
+    "--data",
+    "muds",
+    "--rbias",
+    "0.01",
+    "--seed",
+    "44",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  },
+  {
+   "名称": "muds_rbias001_s42",
+   "参数": [
+    "--data",
+    "muds",
+    "--rbias",
+    "0.001",
+    "--seed",
+    "42",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--epochs",
+    "250",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  }
+ ]
+}
