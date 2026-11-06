@@ -1,13 +1,14 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-07T03:06:00+08:00",
+ "更新时间": "2026-11-07T03:25:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
   "jia-d2ls-1028（tasks/jia_d2ls_1028a.json、jia_d2ls_1028b.json，S5a/S5b 第 3 个种子）：组长 10-28 03:00 取消——前两个种子已显示加入光谱指数对分割精度没有作用（与基线相差不到 0.002）。没开始就不要开；已经开始的，等当前这个部分训练完后停掉运行器，已完成的结果全部保留，不删除。",
   "tasks/jia_d2ls_1029b.json（10-29 09:45 起改由组长本机跑：没开始就不要开；如果已经开始，跑完当前部分后停掉它的运行器，结果保留）",
   "tasks/jia_d2ls_1029a.json（10-29 11:15 起也改由组长本机跑：没开始就不要开；已经开始的跑完当前部分后停掉，结果保留）",
-  "jia-st3d-1106b（tasks/jia_st3d_1106b.json，方法原型剂量补点）：组长 11-07 03:06 取消——没开始就不要开，由 jia-st3d-1107a 替代。"
+  "jia-st3d-1106b（tasks/jia_st3d_1106b.json，方法原型剂量补点）：组长 11-07 03:06 取消——没开始就不要开，由 jia-st3d-1107a 替代。",
+  "jia-st3d-1107a（区当标注者 MUDS 对照）：组长 11-07 03:25 取消——没开始就不要开，由 jia-st3d-1107c 替代。"
  ],
  "队列": [
   {
@@ -194,7 +195,7 @@
   },
   {
    "编号": "jia-st3d-1107a",
-   "状态": "待执行（jia-st3d-1106a 两个任务都写出 final.json 并打包后自动开始，不必等组长）",
+   "状态": "已取消（11-07 03:25，尚未开始；改为 jia-st3d-1107c）",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-07 第五版包”一节）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107b.zip",
    "实验包SHA256": "3229cab4d8c2a92a985e5a371ce35b8992370d0219f840de5d7c5c18621f8967",
@@ -210,6 +211,25 @@
     "4. 本条跑完后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学甲，同步里写明文件名和大小，由同学本人上传网盘。"
    ],
    "遇到问题": "同 1104 条目的“遇到问题怎么办”；--rbias 只有第五版包才有，报“unrecognized arguments”说明用错了旧包。",
+   "组长答复": []
+  },
+  {
+   "编号": "jia-st3d-1107c",
+   "状态": "待执行：第 1—4 步（下载、解压、建缓存、核对）立即开始，不占显卡，可与当前训练并行；第 5 步起等 jia-st3d-1106a 两个任务都写出 final.json 并打包后再开始",
+   "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-07 第六版包”一节）",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107c.zip",
+   "实验包SHA256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
+   "最多同时训练": 1,
+   "步骤": [
+    "1. 下载第六版实验包并校验 SHA256，解压到 work_st3d\\pub_st3d_pkg_1107c\\（与旧包并列，旧包和数据、缓存、输出目录都不动、不删）。",
+    "2. 磁盘要留约 50 GB。用 gdown 从 SitsSCD 作者的官方 Google Drive 下载 DynamicEarthNet.zip（约 7.09 GB）到 work_st3d\\st3d_data\\：gdown --fuzzy \"https://drive.google.com/file/d/1cMP57SPQWYKMy8X60iK217C28RFBkd2z/view\" -O ..\\st3d_data\\DynamicEarthNet.zip；下载不通按“遇到问题”里 gdown 的办法试一次，仍不通就停下，在同步里写“DynamicEarthNet 下载不通”和报错原文，等组长答复（不要反复重试）。",
+    "3. 解压到 work_st3d\\st3d_data\\（得到 work_st3d\\st3d_data\\DynamicEarthNet\\labels 等目录），然后在新包目录运行 python -X utf8 scripts/run_ab_st3d.py prep（建解码缓存，约 28 GB，CPU 和硬盘活，可能要几小时；中断后重跑会跳过已完成的区）。",
+    "4. 运行 python -X utf8 scripts/run_ab_st3d.py check（缓存与官方数据集类逐样本核对），把最后 20 行写进同步。",
+    "5. 等显卡空出来（jia-st3d-1106a 两个任务都写出 final.json 并打包）后，运行 python -X utf8 scripts/run_ab_st3d.py bench --seed 43，把 bench.json 内容写进同步。",
+    "6. 接着运行 python -X utf8 scripts/run_ab_st3d.py train --seed 43（A、B 两版同批次配对训练 50 轮，只评验证集；中途停掉后重跑同一命令会接着跑）。启动后同步一次，之后照常同步，写明 ..\\st3d_runs\\ab_den_s43\\status.json 里的轮数。",
+    "7. 跑完（status.json 显示 complete）后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学甲，同步里写明文件名和大小，由同学本人上传网盘。"
+   ],
+   "遇到问题": "同 1104 条目的“遇到问题怎么办”。实验包 experiments\\history_roles_20261106\\ 下的训练脚本由 Codex 编写，原样使用，任何报错都不要自己改代码，停下报告最后 30 行。显存不足时先确认没有别的训练在占显卡。",
    "组长答复": []
   }
  ]
