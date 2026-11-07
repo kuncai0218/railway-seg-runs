@@ -314,9 +314,9 @@
    "实验包SHA256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
    "最多同时训练": 1,
    "步骤": [
-    "1. 不用重新下载、解压或建缓存：沿用 work_st3d\\pub_st3d_pkg_1107c\\ 和 yi-st3d-1107c 已核对过的 DynamicEarthNet 缓存。..\\st3d_runs\u0007b_den_s44 等已有输出、1107c 的回传包（154,046,509 字节，还没上传）都不动、不删、不覆盖。",
+    "1. 不用重新下载、解压或建缓存：沿用 work_st3d\\pub_st3d_pkg_1107c\\ 和 yi-st3d-1107c 已核对过的 DynamicEarthNet 缓存。..\\st3d_runs\\ab_den_s44 等已有输出、1107c 的回传包（154,046,509 字节，还没上传）都不动、不删、不覆盖。",
     "2. 在 pub_st3d_pkg_1107c 目录运行 python -X utf8 scripts/run_ab_st3d.py bench --seed 43，把 bench.json 内容写进同步。",
-    "3. 接着运行 python -X utf8 scripts/run_ab_st3d.py train --seed 43（A、B 两版同批次配对训练 50 轮，只评验证集；中途停掉后重跑同一命令会接着跑）。启动后同步一次，之后照常同步，写明 ..\\st3d_runs\u0007b_den_s43\\status.json 里的轮数。",
+    "3. 接着运行 python -X utf8 scripts/run_ab_st3d.py train --seed 43（A、B 两版同批次配对训练 50 轮，只评验证集；中途停掉后重跑同一命令会接着跑）。启动后同步一次，之后照常同步，写明 ..\\st3d_runs\\ab_den_s43\\status.json 里的轮数。",
     "4. 跑完（status.json 显示 complete）后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学乙。同步里写明文件名、大小，以及 val_in、val_out 上 A_shared、B_roles、mono_anchor 的 mIoU 与 SCS（与 1107c 完成时的写法相同），由同学本人上传网盘。"
    ],
    "遇到问题": "同 1104 条目的“遇到问题怎么办”。实验包 experiments\\history_roles_20261106\\ 下的训练脚本由 Codex 编写，原样使用，任何报错都不要自己改代码，停下报告最后 30 行。显存不足时先确认没有别的训练在占显卡。",
