@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-07T05:48:00+08:00",
+ "更新时间": "2026-11-07T13:45:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -215,7 +215,7 @@
   },
   {
    "编号": "jia-st3d-1107c",
-   "状态": "待执行：第 1—4 步（下载、解压、建缓存、核对）立即开始，不占显卡，可与当前训练并行；第 5 步起等 jia-st3d-1106a 两个任务都写出 final.json 并打包后再开始",
+   "状态": "改为只做第 1—4 步（11-07 13:45）：DynamicEarthNet 用下面的备用地址下载、解压、建缓存、核对，后面的任务还要用这份数据；第 5—7 步（种子 43 的 A/B 训练）改派给同学乙（yi-st3d-1107d），不要再跑。",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-07 第六版包”一节）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107c.zip",
    "实验包SHA256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
@@ -231,7 +231,8 @@
    ],
    "遇到问题": "同 1104 条目的“遇到问题怎么办”。实验包 experiments\\history_roles_20261106\\ 下的训练脚本由 Codex 编写，原样使用，任何报错都不要自己改代码，停下报告最后 30 行。显存不足时先确认没有别的训练在占显卡。",
    "组长答复": [
-    "11-07 05:48 组长：DynamicEarthNet 的 Google Drive 不通时，改用备用地址（GitHub Release data-den-1107，与官方压缩包逐字节相同，分 8 卷）：把 https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.001 到 https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.008（.001—.008）8 个文件下载到 work_st3d\\st3d_data\\（PowerShell：foreach ($i in 1..8) { curl.exe -L -o \"..\\st3d_data\\DynamicEarthNet.zip.00$i\" \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.00$i\" }），再在 st3d_data 目录合并：cmd /c copy /b DynamicEarthNet.zip.001+DynamicEarthNet.zip.002+DynamicEarthNet.zip.003+DynamicEarthNet.zip.004+DynamicEarthNet.zip.005+DynamicEarthNet.zip.006+DynamicEarthNet.zip.007+DynamicEarthNet.zip.008 DynamicEarthNet.zip ；然后 certutil -hashfile DynamicEarthNet.zip SHA256，必须是 38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870（7,085,823,166 字节），对上再解压并接着做第 3 步；对不上就把它改名为 DynamicEarthNet.zip.bad（不删）重下一次，仍不对就报告。合并核对无误后分卷可以挪到 _待删除。"
+    "11-07 05:48 组长：DynamicEarthNet 的 Google Drive 不通时，改用备用地址（GitHub Release data-den-1107，与官方压缩包逐字节相同，分 8 卷）：把 https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.001 到 https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.008（.001—.008）8 个文件下载到 work_st3d\\st3d_data\\（PowerShell：foreach ($i in 1..8) { curl.exe -L -o \"..\\st3d_data\\DynamicEarthNet.zip.00$i\" \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.00$i\" }），再在 st3d_data 目录合并：cmd /c copy /b DynamicEarthNet.zip.001+DynamicEarthNet.zip.002+DynamicEarthNet.zip.003+DynamicEarthNet.zip.004+DynamicEarthNet.zip.005+DynamicEarthNet.zip.006+DynamicEarthNet.zip.007+DynamicEarthNet.zip.008 DynamicEarthNet.zip ；然后 certutil -hashfile DynamicEarthNet.zip SHA256，必须是 38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870（7,085,823,166 字节），对上再解压并接着做第 3 步；对不上就把它改名为 DynamicEarthNet.zip.bad（不删）重下一次，仍不对就报告。合并核对无误后分卷可以挪到 _待删除。",
+    "11-07 13:45 组长：同步里看到两件事。① 显卡 04:28 报 Xid 62/119/154，训练已停（gpu_execution_blocked）。这需要同学甲本人重启电脑（驱动要求重置显卡），agent 不要自己尝试重置；重启后先跑一次 nvidia-smi 和 gpu_basic_check，把结果写进同步。② Google Drive 下载撞额度：不用再等 Google Drive，直接用“备用下载”里的 8 个分卷（05:48 那条答复写了下载、合并和 SHA256 核对的命令），做完第 1—4 步即可。种子 43 的 A/B 已改派给同学乙。回传包 回传_同学甲_st3d_1104_1107_0420.zip（161,573,532 字节）请本人上传网盘。新的训练任务另行安排。"
    ],
    "备用下载": [
     "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.001",
