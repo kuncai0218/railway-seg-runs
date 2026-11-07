@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-07T13:45:00+08:00",
+ "更新时间": "2026-11-08T00:05:00+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -320,6 +320,29 @@
     "4. 跑完（status.json 显示 complete）后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学乙。同步里写明文件名、大小，以及 val_in、val_out 上 A_shared、B_roles、mono_anchor 的 mIoU 与 SCS（与 1107c 完成时的写法相同），由同学本人上传网盘。"
    ],
    "遇到问题": "同 1104 条目的“遇到问题怎么办”。实验包 experiments\\history_roles_20261106\\ 下的训练脚本由 Codex 编写，原样使用，任何报错都不要自己改代码，停下报告最后 30 行。显存不足时先确认没有别的训练在占显卡。",
+   "组长答复": []
+  },
+  {
+   "编号": "yi-st3d-1107e",
+   "状态": "待执行（立即；yi-st3d-1107d 已完成，显卡空闲）",
+   "说明": "ST3DUNet 三源输入（Planet + 同月 S2 红边短波红外 + 同月 OlmoEarth 特征）的论文设置 250 轮定论实验，种子 43、44；组长本机跑种子 42。这是论文主表里一定要有的基线，与之后选定的新模型配置无关。第七版实验包只更新了 scripts/st3d_repro.py、新增 scripts/pse_net.py，包内说明见 说明_1107e.md。",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107e.zip",
+   "实验包SHA256": "0ae4721ad7d416b20daee3ceb8e0f5b4a32edcb36ecd92111d25948f25f5639d",
+   "任务文件": [
+    "tasks/yi_st3d_1107e.json"
+   ],
+   "任务文件SHA256": "37581953b9b04e56766c49f6c3a860dc9a580524b942aecbc1eb269f0f8c6eeb",
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 下载第七版实验包并校验 SHA256，解压到 work_st3d\\pub_st3d_pkg_1107e\\（与旧包并列；旧包、数据、缓存、输出目录都不动、不删）。不需要再运行 setup_st3d.py，沿用 yi-st3d-1107c 已核对过的 DynamicEarthNet 缓存。",
+    "2. 下载先验缓存（GitHub Release data-den-priors-1107）到 work_st3d\\st3d_cache\\：PowerShell 在 st3d_cache 目录运行 curl.exe -L -o DynamicEarthNetOE.zip \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-priors-1107/DynamicEarthNetOE.zip\" ；curl.exe -L -o DynamicEarthNetS2_small.zip.001 \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-priors-1107/DynamicEarthNetS2_small.zip.001\" ；curl.exe -L -o DynamicEarthNetS2_small.zip.002 \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-priors-1107/DynamicEarthNetS2_small.zip.002\" ；然后合并：cmd /c copy /b DynamicEarthNetS2_small.zip.001+DynamicEarthNetS2_small.zip.002 DynamicEarthNetS2_small.zip 。",
+    "3. 校验：certutil -hashfile DynamicEarthNetOE.zip SHA256 必须是 e2d7035eadabe10d40f029366285c01fa3fd09bfb46f719eba6a7671fb0ca9aa（738,539,299 字节）；certutil -hashfile DynamicEarthNetS2_small.zip SHA256 必须是 649f4b341466c8e8c8f82675a67e4d24da969f48e21a69149f9d19201eaf5674（2,453,687,494 字节）。不一致就删掉重下一次，仍不一致就停下报告。",
+    "4. 在 work_st3d\\st3d_cache 目录解压两个压缩包（python -X utf8 -m zipfile -e DynamicEarthNetOE.zip . 与 python -X utf8 -m zipfile -e DynamicEarthNetS2_small.zip .），得到 st3d_cache\\DynamicEarthNetS2\\train（55 个 .s2small.npy）、val（10 个）和 st3d_cache\\DynamicEarthNetOE\\train（55 个 .oe32.npy）、val（10 个）、pca32.pt。把这几个文件数写进同步。",
+    "5. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/yi_st3d_1107e.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。",
+    "6. 启动后同步一次：编号、启动时间、两个训练进程号、显存、各任务已完成轮数；之后照常同步。",
+    "7. 两个任务都写出 final.json 后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学乙，同步里写明文件名、大小，以及两个任务 final.json 里 last 的 val_in、val_out mIoU 与 SCS，由同学本人上传网盘。1107c、1107d 的回传包如果还没上传，也请一起交给同学本人上传。"
+   ],
+   "遇到问题": "同 1104 条目的“遇到问题怎么办”。报 unrecognized arguments: --s2 或 --oe，说明用错了旧包；报找不到 .s2small.npy 或 .oe32.npy，说明第 4 步解压位置不对（应在 work_st3d\\st3d_cache 下）。Release 下载不通就停下报告原文，不要反复重试。任何报错都不要自己改代码，停下报告 train.log 最后 30 行。",
    "组长答复": []
   }
  ],

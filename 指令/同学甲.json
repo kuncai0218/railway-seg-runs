@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-07T13:45:00+08:00",
+ "更新时间": "2026-11-08T00:05:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -245,6 +245,28 @@
     "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.008"
    ],
    "备用下载合并后SHA256": "38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870"
+  },
+  {
+   "编号": "jia-st3d-1107e",
+   "状态": "待执行（先做第 0 步显卡体检；通过后立即开始）",
+   "说明": "新模型（先验引导的状态—事件时序网络，--arch pse，代码在 scripts/pse_net.py）在 MUDS 上只用 Planet 的论文设置 250 轮，种子 42、43；对照是已有的 ST3DUNet MUDS 论文设置三种子。用来检验新结构在第二个数据集上是否同样有效。不需要新数据，沿用 jia 1104 建好的 MUDS 数据与缓存。",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107e.zip",
+   "实验包SHA256": "0ae4721ad7d416b20daee3ceb8e0f5b4a32edcb36ecd92111d25948f25f5639d",
+   "任务文件": [
+    "tasks/jia_st3d_1107e.json"
+   ],
+   "任务文件SHA256": "62eade965755fe9c0426af8c4d735ee3241897004cbc64235b428bd9590ff074",
+   "最多同时训练": 2,
+   "步骤": [
+    "0. 显卡体检（甲的显卡 11-07 04:28 报过 Xid 62/119/154）：先确认同学本人已重启过电脑；运行 nvidia-smi，把输出贴进同步；再运行 sudo dmesg | grep -i xid | tail -n 20（没有 sudo 权限就运行 dmesg | grep -i xid | tail -n 20），看重启之后有没有新的 Xid。nvidia-smi 报错，或重启后又出现 Xid，就停下报告，不要开训练。",
+    "1. 下载第七版实验包并校验 SHA256，解压到 work_st3d 目录下的 pub_st3d_pkg_1107e（与旧包并列；旧包、数据、缓存、输出都不动、不删）。不需要再运行 setup_st3d.py。",
+    "2. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/jia_st3d_1107e.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。",
+    "3. 启动后同步一次：编号、启动时间、两个训练进程号、显存、各任务已完成轮数；之后照常同步。日志里每轮会多出 prior_ce、event_bce 等辅助损失，属正常。",
+    "4. 两个任务都写出 final.json 后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学甲，同步里写明文件名、大小，以及两个任务 final.json 里 last 的 val_in、val_out mIoU 与 SCS，由同学本人上传网盘。",
+    "5. jia-st3d-1107c 的第 1—4 步（DynamicEarthNet 下载、建缓存、核对）如果还没做，可以与本条并行做（不占显卡）；第 5—7 步仍然不要跑。"
+   ],
+   "遇到问题": "同 1104 条目的“遇到问题怎么办”。报 unrecognized arguments: --arch pse，说明用错了旧包。任何报错都不要自己改代码，停下报告 train.log 最后 30 行。",
+   "组长答复": []
   }
  ]
 }
