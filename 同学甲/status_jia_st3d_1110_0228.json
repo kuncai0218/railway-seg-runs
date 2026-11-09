@@ -1,0 +1,974 @@
+{
+ "name": "同学甲",
+ "time": "2026-11-10 02:28:06",
+ "instruction_id": "jia-st3d-1109",
+ "phase": "running_start_verified",
+ "started_at": "2026-11-09T21:57:23.641144+08:00",
+ "concurrency": 2,
+ "tasks": {
+  "muds_gn_s42": {
+   "completed_epochs": 48,
+   "latest_epoch_line": "第 48 轮 loss 0.2597 val_in mIoU 62.08 SCS 21.41 | val_out mIoU 59.73 SCS 13.15 | 5.7 分钟",
+   "latest_epoch": {
+    "epoch": 48,
+    "lr": 9.126486358260716e-05,
+    "loss": 0.2596964546678161,
+    "train_min": 5.28,
+    "val_in": {
+     "acc": 87.56300477127648,
+     "macc": 85.506666672498,
+     "miou": 62.082558767479256,
+     "bc": 1.8169918344449292,
+     "sc": 41.006160244713875,
+     "scs": 21.4115760395794,
+     "not building": 86.55498892297963,
+     "building": 37.61012861197888
+    },
+    "val_out": {
+     "acc": 90.66590462460617,
+     "macc": 82.27857816874993,
+     "miou": 59.73132540971663,
+     "bc": 1.1399343124848933,
+     "sc": 25.162881784125602,
+     "scs": 13.151408048305248,
+     "not building": 90.29275298429008,
+     "building": 29.16989783514318
+    },
+    "min": 5.7
+   },
+   "final": null,
+   "log_tail": [
+    "[Epoch 47] Step [400/1200], ce: 0.1324, loss: 0.1324",
+    "[Epoch 47] Step [800/1200], ce: 0.2583, loss: 0.2583",
+    "[Epoch 47] Step [1200/1200], ce: 0.1431, loss: 0.1431",
+    "第 47 轮 loss 0.2584 val_in mIoU 60.76 SCS 17.37 | val_out mIoU 58.93 SCS 13.30 | 5.68 分钟",
+    "[Epoch 48] Step [400/1200], ce: 0.1420, loss: 0.1420",
+    "[Epoch 48] Step [800/1200], ce: 0.0194, loss: 0.0194",
+    "[Epoch 48] Step [1200/1200], ce: 0.3385, loss: 0.3385",
+    "第 48 轮 loss 0.2597 val_in mIoU 62.08 SCS 21.41 | val_out mIoU 59.73 SCS 13.15 | 5.7 分钟"
+   ]
+  },
+  "muds_gn_s43": {
+   "completed_epochs": 48,
+   "latest_epoch_line": "第 48 轮 loss 0.2401 val_in mIoU 58.28 SCS 18.53 | val_out mIoU 58.11 SCS 12.12 | 5.7 分钟",
+   "latest_epoch": {
+    "epoch": 48,
+    "lr": 9.126486358260716e-05,
+    "loss": 0.24006627803416147,
+    "train_min": 5.28,
+    "val_in": {
+     "acc": 84.51986648683865,
+     "macc": 85.04457483743512,
+     "miou": 58.27735732924296,
+     "bc": 1.2296334876980037,
+     "sc": 35.835487948417885,
+     "scs": 18.532560718057944,
+     "not building": 83.22116015657747,
+     "building": 33.333554501908466
+    },
+    "val_out": {
+     "acc": 89.32332380278545,
+     "macc": 83.12628254575375,
+     "miou": 58.10946010346175,
+     "bc": 1.1104288304865801,
+     "sc": 23.129088537592516,
+     "scs": 12.119758684039548,
+     "not building": 88.87639323523318,
+     "building": 27.34252697169033
+    },
+    "min": 5.7
+   },
+   "final": null,
+   "log_tail": [
+    "[Epoch 47] Step [400/1200], ce: 0.1241, loss: 0.1241",
+    "[Epoch 47] Step [800/1200], ce: 0.2740, loss: 0.2740",
+    "[Epoch 47] Step [1200/1200], ce: 0.2599, loss: 0.2599",
+    "第 47 轮 loss 0.2461 val_in mIoU 63.47 SCS 17.84 | val_out mIoU 61.29 SCS 11.17 | 5.68 分钟",
+    "[Epoch 48] Step [400/1200], ce: 0.4446, loss: 0.4446",
+    "[Epoch 48] Step [800/1200], ce: 0.1714, loss: 0.1714",
+    "[Epoch 48] Step [1200/1200], ce: 0.3600, loss: 0.3600",
+    "第 48 轮 loss 0.2401 val_in mIoU 58.28 SCS 18.53 | val_out mIoU 58.11 SCS 12.12 | 5.7 分钟"
+   ]
+  },
+  "muds_pseg0_s42": {
+   "completed_epochs": 0,
+   "latest_epoch_line": null,
+   "latest_epoch": null,
+   "final": null,
+   "log_tail": []
+  },
+  "muds_pseg0_s43": {
+   "completed_epochs": 0,
+   "latest_epoch_line": null,
+   "latest_epoch": null,
+   "final": null,
+   "log_tail": []
+  }
+ },
+ "processes": {
+  "runners_or_setup": [
+   {
+    "pid": 42633,
+    "ppid": 42631,
+    "state": "S (sleeping)",
+    "argv": [
+     "/home/user/d2ls_pkg_1027/.venv/bin/python",
+     "-u",
+     "-X",
+     "utf8",
+     "/home/user/work_st3d/pub_st3d_pkg_1109/scripts/run_queue_st3d.py",
+     "tasks/jia_st3d_1109.json",
+     "--max",
+     "2"
+    ]
+   }
+  ],
+  "trainers_or_benchmarks": [
+   {
+    "pid": 42634,
+    "ppid": 42633,
+    "state": "S (sleeping)",
+    "argv": [
+     "/home/user/d2ls_pkg_1027/.venv/bin/python",
+     "-X",
+     "utf8",
+     "scripts/st3d_repro.py",
+     "--data",
+     "muds",
+     "--arch",
+     "st3d_gn",
+     "--seed",
+     "42",
+     "--epochs",
+     "250",
+     "--sched",
+     "paper",
+     "--lr",
+     "1e-4",
+     "--workers",
+     "3",
+     "--eval_workers",
+     "0",
+     "--eval_batch",
+     "16",
+     "--test_every",
+     "0",
+     "--out",
+     "/home/user/work_st3d/st3d_runs/muds_gn_s42"
+    ]
+   },
+   {
+    "pid": 42635,
+    "ppid": 42633,
+    "state": "S (sleeping)",
+    "argv": [
+     "/home/user/d2ls_pkg_1027/.venv/bin/python",
+     "-X",
+     "utf8",
+     "scripts/st3d_repro.py",
+     "--data",
+     "muds",
+     "--arch",
+     "st3d_gn",
+     "--seed",
+     "43",
+     "--epochs",
+     "250",
+     "--sched",
+     "paper",
+     "--lr",
+     "1e-4",
+     "--workers",
+     "3",
+     "--eval_workers",
+     "0",
+     "--eval_batch",
+     "16",
+     "--test_every",
+     "0",
+     "--out",
+     "/home/user/work_st3d/st3d_runs/muds_gn_s43"
+    ]
+   }
+  ]
+ },
+ "hardware": {
+  "observed_at": "2026-11-04T17:02:59.217206+08:00",
+  "gpu_management_query_at": "2026-11-04 16:51",
+  "gpu_name": "NVIDIA TITAN RTX",
+  "gpu_total_mib": 24576,
+  "gpu_used_mib_before_setup": 384,
+  "temperature_c_before_setup": 37,
+  "memory_total_bytes": 67325550592,
+  "memory_available_bytes": 60342505472,
+  "disk_type": "NVMe SSD",
+  "disk_device": "/dev/nvme1n1p2",
+  "disk_model": "Samsung SSD 970 EVO Plus 1TB",
+  "disk_rotational": 0,
+  "memory_rule": "N=2 if physical memory >=64 GB and available >=32 GB, else N=1 (GB=10^9 bytes)",
+  "chosen_concurrency": 2,
+  "gpu_start_sample": {
+   "time": "2026-11-09T21:57:24.716601+08:00",
+   "raw": "NVIDIA TITAN RTX, 528, 24576"
+  },
+  "runner_pid": 42633,
+  "trainer_pids": [
+   42634,
+   42635
+  ],
+  "gpu_active_start_sample": {
+   "time": "2026-11-09T22:00:32.442302+08:00",
+   "command_argv": [
+    "/usr/bin/timeout",
+    "-s",
+    "KILL",
+    "5s",
+    "nvidia-smi",
+    "--query-gpu=name,memory.used,memory.total,utilization.gpu,temperature.gpu",
+    "--format=csv,noheader,nounits"
+   ],
+   "returncode": 0,
+   "stdout": "NVIDIA TITAN RTX, 2427, 24576, 100, 82\n",
+   "stderr": ""
+  }
+ },
+ "setup_receipt": {
+  "passed_at": "2026-11-04T17:18:10.504612+08:00",
+  "setup_unit": {
+   "Result": "success",
+   "ExecMainStatus": "0",
+   "ActiveState": "inactive"
+  },
+  "setup_command_argv": [
+   "/home/user/d2ls_pkg_1027/.venv/bin/python",
+   "-X",
+   "utf8",
+   "scripts/setup_st3d.py"
+  ],
+  "setup_log_sha256": "2923c8f9959f5b8b5cf4faaaeac2906d35f099ac344d2481b9a80c6e35d9c1db",
+  "cache_comparison_conclusion": "缓存版与官方逐样本完全相等",
+  "actual_checked_sample_lines": [
+   "train  核对 25 个样本（共 2400） 累计不相等 0",
+   "val 同区域 核对 23 个样本（共 80） 累计不相等 0",
+   "val 跨区域 核对 25 个样本（共 640） 累计不相等 0",
+   "test 同区域 核对 23 个样本（共 80） 累计不相等 0",
+   "test 跨区域 核对 25 个样本（共 640） 累计不相等 0"
+  ],
+  "all_selected_samples_equal": true,
+  "benchmarks": {
+   "st3d": {
+    "训练 步/秒": 8.59,
+    "每轮步数": 1200,
+    "每轮训练分钟": 2.3,
+    "训练显存峰值 GB": 0.8,
+    "loss": 0.6196492314338684,
+    "val_in 评测分钟": 0.04,
+    "val_in miou": 44.0,
+    "val_out 评测分钟": 0.25,
+    "val_out miou": 51.47
+   },
+   "mono": {
+    "训练 步/秒": 11.54,
+    "每轮步数": 1200,
+    "每轮训练分钟": 1.7,
+    "训练显存峰值 GB": 0.87,
+    "loss": 0.40826719999313354,
+    "val_in 评测分钟": 0.03,
+    "val_in miou": 44.92,
+    "val_out 评测分钟": 0.18,
+    "val_out miou": 53.44
+   }
+  },
+  "source_files_unchanged": true,
+  "task_sha256": "35eca0c8c6dbb4122f8cd3a9fb37e1b06cdb03d7b2a4da6af08b69c8f5d27e64",
+  "data_receipt": "results/data_download_receipt_1104.json",
+  "all_passed": true
+ },
+ "gpu_basic_check": {
+  "time": "2026-11-04T17:09:24.808500+08:00",
+  "command_argv": [
+   "/usr/bin/timeout",
+   "-s",
+   "KILL",
+   "30s",
+   "/home/user/d2ls_pkg_1027/.venv/bin/python",
+   "-u",
+   "-c",
+   "import torch,torchmetrics,pandas,json; assert torch.cuda.is_available(); x=torch.arange(128*128,dtype=torch.float32,device='cuda').reshape(128,128)/16384; y=x@x.T; torch.cuda.synchronize(); assert torch.isfinite(y).all().item(); print(json.dumps({'cuda_basic_passed':True,'device':torch.cuda.get_device_name(0),'torch':torch.__version__,'checksum':y.sum().item(),'torchmetrics':torchmetrics.__version__,'pandas':pandas.__version__}))"
+  ],
+  "returncode": 0,
+  "stdout": "{\"cuda_basic_passed\": true, \"device\": \"NVIDIA TITAN RTX\", \"torch\": \"2.5.1+cu121\", \"checksum\": 524234.71875, \"torchmetrics\": \"1.9.0\", \"pandas\": \"3.1.0\"}\n",
+  "stderr": "",
+  "passed": true
+ },
+ "queue_log_tail": [
+  "11-06 04:58:58 开始 muds_tpaste03_s42，进程号 157856",
+  "11-06 04:58:58 开始 muds_tpaste03_ctx03_s42，进程号 157857",
+  "11-07 04:20:59 结束 muds_tpaste03_s42，正常完成",
+  "11-07 04:20:59 结束 muds_tpaste03_ctx03_s42，正常完成",
+  "11-07 04:20:59 运行器退出",
+  "11-09 14:40:09 开始 muds_pse_s42，进程号 9679",
+  "11-09 14:40:09 开始 muds_pse_s43，进程号 9680",
+  "11-09 21:55:09 结束 muds_pse_s42，正常完成",
+  "11-09 21:55:09 结束 muds_pse_s43，正常完成",
+  "11-09 21:55:09 运行器退出",
+  "11-09 21:57:23 开始 muds_gn_s42，进程号 42634",
+  "11-09 21:57:23 开始 muds_gn_s43，进程号 42635"
+ ],
+ "setup_log_tail": [],
+ "previous_completed_batches": [
+  {
+   "instruction_id": "jia-d2ls-1030",
+   "completed_parts": 18,
+   "root": "/home/user/d2ls_pkg_1029",
+   "latest_package": {
+    "verified_at": "2026-11-03T07:46:40.128188+08:00",
+    "zip_path": "/home/user/d2ls_pkg_1029/回传_同学甲_1103_0745.zip",
+    "zip_name": "回传_同学甲_1103_0745.zip",
+    "size_bytes": 502023232,
+    "size_gib": 0.4675,
+    "sha256": "edb79d150c165a403d3b388200a4ac9c1b42f807966ca5b48ad79ae6bcf5d52b",
+    "sha256_sidecar": "/home/user/d2ls_pkg_1029/回传_同学甲_1103_0745.zip.sha256",
+    "zip_crc_passed": true,
+    "archive_entry_count": 1916,
+    "complete_marker_count": 18,
+    "final_evaluation_count": 8,
+    "probability_file_count": 1798,
+    "all_probability_paths_and_sha256_match_verified_disk": true,
+    "task_hashes_verified": true,
+    "checkpoint_files_excluded_from_zip": true,
+    "checkpoints_retained": 18,
+    "completion_verification": "results/D2LS完成核验_1030.json",
+    "all_verified": true,
+    "upload_status": "pending_user_upload"
+   }
+  },
+  {
+   "instruction_id": "jia-d2ls-1027",
+   "completed_parts": 54,
+   "root": "/home/user/d2ls_pkg_1027",
+   "latest_package": {
+    "verified_at": "2026-10-30T11:28:08.361958+08:00",
+    "zip_path": "/home/user/d2ls_pkg_1027/回传_同学甲_1030_1126.zip",
+    "zip_name": "回传_同学甲_1030_1126.zip",
+    "size_bytes": 1481276132,
+    "size_gib": 1.3795,
+    "sha256": "bb1f5bc9e6e6b32d581aa9e818b4b84b728d0123ef93777fa8c2377184a7c586",
+    "sha256_sidecar": "/home/user/d2ls_pkg_1027/回传_同学甲_1030_1126.zip.sha256",
+    "zip_crc_passed": true,
+    "archive_entry_count": 5639,
+    "complete_marker_count": 54,
+    "probability_file_count": 5394,
+    "formal_run_count": 6,
+    "final_evaluation_count": 24,
+    "all_probability_paths_exactly_match_disk": true,
+    "completion_verification": "results/D2LS完成核验.json",
+    "upload_status": "pending_user_upload",
+    "all_verified": true,
+    "reason": "User delegated latest main-branch instructions; jia-pack-1029 / jia-d2ls-1030 step 0 requested fresh pack of unreturned old results"
+   }
+  },
+  {
+   "instruction_id": "jia-st3d-1104",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1104",
+   "task_progress": {
+    "muds_mono_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.2709 val_in mIoU 61.96 SCS 17.27 | val_out mIoU 60.07 SCS 14.71 | 2.14 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], ce: 0.1987, loss: 0.1987",
+      "[Epoch 244] Step [1200/1200], ce: 0.1212, loss: 0.1212",
+      "第 244 轮 loss 0.2678 val_in mIoU 61.51 SCS 17.06 | val_out mIoU 59.82 SCS 15.09 | 2.15 分钟",
+      "[Epoch 245] Step [400/1200], ce: 0.2085, loss: 0.2085",
+      "[Epoch 245] Step [800/1200], ce: 0.1651, loss: 0.1651",
+      "[Epoch 245] Step [1200/1200], ce: 0.6188, loss: 0.6188",
+      "第 245 轮 loss 0.2687 val_in mIoU 61.60 SCS 16.25 | val_out mIoU 59.50 SCS 14.02 | 2.15 分钟",
+      "[Epoch 246] Step [400/1200], ce: 0.4477, loss: 0.4477",
+      "[Epoch 246] Step [800/1200], ce: 0.2641, loss: 0.2641",
+      "[Epoch 246] Step [1200/1200], ce: 0.0201, loss: 0.0201",
+      "第 246 轮 loss 0.2658 val_in mIoU 62.09 SCS 18.19 | val_out mIoU 60.46 SCS 15.99 | 2.13 分钟",
+      "[Epoch 247] Step [400/1200], ce: 0.4272, loss: 0.4272",
+      "[Epoch 247] Step [800/1200], ce: 0.2272, loss: 0.2272",
+      "[Epoch 247] Step [1200/1200], ce: 0.0937, loss: 0.0937",
+      "第 247 轮 loss 0.2759 val_in mIoU 62.47 SCS 18.36 | val_out mIoU 60.35 SCS 15.78 | 2.14 分钟",
+      "[Epoch 248] Step [400/1200], ce: 0.5317, loss: 0.5317",
+      "[Epoch 248] Step [800/1200], ce: 0.0309, loss: 0.0309",
+      "[Epoch 248] Step [1200/1200], ce: 0.3655, loss: 0.3655",
+      "第 248 轮 loss 0.2721 val_in mIoU 62.38 SCS 18.26 | val_out mIoU 60.34 SCS 15.77 | 2.14 分钟",
+      "[Epoch 249] Step [400/1200], ce: 0.2616, loss: 0.2616",
+      "[Epoch 249] Step [800/1200], ce: 0.0595, loss: 0.0595",
+      "[Epoch 249] Step [1200/1200], ce: 0.0482, loss: 0.0482",
+      "第 249 轮 loss 0.2662 val_in mIoU 61.52 SCS 16.76 | val_out mIoU 59.47 SCS 13.74 | 2.13 分钟",
+      "[Epoch 250] Step [400/1200], ce: 0.0556, loss: 0.0556",
+      "[Epoch 250] Step [800/1200], ce: 0.2628, loss: 0.2628",
+      "[Epoch 250] Step [1200/1200], ce: 0.0949, loss: 0.0949",
+      "第 250 轮 loss 0.2709 val_in mIoU 61.96 SCS 17.27 | val_out mIoU 60.07 SCS 14.71 | 2.14 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1104/scripts/st3d_repro.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    },
+    "muds_code_s42": {
+     "completed_epochs": 100,
+     "final_exists": true,
+     "latest_epoch_line": "第 100 轮 loss 0.2223 val_in mIoU 54.66 SCS 28.95 | val_out mIoU 59.04 SCS 17.98 | 5.48 分钟",
+     "log_tail": [
+      "[Epoch 94] Step [800/1200], ce: 0.2966, loss: 0.2966",
+      "[Epoch 94] Step [1200/1200], ce: 0.2861, loss: 0.2861",
+      "第 94 轮 loss 0.2297 val_in mIoU 57.72 SCS 22.02 | val_out mIoU 62.46 SCS 13.50 | 5.49 分钟",
+      "[Epoch 95] Step [400/1200], ce: 0.0452, loss: 0.0452",
+      "[Epoch 95] Step [800/1200], ce: 0.2030, loss: 0.2030",
+      "[Epoch 95] Step [1200/1200], ce: 0.1959, loss: 0.1959",
+      "第 95 轮 loss 0.2328 val_in mIoU 53.51 SCS 19.43 | val_out mIoU 60.25 SCS 13.42 | 5.61 分钟",
+      "[Epoch 96] Step [400/1200], ce: 0.3455, loss: 0.3455",
+      "[Epoch 96] Step [800/1200], ce: 0.1815, loss: 0.1815",
+      "[Epoch 96] Step [1200/1200], ce: 0.3353, loss: 0.3353",
+      "第 96 轮 loss 0.2237 val_in mIoU 64.73 SCS 18.74 | val_out mIoU 62.35 SCS 11.82 | 5.43 分钟",
+      "[Epoch 97] Step [400/1200], ce: 0.2317, loss: 0.2317",
+      "[Epoch 97] Step [800/1200], ce: 0.1007, loss: 0.1007",
+      "[Epoch 97] Step [1200/1200], ce: 0.4960, loss: 0.4960",
+      "第 97 轮 loss 0.2333 val_in mIoU 56.02 SCS 22.29 | val_out mIoU 62.39 SCS 14.44 | 5.47 分钟",
+      "[Epoch 98] Step [400/1200], ce: 0.2602, loss: 0.2602",
+      "[Epoch 98] Step [800/1200], ce: 0.2045, loss: 0.2045",
+      "[Epoch 98] Step [1200/1200], ce: 0.0469, loss: 0.0469",
+      "第 98 轮 loss 0.2305 val_in mIoU 55.88 SCS 23.31 | val_out mIoU 61.58 SCS 16.30 | 5.58 分钟",
+      "[Epoch 99] Step [400/1200], ce: 0.2069, loss: 0.2069",
+      "[Epoch 99] Step [800/1200], ce: 0.2893, loss: 0.2893",
+      "[Epoch 99] Step [1200/1200], ce: 0.2363, loss: 0.2363",
+      "第 99 轮 loss 0.2300 val_in mIoU 57.40 SCS 19.93 | val_out mIoU 61.70 SCS 14.14 | 5.44 分钟",
+      "[Epoch 100] Step [400/1200], ce: 0.0866, loss: 0.0866",
+      "[Epoch 100] Step [800/1200], ce: 0.4312, loss: 0.4312",
+      "[Epoch 100] Step [1200/1200], ce: 0.1445, loss: 0.1445",
+      "第 100 轮 loss 0.2223 val_in mIoU 54.66 SCS 28.95 | val_out mIoU 59.04 SCS 17.98 | 5.48 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1104/scripts/st3d_repro.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    }
+   },
+   "latest_package": {
+    "verified_at": "2026-11-05T05:28:31.368802+08:00",
+    "instruction_id": "jia-st3d-1104",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1105_0528.zip",
+    "size_bytes": 46610046,
+    "sha256": "cf7f49c190c22351bac221cb9d9ea9f043cdd81793a3e9c60e0633201d7e9fc7",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 19,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 19 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1105_0528.zip（46,610,046 字节）\n"
+   }
+  },
+  {
+   "instruction_id": "jia-st3d-1105a",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1105",
+   "task_progress": {
+    "muds_ctxdrop03_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.2308 val_in mIoU 61.29 SCS 18.40 | val_out mIoU 63.31 SCS 12.97 | 5.7 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], ce: 0.4272, loss: 0.4272",
+      "[Epoch 244] Step [1200/1200], ce: 0.0283, loss: 0.0283",
+      "第 244 轮 loss 0.2386 val_in mIoU 60.20 SCS 18.98 | val_out mIoU 63.15 SCS 12.97 | 5.7 分钟",
+      "[Epoch 245] Step [400/1200], ce: 0.3549, loss: 0.3549",
+      "[Epoch 245] Step [800/1200], ce: 0.3567, loss: 0.3567",
+      "[Epoch 245] Step [1200/1200], ce: 0.2103, loss: 0.2103",
+      "第 245 轮 loss 0.2401 val_in mIoU 58.75 SCS 19.63 | val_out mIoU 63.17 SCS 13.35 | 5.71 分钟",
+      "[Epoch 246] Step [400/1200], ce: 0.3939, loss: 0.3939",
+      "[Epoch 246] Step [800/1200], ce: 0.0227, loss: 0.0227",
+      "[Epoch 246] Step [1200/1200], ce: 0.2641, loss: 0.2641",
+      "第 246 轮 loss 0.2388 val_in mIoU 61.65 SCS 18.69 | val_out mIoU 63.38 SCS 12.71 | 5.72 分钟",
+      "[Epoch 247] Step [400/1200], ce: 0.2697, loss: 0.2697",
+      "[Epoch 247] Step [800/1200], ce: 0.2723, loss: 0.2723",
+      "[Epoch 247] Step [1200/1200], ce: 0.2984, loss: 0.2984",
+      "第 247 轮 loss 0.2257 val_in mIoU 59.62 SCS 19.18 | val_out mIoU 62.77 SCS 13.83 | 5.72 分钟",
+      "[Epoch 248] Step [400/1200], ce: 0.2734, loss: 0.2734",
+      "[Epoch 248] Step [800/1200], ce: 0.4584, loss: 0.4584",
+      "[Epoch 248] Step [1200/1200], ce: 0.1115, loss: 0.1115",
+      "第 248 轮 loss 0.2350 val_in mIoU 60.72 SCS 19.22 | val_out mIoU 63.17 SCS 13.23 | 5.71 分钟",
+      "[Epoch 249] Step [400/1200], ce: 0.1719, loss: 0.1719",
+      "[Epoch 249] Step [800/1200], ce: 0.2055, loss: 0.2055",
+      "[Epoch 249] Step [1200/1200], ce: 0.3057, loss: 0.3057",
+      "第 249 轮 loss 0.2389 val_in mIoU 58.69 SCS 19.10 | val_out mIoU 63.23 SCS 12.50 | 5.72 分钟",
+      "[Epoch 250] Step [400/1200], ce: 0.0027, loss: 0.0027",
+      "[Epoch 250] Step [800/1200], ce: 0.1217, loss: 0.1217",
+      "[Epoch 250] Step [1200/1200], ce: 0.1420, loss: 0.1420",
+      "第 250 轮 loss 0.2308 val_in mIoU 61.29 SCS 18.40 | val_out mIoU 63.31 SCS 12.97 | 5.7 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1105/scripts/st3d_repro.py:351: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    },
+    "muds_ctxdrop05_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.2504 val_in mIoU 61.30 SCS 16.53 | val_out mIoU 62.96 SCS 11.96 | 5.7 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], ce: 0.2896, loss: 0.2896",
+      "[Epoch 244] Step [1200/1200], ce: 0.0172, loss: 0.0172",
+      "第 244 轮 loss 0.2514 val_in mIoU 59.50 SCS 18.42 | val_out mIoU 62.91 SCS 11.62 | 5.7 分钟",
+      "[Epoch 245] Step [400/1200], ce: 0.2089, loss: 0.2089",
+      "[Epoch 245] Step [800/1200], ce: 0.3713, loss: 0.3713",
+      "[Epoch 245] Step [1200/1200], ce: 0.1519, loss: 0.1519",
+      "第 245 轮 loss 0.2534 val_in mIoU 58.41 SCS 18.92 | val_out mIoU 63.11 SCS 11.80 | 5.71 分钟",
+      "[Epoch 246] Step [400/1200], ce: 0.4488, loss: 0.4488",
+      "[Epoch 246] Step [800/1200], ce: 0.0282, loss: 0.0282",
+      "[Epoch 246] Step [1200/1200], ce: 0.0089, loss: 0.0089",
+      "第 246 轮 loss 0.2544 val_in mIoU 61.46 SCS 17.50 | val_out mIoU 62.96 SCS 11.19 | 5.72 分钟",
+      "[Epoch 247] Step [400/1200], ce: 0.3288, loss: 0.3288",
+      "[Epoch 247] Step [800/1200], ce: 0.3950, loss: 0.3950",
+      "[Epoch 247] Step [1200/1200], ce: 0.2712, loss: 0.2712",
+      "第 247 轮 loss 0.2556 val_in mIoU 60.90 SCS 16.87 | val_out mIoU 62.90 SCS 11.51 | 5.72 分钟",
+      "[Epoch 248] Step [400/1200], ce: 0.2793, loss: 0.2793",
+      "[Epoch 248] Step [800/1200], ce: 0.2390, loss: 0.2390",
+      "[Epoch 248] Step [1200/1200], ce: 0.3288, loss: 0.3288",
+      "第 248 轮 loss 0.2478 val_in mIoU 61.51 SCS 16.58 | val_out mIoU 63.05 SCS 11.29 | 5.71 分钟",
+      "[Epoch 249] Step [400/1200], ce: 0.2776, loss: 0.2776",
+      "[Epoch 249] Step [800/1200], ce: 0.5207, loss: 0.5207",
+      "[Epoch 249] Step [1200/1200], ce: 0.2750, loss: 0.2750",
+      "第 249 轮 loss 0.2585 val_in mIoU 58.24 SCS 18.38 | val_out mIoU 63.12 SCS 11.82 | 5.72 分钟",
+      "[Epoch 250] Step [400/1200], ce: 0.2057, loss: 0.2057",
+      "[Epoch 250] Step [800/1200], ce: 0.3125, loss: 0.3125",
+      "[Epoch 250] Step [1200/1200], ce: 0.2552, loss: 0.2552",
+      "第 250 轮 loss 0.2504 val_in mIoU 61.30 SCS 16.53 | val_out mIoU 62.96 SCS 11.96 | 5.7 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1105/scripts/st3d_repro.py:351: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    }
+   },
+   "latest_package": {
+    "verified_at": "2026-11-06T04:58:55.564740+08:00",
+    "instruction_id": "jia-st3d-1105a",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1106_0458.zip",
+    "size_bytes": 104179690,
+    "sha256": "62cb4cb5c9263b106afaf448ff9c3523a17402d218fc89ee0ac61a5748a1362a",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 33,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 33 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1106_0458.zip（104,179,690 字节）\n"
+   }
+  },
+  {
+   "instruction_id": "jia-st3d-1106a",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1106",
+   "latest_package": {
+    "verified_at": "2026-11-07T04:21:07.507436+08:00",
+    "instruction_id": "jia-st3d-1106a",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1107_0420.zip",
+    "size_bytes": 161573532,
+    "sha256": "988b57b4414ffc9b64059de6e29ca1be67de7573b8b815b5f288914e2c78214f",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 47,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 47 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1107_0420.zip（161,573,532 字节）\n"
+   }
+  },
+  {
+   "instruction_id": "jia-st3d-1107e",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1107e",
+   "task_progress": {
+    "muds_pse_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.1788 val_in mIoU 69.70 SCS 23.85 | val_out mIoU 64.85 SCS 16.74 | 1.72 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], loss: 0.2740，event_bce 0.0009",
+      "[Epoch 244] Step [1200/1200], loss: 0.2763，event_bce 0.0196",
+      "第 244 轮 loss 0.1782 val_in mIoU 69.71 SCS 23.72 | val_out mIoU 64.92 SCS 16.52 | 1.73 分钟",
+      "[Epoch 245] Step [400/1200], loss: 0.4265，event_bce 0.0088",
+      "[Epoch 245] Step [800/1200], loss: 0.2558，event_bce 0.0212",
+      "[Epoch 245] Step [1200/1200], loss: 0.2617，event_bce 0.0017",
+      "第 245 轮 loss 0.1823 val_in mIoU 69.83 SCS 23.76 | val_out mIoU 65.01 SCS 16.24 | 1.73 分钟",
+      "[Epoch 246] Step [400/1200], loss: 0.3538，event_bce 0.0171",
+      "[Epoch 246] Step [800/1200], loss: 0.0914，event_bce 0.0010",
+      "[Epoch 246] Step [1200/1200], loss: 0.0429，event_bce 0.0018",
+      "第 246 轮 loss 0.1821 val_in mIoU 69.74 SCS 23.64 | val_out mIoU 64.96 SCS 16.40 | 1.73 分钟",
+      "[Epoch 247] Step [400/1200], loss: 0.1483，event_bce 0.0231",
+      "[Epoch 247] Step [800/1200], loss: 0.0023，event_bce 0.0005",
+      "[Epoch 247] Step [1200/1200], loss: 0.0243，event_bce 0.0011",
+      "第 247 轮 loss 0.1780 val_in mIoU 69.69 SCS 23.68 | val_out mIoU 64.93 SCS 16.46 | 1.75 分钟",
+      "[Epoch 248] Step [400/1200], loss: 0.2761，event_bce 0.0101",
+      "[Epoch 248] Step [800/1200], loss: 0.3591，event_bce 0.0128",
+      "[Epoch 248] Step [1200/1200], loss: 0.0904，event_bce 0.0004",
+      "第 248 轮 loss 0.1814 val_in mIoU 69.76 SCS 23.57 | val_out mIoU 64.98 SCS 16.38 | 1.73 分钟",
+      "[Epoch 249] Step [400/1200], loss: 0.2463，event_bce 0.0564",
+      "[Epoch 249] Step [800/1200], loss: 0.3512，event_bce 0.0030",
+      "[Epoch 249] Step [1200/1200], loss: 0.0333，event_bce 0.0004",
+      "第 249 轮 loss 0.1851 val_in mIoU 69.73 SCS 23.63 | val_out mIoU 64.97 SCS 16.41 | 1.73 分钟",
+      "[Epoch 250] Step [400/1200], loss: 0.2746，event_bce 0.0085",
+      "[Epoch 250] Step [800/1200], loss: 0.3784，event_bce 0.0004",
+      "[Epoch 250] Step [1200/1200], loss: 0.2951，event_bce 0.0109",
+      "第 250 轮 loss 0.1788 val_in mIoU 69.70 SCS 23.85 | val_out mIoU 64.85 SCS 16.74 | 1.72 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1107e/scripts/st3d_repro.py:622: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    },
+    "muds_pse_s43": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.1793 val_in mIoU 70.25 SCS 25.02 | val_out mIoU 65.96 SCS 14.57 | 1.73 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], loss: 0.1470，event_bce 0.0049",
+      "[Epoch 244] Step [1200/1200], loss: 0.1657，event_bce 0.0047",
+      "第 244 轮 loss 0.1832 val_in mIoU 70.24 SCS 25.32 | val_out mIoU 65.99 SCS 14.65 | 1.73 分钟",
+      "[Epoch 245] Step [400/1200], loss: 0.1866，event_bce 0.0023",
+      "[Epoch 245] Step [800/1200], loss: 0.2636，event_bce 0.0004",
+      "[Epoch 245] Step [1200/1200], loss: 0.1056，event_bce 0.0120",
+      "第 245 轮 loss 0.1789 val_in mIoU 70.38 SCS 25.18 | val_out mIoU 66.04 SCS 14.66 | 1.73 分钟",
+      "[Epoch 246] Step [400/1200], loss: 0.1000，event_bce 0.0096",
+      "[Epoch 246] Step [800/1200], loss: 0.2239，event_bce 0.0004",
+      "[Epoch 246] Step [1200/1200], loss: 0.0227，event_bce 0.0008",
+      "第 246 轮 loss 0.1787 val_in mIoU 70.24 SCS 25.18 | val_out mIoU 66.02 SCS 14.51 | 1.73 分钟",
+      "[Epoch 247] Step [400/1200], loss: 0.0007，event_bce 0.0003",
+      "[Epoch 247] Step [800/1200], loss: 0.0944，event_bce 0.0033",
+      "[Epoch 247] Step [1200/1200], loss: 0.2783，event_bce 0.0116",
+      "第 247 轮 loss 0.1791 val_in mIoU 70.27 SCS 25.17 | val_out mIoU 66.02 SCS 14.66 | 1.75 分钟",
+      "[Epoch 248] Step [400/1200], loss: 0.0914，event_bce 0.0135",
+      "[Epoch 248] Step [800/1200], loss: 0.0609，event_bce 0.0046",
+      "[Epoch 248] Step [1200/1200], loss: 0.1254，event_bce 0.0416",
+      "第 248 轮 loss 0.1838 val_in mIoU 70.26 SCS 25.22 | val_out mIoU 66.02 SCS 14.78 | 1.73 分钟",
+      "[Epoch 249] Step [400/1200], loss: 0.1353，event_bce 0.0002",
+      "[Epoch 249] Step [800/1200], loss: 0.0865，event_bce 0.0003",
+      "[Epoch 249] Step [1200/1200], loss: 0.1010，event_bce 0.0358",
+      "第 249 轮 loss 0.1770 val_in mIoU 70.26 SCS 25.11 | val_out mIoU 65.97 SCS 14.69 | 1.73 分钟",
+      "[Epoch 250] Step [400/1200], loss: 0.1788，event_bce 0.0113",
+      "[Epoch 250] Step [800/1200], loss: 0.1208，event_bce 0.0056",
+      "[Epoch 250] Step [1200/1200], loss: 0.1171，event_bce 0.0141",
+      "第 250 轮 loss 0.1793 val_in mIoU 70.25 SCS 25.02 | val_out mIoU 65.96 SCS 14.57 | 1.73 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1107e/scripts/st3d_repro.py:622: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    }
+   },
+   "latest_package": {
+    "verified_at": "2026-11-09T21:55:39.829845+08:00",
+    "instruction_id": "jia-st3d-1107e",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1109_2155.zip",
+    "size_bytes": 228324813,
+    "sha256": "a15e6334d7f03fa40e623f9254e197103577bcc0e95a22a5df0971ab5e3f7b38",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 61,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 61 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1109_2155.zip（228,324,813 字节）\n"
+   }
+  }
+ ],
+ "package": null,
+ "next_queued_tasks": [],
+ "chain_error": null,
+ "completion_metrics": null,
+ "gpu_recovery_check": {
+  "time": "2026-11-09T14:36:55.603588+08:00",
+  "boot_at": "2026-11-09 14:28:51",
+  "command_argv": [
+   "/usr/bin/timeout",
+   "-s",
+   "KILL",
+   "30s",
+   "/home/user/d2ls_pkg_1027/.venv/bin/python",
+   "-u",
+   "-c",
+   "import torch,torchmetrics,pandas,json; assert torch.cuda.is_available(); x=torch.arange(128*128,dtype=torch.float32,device='cuda').reshape(128,128)/16384; y=x@x.T; torch.cuda.synchronize(); assert torch.isfinite(y).all().item(); print(json.dumps({'cuda_basic_passed':True,'device':torch.cuda.get_device_name(0),'torch':torch.__version__,'checksum':y.sum().item(),'torchmetrics':torchmetrics.__version__,'pandas':pandas.__version__}))"
+  ],
+  "returncode": 0,
+  "stdout": "{\"cuda_basic_passed\": true, \"device\": \"NVIDIA TITAN RTX\", \"torch\": \"2.5.1+cu121\", \"checksum\": 524234.71875, \"torchmetrics\": \"1.9.0\", \"pandas\": \"3.1.0\"}\n",
+  "stderr": "",
+  "passed": true,
+  "nvidia_smi_observed_at": "2026-11-09T14:36:00+08:00",
+  "nvidia_smi": "NVIDIA TITAN RTX, 709, 24576, 38",
+  "dmesg_permission_denied": true,
+  "current_boot_journal_kernel_faults": "-- No entries --"
+ },
+ "gpu_execution_blocked": false,
+ "gpu_incident": {
+  "observed_at": "2026-11-07T04:37:04.520714+08:00",
+  "first_error_at": "2026-11-07T04:28:00+08:00",
+  "kernel_evidence": {
+   "returncode": 0,
+   "stdout": "Nov 07 04:28:00 user kernel: NVRM: Xid (PCI:0000:01:00): 62, 000122bb 00012317 00011e48 00015e33 00016252 000141da 00000011 00000000\nNov 07 04:28:06 user kernel: NVRM: Xid (PCI:0000:01:00): 119, Timeout after 6s of waiting for RPC response from GPU0 GSP! Expected function 76 (GSP_RM_CONTROL) sequence 35433011 (0x20800a56 0x5c).\nNov 07 04:28:06 user kernel: NVRM: Xid (PCI:0000:01:00): 154, GPU recovery action changed from 0x0 (None) to 0x1 (GPU Reset Required)\nNov 07 04:28:12 user kernel: NVRM: Xid (PCI:0000:01:00): 119, pid=1881, name=Xorg, Timeout after 6s of waiting for RPC response from GPU0 GSP! Expected function 76 (GSP_RM_CONTROL) sequence 35433012 (0xc3700104 0x14).\nNov 07 04:28:18 user kernel: NVRM: Xid (PCI:0000:01:00): 119, pid=1881, name=Xorg, Timeout after 6s of waiting for RPC response from GPU0 GSP! Expected function 76 (GSP_RM_CONTROL) sequence 35433013 (0xc3700104 0x14).",
+   "stderr": ""
+  },
+  "detected_codes": [
+   62,
+   119,
+   154
+  ],
+  "training_finished_before_fault": true,
+  "training_queue_normal_exit_at": "2026-11-07T04:20:59+08:00",
+  "completion_verification": "/home/user/work_st3d/pub_st3d_pkg_1106/results/completion_verification_jia-st3d-1106a.json",
+  "package_verification": "/home/user/work_st3d/pub_st3d_pkg_1106/results/package_verification_jia-st3d-1106a.json",
+  "active_own_trainers": [],
+  "active_own_queue": false,
+  "signal_action": "none_required_already_finished",
+  "gpu_queries_issued": false,
+  "gpu_reset_or_reboot_issued": false,
+  "followup_gpu_start_blocked": true,
+  "recovery_status": "awaiting_user_or_authorized_hardware_recovery_and_fresh_checks",
+  "sync_retained": true
+ },
+ "followup_preparation": {
+  "time": "2026-11-09T20:12:40.348520+08:00",
+  "instruction_id": "jia-st3d-1107c",
+  "package_sha256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
+  "package_bytes": 7517933,
+  "source_file_count": 39,
+  "syntax_and_cpu_only_cli_passed": true,
+  "all_preparation_passed": false,
+  "phase": "cancelled_by_main_preserve_files",
+  "data_download_failure": {
+   "time": "2026-11-07T03:35:38.453223+08:00",
+   "message": "DynamicEarthNet 下载不通",
+   "attempts": [
+    {
+     "command_argv": [
+      "/home/user/d2ls_pkg_1027/.venv/bin/python",
+      "-m",
+      "gdown",
+      "https://drive.google.com/file/d/1cMP57SPQWYKMy8X60iK217C28RFBkd2z/view",
+      "--retries",
+      "0",
+      "--timeout",
+      "60",
+      "--continue",
+      "-O",
+      "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip"
+     ],
+     "passed": false,
+     "error": "{\"command_argv\": [\"/home/user/d2ls_pkg_1027/.venv/bin/python\", \"-m\", \"gdown\", \"https://drive.google.com/file/d/1cMP57SPQWYKMy8X60iK217C28RFBkd2z/view\", \"--retries\", \"0\", \"--timeout\", \"60\", \"--continue\", \"-O\", \"/home/user/work_st3d/st3d_data/DynamicEarthNet.zip\"], \"returncode\": 1, \"last30\": \"Using cookies from /home/user/.cache/gdown/cookies.txt\\nFailed to retrieve file url:\\n\\n\\tToo many users have viewed or downloaded this file recently. Please\\n\\ttry accessing the file again later. If the file you are trying to\\n\\taccess is particularly large or is shared with many people, it may\\n\\ttake up to 24 hours to be able to view or download the file. If you\\n\\tstill can't access a file after 24 hours, contact your domain\\n\\tadministrator.\\n\\nYou may still be able to access the file from the browser:\\n\\n\\thttps://drive.google.com/uc?id=1cMP57SPQWYKMy8X60iK217C28RFBkd2z\\n\\nbut Gdown can't. Please check connections and permissions.\"}"
+    },
+    {
+     "command_argv": [
+      "/home/user/d2ls_pkg_1027/.venv/bin/python",
+      "-m",
+      "gdown",
+      "1cMP57SPQWYKMy8X60iK217C28RFBkd2z",
+      "--retries",
+      "0",
+      "--timeout",
+      "60",
+      "--continue",
+      "-O",
+      "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip"
+     ],
+     "passed": false,
+     "error": "{\"command_argv\": [\"/home/user/d2ls_pkg_1027/.venv/bin/python\", \"-m\", \"gdown\", \"1cMP57SPQWYKMy8X60iK217C28RFBkd2z\", \"--retries\", \"0\", \"--timeout\", \"60\", \"--continue\", \"-O\", \"/home/user/work_st3d/st3d_data/DynamicEarthNet.zip\"], \"returncode\": 1, \"last30\": \"Using cookies from /home/user/.cache/gdown/cookies.txt\\nFailed to retrieve file url:\\n\\n\\tToo many users have viewed or downloaded this file recently. Please\\n\\ttry accessing the file again later. If the file you are trying to\\n\\taccess is particularly large or is shared with many people, it may\\n\\ttake up to 24 hours to be able to view or download the file. If you\\n\\tstill can't access a file after 24 hours, contact your domain\\n\\tadministrator.\\n\\nYou may still be able to access the file from the browser:\\n\\n\\thttps://drive.google.com/uc?id=1cMP57SPQWYKMy8X60iK217C28RFBkd2z\\n\\nbut Gdown can't. Please check connections and permissions.\"}"
+    }
+   ],
+   "proxy_configured": false
+  },
+  "no_data_downloaded": true,
+  "gpu_steps_started": false,
+  "next_action": "Wait for canonical leader reply; do not repeat download/setup/bench/train",
+  "AB_training_reassigned": true,
+  "download_source": "authorized_GitHub_Release_8_parts",
+  "release_failure": {
+   "time": "2026-11-09T15:44:24.724691+08:00",
+   "error": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/agent_tools/agent_prepare_den_release_1109.py\", line 31, in <module>\n    if p.returncode:raise RuntimeError(f'Authorized DEN part {index} download failed rc={p.returncode}; no automatic retry')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Authorized DEN part 4 download failed rc=22; no automatic retry\n",
+   "gpu_steps_started": false
+  },
+  "release_resume": {
+   "time": "2026-11-09T15:43:29.514683+08:00",
+   "diagnosis": "Part4 curl35 SSL_ERROR_SYSCALL during TLS connection; first3 completed; no current downloader; no configured proxy",
+   "max_additional_resume_attempts": 1,
+   "completed_parts": {
+    "1": {
+     "path": "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip.001",
+     "size_bytes": 885727896,
+     "sha256": "05aa3ee503d5fc6fe6a8ed8e09bbbe764e89c9ff7a174c119f0e0c5ce6871ffe",
+     "original_curl_returncode": 0
+    },
+    "2": {
+     "path": "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip.002",
+     "size_bytes": 885727896,
+     "sha256": "a06a9c6f03b14729642ad2a5d2e0e5025d40dcd44bcf77ce95bd13c299b6b99b",
+     "original_curl_returncode": 0
+    },
+    "3": {
+     "path": "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip.003",
+     "size_bytes": 885727896,
+     "sha256": "a3568d2d2a75e07a7563e623cf7762b10b209bc66b27555ece85bd1914e1bbc5",
+     "original_curl_returncode": 0
+    }
+   },
+   "original_failure": "/home/user/work_st3d/pub_st3d_pkg_1107c/results/release_preparation_failure_1109.json",
+   "service": "railseg-jia-den-release-1109-prepare.service"
+  },
+  "current_state": {
+   "time": "2026-11-09T15:44:24.724920+08:00",
+   "phase": "needs_attention",
+   "error": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/agent_tools/agent_prepare_den_release_1109.py\", line 31, in <module>\n    if p.returncode:raise RuntimeError(f'Authorized DEN part {index} download failed rc={p.returncode}; no automatic retry')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Authorized DEN part 4 download failed rc=22; no automatic retry\n",
+   "gpu_steps_started": false,
+   "AB_training_reassigned": true,
+   "download_source": "authorized_GitHub_Release"
+  },
+  "release_download_last30": [
+   "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current",
+   "                                 Dload  Upload   Total   Spent    Left  Speed",
+   "",
+   "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0",
+   "curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 ",
+   "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current",
+   "                                 Dload  Upload   Total   Spent    Left  Speed",
+   "",
+   "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0",
+   "  0    92    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0",
+   "curl: (22) The requested URL returned error: 504"
+  ],
+  "cancelled": true,
+  "cancel_reason": "main 2026-11-09T20:30:00+08:00",
+  "no_retry": true
+ },
+ "followup_preparation_state": {
+  "time": "2026-11-09T20:12:40.348520+08:00",
+  "phase": "cancelled_by_main_preserve_files",
+  "error": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/agent_tools/agent_prepare_den_release_1109.py\", line 31, in <module>\n    if p.returncode:raise RuntimeError(f'Authorized DEN part {index} download failed rc={p.returncode}; no automatic retry')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Authorized DEN part 4 download failed rc=22; no automatic retry\n",
+  "gpu_steps_started": false,
+  "AB_training_reassigned": true,
+  "download_source": "authorized_GitHub_Release",
+  "cancelled": true,
+  "cancel_reason": "main 2026-11-09T20:30:00+08:00",
+  "no_retry": true
+ },
+ "next_chain_state": {
+  "phase": "handoff_to_jia-st3d-1109_complete",
+  "updated_at": "2026-11-09T22:03:59.415386+08:00",
+  "start_receipt": "/home/user/work_st3d/pub_st3d_pkg_1109/results/start_receipt_jia-st3d-1109.json",
+  "watch_unit": "railseg-jia-st3d-watch-1109.service"
+ },
+ "chain_state": {
+  "phase": "waiting_for_jia-st3d-1109",
+  "updated_at": "2026-11-10T02:28:03.856866+08:00",
+  "progress": {
+   "muds_gn_s42": {
+    "completed_epochs": 48,
+    "final_exists": false,
+    "latest_epoch_line": "第 48 轮 loss 0.2597 val_in mIoU 62.08 SCS 21.41 | val_out mIoU 59.73 SCS 13.15 | 5.7 分钟",
+    "log_tail": [
+     "[Epoch 41] Step [1200/1200], ce: 0.3564, loss: 0.3564",
+     "第 41 轮 loss 0.2637 val_in mIoU 64.86 SCS 15.16 | val_out mIoU 61.92 SCS 8.84 | 5.7 分钟",
+     "[Epoch 42] Step [400/1200], ce: 0.3861, loss: 0.3861",
+     "[Epoch 42] Step [800/1200], ce: 0.5018, loss: 0.5018",
+     "[Epoch 42] Step [1200/1200], ce: 0.1800, loss: 0.1800",
+     "第 42 轮 loss 0.2656 val_in mIoU 58.78 SCS 18.91 | val_out mIoU 58.28 SCS 13.87 | 5.69 分钟",
+     "[Epoch 43] Step [400/1200], ce: 0.5491, loss: 0.5491",
+     "[Epoch 43] Step [800/1200], ce: 0.3390, loss: 0.3390",
+     "[Epoch 43] Step [1200/1200], ce: 0.3644, loss: 0.3644",
+     "第 43 轮 loss 0.2621 val_in mIoU 64.53 SCS 16.70 | val_out mIoU 61.46 SCS 10.20 | 5.69 分钟",
+     "[Epoch 44] Step [400/1200], ce: 0.1334, loss: 0.1334",
+     "[Epoch 44] Step [800/1200], ce: 0.3921, loss: 0.3921",
+     "[Epoch 44] Step [1200/1200], ce: 0.0941, loss: 0.0941",
+     "第 44 轮 loss 0.2622 val_in mIoU 61.10 SCS 18.62 | val_out mIoU 58.56 SCS 12.81 | 5.7 分钟",
+     "[Epoch 45] Step [400/1200], ce: 0.3350, loss: 0.3350",
+     "[Epoch 45] Step [800/1200], ce: 0.0238, loss: 0.0238",
+     "[Epoch 45] Step [1200/1200], ce: 0.0902, loss: 0.0902",
+     "第 45 轮 loss 0.2674 val_in mIoU 59.60 SCS 17.83 | val_out mIoU 58.27 SCS 12.99 | 5.69 分钟",
+     "[Epoch 46] Step [400/1200], ce: 0.1621, loss: 0.1621",
+     "[Epoch 46] Step [800/1200], ce: 0.2265, loss: 0.2265",
+     "[Epoch 46] Step [1200/1200], ce: 0.0045, loss: 0.0045",
+     "第 46 轮 loss 0.2651 val_in mIoU 61.70 SCS 17.18 | val_out mIoU 59.86 SCS 11.99 | 5.68 分钟",
+     "[Epoch 47] Step [400/1200], ce: 0.1324, loss: 0.1324",
+     "[Epoch 47] Step [800/1200], ce: 0.2583, loss: 0.2583",
+     "[Epoch 47] Step [1200/1200], ce: 0.1431, loss: 0.1431",
+     "第 47 轮 loss 0.2584 val_in mIoU 60.76 SCS 17.37 | val_out mIoU 58.93 SCS 13.30 | 5.68 分钟",
+     "[Epoch 48] Step [400/1200], ce: 0.1420, loss: 0.1420",
+     "[Epoch 48] Step [800/1200], ce: 0.0194, loss: 0.0194",
+     "[Epoch 48] Step [1200/1200], ce: 0.3385, loss: 0.3385",
+     "第 48 轮 loss 0.2597 val_in mIoU 62.08 SCS 21.41 | val_out mIoU 59.73 SCS 13.15 | 5.7 分钟"
+    ]
+   },
+   "muds_gn_s43": {
+    "completed_epochs": 48,
+    "final_exists": false,
+    "latest_epoch_line": "第 48 轮 loss 0.2401 val_in mIoU 58.28 SCS 18.53 | val_out mIoU 58.11 SCS 12.12 | 5.7 分钟",
+    "log_tail": [
+     "[Epoch 41] Step [1200/1200], ce: 0.1280, loss: 0.1280",
+     "第 41 轮 loss 0.2591 val_in mIoU 64.04 SCS 16.67 | val_out mIoU 61.54 SCS 10.85 | 5.7 分钟",
+     "[Epoch 42] Step [400/1200], ce: 0.2538, loss: 0.2538",
+     "[Epoch 42] Step [800/1200], ce: 0.2385, loss: 0.2385",
+     "[Epoch 42] Step [1200/1200], ce: 0.4305, loss: 0.4305",
+     "第 42 轮 loss 0.2559 val_in mIoU 62.62 SCS 17.94 | val_out mIoU 60.06 SCS 12.64 | 5.69 分钟",
+     "[Epoch 43] Step [400/1200], ce: 0.0085, loss: 0.0085",
+     "[Epoch 43] Step [800/1200], ce: 0.3440, loss: 0.3440",
+     "[Epoch 43] Step [1200/1200], ce: 0.1400, loss: 0.1400",
+     "第 43 轮 loss 0.2598 val_in mIoU 61.21 SCS 19.81 | val_out mIoU 59.39 SCS 13.72 | 5.69 分钟",
+     "[Epoch 44] Step [400/1200], ce: 0.1895, loss: 0.1895",
+     "[Epoch 44] Step [800/1200], ce: 0.3163, loss: 0.3163",
+     "[Epoch 44] Step [1200/1200], ce: 0.2173, loss: 0.2173",
+     "第 44 轮 loss 0.2492 val_in mIoU 58.76 SCS 20.42 | val_out mIoU 57.05 SCS 14.50 | 5.7 分钟",
+     "[Epoch 45] Step [400/1200], ce: 0.3602, loss: 0.3602",
+     "[Epoch 45] Step [800/1200], ce: 0.0103, loss: 0.0103",
+     "[Epoch 45] Step [1200/1200], ce: 0.1438, loss: 0.1438",
+     "第 45 轮 loss 0.2536 val_in mIoU 64.55 SCS 17.60 | val_out mIoU 61.38 SCS 11.89 | 5.69 分钟",
+     "[Epoch 46] Step [400/1200], ce: 0.1316, loss: 0.1316",
+     "[Epoch 46] Step [800/1200], ce: 0.0130, loss: 0.0130",
+     "[Epoch 46] Step [1200/1200], ce: 0.5327, loss: 0.5327",
+     "第 46 轮 loss 0.2454 val_in mIoU 60.62 SCS 20.06 | val_out mIoU 59.22 SCS 13.27 | 5.68 分钟",
+     "[Epoch 47] Step [400/1200], ce: 0.1241, loss: 0.1241",
+     "[Epoch 47] Step [800/1200], ce: 0.2740, loss: 0.2740",
+     "[Epoch 47] Step [1200/1200], ce: 0.2599, loss: 0.2599",
+     "第 47 轮 loss 0.2461 val_in mIoU 63.47 SCS 17.84 | val_out mIoU 61.29 SCS 11.17 | 5.68 分钟",
+     "[Epoch 48] Step [400/1200], ce: 0.4446, loss: 0.4446",
+     "[Epoch 48] Step [800/1200], ce: 0.1714, loss: 0.1714",
+     "[Epoch 48] Step [1200/1200], ce: 0.3600, loss: 0.3600",
+     "第 48 轮 loss 0.2401 val_in mIoU 58.28 SCS 18.53 | val_out mIoU 58.11 SCS 12.12 | 5.7 分钟"
+    ]
+   },
+   "muds_pseg0_s42": {
+    "completed_epochs": 0,
+    "final_exists": false,
+    "latest_epoch_line": null,
+    "log_tail": []
+   },
+   "muds_pseg0_s43": {
+    "completed_epochs": 0,
+    "final_exists": false,
+    "latest_epoch_line": null,
+    "log_tail": []
+   }
+  }
+ },
+ "benchmarks": {
+  "st3d": {
+   "训练 步/秒": 8.59,
+   "每轮步数": 1200,
+   "每轮训练分钟": 2.3,
+   "训练显存峰值 GB": 0.8,
+   "loss": 0.6196492314338684,
+   "val_in 评测分钟": 0.04,
+   "val_in miou": 44.0,
+   "val_out 评测分钟": 0.25,
+   "val_out miou": 51.47
+  },
+  "mono": {
+   "训练 步/秒": 11.54,
+   "每轮步数": 1200,
+   "每轮训练分钟": 1.7,
+   "训练显存峰值 GB": 0.87,
+   "loss": 0.40826719999313354,
+   "val_in 评测分钟": 0.03,
+   "val_in miou": 44.92,
+   "val_out 评测分钟": 0.18,
+   "val_out miou": 53.44
+  }
+ }
+}

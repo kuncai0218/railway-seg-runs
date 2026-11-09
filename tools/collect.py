@@ -20,6 +20,10 @@ MAX_ATTACHMENT = 12 * 2**20
 
 def runtime_status(snapshot):
     """Interpret reported runner events; retained failure.json files are history."""
+    from snapshot_1110 import normalize_current
+    normalized = normalize_current(snapshot)
+    if normalized is not None:
+        return normalized
     lines = snapshot.get('runner_log_tail') or []
     starts = [i for i, line in enumerate(lines) if ' 任务文件 ' in line]
     current = lines[starts[-1]:] if starts else lines
@@ -151,7 +155,7 @@ def main():
                 summary += f'；快照解析失败：{type(exc).__name__}'
         summary = summary.replace('|', '／').replace('\n', ' ')
         lines.append(f"| {DISPLAY_NAMES.get(name, name)} | {when} | {summary} |")
-    scope_note = '外部同学只有甲、乙两位；原“同学丙”是组长本机3090代跑队列的内部标识，目录和消息话题沿用旧名。' if all_sources else '本页只监视甲、乙；本机和服务器训练已交由其他接管者负责。'
+    scope_note = '外部同学只有甲、乙两位；原“同学丙”是组长本机3090代跑队列的内部标识，目录和消息话题沿用旧名。' if all_sources else '本页记录甲、乙的带时间快照；Codex已于11-10接管本机、服务器、甲乙的统一安排与监测。'
     lines += ['', scope_note, '', '状态以所列时间的快照为准；本轮失败按最近一次运行记录判定，保留的历史错误不代表当前故障。']
     table_changed = not page.exists() or page.read_text(encoding='utf-8').splitlines()[4:] != lines[4:]
     if changed or table_changed:

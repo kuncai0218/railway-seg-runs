@@ -1,0 +1,137 @@
+{
+ "name": "同学乙",
+ "time": "2026-11-10 03:13:21",
+ "指令编号": "yi-st3d-1109（8 任务 × 30 轮，种子 43/44，--max 2；1107e 已暂缓停在 55/250，断点保留）",
+ "阻塞": {
+  "状态": "已解除（11-04 05:05 组长答复给 GitHub Release 备用地址）",
+  "下载": "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip → 245,211,794 B（与指令一致），SHA256 3c544aa1693f1e8e41c0973d0be01c5ed217f709ff2e477f6151a348af2962e5（与指令一致）",
+  "原阻塞": "Google Drive（gdown 1RySuz…Cs8I）与 drive.google.com:443 均超时，本机无可用代理；已按“遇到问题怎么办”第③条停下报告"
+ },
+ "实验包核验": {
+  "pub_st3d_pkg_1104.zip SHA256": "15db097e9956a3d5e97b9be9c60c8c57fed40c517a44ec4863ddd1140036b163（与指令一致）",
+  "tasks/yi_st3d_1104.json SHA256": "15caeeba0b7bfd1c07021c645e46a338fa2672406b0487c2ab44ba1580536d3a（与指令一致）",
+  "解压目录": "C:\\Users\\wh\\Desktop\\railway\\work_st3d\\pub_st3d_pkg_1104"
+ },
+ "依赖": "torch 2.5.1+cu121（未改动）、torchvision 0.20.1 已有；本次只补装 torchmetrics 1.9.0、pandas 3.1.0、gdown 6.5.1（清华镜像），pyyaml 6.0.3 / tqdm 4.70.1 原已有",
+ "数据": {
+  "Muds.zip": "已下载并校验一致（245,211,794 B）",
+  "目录": "C:\\Users\\wh\\Desktop\\railway\\work_st3d\\st3d_data",
+  "缓存": "C:\\Users\\wh\\Desktop\\railway\\work_st3d\\st3d_cache"
+ },
+ "准备日志尾部": [
+  "Loading test ground truth took 0.22 seconds",
+  "数据载入 7 秒；训练 2400，val_in 80，val_out 640，test_in 80，test_out 640",
+  "参数量 1.00 M",
+  "{\"训练 步/秒\": 8.25, \"每轮步数\": 1200, \"每轮训练分钟\": 2.4, \"训练显存峰值 GB\": 0.87, \"loss\": 0.44089555740356445, \"val_in 评测分钟\": 0.06, \"val_in miou\": 49.17, \"val_out 评测分钟\": 0.4, \"val_out miou\": 54.16}",
+  "",
+  "准备完成。把第 1、4、5 步的输出写进同步状态，然后按说明启动运行器。"
+ ],
+ "机器": {
+  "GPU": "NVIDIA TITAN RTX, 7811 MiB, 24576 MiB, 82 %, 84, 118.20 W",
+  "内存": "total_gb=63.8 free_gb=45.8",
+  "work_st3d 所在盘": "C: Samsung SSD 970 EVO Plus 1TB（NVMe 固态）"
+ },
+ "任务进度": {
+  "ab_den_s43": {
+   "已完成轮数": 50,
+   "final.json": true,
+   "最新轮次行": null
+  },
+  "ab_den_s43_bench": {
+   "已完成轮数": 0,
+   "final.json": false,
+   "最新轮次行": null
+  },
+  "ab_den_s44": {
+   "已完成轮数": 50,
+   "final.json": true,
+   "最新轮次行": null
+  },
+  "ab_den_s44_bench": {
+   "已完成轮数": 0,
+   "final.json": false,
+   "最新轮次行": null
+  },
+  "den3src_s43": {
+   "已完成轮数": 55,
+   "final.json": false,
+   "最新轮次行": "第 55 轮 loss 0.4318 val_in mIoU 57.01 SCS 36.17 | val_out mIoU 38.21 SCS 15.71 | 8.98 分钟"
+  },
+  "den3src_s44": {
+   "已完成轮数": 55,
+   "final.json": false,
+   "最新轮次行": "第 55 轮 loss 0.4442 val_in mIoU 56.88 SCS 35.85 | val_out mIoU 38.16 SCS 15.67 | 8.98 分钟"
+  },
+  "den_gn_planet_s43": {
+   "已完成轮数": 30,
+   "final.json": true,
+   "最新轮次行": "第 30 轮 loss 0.5303 val_in mIoU 53.54 SCS 27.01 | val_out mIoU 33.53 SCS 11.73 | 8.03 分钟"
+  },
+  "den_gn_planet_s44": {
+   "已完成轮数": 30,
+   "final.json": true,
+   "最新轮次行": "第 30 轮 loss 0.4746 val_in mIoU 54.09 SCS 29.43 | val_out mIoU 31.40 SCS 10.74 | 8.03 分钟"
+  },
+  "den_pseg0_3src_s43": {
+   "已完成轮数": 16,
+   "final.json": false,
+   "最新轮次行": "第 16 轮 loss 0.3987 val_in mIoU 60.10 SCS 39.82 | val_out mIoU 41.67 SCS 17.17 | 5.59 分钟"
+  },
+  "den_pseg0_3src_s44": {
+   "已完成轮数": 16,
+   "final.json": false,
+   "最新轮次行": "第 16 轮 loss 0.3920 val_in mIoU 58.61 SCS 35.77 | val_out mIoU 39.71 SCS 17.40 | 5.59 分钟"
+  },
+  "den_pseg0_planet_s43": {
+   "已完成轮数": 30,
+   "final.json": true,
+   "最新轮次行": "第 30 轮 loss 0.4337 val_in mIoU 57.22 SCS 39.17 | val_out mIoU 34.20 SCS 15.49 | 2.71 分钟"
+  },
+  "den_pseg0_planet_s44": {
+   "已完成轮数": 30,
+   "final.json": true,
+   "最新轮次行": "第 30 轮 loss 0.4258 val_in mIoU 57.89 SCS 38.66 | val_out mIoU 34.44 SCS 12.94 | 2.71 分钟"
+  },
+  "muds_ctxdrop05_s43": {
+   "已完成轮数": 250,
+   "final.json": true,
+   "最新轮次行": "第 250 轮 loss 0.2597 val_in mIoU 60.42 SCS 18.05 | val_out mIoU 63.42 SCS 12.37 | 5.84 分钟"
+  },
+  "muds_mono_s43": {
+   "已完成轮数": 250,
+   "final.json": true,
+   "最新轮次行": "第 250 轮 loss 0.2735 val_in mIoU 60.56 SCS 14.90 | val_out mIoU 59.06 SCS 13.46 | 4.77 分钟"
+  },
+  "muds_mono_s44": {
+   "已完成轮数": 250,
+   "final.json": true,
+   "最新轮次行": "第 250 轮 loss 0.2647 val_in mIoU 60.42 SCS 14.18 | val_out mIoU 58.73 SCS 12.15 | 4.78 分钟"
+  },
+  "muds_paper_det_s42": {
+   "已完成轮数": 250,
+   "final.json": true,
+   "最新轮次行": "第 250 轮 loss 0.1966 val_in mIoU 63.33 SCS 21.49 | val_out mIoU 64.20 SCS 13.05 | 4.58 分钟"
+  },
+  "muds_paper_s43": {
+   "已完成轮数": 250,
+   "final.json": true,
+   "最新轮次行": "第 250 轮 loss 0.1892 val_in mIoU 67.02 SCS 21.81 | val_out mIoU 63.77 SCS 12.39 | 6.08 分钟"
+  },
+  "muds_paper_s44": {
+   "已完成轮数": 250,
+   "final.json": true,
+   "最新轮次行": "第 250 轮 loss 0.1956 val_in mIoU 62.11 SCS 21.60 | val_out mIoU 64.00 SCS 13.24 | 6.07 分钟"
+  }
+ },
+ "运行器日志尾部": [
+  "11-10 03:05:00 muds_paper_s44 已完成，跳过",
+  "11-10 03:05:00 运行器退出",
+  "11-10 03:10:00 muds_mono_s43 已完成，跳过",
+  "11-10 03:10:00 muds_mono_s44 已完成，跳过",
+  "11-10 03:10:00 运行器退出",
+  "11-10 03:10:00 muds_paper_det_s42 已完成，跳过",
+  "11-10 03:10:00 muds_ctxdrop05_s43 已完成，跳过",
+  "11-10 03:10:00 运行器退出"
+ ],
+ "上一批（yi-emn-cd-1102b）": "12/12 完成，回传包 回传_同学乙_emn_1102_1102_2232.zip（219,778 B）待同学本人上传网盘"
+}

@@ -1,109 +1,123 @@
 {
  "name": "同学甲",
- "time": "2026-11-09 19:41:02",
- "instruction_id": "jia-st3d-1107e",
+ "time": "2026-11-10 03:43:25",
+ "instruction_id": "jia-st3d-1109",
  "phase": "running_start_verified",
- "started_at": "2026-11-09T14:40:09.758919+08:00",
+ "started_at": "2026-11-09T21:57:23.641144+08:00",
  "concurrency": 2,
  "tasks": {
-  "muds_pse_s42": {
-   "completed_epochs": 173,
-   "latest_epoch_line": "第 173 轮 loss 0.1825 val_in mIoU 68.67 SCS 25.28 | val_out mIoU 64.22 SCS 17.43 | 1.72 分钟",
+  "muds_gn_s42": {
+   "completed_epochs": 61,
+   "latest_epoch_line": "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟",
    "latest_epoch": {
-    "epoch": 173,
-    "lr": 2.2420187018225568e-05,
-    "loss": 0.18248451567773372,
-    "train_min": 1.57,
+    "epoch": 61,
+    "lr": 8.615529673195139e-05,
+    "loss": 0.25290440681991944,
+    "train_min": 5.28,
     "val_in": {
-     "acc": 91.52170677618223,
-     "macc": 87.01724647797316,
-     "miou": 68.66523681547505,
-     "bc": 3.6479853091782326,
-     "sc": 46.90539206389847,
-     "scs": 25.27668868653835,
-     "not building": 90.84774684625,
-     "building": 46.48272678470009
+     "acc": 85.43406413886487,
+     "macc": 86.25315163949669,
+     "miou": 59.64974259796314,
+     "bc": 1.7649931627270952,
+     "sc": 39.79015187402034,
+     "scs": 20.777572518373717,
+     "not building": 84.18778088268384,
+     "building": 35.11170431324245
     },
     "val_out": {
-     "acc": 92.8248279185646,
-     "macc": 85.00046778285555,
-     "miou": 64.2184600871203,
-     "bc": 1.8353374513371226,
-     "sc": 33.01905039059976,
-     "scs": 17.427193920968442,
-     "not building": 92.52424595170041,
-     "building": 35.91267422254018
+     "acc": 88.76032344387038,
+     "macc": 85.33847901443235,
+     "miou": 57.95886604858396,
+     "bc": 1.1697743274541539,
+     "sc": 29.597427753909166,
+     "scs": 15.38360104068166,
+     "not building": 88.25553624094495,
+     "building": 27.662195856222983
     },
-    "min": 1.72
+    "min": 5.7
    },
    "final": null,
    "log_tail": [
-    "[Epoch 172] Step [400/1200], loss: 0.2427，event_bce 0.0026",
-    "[Epoch 172] Step [800/1200], loss: 0.2955，event_bce 0.0261",
-    "[Epoch 172] Step [1200/1200], loss: 0.0064，event_bce 0.0003",
-    "第 172 轮 loss 0.1829 val_in mIoU 68.91 SCS 23.74 | val_out mIoU 64.41 SCS 17.24 | 1.72 分钟",
-    "[Epoch 173] Step [400/1200], loss: 0.1202，event_bce 0.0101",
-    "[Epoch 173] Step [800/1200], loss: 0.2835，event_bce 0.0114",
-    "[Epoch 173] Step [1200/1200], loss: 0.2941，event_bce 0.0432",
-    "第 173 轮 loss 0.1825 val_in mIoU 68.67 SCS 25.28 | val_out mIoU 64.22 SCS 17.43 | 1.72 分钟"
+    "[Epoch 60] Step [400/1200], ce: 0.0569, loss: 0.0569",
+    "[Epoch 60] Step [800/1200], ce: 0.3991, loss: 0.3991",
+    "[Epoch 60] Step [1200/1200], ce: 0.1483, loss: 0.1483",
+    "第 60 轮 loss 0.2394 val_in mIoU 63.58 SCS 20.25 | val_out mIoU 60.30 SCS 14.06 | 5.7 分钟",
+    "[Epoch 61] Step [400/1200], ce: 0.1065, loss: 0.1065",
+    "[Epoch 61] Step [800/1200], ce: 0.1620, loss: 0.1620",
+    "[Epoch 61] Step [1200/1200], ce: 0.5370, loss: 0.5370",
+    "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟"
    ]
   },
-  "muds_pse_s43": {
-   "completed_epochs": 173,
-   "latest_epoch_line": "第 173 轮 loss 0.1837 val_in mIoU 69.18 SCS 27.31 | val_out mIoU 65.23 SCS 16.84 | 1.72 分钟",
+  "muds_gn_s43": {
+   "completed_epochs": 61,
+   "latest_epoch_line": "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟",
    "latest_epoch": {
-    "epoch": 173,
-    "lr": 2.2420187018225568e-05,
-    "loss": 0.18372073091728452,
-    "train_min": 1.57,
+    "epoch": 61,
+    "lr": 8.615529673195139e-05,
+    "loss": 0.24286545886595073,
+    "train_min": 5.28,
     "val_in": {
-     "acc": 91.71429161288415,
-     "macc": 87.51344834228618,
-     "miou": 69.1831978667473,
-     "bc": 4.3561032708319525,
-     "sc": 50.2549648316939,
-     "scs": 27.305534051262924,
-     "not building": 91.04807442837418,
-     "building": 47.31832130512042
+     "acc": 86.776529382951,
+     "macc": 86.16159628464382,
+     "miou": 61.25912489809955,
+     "bc": 1.6770073188242731,
+     "sc": 38.70777745541093,
+     "scs": 20.1923923871176,
+     "not building": 85.67098878105244,
+     "building": 36.84726101514666
     },
     "val_out": {
-     "acc": 93.42077346608109,
-     "macc": 84.3759287649325,
-     "miou": 65.23207750615799,
-     "bc": 2.050094200581892,
-     "sc": 31.634098311873203,
-     "scs": 16.84209625622755,
-     "not building": 93.15263864155736,
-     "building": 37.31151637075863
+     "acc": 89.91261051781842,
+     "macc": 83.75513730362508,
+     "miou": 59.07539534418673,
+     "bc": 1.380992282414515,
+     "sc": 26.117850982681922,
+     "scs": 13.749421632548218,
+     "not building": 89.48646020328022,
+     "building": 28.664330485093252
     },
-    "min": 1.72
+    "min": 5.7
    },
    "final": null,
    "log_tail": [
-    "[Epoch 172] Step [400/1200], loss: 0.0707，event_bce 0.0035",
-    "[Epoch 172] Step [800/1200], loss: 0.2655，event_bce 0.0002",
-    "[Epoch 172] Step [1200/1200], loss: 0.4261，event_bce 0.0082",
-    "第 172 轮 loss 0.1830 val_in mIoU 69.52 SCS 26.77 | val_out mIoU 65.38 SCS 16.01 | 1.72 分钟",
-    "[Epoch 173] Step [400/1200], loss: 0.2283，event_bce 0.0005",
-    "[Epoch 173] Step [800/1200], loss: 0.2226，event_bce 0.0005",
-    "[Epoch 173] Step [1200/1200], loss: 0.3975，event_bce 0.0103",
-    "第 173 轮 loss 0.1837 val_in mIoU 69.18 SCS 27.31 | val_out mIoU 65.23 SCS 16.84 | 1.72 分钟"
+    "[Epoch 60] Step [400/1200], ce: 0.3840, loss: 0.3840",
+    "[Epoch 60] Step [800/1200], ce: 0.0883, loss: 0.0883",
+    "[Epoch 60] Step [1200/1200], ce: 0.4465, loss: 0.4465",
+    "第 60 轮 loss 0.2401 val_in mIoU 66.28 SCS 15.03 | val_out mIoU 62.31 SCS 8.69 | 5.7 分钟",
+    "[Epoch 61] Step [400/1200], ce: 0.0349, loss: 0.0349",
+    "[Epoch 61] Step [800/1200], ce: 0.4215, loss: 0.4215",
+    "[Epoch 61] Step [1200/1200], ce: 0.2385, loss: 0.2385",
+    "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟"
    ]
+  },
+  "muds_pseg0_s42": {
+   "completed_epochs": 0,
+   "latest_epoch_line": null,
+   "latest_epoch": null,
+   "final": null,
+   "log_tail": []
+  },
+  "muds_pseg0_s43": {
+   "completed_epochs": 0,
+   "latest_epoch_line": null,
+   "latest_epoch": null,
+   "final": null,
+   "log_tail": []
   }
  },
  "processes": {
   "runners_or_setup": [
    {
-    "pid": 9677,
-    "ppid": 9674,
+    "pid": 42633,
+    "ppid": 42631,
     "state": "S (sleeping)",
     "argv": [
      "/home/user/d2ls_pkg_1027/.venv/bin/python",
      "-u",
      "-X",
      "utf8",
-     "/home/user/work_st3d/pub_st3d_pkg_1107e/scripts/run_queue_st3d.py",
-     "tasks/jia_st3d_1107e.json",
+     "/home/user/work_st3d/pub_st3d_pkg_1109/scripts/run_queue_st3d.py",
+     "tasks/jia_st3d_1109.json",
      "--max",
      "2"
     ]
@@ -111,8 +125,8 @@
   ],
   "trainers_or_benchmarks": [
    {
-    "pid": 9679,
-    "ppid": 9677,
+    "pid": 42634,
+    "ppid": 42633,
     "state": "S (sleeping)",
     "argv": [
      "/home/user/d2ls_pkg_1027/.venv/bin/python",
@@ -122,15 +136,15 @@
      "--data",
      "muds",
      "--arch",
-     "pse",
+     "st3d_gn",
      "--seed",
      "42",
+     "--epochs",
+     "250",
      "--sched",
      "paper",
      "--lr",
      "1e-4",
-     "--epochs",
-     "250",
      "--workers",
      "3",
      "--eval_workers",
@@ -140,13 +154,13 @@
      "--test_every",
      "0",
      "--out",
-     "/home/user/work_st3d/st3d_runs/muds_pse_s42"
+     "/home/user/work_st3d/st3d_runs/muds_gn_s42"
     ]
    },
    {
-    "pid": 9680,
-    "ppid": 9677,
-    "state": "R (running)",
+    "pid": 42635,
+    "ppid": 42633,
+    "state": "S (sleeping)",
     "argv": [
      "/home/user/d2ls_pkg_1027/.venv/bin/python",
      "-X",
@@ -155,15 +169,15 @@
      "--data",
      "muds",
      "--arch",
-     "pse",
+     "st3d_gn",
      "--seed",
      "43",
+     "--epochs",
+     "250",
      "--sched",
      "paper",
      "--lr",
      "1e-4",
-     "--epochs",
-     "250",
      "--workers",
      "3",
      "--eval_workers",
@@ -173,7 +187,7 @@
      "--test_every",
      "0",
      "--out",
-     "/home/user/work_st3d/st3d_runs/muds_pse_s43"
+     "/home/user/work_st3d/st3d_runs/muds_gn_s43"
     ]
    }
   ]
@@ -186,7 +200,7 @@
   "gpu_used_mib_before_setup": 384,
   "temperature_c_before_setup": 37,
   "memory_total_bytes": 67325550592,
-  "memory_available_bytes": 62047563776,
+  "memory_available_bytes": 60342505472,
   "disk_type": "NVMe SSD",
   "disk_device": "/dev/nvme1n1p2",
   "disk_model": "Samsung SSD 970 EVO Plus 1TB",
@@ -194,23 +208,29 @@
   "memory_rule": "N=2 if physical memory >=64 GB and available >=32 GB, else N=1 (GB=10^9 bytes)",
   "chosen_concurrency": 2,
   "gpu_start_sample": {
-   "time": "2026-11-09T14:41:15+08:00",
-   "gpu_name": "NVIDIA TITAN RTX",
-   "used_MiB": 3552,
-   "total_MiB": 24576,
-   "gpu_util_percent": 98,
-   "temperature_c": 67,
-   "trainer_memory_MiB": {
-    "9679": 1474,
-    "9680": 1474
-   },
-   "source": "external_5_second_timeout_nvidia_smi_actual_stdout"
+   "time": "2026-11-09T21:57:24.716601+08:00",
+   "raw": "NVIDIA TITAN RTX, 528, 24576"
   },
-  "runner_pid": 9677,
+  "runner_pid": 42633,
   "trainer_pids": [
-   9679,
-   9680
-  ]
+   42634,
+   42635
+  ],
+  "gpu_active_start_sample": {
+   "time": "2026-11-09T22:00:32.442302+08:00",
+   "command_argv": [
+    "/usr/bin/timeout",
+    "-s",
+    "KILL",
+    "5s",
+    "nvidia-smi",
+    "--query-gpu=name,memory.used,memory.total,utilization.gpu,temperature.gpu",
+    "--format=csv,noheader,nounits"
+   ],
+   "returncode": 0,
+   "stdout": "NVIDIA TITAN RTX, 2427, 24576, 100, 82\n",
+   "stderr": ""
+  }
  },
  "setup_receipt": {
   "passed_at": "2026-11-04T17:18:10.504612+08:00",
@@ -282,18 +302,18 @@
   "passed": true
  },
  "queue_log_tail": [
-  "11-05 05:28:34 开始 muds_ctxdrop03_s42，进程号 61033",
-  "11-05 05:28:34 开始 muds_ctxdrop05_s42，进程号 61034",
-  "11-06 04:58:34 结束 muds_ctxdrop03_s42，正常完成",
-  "11-06 04:58:34 结束 muds_ctxdrop05_s42，正常完成",
-  "11-06 04:58:34 运行器退出",
   "11-06 04:58:58 开始 muds_tpaste03_s42，进程号 157856",
   "11-06 04:58:58 开始 muds_tpaste03_ctx03_s42，进程号 157857",
   "11-07 04:20:59 结束 muds_tpaste03_s42，正常完成",
   "11-07 04:20:59 结束 muds_tpaste03_ctx03_s42，正常完成",
   "11-07 04:20:59 运行器退出",
   "11-09 14:40:09 开始 muds_pse_s42，进程号 9679",
-  "11-09 14:40:09 开始 muds_pse_s43，进程号 9680"
+  "11-09 14:40:09 开始 muds_pse_s43，进程号 9680",
+  "11-09 21:55:09 结束 muds_pse_s42，正常完成",
+  "11-09 21:55:09 结束 muds_pse_s43，正常完成",
+  "11-09 21:55:09 运行器退出",
+  "11-09 21:57:23 开始 muds_gn_s42，进程号 42634",
+  "11-09 21:57:23 开始 muds_gn_s43，进程号 42635"
  ],
  "setup_log_tail": [],
  "previous_completed_batches": [
@@ -547,16 +567,102 @@
     "upload_status": "pending_user_upload",
     "original_pack_output": "已打包 47 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1107_0420.zip（161,573,532 字节）\n"
    }
+  },
+  {
+   "instruction_id": "jia-st3d-1107e",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1107e",
+   "task_progress": {
+    "muds_pse_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.1788 val_in mIoU 69.70 SCS 23.85 | val_out mIoU 64.85 SCS 16.74 | 1.72 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], loss: 0.2740，event_bce 0.0009",
+      "[Epoch 244] Step [1200/1200], loss: 0.2763，event_bce 0.0196",
+      "第 244 轮 loss 0.1782 val_in mIoU 69.71 SCS 23.72 | val_out mIoU 64.92 SCS 16.52 | 1.73 分钟",
+      "[Epoch 245] Step [400/1200], loss: 0.4265，event_bce 0.0088",
+      "[Epoch 245] Step [800/1200], loss: 0.2558，event_bce 0.0212",
+      "[Epoch 245] Step [1200/1200], loss: 0.2617，event_bce 0.0017",
+      "第 245 轮 loss 0.1823 val_in mIoU 69.83 SCS 23.76 | val_out mIoU 65.01 SCS 16.24 | 1.73 分钟",
+      "[Epoch 246] Step [400/1200], loss: 0.3538，event_bce 0.0171",
+      "[Epoch 246] Step [800/1200], loss: 0.0914，event_bce 0.0010",
+      "[Epoch 246] Step [1200/1200], loss: 0.0429，event_bce 0.0018",
+      "第 246 轮 loss 0.1821 val_in mIoU 69.74 SCS 23.64 | val_out mIoU 64.96 SCS 16.40 | 1.73 分钟",
+      "[Epoch 247] Step [400/1200], loss: 0.1483，event_bce 0.0231",
+      "[Epoch 247] Step [800/1200], loss: 0.0023，event_bce 0.0005",
+      "[Epoch 247] Step [1200/1200], loss: 0.0243，event_bce 0.0011",
+      "第 247 轮 loss 0.1780 val_in mIoU 69.69 SCS 23.68 | val_out mIoU 64.93 SCS 16.46 | 1.75 分钟",
+      "[Epoch 248] Step [400/1200], loss: 0.2761，event_bce 0.0101",
+      "[Epoch 248] Step [800/1200], loss: 0.3591，event_bce 0.0128",
+      "[Epoch 248] Step [1200/1200], loss: 0.0904，event_bce 0.0004",
+      "第 248 轮 loss 0.1814 val_in mIoU 69.76 SCS 23.57 | val_out mIoU 64.98 SCS 16.38 | 1.73 分钟",
+      "[Epoch 249] Step [400/1200], loss: 0.2463，event_bce 0.0564",
+      "[Epoch 249] Step [800/1200], loss: 0.3512，event_bce 0.0030",
+      "[Epoch 249] Step [1200/1200], loss: 0.0333，event_bce 0.0004",
+      "第 249 轮 loss 0.1851 val_in mIoU 69.73 SCS 23.63 | val_out mIoU 64.97 SCS 16.41 | 1.73 分钟",
+      "[Epoch 250] Step [400/1200], loss: 0.2746，event_bce 0.0085",
+      "[Epoch 250] Step [800/1200], loss: 0.3784，event_bce 0.0004",
+      "[Epoch 250] Step [1200/1200], loss: 0.2951，event_bce 0.0109",
+      "第 250 轮 loss 0.1788 val_in mIoU 69.70 SCS 23.85 | val_out mIoU 64.85 SCS 16.74 | 1.72 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1107e/scripts/st3d_repro.py:622: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    },
+    "muds_pse_s43": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.1793 val_in mIoU 70.25 SCS 25.02 | val_out mIoU 65.96 SCS 14.57 | 1.73 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], loss: 0.1470，event_bce 0.0049",
+      "[Epoch 244] Step [1200/1200], loss: 0.1657，event_bce 0.0047",
+      "第 244 轮 loss 0.1832 val_in mIoU 70.24 SCS 25.32 | val_out mIoU 65.99 SCS 14.65 | 1.73 分钟",
+      "[Epoch 245] Step [400/1200], loss: 0.1866，event_bce 0.0023",
+      "[Epoch 245] Step [800/1200], loss: 0.2636，event_bce 0.0004",
+      "[Epoch 245] Step [1200/1200], loss: 0.1056，event_bce 0.0120",
+      "第 245 轮 loss 0.1789 val_in mIoU 70.38 SCS 25.18 | val_out mIoU 66.04 SCS 14.66 | 1.73 分钟",
+      "[Epoch 246] Step [400/1200], loss: 0.1000，event_bce 0.0096",
+      "[Epoch 246] Step [800/1200], loss: 0.2239，event_bce 0.0004",
+      "[Epoch 246] Step [1200/1200], loss: 0.0227，event_bce 0.0008",
+      "第 246 轮 loss 0.1787 val_in mIoU 70.24 SCS 25.18 | val_out mIoU 66.02 SCS 14.51 | 1.73 分钟",
+      "[Epoch 247] Step [400/1200], loss: 0.0007，event_bce 0.0003",
+      "[Epoch 247] Step [800/1200], loss: 0.0944，event_bce 0.0033",
+      "[Epoch 247] Step [1200/1200], loss: 0.2783，event_bce 0.0116",
+      "第 247 轮 loss 0.1791 val_in mIoU 70.27 SCS 25.17 | val_out mIoU 66.02 SCS 14.66 | 1.75 分钟",
+      "[Epoch 248] Step [400/1200], loss: 0.0914，event_bce 0.0135",
+      "[Epoch 248] Step [800/1200], loss: 0.0609，event_bce 0.0046",
+      "[Epoch 248] Step [1200/1200], loss: 0.1254，event_bce 0.0416",
+      "第 248 轮 loss 0.1838 val_in mIoU 70.26 SCS 25.22 | val_out mIoU 66.02 SCS 14.78 | 1.73 分钟",
+      "[Epoch 249] Step [400/1200], loss: 0.1353，event_bce 0.0002",
+      "[Epoch 249] Step [800/1200], loss: 0.0865，event_bce 0.0003",
+      "[Epoch 249] Step [1200/1200], loss: 0.1010，event_bce 0.0358",
+      "第 249 轮 loss 0.1770 val_in mIoU 70.26 SCS 25.11 | val_out mIoU 65.97 SCS 14.69 | 1.73 分钟",
+      "[Epoch 250] Step [400/1200], loss: 0.1788，event_bce 0.0113",
+      "[Epoch 250] Step [800/1200], loss: 0.1208，event_bce 0.0056",
+      "[Epoch 250] Step [1200/1200], loss: 0.1171，event_bce 0.0141",
+      "第 250 轮 loss 0.1793 val_in mIoU 70.25 SCS 25.02 | val_out mIoU 65.96 SCS 14.57 | 1.73 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1107e/scripts/st3d_repro.py:622: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    }
+   },
+   "latest_package": {
+    "verified_at": "2026-11-09T21:55:39.829845+08:00",
+    "instruction_id": "jia-st3d-1107e",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1109_2155.zip",
+    "size_bytes": 228324813,
+    "sha256": "a15e6334d7f03fa40e623f9254e197103577bcc0e95a22a5df0971ab5e3f7b38",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 61,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 61 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1109_2155.zip（228,324,813 字节）\n"
+   }
   }
  ],
  "package": null,
- "next_queued_tasks": [
-  {
-   "instruction_id": "jia-st3d-1107c",
-   "status": "CPU_preparation_blocked_part4_HTTP504_after_one_resume",
-   "root": "/home/user/work_st3d/pub_st3d_pkg_1107c"
-  }
- ],
+ "next_queued_tasks": [],
  "chain_error": null,
  "completion_metrics": null,
  "gpu_recovery_check": {
@@ -609,14 +715,14 @@
   "sync_retained": true
  },
  "followup_preparation": {
-  "time": "2026-11-09T15:44:40.018541+08:00",
+  "time": "2026-11-09T20:12:40.348520+08:00",
   "instruction_id": "jia-st3d-1107c",
   "package_sha256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
   "package_bytes": 7517933,
   "source_file_count": 39,
   "syntax_and_cpu_only_cli_passed": true,
   "all_preparation_passed": false,
-  "phase": "authorized_release_resume_failed",
+  "phase": "cancelled_by_main_preserve_files",
   "data_download_failure": {
    "time": "2026-11-07T03:35:38.453223+08:00",
    "message": "DynamicEarthNet 下载不通",
@@ -703,7 +809,6 @@
    "AB_training_reassigned": true,
    "download_source": "authorized_GitHub_Release"
   },
-  "release_error_summary": "DEN第4分卷：原TLS握手失败后的一次续传返回HTTP 504（curl22），CPU准备已停，不再重试；前三卷完整保留，等待组长处理",
   "release_download_last30": [
    "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current",
    "                                 Dload  Upload   Total   Spent    Left  Speed",
@@ -728,93 +833,117 @@
    "  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0",
    "  0    92    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0",
    "curl: (22) The requested URL returned error: 504"
-  ]
+  ],
+  "cancelled": true,
+  "cancel_reason": "main 2026-11-09T20:30:00+08:00",
+  "no_retry": true
  },
  "followup_preparation_state": {
-  "time": "2026-11-09T15:44:24.724920+08:00",
-  "phase": "needs_attention",
+  "time": "2026-11-09T20:12:40.348520+08:00",
+  "phase": "cancelled_by_main_preserve_files",
   "error": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/agent_tools/agent_prepare_den_release_1109.py\", line 31, in <module>\n    if p.returncode:raise RuntimeError(f'Authorized DEN part {index} download failed rc={p.returncode}; no automatic retry')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Authorized DEN part 4 download failed rc=22; no automatic retry\n",
   "gpu_steps_started": false,
   "AB_training_reassigned": true,
-  "download_source": "authorized_GitHub_Release"
+  "download_source": "authorized_GitHub_Release",
+  "cancelled": true,
+  "cancel_reason": "main 2026-11-09T20:30:00+08:00",
+  "no_retry": true
+ },
+ "next_chain_state": {
+  "phase": "handoff_to_jia-st3d-1109_complete",
+  "updated_at": "2026-11-09T22:03:59.415386+08:00",
+  "start_receipt": "/home/user/work_st3d/pub_st3d_pkg_1109/results/start_receipt_jia-st3d-1109.json",
+  "watch_unit": "railseg-jia-st3d-watch-1109.service"
  },
  "chain_state": {
-  "phase": "waiting_for_jia-st3d-1107e",
-  "updated_at": "2026-11-09T19:40:54.165617+08:00",
+  "phase": "waiting_for_jia-st3d-1109",
+  "updated_at": "2026-11-10T03:43:05.785494+08:00",
   "progress": {
-   "muds_pse_s42": {
-    "completed_epochs": 172,
+   "muds_gn_s42": {
+    "completed_epochs": 61,
     "final_exists": false,
-    "latest_epoch_line": "第 172 轮 loss 0.1829 val_in mIoU 68.91 SCS 23.74 | val_out mIoU 64.41 SCS 17.24 | 1.72 分钟",
+    "latest_epoch_line": "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟",
     "log_tail": [
-     "[Epoch 166] Step [800/1200], loss: 0.2439，event_bce 0.0079",
-     "[Epoch 166] Step [1200/1200], loss: 0.0265，event_bce 0.0014",
-     "第 166 轮 loss 0.1902 val_in mIoU 68.99 SCS 25.21 | val_out mIoU 64.19 SCS 16.92 | 1.72 分钟",
-     "[Epoch 167] Step [400/1200], loss: 0.0885，event_bce 0.0032",
-     "[Epoch 167] Step [800/1200], loss: 0.0325，event_bce 0.0004",
-     "[Epoch 167] Step [1200/1200], loss: 0.2561，event_bce 0.0006",
-     "第 167 轮 loss 0.1817 val_in mIoU 69.63 SCS 23.80 | val_out mIoU 64.64 SCS 14.65 | 1.72 分钟",
-     "[Epoch 168] Step [400/1200], loss: 0.0371，event_bce 0.0009",
-     "[Epoch 168] Step [800/1200], loss: 0.0234，event_bce 0.0001",
-     "[Epoch 168] Step [1200/1200], loss: 0.1520，event_bce 0.0008",
-     "第 168 轮 loss 0.1812 val_in mIoU 68.94 SCS 24.29 | val_out mIoU 64.43 SCS 17.55 | 1.73 分钟",
-     "[Epoch 169] Step [400/1200], loss: 0.3136，event_bce 0.0011",
-     "[Epoch 169] Step [800/1200], loss: 0.0245，event_bce 0.0038",
-     "[Epoch 169] Step [1200/1200], loss: 0.3582，event_bce 0.0079",
-     "第 169 轮 loss 0.1840 val_in mIoU 69.34 SCS 23.66 | val_out mIoU 64.84 SCS 16.80 | 1.72 分钟",
-     "[Epoch 170] Step [400/1200], loss: 0.2866，event_bce 0.0015",
-     "[Epoch 170] Step [800/1200], loss: 0.4731，event_bce 0.0244",
-     "[Epoch 170] Step [1200/1200], loss: 0.1011，event_bce 0.0004",
-     "第 170 轮 loss 0.1891 val_in mIoU 69.08 SCS 24.29 | val_out mIoU 64.39 SCS 17.01 | 1.72 分钟",
-     "[Epoch 171] Step [400/1200], loss: 0.1481，event_bce 0.0224",
-     "[Epoch 171] Step [800/1200], loss: 0.3224，event_bce 0.0145",
-     "[Epoch 171] Step [1200/1200], loss: 0.0490，event_bce 0.0003",
-     "第 171 轮 loss 0.1838 val_in mIoU 69.14 SCS 24.83 | val_out mIoU 64.31 SCS 17.04 | 1.72 分钟",
-     "[Epoch 172] Step [400/1200], loss: 0.2427，event_bce 0.0026",
-     "[Epoch 172] Step [800/1200], loss: 0.2955，event_bce 0.0261",
-     "[Epoch 172] Step [1200/1200], loss: 0.0064，event_bce 0.0003",
-     "第 172 轮 loss 0.1829 val_in mIoU 68.91 SCS 23.74 | val_out mIoU 64.41 SCS 17.24 | 1.72 分钟",
-     "[Epoch 173] Step [400/1200], loss: 0.1202，event_bce 0.0101",
-     "[Epoch 173] Step [800/1200], loss: 0.2835，event_bce 0.0114",
-     "[Epoch 173] Step [1200/1200], loss: 0.2941，event_bce 0.0432"
+     "[Epoch 54] Step [1200/1200], ce: 0.2648, loss: 0.2648",
+     "第 54 轮 loss 0.2590 val_in mIoU 62.47 SCS 18.64 | val_out mIoU 59.21 SCS 13.77 | 5.71 分钟",
+     "[Epoch 55] Step [400/1200], ce: 0.5089, loss: 0.5089",
+     "[Epoch 55] Step [800/1200], ce: 0.5076, loss: 0.5076",
+     "[Epoch 55] Step [1200/1200], ce: 0.0193, loss: 0.0193",
+     "第 55 轮 loss 0.2533 val_in mIoU 63.97 SCS 14.56 | val_out mIoU 61.40 SCS 9.67 | 5.7 分钟",
+     "[Epoch 56] Step [400/1200], ce: 0.4599, loss: 0.4599",
+     "[Epoch 56] Step [800/1200], ce: 0.0334, loss: 0.0334",
+     "[Epoch 56] Step [1200/1200], ce: 0.0065, loss: 0.0065",
+     "第 56 轮 loss 0.2500 val_in mIoU 61.19 SCS 19.25 | val_out mIoU 59.39 SCS 14.02 | 5.7 分钟",
+     "[Epoch 57] Step [400/1200], ce: 0.1513, loss: 0.1513",
+     "[Epoch 57] Step [800/1200], ce: 0.0363, loss: 0.0363",
+     "[Epoch 57] Step [1200/1200], ce: 0.0043, loss: 0.0043",
+     "第 57 轮 loss 0.2512 val_in mIoU 61.09 SCS 19.30 | val_out mIoU 57.67 SCS 15.43 | 5.7 分钟",
+     "[Epoch 58] Step [400/1200], ce: 0.4239, loss: 0.4239",
+     "[Epoch 58] Step [800/1200], ce: 0.1744, loss: 0.1744",
+     "[Epoch 58] Step [1200/1200], ce: 0.4731, loss: 0.4731",
+     "第 58 轮 loss 0.2497 val_in mIoU 61.06 SCS 18.91 | val_out mIoU 59.72 SCS 13.06 | 5.7 分钟",
+     "[Epoch 59] Step [400/1200], ce: 0.3095, loss: 0.3095",
+     "[Epoch 59] Step [800/1200], ce: 0.1582, loss: 0.1582",
+     "[Epoch 59] Step [1200/1200], ce: 0.2441, loss: 0.2441",
+     "第 59 轮 loss 0.2481 val_in mIoU 61.81 SCS 20.64 | val_out mIoU 59.38 SCS 15.36 | 5.7 分钟",
+     "[Epoch 60] Step [400/1200], ce: 0.0569, loss: 0.0569",
+     "[Epoch 60] Step [800/1200], ce: 0.3991, loss: 0.3991",
+     "[Epoch 60] Step [1200/1200], ce: 0.1483, loss: 0.1483",
+     "第 60 轮 loss 0.2394 val_in mIoU 63.58 SCS 20.25 | val_out mIoU 60.30 SCS 14.06 | 5.7 分钟",
+     "[Epoch 61] Step [400/1200], ce: 0.1065, loss: 0.1065",
+     "[Epoch 61] Step [800/1200], ce: 0.1620, loss: 0.1620",
+     "[Epoch 61] Step [1200/1200], ce: 0.5370, loss: 0.5370",
+     "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟"
     ]
    },
-   "muds_pse_s43": {
-    "completed_epochs": 172,
+   "muds_gn_s43": {
+    "completed_epochs": 61,
     "final_exists": false,
-    "latest_epoch_line": "第 172 轮 loss 0.1830 val_in mIoU 69.52 SCS 26.77 | val_out mIoU 65.38 SCS 16.01 | 1.72 分钟",
+    "latest_epoch_line": "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟",
     "log_tail": [
-     "[Epoch 166] Step [800/1200], loss: 0.1320，event_bce 0.0023",
-     "[Epoch 166] Step [1200/1200], loss: 0.0466，event_bce 0.0073",
-     "第 166 轮 loss 0.1896 val_in mIoU 69.36 SCS 26.54 | val_out mIoU 65.71 SCS 14.85 | 1.72 分钟",
-     "[Epoch 167] Step [400/1200], loss: 0.1990，event_bce 0.0016",
-     "[Epoch 167] Step [800/1200], loss: 0.0808，event_bce 0.0016",
-     "[Epoch 167] Step [1200/1200], loss: 0.0954，event_bce 0.0082",
-     "第 167 轮 loss 0.1897 val_in mIoU 69.72 SCS 25.70 | val_out mIoU 65.65 SCS 14.82 | 1.72 分钟",
-     "[Epoch 168] Step [400/1200], loss: 0.2203，event_bce 0.0037",
-     "[Epoch 168] Step [800/1200], loss: 0.2537，event_bce 0.0067",
-     "[Epoch 168] Step [1200/1200], loss: 0.3552，event_bce 0.0456",
-     "第 168 轮 loss 0.1833 val_in mIoU 69.85 SCS 25.96 | val_out mIoU 65.67 SCS 13.39 | 1.73 分钟",
-     "[Epoch 169] Step [400/1200], loss: 0.1699，event_bce 0.0005",
-     "[Epoch 169] Step [800/1200], loss: 0.4543，event_bce 0.0011",
-     "[Epoch 169] Step [1200/1200], loss: 0.2054，event_bce 0.0108",
-     "第 169 轮 loss 0.1832 val_in mIoU 69.17 SCS 26.51 | val_out mIoU 65.23 SCS 15.06 | 1.72 分钟",
-     "[Epoch 170] Step [400/1200], loss: 0.3101，event_bce 0.0016",
-     "[Epoch 170] Step [800/1200], loss: 0.0481，event_bce 0.0144",
-     "[Epoch 170] Step [1200/1200], loss: 0.0070，event_bce 0.0007",
-     "第 170 轮 loss 0.1852 val_in mIoU 69.30 SCS 27.83 | val_out mIoU 65.26 SCS 15.13 | 1.72 分钟",
-     "[Epoch 171] Step [400/1200], loss: 0.2201，event_bce 0.0072",
-     "[Epoch 171] Step [800/1200], loss: 0.2338，event_bce 0.0108",
-     "[Epoch 171] Step [1200/1200], loss: 0.1887，event_bce 0.0009",
-     "第 171 轮 loss 0.1833 val_in mIoU 69.14 SCS 26.26 | val_out mIoU 65.24 SCS 15.93 | 1.72 分钟",
-     "[Epoch 172] Step [400/1200], loss: 0.0707，event_bce 0.0035",
-     "[Epoch 172] Step [800/1200], loss: 0.2655，event_bce 0.0002",
-     "[Epoch 172] Step [1200/1200], loss: 0.4261，event_bce 0.0082",
-     "第 172 轮 loss 0.1830 val_in mIoU 69.52 SCS 26.77 | val_out mIoU 65.38 SCS 16.01 | 1.72 分钟",
-     "[Epoch 173] Step [400/1200], loss: 0.2283，event_bce 0.0005",
-     "[Epoch 173] Step [800/1200], loss: 0.2226，event_bce 0.0005",
-     "[Epoch 173] Step [1200/1200], loss: 0.3975，event_bce 0.0103"
+     "[Epoch 54] Step [1200/1200], ce: 0.3457, loss: 0.3457",
+     "第 54 轮 loss 0.2452 val_in mIoU 62.93 SCS 16.76 | val_out mIoU 60.37 SCS 12.23 | 5.71 分钟",
+     "[Epoch 55] Step [400/1200], ce: 0.4396, loss: 0.4396",
+     "[Epoch 55] Step [800/1200], ce: 0.2807, loss: 0.2807",
+     "[Epoch 55] Step [1200/1200], ce: 0.1608, loss: 0.1608",
+     "第 55 轮 loss 0.2373 val_in mIoU 63.83 SCS 17.01 | val_out mIoU 60.78 SCS 10.47 | 5.7 分钟",
+     "[Epoch 56] Step [400/1200], ce: 0.2763, loss: 0.2763",
+     "[Epoch 56] Step [800/1200], ce: 0.0291, loss: 0.0291",
+     "[Epoch 56] Step [1200/1200], ce: 0.0411, loss: 0.0411",
+     "第 56 轮 loss 0.2452 val_in mIoU 62.38 SCS 17.56 | val_out mIoU 60.18 SCS 11.14 | 5.7 分钟",
+     "[Epoch 57] Step [400/1200], ce: 0.1051, loss: 0.1051",
+     "[Epoch 57] Step [800/1200], ce: 0.2995, loss: 0.2995",
+     "[Epoch 57] Step [1200/1200], ce: 0.2429, loss: 0.2429",
+     "第 57 轮 loss 0.2394 val_in mIoU 62.81 SCS 19.37 | val_out mIoU 59.45 SCS 12.75 | 5.7 分钟",
+     "[Epoch 58] Step [400/1200], ce: 0.4293, loss: 0.4293",
+     "[Epoch 58] Step [800/1200], ce: 0.3011, loss: 0.3011",
+     "[Epoch 58] Step [1200/1200], ce: 0.1679, loss: 0.1679",
+     "第 58 轮 loss 0.2373 val_in mIoU 62.28 SCS 22.72 | val_out mIoU 59.92 SCS 13.11 | 5.7 分钟",
+     "[Epoch 59] Step [400/1200], ce: 0.1122, loss: 0.1122",
+     "[Epoch 59] Step [800/1200], ce: 0.1176, loss: 0.1176",
+     "[Epoch 59] Step [1200/1200], ce: 0.0970, loss: 0.0970",
+     "第 59 轮 loss 0.2442 val_in mIoU 60.70 SCS 22.07 | val_out mIoU 58.66 SCS 14.25 | 5.7 分钟",
+     "[Epoch 60] Step [400/1200], ce: 0.3840, loss: 0.3840",
+     "[Epoch 60] Step [800/1200], ce: 0.0883, loss: 0.0883",
+     "[Epoch 60] Step [1200/1200], ce: 0.4465, loss: 0.4465",
+     "第 60 轮 loss 0.2401 val_in mIoU 66.28 SCS 15.03 | val_out mIoU 62.31 SCS 8.69 | 5.7 分钟",
+     "[Epoch 61] Step [400/1200], ce: 0.0349, loss: 0.0349",
+     "[Epoch 61] Step [800/1200], ce: 0.4215, loss: 0.4215",
+     "[Epoch 61] Step [1200/1200], ce: 0.2385, loss: 0.2385",
+     "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟"
     ]
+   },
+   "muds_pseg0_s42": {
+    "completed_epochs": 0,
+    "final_exists": false,
+    "latest_epoch_line": null,
+    "log_tail": []
+   },
+   "muds_pseg0_s43": {
+    "completed_epochs": 0,
+    "final_exists": false,
+    "latest_epoch_line": null,
+    "log_tail": []
    }
   }
  },

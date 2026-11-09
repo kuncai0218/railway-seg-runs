@@ -1,8 +1,65 @@
 {
-  "source_snapshot_at": "2026-11-07 23:20:32",
-  "state": "unknown",
-  "completed_parts": 0,
+  "source_snapshot_at": "2026-11-10 03:13:21",
+  "state": "running",
+  "completed_parts": 4,
+  "total_parts": 8,
   "current_run_failed_tasks": [],
   "historical_failure_events": 0,
-  "latest_runner_line": null
+  "latest_runner_line": "11-10 03:10:00 运行器退出",
+  "current_instruction": "yi-st3d-1109（8 任务 × 30 轮，种子 43/44，--max 2；1107e 已暂缓停在 55/250，断点保留）",
+  "task_progress": {
+    "den_pseg0_planet_s43": {
+      "epoch": 30,
+      "total_epochs": 30,
+      "status": "completed",
+      "epoch_line": "第 30 轮 loss 0.4337 val_in mIoU 57.22 SCS 39.17 | val_out mIoU 34.20 SCS 15.49 | 2.71 分钟"
+    },
+    "den_pseg0_planet_s44": {
+      "epoch": 30,
+      "total_epochs": 30,
+      "status": "completed",
+      "epoch_line": "第 30 轮 loss 0.4258 val_in mIoU 57.89 SCS 38.66 | val_out mIoU 34.44 SCS 12.94 | 2.71 分钟"
+    },
+    "den_gn_planet_s43": {
+      "epoch": 30,
+      "total_epochs": 30,
+      "status": "completed",
+      "epoch_line": "第 30 轮 loss 0.5303 val_in mIoU 53.54 SCS 27.01 | val_out mIoU 33.53 SCS 11.73 | 8.03 分钟"
+    },
+    "den_gn_planet_s44": {
+      "epoch": 30,
+      "total_epochs": 30,
+      "status": "completed",
+      "epoch_line": "第 30 轮 loss 0.4746 val_in mIoU 54.09 SCS 29.43 | val_out mIoU 31.40 SCS 10.74 | 8.03 分钟"
+    },
+    "den_pseg0_3src_s43": {
+      "epoch": 16,
+      "total_epochs": 30,
+      "status": "reported_active",
+      "epoch_line": "第 16 轮 loss 0.3987 val_in mIoU 60.10 SCS 39.82 | val_out mIoU 41.67 SCS 17.17 | 5.59 分钟"
+    },
+    "den_pseg0_3src_s44": {
+      "epoch": 16,
+      "total_epochs": 30,
+      "status": "reported_active",
+      "epoch_line": "第 16 轮 loss 0.3920 val_in mIoU 58.61 SCS 35.77 | val_out mIoU 39.71 SCS 17.40 | 5.59 分钟"
+    },
+    "den_gn_3src_s43": {
+      "epoch": 0,
+      "total_epochs": 30,
+      "status": "pending",
+      "epoch_line": null
+    },
+    "den_gn_3src_s44": {
+      "epoch": 0,
+      "total_epochs": 30,
+      "status": "pending",
+      "epoch_line": null
+    }
+  },
+  "reported_active_tasks": [
+    "den_pseg0_3src_s43",
+    "den_pseg0_3src_s44"
+  ],
+  "evidence_note": "Reported current-batch epochs, not a claim of current GPU utilization; progression and freshness are checked separately."
 }

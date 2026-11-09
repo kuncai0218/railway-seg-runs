@@ -1,0 +1,109 @@
+{
+ "说明": "同学甲 11-09（jia-st3d-1109）：MUDS 上的公平结构对比。先跑组归一化版 ST3DUNet（--arch st3d_gn），再跑新模型去掉累乘门版（--arch pse --pse_opts gate=0），各 250 轮、种子 42 与 43，只用 Planet。开发阶段只评验证集。不需要新数据，沿用已建好的 MUDS 数据与缓存。",
+ "任务": [
+  {
+   "名称": "muds_gn_s42",
+   "参数": [
+    "--data",
+    "muds",
+    "--arch",
+    "st3d_gn",
+    "--seed",
+    "42",
+    "--epochs",
+    "250",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  },
+  {
+   "名称": "muds_gn_s43",
+   "参数": [
+    "--data",
+    "muds",
+    "--arch",
+    "st3d_gn",
+    "--seed",
+    "43",
+    "--epochs",
+    "250",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  },
+  {
+   "名称": "muds_pseg0_s42",
+   "参数": [
+    "--data",
+    "muds",
+    "--arch",
+    "pse",
+    "--pse_opts",
+    "gate=0",
+    "--seed",
+    "42",
+    "--epochs",
+    "250",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  },
+  {
+   "名称": "muds_pseg0_s43",
+   "参数": [
+    "--data",
+    "muds",
+    "--arch",
+    "pse",
+    "--pse_opts",
+    "gate=0",
+    "--seed",
+    "43",
+    "--epochs",
+    "250",
+    "--sched",
+    "paper",
+    "--lr",
+    "1e-4",
+    "--workers",
+    "3",
+    "--eval_workers",
+    "0",
+    "--eval_batch",
+    "16",
+    "--test_every",
+    "0"
+   ]
+  }
+ ]
+}

@@ -1,8 +1,41 @@
 {
-  "source_snapshot_at": "2026-11-09 19:41:02",
-  "state": "unknown",
+  "source_snapshot_at": "2026-11-10 03:43:25",
+  "state": "running",
   "completed_parts": 0,
+  "total_parts": 4,
   "current_run_failed_tasks": [],
   "historical_failure_events": 0,
-  "latest_runner_line": null
+  "latest_runner_line": "11-09 21:57:23 开始 muds_gn_s43，进程号 42635",
+  "current_instruction": "jia-st3d-1109",
+  "task_progress": {
+    "muds_gn_s42": {
+      "epoch": 61,
+      "total_epochs": 250,
+      "status": "reported_active",
+      "epoch_line": "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟"
+    },
+    "muds_gn_s43": {
+      "epoch": 61,
+      "total_epochs": 250,
+      "status": "reported_active",
+      "epoch_line": "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟"
+    },
+    "muds_pseg0_s42": {
+      "epoch": 0,
+      "total_epochs": 250,
+      "status": "pending",
+      "epoch_line": null
+    },
+    "muds_pseg0_s43": {
+      "epoch": 0,
+      "total_epochs": 250,
+      "status": "pending",
+      "epoch_line": null
+    }
+  },
+  "reported_active_tasks": [
+    "muds_gn_s42",
+    "muds_gn_s43"
+  ],
+  "evidence_note": "Reported current-batch epochs, not a claim of current GPU utilization; progression and freshness are checked separately."
 }
