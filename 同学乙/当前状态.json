@@ -1,11 +1,11 @@
 {
-  "source_snapshot_at": "2026-11-10 04:21:53",
+  "source_snapshot_at": "2026-11-10 04:36:56",
   "state": "running",
-  "completed_parts": 4,
+  "completed_parts": 6,
   "total_parts": 8,
   "current_run_failed_tasks": [],
   "historical_failure_events": 0,
-  "latest_runner_line": "11-10 04:20:00 运行器退出",
+  "latest_runner_line": "11-10 04:35:26 开始 den_gn_3src_s44，进程号 15512",
   "current_instruction": "yi-st3d-1109（8 任务 × 30 轮，种子 43/44，--max 2）；已收到 11-10 接管安排 yi-takeover-1110，1109 八项完成后接 yi-st3d-1110-v2 四项；1107e 暂缓停在 55/250，断点保留不恢复",
   "task_progress": {
     "den_pseg0_planet_s43": {
@@ -33,33 +33,33 @@
       "epoch_line": "第 30 轮 loss 0.4746 val_in mIoU 54.09 SCS 29.43 | val_out mIoU 31.40 SCS 10.74 | 8.03 分钟"
     },
     "den_pseg0_3src_s43": {
-      "epoch": 28,
+      "epoch": 30,
       "total_epochs": 30,
-      "status": "reported_active",
-      "epoch_line": "第 28 轮 loss 0.3503 val_in mIoU 61.63 SCS 42.55 | val_out mIoU 40.95 SCS 16.99 | 6.26 分钟"
+      "status": "completed",
+      "epoch_line": "第 30 轮 loss 0.3489 val_in mIoU 61.70 SCS 42.20 | val_out mIoU 40.54 SCS 16.68 | 6.2 分钟"
     },
     "den_pseg0_3src_s44": {
-      "epoch": 28,
+      "epoch": 30,
       "total_epochs": 30,
-      "status": "reported_active",
-      "epoch_line": "第 28 轮 loss 0.3446 val_in mIoU 62.41 SCS 43.57 | val_out mIoU 40.80 SCS 18.06 | 6.26 分钟"
+      "status": "completed",
+      "epoch_line": "第 30 轮 loss 0.3534 val_in mIoU 63.11 SCS 43.25 | val_out mIoU 40.55 SCS 17.58 | 6.2 分钟"
     },
     "den_gn_3src_s43": {
       "epoch": 0,
       "total_epochs": 30,
-      "status": "pending",
+      "status": "reported_active",
       "epoch_line": null
     },
     "den_gn_3src_s44": {
       "epoch": 0,
       "total_epochs": 30,
-      "status": "pending",
+      "status": "reported_active",
       "epoch_line": null
     }
   },
   "reported_active_tasks": [
-    "den_pseg0_3src_s43",
-    "den_pseg0_3src_s44"
+    "den_gn_3src_s43",
+    "den_gn_3src_s44"
   ],
   "evidence_note": "Reported current-batch epochs, not a claim of current GPU utilization; progression and freshness are checked separately."
 }

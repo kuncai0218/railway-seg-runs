@@ -1,5 +1,5 @@
 {
-  "source_snapshot_at": "2026-11-10 04:17:23",
+  "source_snapshot_at": "2026-11-10 04:32:27",
   "state": "running",
   "completed_parts": 0,
   "total_parts": 4,
@@ -9,16 +9,16 @@
   "current_instruction": "jia-st3d-1109",
   "task_progress": {
     "muds_gn_s42": {
-      "epoch": 67,
+      "epoch": 69,
       "total_epochs": 250,
       "status": "reported_active",
-      "epoch_line": "第 67 轮 loss 0.2466 val_in mIoU 62.54 SCS 21.72 | val_out mIoU 59.90 SCS 14.44 | 5.71 分钟"
+      "epoch_line": "第 69 轮 loss 0.2372 val_in mIoU 62.24 SCS 19.35 | val_out mIoU 59.90 SCS 13.92 | 5.7 分钟"
     },
     "muds_gn_s43": {
-      "epoch": 67,
+      "epoch": 69,
       "total_epochs": 250,
       "status": "reported_active",
-      "epoch_line": "第 67 轮 loss 0.2330 val_in mIoU 64.16 SCS 21.83 | val_out mIoU 61.83 SCS 11.79 | 5.71 分钟"
+      "epoch_line": "第 69 轮 loss 0.2327 val_in mIoU 62.75 SCS 18.27 | val_out mIoU 61.40 SCS 11.84 | 5.7 分钟"
     },
     "muds_pseg0_s42": {
       "epoch": 0,

@@ -14,8 +14,13 @@ def main():
  assert normalize_current(d)['completed_parts']==4,'Incomplete finals are not accepted'
  d['指令编号']='yi-st3d-1109；已收到接管，后续yi-st3d-1110-v2待执行'
  assert normalize_current(d)['completed_parts']==4,'Future batch mentioned in acknowledgment must not override active batch'
+ d['进程']={'训练进程':[{'任务':'den_gn_3src_s43','pid':123}]};d['任务进度']['den_gn_3src_s43']={'已完成轮数':0}
+ assert 'den_gn_3src_s43' in normalize_current(d)['reported_active_tasks'],'Newly started first epoch must not appear idle'
+ d['进程']={'训练进程':[{'任务':'den_gn_3src_v2_1110_s43','pid':124}]}
+ assert normalize_current(d)['total_parts']==4,'Live new batch takes precedence over stale instruction text'
+ d.pop('进程')
  d['指令编号']='yi-st3d-1110-v2';d['任务进度']['den_pseg0_3src_v2_1110_s43']={'已完成轮数':1}
  c=normalize_current(d)
  assert c['completed_parts']==0 and c['reported_active_tasks']==['den_pseg0_3src_v2_1110_s43']
- print('6 normalization cases passed; unrelated history, future batch mentions and premature final.json excluded.')
+ print('8 normalization cases passed; history, future mentions, premature finals, first-epoch startup and stale instruction text checked.')
 if __name__=='__main__':main()
