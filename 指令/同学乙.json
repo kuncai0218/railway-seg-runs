@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-08T00:05:00+08:00",
+ "更新时间": "2026-11-09T20:30:00+08:00",
  "停止": [
   "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
   "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -324,7 +324,7 @@
   },
   {
    "编号": "yi-st3d-1107e",
-   "状态": "待执行（立即；yi-st3d-1107d 已完成，显卡空闲）",
+   "状态": "暂缓（11-09 20:30 组长）：如果正在跑，先停掉运行器和它启动的训练进程（断点保留在 last.pth，不删任何输出）；先做 yi-check-1109 和 yi-st3d-1109；1109 全部完成并打包后，再在 pub_st3d_pkg_1107e 目录重新运行原命令，会从断点接着跑。",
    "说明": "ST3DUNet 三源输入（Planet + 同月 S2 红边短波红外 + 同月 OlmoEarth 特征）的论文设置 250 轮定论实验，种子 43、44；组长本机跑种子 42。这是论文主表里一定要有的基线，与之后选定的新模型配置无关。第七版实验包只更新了 scripts/st3d_repro.py、新增 scripts/pse_net.py，包内说明见 说明_1107e.md。",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107e.zip",
    "实验包SHA256": "0ae4721ad7d416b20daee3ceb8e0f5b4a32edcb36ecd92111d25948f25f5639d",
@@ -343,6 +343,38 @@
     "7. 两个任务都写出 final.json 后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学乙，同步里写明文件名、大小，以及两个任务 final.json 里 last 的 val_in、val_out mIoU 与 SCS，由同学本人上传网盘。1107c、1107d 的回传包如果还没上传，也请一起交给同学本人上传。"
    ],
    "遇到问题": "同 1104 条目的“遇到问题怎么办”。报 unrecognized arguments: --s2 或 --oe，说明用错了旧包；报找不到 .s2small.npy 或 .oe32.npy，说明第 4 步解压位置不对（应在 work_st3d\\st3d_cache 下）。Release 下载不通就停下报告原文，不要反复重试。任何报错都不要自己改代码，停下报告 train.log 最后 30 行。",
+   "组长答复": []
+  },
+  {
+   "编号": "yi-check-1109",
+   "状态": "待执行（立即，先做这一条）",
+   "内容": [
+    "1. 组长从 11-07 23:20 之后就没有收到你的任何同步。请确认电脑开机、显卡正常：运行 nvidia-smi，把输出贴进同步。",
+    "2. 确认同步脚本在运行；没在运行就按《给同学agent的提示词》第一节第 5 步重启，并立即同步一次。",
+    "3. 查 yi-st3d-1107e 的进度：..\\st3d_runs\\den3src_s43、den3src_s44 各自 train.log 的最后一行、是否有 final.json、..\\st3d_runs\\queue.log 最后 10 行，写进同步。",
+    "4. 如果 1107e 正在跑，按 yi-st3d-1107e 的新状态先停下（断点保留）；然后开始 yi-st3d-1109。",
+    "5. yi-st3d-1107c、1107d 的回传包如果还没上传，请交给同学本人上传网盘，把链接发给组长。"
+   ]
+  },
+  {
+   "编号": "yi-st3d-1109",
+   "状态": "待执行（做完 yi-check-1109 后立即开始）",
+   "说明": "DynamicEarthNet 上的公平结构对比，补种子 43、44（组长本机已有种子 42）。每组都是新模型去掉累乘门版（--arch pse --pse_opts gate=0）对组归一化版 ST3DUNet（--arch st3d_gn），30 轮筛选设置：先只用 Planet，再三源（Planet + S2 红边短波红外 + OlmoEarth 32 维）。三源要用 1107e 第 2—4 步已经解压好的 S2 小缓存与 OlmoEarth 缓存。共 8 个任务，预计约 12—16 小时。",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1109.zip",
+   "实验包SHA256": "811bed50eb9c0498fcf242bc116548230732f56fb0c0acdd3fac16b70609ebee",
+   "任务文件": [
+    "tasks/yi_st3d_1109.json"
+   ],
+   "任务文件SHA256": "e94640838d91d801e76bee22eabd7433a7688eac3224031ae9ab411fd8a1b53d",
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 下载第八版实验包并校验 SHA256，解压到 work_st3d\\pub_st3d_pkg_1109\\（与旧包并列；旧包、数据、缓存、输出目录都不动、不删）。不需要再运行 setup_st3d.py，沿用已核对过的 DynamicEarthNet 缓存。",
+    "2. 确认 work_st3d\\st3d_cache 下有 DynamicEarthNetS2\\train（55 个 .s2small.npy）、val（10 个），以及 DynamicEarthNetOE\\train（55 个 .oe32.npy）、val（10 个）、pca32.pt，把文件数写进同步。没有的话，先按 yi-st3d-1107e 的第 2—4 步下载、校验、解压。",
+    "3. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/yi_st3d_1109.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。运行器会按顺序先跑 4 个只用 Planet 的任务，再跑 4 个三源任务。",
+    "4. 启动后同步一次：编号、启动时间、训练进程号、显存、各任务已完成轮数；之后照常同步。",
+    "5. 八个任务都写出 final.json 后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学乙，同步里写明文件名、大小，以及八个任务 final.json 里 last 的 val_in、val_out mIoU 与 SCS，由同学本人上传网盘。然后按 yi-st3d-1107e 的状态说明续跑 1107e。"
+   ],
+   "遇到问题": "同 1104 条目的“遇到问题怎么办”。报 unrecognized arguments: --arch st3d_gn 或 invalid choice: 'st3d_gn'，说明用错了旧包。任何报错都不要自己改代码，停下报告 train.log 最后 30 行。",
    "组长答复": []
   }
  ],

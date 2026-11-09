@@ -1,6 +1,6 @@
 {
  "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
- "更新时间": "2026-11-08T00:05:00+08:00",
+ "更新时间": "2026-11-09T20:30:00+08:00",
  "停止": [
   "tasks/jia_batch2_1026.json（Swin U-Net 上的门控 / 无云比例 / 学习率 0.001）：当前部分训练完就停，保留全部结果",
   "tasks/jia_d2ls_1027a.json 与 tasks/jia_d2ls_1027b.json（10-27 17:40 起作废，由下面的 c 替换；没开始就不要开）",
@@ -8,7 +8,8 @@
   "tasks/jia_d2ls_1029b.json（10-29 09:45 起改由组长本机跑：没开始就不要开；如果已经开始，跑完当前部分后停掉它的运行器，结果保留）",
   "tasks/jia_d2ls_1029a.json（10-29 11:15 起也改由组长本机跑：没开始就不要开；已经开始的跑完当前部分后停掉，结果保留）",
   "jia-st3d-1106b（tasks/jia_st3d_1106b.json，方法原型剂量补点）：组长 11-07 03:06 取消——没开始就不要开，由 jia-st3d-1107a 替代。",
-  "jia-st3d-1107a（区当标注者 MUDS 对照）：组长 11-07 03:25 取消——没开始就不要开，由 jia-st3d-1107c 替代。"
+  "jia-st3d-1107a（区当标注者 MUDS 对照）：组长 11-07 03:25 取消——没开始就不要开，由 jia-st3d-1107c 替代。",
+  "jia-st3d-1107c（DynamicEarthNet 下载、建缓存与 A/B 训练）：组长 11-09 20:30 取消——不要再重试下载，已有文件保留不删。"
  ],
  "队列": [
   {
@@ -215,7 +216,7 @@
   },
   {
    "编号": "jia-st3d-1107c",
-   "状态": "改为只做第 1—4 步（11-07 13:45）：DynamicEarthNet 用下面的备用地址下载、解压、建缓存、核对，后面的任务还要用这份数据；第 5—7 步（种子 43 的 A/B 训练）改派给同学乙（yi-st3d-1107d），不要再跑。",
+   "状态": "已取消（11-09 20:30 组长）：A/B 已有三个种子、结果打平，不再需要；DynamicEarthNet 也暂时不用，不要再重试下载。已下载的分卷和已建的文件保留，不删。",
    "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-07 第六版包”一节）",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107c.zip",
    "实验包SHA256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
@@ -248,7 +249,7 @@
   },
   {
    "编号": "jia-st3d-1107e",
-   "状态": "待执行（先做第 0 步显卡体检；通过后立即开始）",
+   "状态": "进行中（11-09 14:40 已启动 muds_pse_s42、muds_pse_s43，不要重复启动）；两个任务都写出 final.json 后按第 4 步打包回传，然后接着做 jia-st3d-1109",
    "说明": "新模型（先验引导的状态—事件时序网络，--arch pse，代码在 scripts/pse_net.py）在 MUDS 上只用 Planet 的论文设置 250 轮，种子 42、43；对照是已有的 ST3DUNet MUDS 论文设置三种子。用来检验新结构在第二个数据集上是否同样有效。不需要新数据，沿用 jia 1104 建好的 MUDS 数据与缓存。",
    "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107e.zip",
    "实验包SHA256": "0ae4721ad7d416b20daee3ceb8e0f5b4a32edcb36ecd92111d25948f25f5639d",
@@ -266,6 +267,26 @@
     "5. jia-st3d-1107c 的第 1—4 步（DynamicEarthNet 下载、建缓存、核对）如果还没做，可以与本条并行做（不占显卡）；第 5—7 步仍然不要跑。"
    ],
    "遇到问题": "同 1104 条目的“遇到问题怎么办”。报 unrecognized arguments: --arch pse，说明用错了旧包。任何报错都不要自己改代码，停下报告 train.log 最后 30 行。",
+   "组长答复": []
+  },
+  {
+   "编号": "jia-st3d-1109",
+   "状态": "待执行（等 jia-st3d-1107e 的两个任务都写出 final.json 并打包回传后，立即开始）",
+   "说明": "MUDS 上的公平结构对比。先跑组归一化版 ST3DUNet（--arch st3d_gn，把批归一化换成组归一化，作公平基线），再跑新模型去掉累乘门版（--arch pse --pse_opts gate=0，组长现在的默认版本），各 250 轮、种子 42 与 43，只用 Planet。和 jia-st3d-1107e（新模型原版）一起，组成 MUDS 上的完整对照。不需要新数据，沿用已建好的 MUDS 数据与缓存。预计约 18—20 小时。",
+   "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1109.zip",
+   "实验包SHA256": "811bed50eb9c0498fcf242bc116548230732f56fb0c0acdd3fac16b70609ebee",
+   "任务文件": [
+    "tasks/jia_st3d_1109.json"
+   ],
+   "任务文件SHA256": "5343dd94966ac40fcad19f101bf3895e8921a007276eea203b6a131e43185dda",
+   "最多同时训练": 2,
+   "步骤": [
+    "1. 下载第八版实验包并校验 SHA256，解压到 work_st3d 目录下的 pub_st3d_pkg_1109（与旧包并列；旧包、数据、缓存、输出都不动、不删）。不需要再运行 setup_st3d.py。",
+    "2. 在新包目录运行 python -X utf8 scripts/run_queue_st3d.py tasks/jia_st3d_1109.json --max 2（内存吃紧时用 --max 1）。不改任务文件里的任何参数。运行器会按顺序先跑 muds_gn_s42、muds_gn_s43，再跑 muds_pseg0_s42、muds_pseg0_s43。",
+    "3. 启动后同步一次：编号、启动时间、训练进程号、显存、各任务已完成轮数；之后照常同步。",
+    "4. 四个任务都写出 final.json 后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学甲，同步里写明文件名、大小，以及四个任务 final.json 里 last 的 val_in、val_out mIoU 与 SCS，由同学本人上传网盘。"
+   ],
+   "遇到问题": "同 1104 条目的“遇到问题怎么办”。报 unrecognized arguments: --arch st3d_gn 或 invalid choice: 'st3d_gn'，说明用错了旧包。任何报错都不要自己改代码，停下报告 train.log 最后 30 行。",
    "组长答复": []
   }
  ]

@@ -1,2745 +1,845 @@
 {
  "name": "同学甲",
- "time": "2026-10-28 02:20:08",
- "task_file": "jia_d2ls_1027_status.json",
- "status_table": "任务                           阶段     进度\nd2ls_12b_a2_prev_s20261018   正式     9/9  学习率 0.0004\nd2ls_12b_a2_terrain_s20261018 正式     9/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261018  正式     1/9  学习率 0.0004\nd2ls_12b_a2_prev_s20261019   正式     9/9  学习率 0.0004\nd2ls_12b_a2_clear_s20261019  正式     9/9  学习率 0.0004\nd2ls_12b_a2_hist_s20261017   正式     1/9  学习率 0.0004\n",
- "runner_log_tail": [
-  "10-27 16:48:24 AGENT_CHECK 结束 d2ls_environment_check，返回码 1（出错：原Python3.10缺少hashlib.file_digest；正在准备独立兼容环境，代码和参数不改）",
-  "10-27 17:01:53 AGENT_CHECK 自检通过：独立Python3.12，训练依赖版本全部与原环境一致；原Python3.10兼容问题已解决，模型代码与参数未改",
-  "10-27 17:01:54 任务文件 jia_d2ls_1027a.json（同学甲（D2LS 分割第二步 a）），混合精度 fp16",
-  "10-27 17:01:54 开始 d2ls_12b_a2_prev_s20261018",
-  "10-27 17:03:34 任务文件 jia_d2ls_1027b.json（同学甲（D2LS 分割第二步 b）），混合精度 fp16",
-  "10-27 17:03:34 开始 d2ls_12b_a2_prev_s20261019",
-  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"a\", \"task\": \"tasks/jia_d2ls_1027a.json\", \"wrapper_pid\": 107530, \"runner_pid\": 107540, \"train_pid\": 107541, \"progress_time\": \"2026-10-27T17:02:02.506217+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
-  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"a\", \"task\": \"tasks/jia_d2ls_1027a.json\", \"wrapper_pid\": 107530, \"runner_pid\": 107540, \"train_pid\": 107541, \"progress_time\": \"2026-10-27T17:05:30.185158+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 700, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
-  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:03:47.204279+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 1, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
-  "10-27 17:05:48 AGENT_START_RECEIPT {\"instruction_id\": \"jia-d2ls-1027\", \"queue\": \"b\", \"task\": \"tasks/jia_d2ls_1027b.json\", \"wrapper_pid\": 107735, \"runner_pid\": 107741, \"train_pid\": 107742, \"progress_time\": \"2026-10-27T17:05:06.897716+08:00\", \"fold\": \"r3_2023a\", \"part\": \"full\", \"step\": 200, \"total\": 4000, \"gpu_observation\": \"2026/10/27 17:05:48.773, 9453 MiB, 24576 MiB, 100 %, 84\"}",
-  "10-27 17:23:14 AGENT_MONITOR a=d2ls_12b_a2_prev_s20261018 r3_2023a/full 3300/4000; b=d2ls_12b_a2_prev_s20261019 r3_2023a/full 2800/4000; 已完成0/54; 平台同步900秒; 原Python3.10文件校验兼容问题已由独立Python3.12环境解决，当前训练异常0",
-  "10-27 18:33:05 AGENT_MONITOR a=d2ls_12b_a2_prev_s20261018 r3_2023b/full 1100/4000; b=d2ls_12b_a2_prev_s20261019 r3_2023b/full 700/4000; 已完成6/54; 平台900秒循环正常，17:33一次SSL连接中断后已恢复; 原Python3.10文件校验兼容问题已由独立Python3.12环境解决，当前训练异常0",
-  "10-27 19:35:02 AGENT_MONITOR a=d2ls_12b_a2_prev_s20261018 r3_2023b/B 1900/4000; b=d2ls_12b_a2_prev_s20261019 r3_2023b/B 1500/4000; 已完成10/54; 平台900秒循环正常，最近成功2026-10-27 19:33:58; 原Python3.10兼容问题已解决，当前训练异常0",
-  "10-27 20:37:43 AGENT_MONITOR a=d2ls_12b_a2_prev_s20261018 r3_2024/A 2800/4000; b=d2ls_12b_a2_prev_s20261019 r3_2024/A 2300/4000; 已完成14/54; 平台900秒循环正常，最近成功2026-10-27 20:34:11; 原Python3.10兼容问题已解决，当前训练异常0",
-  "10-27 21:14:35 结束 d2ls_12b_a2_prev_s20261018，返回码 0",
-  "10-27 21:14:35 开始 d2ls_12b_a2_terrain_s20261018",
-  "10-27 21:17:14 结束 d2ls_12b_a2_prev_s20261019，返回码 0",
-  "10-27 21:17:14 开始 d2ls_12b_a2_clear_s20261019",
-  "10-27 21:33:36 AGENT_MONITOR a=d2ls_12b_a2_terrain_s20261018 r3_2023a/full 2600/4000; b=d2ls_12b_a2_clear_s20261019 r3_2023a/full 2300/4000; 已完成18/54; 两个prev正式run均已9/9; 平台900秒循环正常，最近成功2026-10-27 21:19:19; 原Python3.10兼容问题已解决，当前训练异常0",
-  "10-27 22:36:01 AGENT_MONITOR a=d2ls_12b_a2_terrain_s20261018 r3_2023a/B 3400/4000; b=d2ls_12b_a2_clear_s20261019 r3_2023a/B 3000/4000; 已完成22/54; 平台900秒循环正常，最近成功2026-10-27 22:34:31; 当前训练异常0，新批注0",
-  "10-27 23:33:46 AGENT_MONITOR a=d2ls_12b_a2_terrain_s20261018 r3_2023b/A 3500/4000; b=d2ls_12b_a2_clear_s20261019 r3_2023b/A 3100/4000; 已完成26/54; 平台900秒循环正常，最近成功2026-10-27 23:19:38; 当前训练异常0，新批注0",
-  "10-28 00:36:55 AGENT_MONITOR a=d2ls_12b_a2_terrain_s20261018 r3_2024/A 400/4000; b=d2ls_12b_a2_clear_s20261019 r3_2024/A 100/4000; 已完成32/54; 平台900秒循环正常，最近成功2026-10-28 00:34:51; 当前训练异常0，新批注0",
-  "10-28 01:29:42 结束 d2ls_12b_a2_terrain_s20261018，返回码 0",
-  "10-28 01:29:42 开始 d2ls_12b_a2_clear_s20261018",
-  "10-28 01:32:07 结束 d2ls_12b_a2_clear_s20261019，返回码 0",
-  "10-28 01:32:07 开始 d2ls_12b_a2_hist_s20261017",
-  "10-28 01:32:50 AGENT_MONITOR a=d2ls_12b_a2_clear_s20261018 r3_2023a/full 300/4000; b=d2ls_12b_a2_hist_s20261017 r3_2023a/full 1/4000; 已完成36/54，4/6正式run已完成; 平台900秒循环正常，最近成功2026-10-28 01:19:58; 当前训练异常0，新批注0"
+ "time": "2026-11-09 19:41:02",
+ "instruction_id": "jia-st3d-1107e",
+ "phase": "running_start_verified",
+ "started_at": "2026-11-09T14:40:09.758919+08:00",
+ "concurrency": 2,
+ "tasks": {
+  "muds_pse_s42": {
+   "completed_epochs": 173,
+   "latest_epoch_line": "第 173 轮 loss 0.1825 val_in mIoU 68.67 SCS 25.28 | val_out mIoU 64.22 SCS 17.43 | 1.72 分钟",
+   "latest_epoch": {
+    "epoch": 173,
+    "lr": 2.2420187018225568e-05,
+    "loss": 0.18248451567773372,
+    "train_min": 1.57,
+    "val_in": {
+     "acc": 91.52170677618223,
+     "macc": 87.01724647797316,
+     "miou": 68.66523681547505,
+     "bc": 3.6479853091782326,
+     "sc": 46.90539206389847,
+     "scs": 25.27668868653835,
+     "not building": 90.84774684625,
+     "building": 46.48272678470009
+    },
+    "val_out": {
+     "acc": 92.8248279185646,
+     "macc": 85.00046778285555,
+     "miou": 64.2184600871203,
+     "bc": 1.8353374513371226,
+     "sc": 33.01905039059976,
+     "scs": 17.427193920968442,
+     "not building": 92.52424595170041,
+     "building": 35.91267422254018
+    },
+    "min": 1.72
+   },
+   "final": null,
+   "log_tail": [
+    "[Epoch 172] Step [400/1200], loss: 0.2427，event_bce 0.0026",
+    "[Epoch 172] Step [800/1200], loss: 0.2955，event_bce 0.0261",
+    "[Epoch 172] Step [1200/1200], loss: 0.0064，event_bce 0.0003",
+    "第 172 轮 loss 0.1829 val_in mIoU 68.91 SCS 23.74 | val_out mIoU 64.41 SCS 17.24 | 1.72 分钟",
+    "[Epoch 173] Step [400/1200], loss: 0.1202，event_bce 0.0101",
+    "[Epoch 173] Step [800/1200], loss: 0.2835，event_bce 0.0114",
+    "[Epoch 173] Step [1200/1200], loss: 0.2941，event_bce 0.0432",
+    "第 173 轮 loss 0.1825 val_in mIoU 68.67 SCS 25.28 | val_out mIoU 64.22 SCS 17.43 | 1.72 分钟"
+   ]
+  },
+  "muds_pse_s43": {
+   "completed_epochs": 173,
+   "latest_epoch_line": "第 173 轮 loss 0.1837 val_in mIoU 69.18 SCS 27.31 | val_out mIoU 65.23 SCS 16.84 | 1.72 分钟",
+   "latest_epoch": {
+    "epoch": 173,
+    "lr": 2.2420187018225568e-05,
+    "loss": 0.18372073091728452,
+    "train_min": 1.57,
+    "val_in": {
+     "acc": 91.71429161288415,
+     "macc": 87.51344834228618,
+     "miou": 69.1831978667473,
+     "bc": 4.3561032708319525,
+     "sc": 50.2549648316939,
+     "scs": 27.305534051262924,
+     "not building": 91.04807442837418,
+     "building": 47.31832130512042
+    },
+    "val_out": {
+     "acc": 93.42077346608109,
+     "macc": 84.3759287649325,
+     "miou": 65.23207750615799,
+     "bc": 2.050094200581892,
+     "sc": 31.634098311873203,
+     "scs": 16.84209625622755,
+     "not building": 93.15263864155736,
+     "building": 37.31151637075863
+    },
+    "min": 1.72
+   },
+   "final": null,
+   "log_tail": [
+    "[Epoch 172] Step [400/1200], loss: 0.0707，event_bce 0.0035",
+    "[Epoch 172] Step [800/1200], loss: 0.2655，event_bce 0.0002",
+    "[Epoch 172] Step [1200/1200], loss: 0.4261，event_bce 0.0082",
+    "第 172 轮 loss 0.1830 val_in mIoU 69.52 SCS 26.77 | val_out mIoU 65.38 SCS 16.01 | 1.72 分钟",
+    "[Epoch 173] Step [400/1200], loss: 0.2283，event_bce 0.0005",
+    "[Epoch 173] Step [800/1200], loss: 0.2226，event_bce 0.0005",
+    "[Epoch 173] Step [1200/1200], loss: 0.3975，event_bce 0.0103",
+    "第 173 轮 loss 0.1837 val_in mIoU 69.18 SCS 27.31 | val_out mIoU 65.23 SCS 16.84 | 1.72 分钟"
+   ]
+  }
+ },
+ "processes": {
+  "runners_or_setup": [
+   {
+    "pid": 9677,
+    "ppid": 9674,
+    "state": "S (sleeping)",
+    "argv": [
+     "/home/user/d2ls_pkg_1027/.venv/bin/python",
+     "-u",
+     "-X",
+     "utf8",
+     "/home/user/work_st3d/pub_st3d_pkg_1107e/scripts/run_queue_st3d.py",
+     "tasks/jia_st3d_1107e.json",
+     "--max",
+     "2"
+    ]
+   }
+  ],
+  "trainers_or_benchmarks": [
+   {
+    "pid": 9679,
+    "ppid": 9677,
+    "state": "S (sleeping)",
+    "argv": [
+     "/home/user/d2ls_pkg_1027/.venv/bin/python",
+     "-X",
+     "utf8",
+     "scripts/st3d_repro.py",
+     "--data",
+     "muds",
+     "--arch",
+     "pse",
+     "--seed",
+     "42",
+     "--sched",
+     "paper",
+     "--lr",
+     "1e-4",
+     "--epochs",
+     "250",
+     "--workers",
+     "3",
+     "--eval_workers",
+     "0",
+     "--eval_batch",
+     "16",
+     "--test_every",
+     "0",
+     "--out",
+     "/home/user/work_st3d/st3d_runs/muds_pse_s42"
+    ]
+   },
+   {
+    "pid": 9680,
+    "ppid": 9677,
+    "state": "R (running)",
+    "argv": [
+     "/home/user/d2ls_pkg_1027/.venv/bin/python",
+     "-X",
+     "utf8",
+     "scripts/st3d_repro.py",
+     "--data",
+     "muds",
+     "--arch",
+     "pse",
+     "--seed",
+     "43",
+     "--sched",
+     "paper",
+     "--lr",
+     "1e-4",
+     "--epochs",
+     "250",
+     "--workers",
+     "3",
+     "--eval_workers",
+     "0",
+     "--eval_batch",
+     "16",
+     "--test_every",
+     "0",
+     "--out",
+     "/home/user/work_st3d/st3d_runs/muds_pse_s43"
+    ]
+   }
+  ]
+ },
+ "hardware": {
+  "observed_at": "2026-11-04T17:02:59.217206+08:00",
+  "gpu_management_query_at": "2026-11-04 16:51",
+  "gpu_name": "NVIDIA TITAN RTX",
+  "gpu_total_mib": 24576,
+  "gpu_used_mib_before_setup": 384,
+  "temperature_c_before_setup": 37,
+  "memory_total_bytes": 67325550592,
+  "memory_available_bytes": 62047563776,
+  "disk_type": "NVMe SSD",
+  "disk_device": "/dev/nvme1n1p2",
+  "disk_model": "Samsung SSD 970 EVO Plus 1TB",
+  "disk_rotational": 0,
+  "memory_rule": "N=2 if physical memory >=64 GB and available >=32 GB, else N=1 (GB=10^9 bytes)",
+  "chosen_concurrency": 2,
+  "gpu_start_sample": {
+   "time": "2026-11-09T14:41:15+08:00",
+   "gpu_name": "NVIDIA TITAN RTX",
+   "used_MiB": 3552,
+   "total_MiB": 24576,
+   "gpu_util_percent": 98,
+   "temperature_c": 67,
+   "trainer_memory_MiB": {
+    "9679": 1474,
+    "9680": 1474
+   },
+   "source": "external_5_second_timeout_nvidia_smi_actual_stdout"
+  },
+  "runner_pid": 9677,
+  "trainer_pids": [
+   9679,
+   9680
+  ]
+ },
+ "setup_receipt": {
+  "passed_at": "2026-11-04T17:18:10.504612+08:00",
+  "setup_unit": {
+   "Result": "success",
+   "ExecMainStatus": "0",
+   "ActiveState": "inactive"
+  },
+  "setup_command_argv": [
+   "/home/user/d2ls_pkg_1027/.venv/bin/python",
+   "-X",
+   "utf8",
+   "scripts/setup_st3d.py"
+  ],
+  "setup_log_sha256": "2923c8f9959f5b8b5cf4faaaeac2906d35f099ac344d2481b9a80c6e35d9c1db",
+  "cache_comparison_conclusion": "缓存版与官方逐样本完全相等",
+  "actual_checked_sample_lines": [
+   "train  核对 25 个样本（共 2400） 累计不相等 0",
+   "val 同区域 核对 23 个样本（共 80） 累计不相等 0",
+   "val 跨区域 核对 25 个样本（共 640） 累计不相等 0",
+   "test 同区域 核对 23 个样本（共 80） 累计不相等 0",
+   "test 跨区域 核对 25 个样本（共 640） 累计不相等 0"
+  ],
+  "all_selected_samples_equal": true,
+  "benchmarks": {
+   "st3d": {
+    "训练 步/秒": 8.59,
+    "每轮步数": 1200,
+    "每轮训练分钟": 2.3,
+    "训练显存峰值 GB": 0.8,
+    "loss": 0.6196492314338684,
+    "val_in 评测分钟": 0.04,
+    "val_in miou": 44.0,
+    "val_out 评测分钟": 0.25,
+    "val_out miou": 51.47
+   },
+   "mono": {
+    "训练 步/秒": 11.54,
+    "每轮步数": 1200,
+    "每轮训练分钟": 1.7,
+    "训练显存峰值 GB": 0.87,
+    "loss": 0.40826719999313354,
+    "val_in 评测分钟": 0.03,
+    "val_in miou": 44.92,
+    "val_out 评测分钟": 0.18,
+    "val_out miou": 53.44
+   }
+  },
+  "source_files_unchanged": true,
+  "task_sha256": "35eca0c8c6dbb4122f8cd3a9fb37e1b06cdb03d7b2a4da6af08b69c8f5d27e64",
+  "data_receipt": "results/data_download_receipt_1104.json",
+  "all_passed": true
+ },
+ "gpu_basic_check": {
+  "time": "2026-11-04T17:09:24.808500+08:00",
+  "command_argv": [
+   "/usr/bin/timeout",
+   "-s",
+   "KILL",
+   "30s",
+   "/home/user/d2ls_pkg_1027/.venv/bin/python",
+   "-u",
+   "-c",
+   "import torch,torchmetrics,pandas,json; assert torch.cuda.is_available(); x=torch.arange(128*128,dtype=torch.float32,device='cuda').reshape(128,128)/16384; y=x@x.T; torch.cuda.synchronize(); assert torch.isfinite(y).all().item(); print(json.dumps({'cuda_basic_passed':True,'device':torch.cuda.get_device_name(0),'torch':torch.__version__,'checksum':y.sum().item(),'torchmetrics':torchmetrics.__version__,'pandas':pandas.__version__}))"
+  ],
+  "returncode": 0,
+  "stdout": "{\"cuda_basic_passed\": true, \"device\": \"NVIDIA TITAN RTX\", \"torch\": \"2.5.1+cu121\", \"checksum\": 524234.71875, \"torchmetrics\": \"1.9.0\", \"pandas\": \"3.1.0\"}\n",
+  "stderr": "",
+  "passed": true
+ },
+ "queue_log_tail": [
+  "11-05 05:28:34 开始 muds_ctxdrop03_s42，进程号 61033",
+  "11-05 05:28:34 开始 muds_ctxdrop05_s42，进程号 61034",
+  "11-06 04:58:34 结束 muds_ctxdrop03_s42，正常完成",
+  "11-06 04:58:34 结束 muds_ctxdrop05_s42，正常完成",
+  "11-06 04:58:34 运行器退出",
+  "11-06 04:58:58 开始 muds_tpaste03_s42，进程号 157856",
+  "11-06 04:58:58 开始 muds_tpaste03_ctx03_s42，进程号 157857",
+  "11-07 04:20:59 结束 muds_tpaste03_s42，正常完成",
+  "11-07 04:20:59 结束 muds_tpaste03_ctx03_s42，正常完成",
+  "11-07 04:20:59 运行器退出",
+  "11-09 14:40:09 开始 muds_pse_s42，进程号 9679",
+  "11-09 14:40:09 开始 muds_pse_s43，进程号 9680"
  ],
- "self_check": {
+ "setup_log_tail": [],
+ "previous_completed_batches": [
+  {
+   "instruction_id": "jia-d2ls-1030",
+   "completed_parts": 18,
+   "root": "/home/user/d2ls_pkg_1029",
+   "latest_package": {
+    "verified_at": "2026-11-03T07:46:40.128188+08:00",
+    "zip_path": "/home/user/d2ls_pkg_1029/回传_同学甲_1103_0745.zip",
+    "zip_name": "回传_同学甲_1103_0745.zip",
+    "size_bytes": 502023232,
+    "size_gib": 0.4675,
+    "sha256": "edb79d150c165a403d3b388200a4ac9c1b42f807966ca5b48ad79ae6bcf5d52b",
+    "sha256_sidecar": "/home/user/d2ls_pkg_1029/回传_同学甲_1103_0745.zip.sha256",
+    "zip_crc_passed": true,
+    "archive_entry_count": 1916,
+    "complete_marker_count": 18,
+    "final_evaluation_count": 8,
+    "probability_file_count": 1798,
+    "all_probability_paths_and_sha256_match_verified_disk": true,
+    "task_hashes_verified": true,
+    "checkpoint_files_excluded_from_zip": true,
+    "checkpoints_retained": 18,
+    "completion_verification": "results/D2LS完成核验_1030.json",
+    "all_verified": true,
+    "upload_status": "pending_user_upload"
+   }
+  },
+  {
+   "instruction_id": "jia-d2ls-1027",
+   "completed_parts": 54,
+   "root": "/home/user/d2ls_pkg_1027",
+   "latest_package": {
+    "verified_at": "2026-10-30T11:28:08.361958+08:00",
+    "zip_path": "/home/user/d2ls_pkg_1027/回传_同学甲_1030_1126.zip",
+    "zip_name": "回传_同学甲_1030_1126.zip",
+    "size_bytes": 1481276132,
+    "size_gib": 1.3795,
+    "sha256": "bb1f5bc9e6e6b32d581aa9e818b4b84b728d0123ef93777fa8c2377184a7c586",
+    "sha256_sidecar": "/home/user/d2ls_pkg_1027/回传_同学甲_1030_1126.zip.sha256",
+    "zip_crc_passed": true,
+    "archive_entry_count": 5639,
+    "complete_marker_count": 54,
+    "probability_file_count": 5394,
+    "formal_run_count": 6,
+    "final_evaluation_count": 24,
+    "all_probability_paths_exactly_match_disk": true,
+    "completion_verification": "results/D2LS完成核验.json",
+    "upload_status": "pending_user_upload",
+    "all_verified": true,
+    "reason": "User delegated latest main-branch instructions; jia-pack-1029 / jia-d2ls-1030 step 0 requested fresh pack of unreturned old results"
+   }
+  },
+  {
+   "instruction_id": "jia-st3d-1104",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1104",
+   "task_progress": {
+    "muds_mono_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.2709 val_in mIoU 61.96 SCS 17.27 | val_out mIoU 60.07 SCS 14.71 | 2.14 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], ce: 0.1987, loss: 0.1987",
+      "[Epoch 244] Step [1200/1200], ce: 0.1212, loss: 0.1212",
+      "第 244 轮 loss 0.2678 val_in mIoU 61.51 SCS 17.06 | val_out mIoU 59.82 SCS 15.09 | 2.15 分钟",
+      "[Epoch 245] Step [400/1200], ce: 0.2085, loss: 0.2085",
+      "[Epoch 245] Step [800/1200], ce: 0.1651, loss: 0.1651",
+      "[Epoch 245] Step [1200/1200], ce: 0.6188, loss: 0.6188",
+      "第 245 轮 loss 0.2687 val_in mIoU 61.60 SCS 16.25 | val_out mIoU 59.50 SCS 14.02 | 2.15 分钟",
+      "[Epoch 246] Step [400/1200], ce: 0.4477, loss: 0.4477",
+      "[Epoch 246] Step [800/1200], ce: 0.2641, loss: 0.2641",
+      "[Epoch 246] Step [1200/1200], ce: 0.0201, loss: 0.0201",
+      "第 246 轮 loss 0.2658 val_in mIoU 62.09 SCS 18.19 | val_out mIoU 60.46 SCS 15.99 | 2.13 分钟",
+      "[Epoch 247] Step [400/1200], ce: 0.4272, loss: 0.4272",
+      "[Epoch 247] Step [800/1200], ce: 0.2272, loss: 0.2272",
+      "[Epoch 247] Step [1200/1200], ce: 0.0937, loss: 0.0937",
+      "第 247 轮 loss 0.2759 val_in mIoU 62.47 SCS 18.36 | val_out mIoU 60.35 SCS 15.78 | 2.14 分钟",
+      "[Epoch 248] Step [400/1200], ce: 0.5317, loss: 0.5317",
+      "[Epoch 248] Step [800/1200], ce: 0.0309, loss: 0.0309",
+      "[Epoch 248] Step [1200/1200], ce: 0.3655, loss: 0.3655",
+      "第 248 轮 loss 0.2721 val_in mIoU 62.38 SCS 18.26 | val_out mIoU 60.34 SCS 15.77 | 2.14 分钟",
+      "[Epoch 249] Step [400/1200], ce: 0.2616, loss: 0.2616",
+      "[Epoch 249] Step [800/1200], ce: 0.0595, loss: 0.0595",
+      "[Epoch 249] Step [1200/1200], ce: 0.0482, loss: 0.0482",
+      "第 249 轮 loss 0.2662 val_in mIoU 61.52 SCS 16.76 | val_out mIoU 59.47 SCS 13.74 | 2.13 分钟",
+      "[Epoch 250] Step [400/1200], ce: 0.0556, loss: 0.0556",
+      "[Epoch 250] Step [800/1200], ce: 0.2628, loss: 0.2628",
+      "[Epoch 250] Step [1200/1200], ce: 0.0949, loss: 0.0949",
+      "第 250 轮 loss 0.2709 val_in mIoU 61.96 SCS 17.27 | val_out mIoU 60.07 SCS 14.71 | 2.14 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1104/scripts/st3d_repro.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    },
+    "muds_code_s42": {
+     "completed_epochs": 100,
+     "final_exists": true,
+     "latest_epoch_line": "第 100 轮 loss 0.2223 val_in mIoU 54.66 SCS 28.95 | val_out mIoU 59.04 SCS 17.98 | 5.48 分钟",
+     "log_tail": [
+      "[Epoch 94] Step [800/1200], ce: 0.2966, loss: 0.2966",
+      "[Epoch 94] Step [1200/1200], ce: 0.2861, loss: 0.2861",
+      "第 94 轮 loss 0.2297 val_in mIoU 57.72 SCS 22.02 | val_out mIoU 62.46 SCS 13.50 | 5.49 分钟",
+      "[Epoch 95] Step [400/1200], ce: 0.0452, loss: 0.0452",
+      "[Epoch 95] Step [800/1200], ce: 0.2030, loss: 0.2030",
+      "[Epoch 95] Step [1200/1200], ce: 0.1959, loss: 0.1959",
+      "第 95 轮 loss 0.2328 val_in mIoU 53.51 SCS 19.43 | val_out mIoU 60.25 SCS 13.42 | 5.61 分钟",
+      "[Epoch 96] Step [400/1200], ce: 0.3455, loss: 0.3455",
+      "[Epoch 96] Step [800/1200], ce: 0.1815, loss: 0.1815",
+      "[Epoch 96] Step [1200/1200], ce: 0.3353, loss: 0.3353",
+      "第 96 轮 loss 0.2237 val_in mIoU 64.73 SCS 18.74 | val_out mIoU 62.35 SCS 11.82 | 5.43 分钟",
+      "[Epoch 97] Step [400/1200], ce: 0.2317, loss: 0.2317",
+      "[Epoch 97] Step [800/1200], ce: 0.1007, loss: 0.1007",
+      "[Epoch 97] Step [1200/1200], ce: 0.4960, loss: 0.4960",
+      "第 97 轮 loss 0.2333 val_in mIoU 56.02 SCS 22.29 | val_out mIoU 62.39 SCS 14.44 | 5.47 分钟",
+      "[Epoch 98] Step [400/1200], ce: 0.2602, loss: 0.2602",
+      "[Epoch 98] Step [800/1200], ce: 0.2045, loss: 0.2045",
+      "[Epoch 98] Step [1200/1200], ce: 0.0469, loss: 0.0469",
+      "第 98 轮 loss 0.2305 val_in mIoU 55.88 SCS 23.31 | val_out mIoU 61.58 SCS 16.30 | 5.58 分钟",
+      "[Epoch 99] Step [400/1200], ce: 0.2069, loss: 0.2069",
+      "[Epoch 99] Step [800/1200], ce: 0.2893, loss: 0.2893",
+      "[Epoch 99] Step [1200/1200], ce: 0.2363, loss: 0.2363",
+      "第 99 轮 loss 0.2300 val_in mIoU 57.40 SCS 19.93 | val_out mIoU 61.70 SCS 14.14 | 5.44 分钟",
+      "[Epoch 100] Step [400/1200], ce: 0.0866, loss: 0.0866",
+      "[Epoch 100] Step [800/1200], ce: 0.4312, loss: 0.4312",
+      "[Epoch 100] Step [1200/1200], ce: 0.1445, loss: 0.1445",
+      "第 100 轮 loss 0.2223 val_in mIoU 54.66 SCS 28.95 | val_out mIoU 59.04 SCS 17.98 | 5.48 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1104/scripts/st3d_repro.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    }
+   },
+   "latest_package": {
+    "verified_at": "2026-11-05T05:28:31.368802+08:00",
+    "instruction_id": "jia-st3d-1104",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1105_0528.zip",
+    "size_bytes": 46610046,
+    "sha256": "cf7f49c190c22351bac221cb9d9ea9f043cdd81793a3e9c60e0633201d7e9fc7",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 19,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 19 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1105_0528.zip（46,610,046 字节）\n"
+   }
+  },
+  {
+   "instruction_id": "jia-st3d-1105a",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1105",
+   "task_progress": {
+    "muds_ctxdrop03_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.2308 val_in mIoU 61.29 SCS 18.40 | val_out mIoU 63.31 SCS 12.97 | 5.7 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], ce: 0.4272, loss: 0.4272",
+      "[Epoch 244] Step [1200/1200], ce: 0.0283, loss: 0.0283",
+      "第 244 轮 loss 0.2386 val_in mIoU 60.20 SCS 18.98 | val_out mIoU 63.15 SCS 12.97 | 5.7 分钟",
+      "[Epoch 245] Step [400/1200], ce: 0.3549, loss: 0.3549",
+      "[Epoch 245] Step [800/1200], ce: 0.3567, loss: 0.3567",
+      "[Epoch 245] Step [1200/1200], ce: 0.2103, loss: 0.2103",
+      "第 245 轮 loss 0.2401 val_in mIoU 58.75 SCS 19.63 | val_out mIoU 63.17 SCS 13.35 | 5.71 分钟",
+      "[Epoch 246] Step [400/1200], ce: 0.3939, loss: 0.3939",
+      "[Epoch 246] Step [800/1200], ce: 0.0227, loss: 0.0227",
+      "[Epoch 246] Step [1200/1200], ce: 0.2641, loss: 0.2641",
+      "第 246 轮 loss 0.2388 val_in mIoU 61.65 SCS 18.69 | val_out mIoU 63.38 SCS 12.71 | 5.72 分钟",
+      "[Epoch 247] Step [400/1200], ce: 0.2697, loss: 0.2697",
+      "[Epoch 247] Step [800/1200], ce: 0.2723, loss: 0.2723",
+      "[Epoch 247] Step [1200/1200], ce: 0.2984, loss: 0.2984",
+      "第 247 轮 loss 0.2257 val_in mIoU 59.62 SCS 19.18 | val_out mIoU 62.77 SCS 13.83 | 5.72 分钟",
+      "[Epoch 248] Step [400/1200], ce: 0.2734, loss: 0.2734",
+      "[Epoch 248] Step [800/1200], ce: 0.4584, loss: 0.4584",
+      "[Epoch 248] Step [1200/1200], ce: 0.1115, loss: 0.1115",
+      "第 248 轮 loss 0.2350 val_in mIoU 60.72 SCS 19.22 | val_out mIoU 63.17 SCS 13.23 | 5.71 分钟",
+      "[Epoch 249] Step [400/1200], ce: 0.1719, loss: 0.1719",
+      "[Epoch 249] Step [800/1200], ce: 0.2055, loss: 0.2055",
+      "[Epoch 249] Step [1200/1200], ce: 0.3057, loss: 0.3057",
+      "第 249 轮 loss 0.2389 val_in mIoU 58.69 SCS 19.10 | val_out mIoU 63.23 SCS 12.50 | 5.72 分钟",
+      "[Epoch 250] Step [400/1200], ce: 0.0027, loss: 0.0027",
+      "[Epoch 250] Step [800/1200], ce: 0.1217, loss: 0.1217",
+      "[Epoch 250] Step [1200/1200], ce: 0.1420, loss: 0.1420",
+      "第 250 轮 loss 0.2308 val_in mIoU 61.29 SCS 18.40 | val_out mIoU 63.31 SCS 12.97 | 5.7 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1105/scripts/st3d_repro.py:351: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    },
+    "muds_ctxdrop05_s42": {
+     "completed_epochs": 250,
+     "final_exists": true,
+     "latest_epoch_line": "第 250 轮 loss 0.2504 val_in mIoU 61.30 SCS 16.53 | val_out mIoU 62.96 SCS 11.96 | 5.7 分钟",
+     "log_tail": [
+      "[Epoch 244] Step [800/1200], ce: 0.2896, loss: 0.2896",
+      "[Epoch 244] Step [1200/1200], ce: 0.0172, loss: 0.0172",
+      "第 244 轮 loss 0.2514 val_in mIoU 59.50 SCS 18.42 | val_out mIoU 62.91 SCS 11.62 | 5.7 分钟",
+      "[Epoch 245] Step [400/1200], ce: 0.2089, loss: 0.2089",
+      "[Epoch 245] Step [800/1200], ce: 0.3713, loss: 0.3713",
+      "[Epoch 245] Step [1200/1200], ce: 0.1519, loss: 0.1519",
+      "第 245 轮 loss 0.2534 val_in mIoU 58.41 SCS 18.92 | val_out mIoU 63.11 SCS 11.80 | 5.71 分钟",
+      "[Epoch 246] Step [400/1200], ce: 0.4488, loss: 0.4488",
+      "[Epoch 246] Step [800/1200], ce: 0.0282, loss: 0.0282",
+      "[Epoch 246] Step [1200/1200], ce: 0.0089, loss: 0.0089",
+      "第 246 轮 loss 0.2544 val_in mIoU 61.46 SCS 17.50 | val_out mIoU 62.96 SCS 11.19 | 5.72 分钟",
+      "[Epoch 247] Step [400/1200], ce: 0.3288, loss: 0.3288",
+      "[Epoch 247] Step [800/1200], ce: 0.3950, loss: 0.3950",
+      "[Epoch 247] Step [1200/1200], ce: 0.2712, loss: 0.2712",
+      "第 247 轮 loss 0.2556 val_in mIoU 60.90 SCS 16.87 | val_out mIoU 62.90 SCS 11.51 | 5.72 分钟",
+      "[Epoch 248] Step [400/1200], ce: 0.2793, loss: 0.2793",
+      "[Epoch 248] Step [800/1200], ce: 0.2390, loss: 0.2390",
+      "[Epoch 248] Step [1200/1200], ce: 0.3288, loss: 0.3288",
+      "第 248 轮 loss 0.2478 val_in mIoU 61.51 SCS 16.58 | val_out mIoU 63.05 SCS 11.29 | 5.71 分钟",
+      "[Epoch 249] Step [400/1200], ce: 0.2776, loss: 0.2776",
+      "[Epoch 249] Step [800/1200], ce: 0.5207, loss: 0.5207",
+      "[Epoch 249] Step [1200/1200], ce: 0.2750, loss: 0.2750",
+      "第 249 轮 loss 0.2585 val_in mIoU 58.24 SCS 18.38 | val_out mIoU 63.12 SCS 11.82 | 5.72 分钟",
+      "[Epoch 250] Step [400/1200], ce: 0.2057, loss: 0.2057",
+      "[Epoch 250] Step [800/1200], ce: 0.3125, loss: 0.3125",
+      "[Epoch 250] Step [1200/1200], ce: 0.2552, loss: 0.2552",
+      "第 250 轮 loss 0.2504 val_in mIoU 61.30 SCS 16.53 | val_out mIoU 62.96 SCS 11.96 | 5.7 分钟",
+      "/home/user/work_st3d/pub_st3d_pkg_1105/scripts/st3d_repro.py:351: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+      "  ck = torch.load(os.path.join(a.out, f\"{name}.pth\"), map_location=device)",
+      "完成"
+     ]
+    }
+   },
+   "latest_package": {
+    "verified_at": "2026-11-06T04:58:55.564740+08:00",
+    "instruction_id": "jia-st3d-1105a",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1106_0458.zip",
+    "size_bytes": 104179690,
+    "sha256": "62cb4cb5c9263b106afaf448ff9c3523a17402d218fc89ee0ac61a5748a1362a",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 33,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 33 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1106_0458.zip（104,179,690 字节）\n"
+   }
+  },
+  {
+   "instruction_id": "jia-st3d-1106a",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1106",
+   "latest_package": {
+    "verified_at": "2026-11-07T04:21:07.507436+08:00",
+    "instruction_id": "jia-st3d-1106a",
+    "zip_path": "/home/user/work_st3d/回传_同学甲_st3d_1104_1107_0420.zip",
+    "size_bytes": 161573532,
+    "sha256": "988b57b4414ffc9b64059de6e29ca1be67de7573b8b815b5f288914e2c78214f",
+    "zip_crc_passed": true,
+    "all_file_paths_and_sha256_verified": true,
+    "entry_count": 47,
+    "upload_status": "pending_user_upload",
+    "original_pack_output": "已打包 47 个文件 → /home/user/work_st3d/回传_同学甲_st3d_1104_1107_0420.zip（161,573,532 字节）\n"
+   }
+  }
+ ],
+ "package": null,
+ "next_queued_tasks": [
+  {
+   "instruction_id": "jia-st3d-1107c",
+   "status": "CPU_preparation_blocked_part4_HTTP504_after_one_resume",
+   "root": "/home/user/work_st3d/pub_st3d_pkg_1107c"
+  }
+ ],
+ "chain_error": null,
+ "completion_metrics": null,
+ "gpu_recovery_check": {
+  "time": "2026-11-09T14:36:55.603588+08:00",
+  "boot_at": "2026-11-09 14:28:51",
+  "command_argv": [
+   "/usr/bin/timeout",
+   "-s",
+   "KILL",
+   "30s",
+   "/home/user/d2ls_pkg_1027/.venv/bin/python",
+   "-u",
+   "-c",
+   "import torch,torchmetrics,pandas,json; assert torch.cuda.is_available(); x=torch.arange(128*128,dtype=torch.float32,device='cuda').reshape(128,128)/16384; y=x@x.T; torch.cuda.synchronize(); assert torch.isfinite(y).all().item(); print(json.dumps({'cuda_basic_passed':True,'device':torch.cuda.get_device_name(0),'torch':torch.__version__,'checksum':y.sum().item(),'torchmetrics':torchmetrics.__version__,'pandas':pandas.__version__}))"
+  ],
+  "returncode": 0,
+  "stdout": "{\"cuda_basic_passed\": true, \"device\": \"NVIDIA TITAN RTX\", \"torch\": \"2.5.1+cu121\", \"checksum\": 524234.71875, \"torchmetrics\": \"1.9.0\", \"pandas\": \"3.1.0\"}\n",
+  "stderr": "",
   "passed": true,
-  "time": "2026-10-27T17:01:53.802237+08:00",
-  "versions": {
-   "python": "3.12.12",
-   "torch": "2.5.1+cu121",
-   "torchvision": "0.20.1+cu121",
-   "timm": "1.0.29",
-   "smp": "0.5.0",
-   "numpy": "2.2.6"
-  },
-  "smoke": {
-   "time": "2026-10-27T16:59:29.581102+08:00",
-   "synthetic_smoke_only": true,
-   "formal_training": false,
-   "train_shape": [
-    8,
-    5,
-    256,
-    256
-   ],
-   "prediction_shape": [
-    1,
-    5,
-    256,
-    256
-   ],
-   "finite_loss": 2.2547607421875,
-   "finite_gradients": true,
-   "seconds": 4.17,
-   "peak_gpu_gb": 4.024,
-   "architecture": "D2LS",
-   "repository": "https://github.com/XavierJiezou/D2LS",
-   "author_source_sha256": "b203771c64394ddcec0ee8af63c5b48494bdbc02edd16043c7747ff4dbbcc111",
-   "checkpoint_sha256": "6075fbad31c688f9ed013922a59daf0fc2f4dc12e6e43bc01fa840c7bd1ca2cd",
-   "input": "aux",
-   "classes": 5,
-   "token_length": 5,
-   "interactor_layers": 3,
-   "auxiliary_weight": 0.4,
-   "contrastive_weight": 0.1,
-   "adaptation": "official architecture; five class tokens; zero-extra 12-to-RGB adapter for multispectral arm",
-   "trainable_parameters": 94027530
-  },
-  "original_environment_issue": "Python3.10缺少hashlib.file_digest；已通过独立Python3.12环境解决",
-  "original_training_dependencies_exactly_retained": true,
-  "additional_dependencies": [
-   "setuptools==78.1.0"
-  ],
-  "original_code_unchanged": true,
-  "self_check_log": "results/check_d2ls_a_py312.log",
-  "original_failure_log_retained": "results/check_d2ls_a.log"
+  "nvidia_smi_observed_at": "2026-11-09T14:36:00+08:00",
+  "nvidia_smi": "NVIDIA TITAN RTX, 709, 24576, 38",
+  "dmesg_permission_denied": true,
+  "current_boot_journal_kernel_faults": "-- No entries --"
  },
- "chosen_lr": {},
- "evaluation": {
-  "pred_d2ls_12b_a2_clear_s20261019": {
-   "r3_2023a": {
-    "development_crossfit": {
-     "periods": 166,
-     "mIoU": 0.8602498238407286,
-     "IoU": [
-      0.8689839306805888,
-      0.9348531754016374,
-      0.8758050464095433,
-      0.8198438503568952,
-      0.8017631163549777
-     ],
-     "OA": 0.9466596509241809,
-     "confusion_matrix": [
-      [
-       175102,
-       3900,
-       2684,
-       4182,
-       813
-      ],
-      [
-       7041,
-       3856260,
-       48831,
-       72867,
-       14228
-      ],
-      [
-       2527,
-       51037,
-       1045466,
-       14989,
-       6730
-      ],
-      [
-       4302,
-       62836,
-       15872,
-       901174,
-       13714
-      ],
-      [
-       951,
-       7990,
-       5584,
-       9266,
-       239740
-      ]
-     ],
-     "valid_pixels": 6568086
-    },
-    "test": {
-     "periods": 22,
-     "mIoU": 0.7843730467111488,
-     "IoU": [
-      0.8175319085226634,
-      0.8761824291513703,
-      0.8133995810119015,
-      0.7311401750002571,
-      0.6836111398695517
-     ],
-     "OA": 0.903349588563871,
-     "confusion_matrix": [
-      [
-       21842,
-       609,
-       449,
-       821,
-       240
-      ],
-      [
-       1099,
-       451085,
-       5412,
-       22156,
-       3523
-      ],
-      [
-       443,
-       18095,
-       161908,
-       6940,
-       1894
-      ],
-      [
-       1001,
-       11573,
-       2792,
-       142217,
-       3267
-      ],
-      [
-       213,
-       1278,
-       1118,
-       3747,
-       33015
-      ]
-     ],
-     "valid_pixels": 896737
-    }
-   },
-   "r3_2023b": {
-    "development_crossfit": {
-     "periods": 209,
-     "mIoU": 0.8541981685286064,
-     "IoU": [
-      0.8686245445744608,
-      0.9290579244453375,
-      0.8708778684608672,
-      0.8111869625613511,
-      0.7912435426010153
-     ],
-     "OA": 0.9426975423337913,
-     "confusion_matrix": [
-      [
-       216238,
-       4042,
-       3331,
-       3879,
-       842
-      ],
-      [
-       9917,
-       4669473,
-       71054,
-       100611,
-       19754
-      ],
-      [
-       3155,
-       64639,
-       1354418,
-       20198,
-       9034
-      ],
-      [
-       6277,
-       77704,
-       22468,
-       1132301,
-       19534
-      ],
-      [
-       1262,
-       8836,
-       6936,
-       12885,
-       299746
-      ]
-     ],
-     "valid_pixels": 8138534
-    },
-    "test": {
-     "periods": 23,
-     "mIoU": 0.794568826417194,
-     "IoU": [
-      0.8384884686180387,
-      0.8916083427908099,
-      0.8492933463266118,
-      0.7153642594873669,
-      0.6780897148631431
-     ],
-     "OA": 0.9123521463958091,
-     "confusion_matrix": [
-      [
-       23232,
-       588,
-       380,
-       409,
-       47
-      ],
-      [
-       1516,
-       447023,
-       11075,
-       18467,
-       4189
-      ],
-      [
-       519,
-       4127,
-       147287,
-       4789,
-       1518
-      ],
-      [
-       871,
-       13469,
-       3088,
-       121378,
-       3309
-      ],
-      [
-       145,
-       913,
-       640,
-       3893,
-       30868
-      ]
-     ],
-     "valid_pixels": 843740
-    }
-   },
-   "r3_2024": {
-    "development_crossfit": {
-     "periods": 233,
-     "mIoU": 0.8485407163783855,
-     "IoU": [
-      0.862194683908046,
-      0.9266110860911233,
-      0.8705786915602125,
-      0.802375570028611,
-      0.7809435503039346
-     ],
-     "OA": 0.9404892346860049,
-     "confusion_matrix": [
-      [
-       240035,
-       4359,
-       3298,
-       4313,
-       983
-      ],
-      [
-       12131,
-       5119037,
-       80492,
-       117639,
-       23780
-      ],
-      [
-       4591,
-       67592,
-       1503519,
-       23716,
-       10266
-      ],
-      [
-       7245,
-       90096,
-       25987,
-       1253297,
-       23774
-      ],
-      [
-       1445,
-       9346,
-       7573,
-       15916,
-       331844
-      ]
-     ],
-     "valid_pixels": 8982274
-    },
-    "test": {
-     "periods": 246,
-     "mIoU": 0.7519511252927776,
-     "IoU": [
-      0.8291236434432286,
-      0.8637540136612207,
-      0.793367105133294,
-      0.6804698676349936,
-      0.593040996591151
-     ],
-     "OA": 0.8871949488685145,
-     "confusion_matrix": [
-      [
-       258078,
-       7575,
-       5369,
-       6361,
-       1622
-      ],
-      [
-       17270,
-       4955330,
-       184954,
-       218324,
-       52732
-      ],
-      [
-       5525,
-       113847,
-       1623767,
-       28750,
-       17996
-      ],
-      [
-       7331,
-       160327,
-       50578,
-       1378470,
-       55940
-      ],
-      [
-       2135,
-       26610,
-       15892,
-       119681,
-       426403
-      ]
-     ],
-     "valid_pixels": 9740867
-    }
-   }
+ "gpu_execution_blocked": false,
+ "gpu_incident": {
+  "observed_at": "2026-11-07T04:37:04.520714+08:00",
+  "first_error_at": "2026-11-07T04:28:00+08:00",
+  "kernel_evidence": {
+   "returncode": 0,
+   "stdout": "Nov 07 04:28:00 user kernel: NVRM: Xid (PCI:0000:01:00): 62, 000122bb 00012317 00011e48 00015e33 00016252 000141da 00000011 00000000\nNov 07 04:28:06 user kernel: NVRM: Xid (PCI:0000:01:00): 119, Timeout after 6s of waiting for RPC response from GPU0 GSP! Expected function 76 (GSP_RM_CONTROL) sequence 35433011 (0x20800a56 0x5c).\nNov 07 04:28:06 user kernel: NVRM: Xid (PCI:0000:01:00): 154, GPU recovery action changed from 0x0 (None) to 0x1 (GPU Reset Required)\nNov 07 04:28:12 user kernel: NVRM: Xid (PCI:0000:01:00): 119, pid=1881, name=Xorg, Timeout after 6s of waiting for RPC response from GPU0 GSP! Expected function 76 (GSP_RM_CONTROL) sequence 35433012 (0xc3700104 0x14).\nNov 07 04:28:18 user kernel: NVRM: Xid (PCI:0000:01:00): 119, pid=1881, name=Xorg, Timeout after 6s of waiting for RPC response from GPU0 GSP! Expected function 76 (GSP_RM_CONTROL) sequence 35433013 (0xc3700104 0x14).",
+   "stderr": ""
   },
-  "pred_d2ls_12b_a2_prev_s20261018": {
-   "r3_2023a": {
-    "development_crossfit": {
-     "periods": 166,
-     "mIoU": 0.8656802995072438,
-     "IoU": [
-      0.8784524882820867,
-      0.9369946778559196,
-      0.8775810974377127,
-      0.8264678536265478,
-      0.8089053803339518
+  "detected_codes": [
+   62,
+   119,
+   154
+  ],
+  "training_finished_before_fault": true,
+  "training_queue_normal_exit_at": "2026-11-07T04:20:59+08:00",
+  "completion_verification": "/home/user/work_st3d/pub_st3d_pkg_1106/results/completion_verification_jia-st3d-1106a.json",
+  "package_verification": "/home/user/work_st3d/pub_st3d_pkg_1106/results/package_verification_jia-st3d-1106a.json",
+  "active_own_trainers": [],
+  "active_own_queue": false,
+  "signal_action": "none_required_already_finished",
+  "gpu_queries_issued": false,
+  "gpu_reset_or_reboot_issued": false,
+  "followup_gpu_start_blocked": true,
+  "recovery_status": "awaiting_user_or_authorized_hardware_recovery_and_fresh_checks",
+  "sync_retained": true
+ },
+ "followup_preparation": {
+  "time": "2026-11-09T15:44:40.018541+08:00",
+  "instruction_id": "jia-st3d-1107c",
+  "package_sha256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
+  "package_bytes": 7517933,
+  "source_file_count": 39,
+  "syntax_and_cpu_only_cli_passed": true,
+  "all_preparation_passed": false,
+  "phase": "authorized_release_resume_failed",
+  "data_download_failure": {
+   "time": "2026-11-07T03:35:38.453223+08:00",
+   "message": "DynamicEarthNet 下载不通",
+   "attempts": [
+    {
+     "command_argv": [
+      "/home/user/d2ls_pkg_1027/.venv/bin/python",
+      "-m",
+      "gdown",
+      "https://drive.google.com/file/d/1cMP57SPQWYKMy8X60iK217C28RFBkd2z/view",
+      "--retries",
+      "0",
+      "--timeout",
+      "60",
+      "--continue",
+      "-O",
+      "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip"
      ],
-     "OA": 0.9484629159849612,
-     "confusion_matrix": [
-      [
-       176359,
-       3625,
-       2591,
-       3303,
-       803
-      ],
-      [
-       6694,
-       3860553,
-       47990,
-       70414,
-       13576
-      ],
-      [
-       2343,
-       51138,
-       1046232,
-       14439,
-       6597
-      ],
-      [
-       4082,
-       58984,
-       15835,
-       904898,
-       14099
-      ],
-      [
-       961,
-       7170,
-       5012,
-       8844,
-       241544
-      ]
-     ],
-     "valid_pixels": 6568086
+     "passed": false,
+     "error": "{\"command_argv\": [\"/home/user/d2ls_pkg_1027/.venv/bin/python\", \"-m\", \"gdown\", \"https://drive.google.com/file/d/1cMP57SPQWYKMy8X60iK217C28RFBkd2z/view\", \"--retries\", \"0\", \"--timeout\", \"60\", \"--continue\", \"-O\", \"/home/user/work_st3d/st3d_data/DynamicEarthNet.zip\"], \"returncode\": 1, \"last30\": \"Using cookies from /home/user/.cache/gdown/cookies.txt\\nFailed to retrieve file url:\\n\\n\\tToo many users have viewed or downloaded this file recently. Please\\n\\ttry accessing the file again later. If the file you are trying to\\n\\taccess is particularly large or is shared with many people, it may\\n\\ttake up to 24 hours to be able to view or download the file. If you\\n\\tstill can't access a file after 24 hours, contact your domain\\n\\tadministrator.\\n\\nYou may still be able to access the file from the browser:\\n\\n\\thttps://drive.google.com/uc?id=1cMP57SPQWYKMy8X60iK217C28RFBkd2z\\n\\nbut Gdown can't. Please check connections and permissions.\"}"
     },
-    "test": {
-     "periods": 22,
-     "mIoU": 0.7915050231081706,
-     "IoU": [
-      0.8210942453287584,
-      0.8796748220831174,
-      0.8181199631068842,
-      0.7396876560818499,
-      0.698948428940243
+    {
+     "command_argv": [
+      "/home/user/d2ls_pkg_1027/.venv/bin/python",
+      "-m",
+      "gdown",
+      "1cMP57SPQWYKMy8X60iK217C28RFBkd2z",
+      "--retries",
+      "0",
+      "--timeout",
+      "60",
+      "--continue",
+      "-O",
+      "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip"
      ],
-     "OA": 0.9065712689450753,
-     "confusion_matrix": [
-      [
-       22016,
-       673,
-       311,
-       741,
-       220
-      ],
-      [
-       1082,
-       451662,
-       5196,
-       22089,
-       3246
-      ],
-      [
-       477,
-       17732,
-       162324,
-       7007,
-       1740
-      ],
-      [
-       1016,
-       10574,
-       2540,
-       143654,
-       3066
-      ],
-      [
-       277,
-       1188,
-       1084,
-       3522,
-       33300
-      ]
-     ],
-     "valid_pixels": 896737
+     "passed": false,
+     "error": "{\"command_argv\": [\"/home/user/d2ls_pkg_1027/.venv/bin/python\", \"-m\", \"gdown\", \"1cMP57SPQWYKMy8X60iK217C28RFBkd2z\", \"--retries\", \"0\", \"--timeout\", \"60\", \"--continue\", \"-O\", \"/home/user/work_st3d/st3d_data/DynamicEarthNet.zip\"], \"returncode\": 1, \"last30\": \"Using cookies from /home/user/.cache/gdown/cookies.txt\\nFailed to retrieve file url:\\n\\n\\tToo many users have viewed or downloaded this file recently. Please\\n\\ttry accessing the file again later. If the file you are trying to\\n\\taccess is particularly large or is shared with many people, it may\\n\\ttake up to 24 hours to be able to view or download the file. If you\\n\\tstill can't access a file after 24 hours, contact your domain\\n\\tadministrator.\\n\\nYou may still be able to access the file from the browser:\\n\\n\\thttps://drive.google.com/uc?id=1cMP57SPQWYKMy8X60iK217C28RFBkd2z\\n\\nbut Gdown can't. Please check connections and permissions.\"}"
     }
-   },
-   "r3_2023b": {
-    "development_crossfit": {
-     "periods": 209,
-     "mIoU": 0.8598508552256238,
-     "IoU": [
-      0.8715772972103867,
-      0.9325836152538461,
-      0.8792336227135239,
-      0.8162234168335094,
-      0.7996363241168534
-     ],
-     "OA": 0.9453874616730729,
-     "confusion_matrix": [
-      [
-       216831,
-       3729,
-       3037,
-       3801,
-       934
-      ],
-      [
-       9626,
-       4675535,
-       66196,
-       100605,
-       18847
-      ],
-      [
-       3255,
-       57853,
-       1360971,
-       20538,
-       8827
-      ],
-      [
-       6253,
-       73019,
-       20965,
-       1139061,
-       18986
-      ],
-      [
-       1314,
-       8119,
-       6264,
-       12298,
-       301670
-      ]
-     ],
-     "valid_pixels": 8138534
-    },
-    "test": {
-     "periods": 23,
-     "mIoU": 0.8040919639539374,
-     "IoU": [
-      0.8495857467556273,
-      0.8967928238386401,
-      0.8544874678477917,
-      0.7260583198610862,
-      0.693535461466542
-     ],
-     "OA": 0.9166781235925759,
-     "confusion_matrix": [
-      [
-       23175,
-       620,
-       343,
-       452,
-       66
-      ],
-      [
-       1226,
-       449686,
-       11068,
-       16696,
-       3594
-      ],
-      [
-       464,
-       3988,
-       148163,
-       4117,
-       1508
-      ],
-      [
-       798,
-       13635,
-       3128,
-       121259,
-       3295
-      ],
-      [
-       134,
-       925,
-       615,
-       3630,
-       31155
-      ]
-     ],
-     "valid_pixels": 843740
-    }
-   },
-   "r3_2024": {
-    "development_crossfit": {
-     "periods": 233,
-     "mIoU": 0.8538946349406024,
-     "IoU": [
-      0.8697717053172523,
-      0.9288203122196563,
-      0.8744927139910572,
-      0.807367119996057,
-      0.7890213231789892
-     ],
-     "OA": 0.9423907576188391,
-     "confusion_matrix": [
-      [
-       241012,
-       4101,
-       3059,
-       3829,
-       987
-      ],
-      [
-       11513,
-       5125028,
-       74687,
-       118959,
-       22892
-      ],
-      [
-       3981,
-       68684,
-       1502995,
-       23865,
-       10159
-      ],
-      [
-       7153,
-       83526,
-       24680,
-       1261344,
-       23696
-      ],
-      [
-       1463,
-       8392,
-       6595,
-       15241,
-       334433
-      ]
-     ],
-     "valid_pixels": 8982274
-    },
-    "test": {
-     "periods": 246,
-     "mIoU": 0.7597146952776593,
-     "IoU": [
-      0.8354063206148388,
-      0.8650145504821233,
-      0.7916151027076017,
-      0.6887744454007168,
-      0.6177630571830163
-     ],
-     "OA": 0.8895332417535318,
-     "confusion_matrix": [
-      [
-       258052,
-       6906,
-       5032,
-       7454,
-       1561
-      ],
-      [
-       16059,
-       4953902,
-       191324,
-       217372,
-       49953
-      ],
-      [
-       6237,
-       113826,
-       1622845,
-       28788,
-       18189
-      ],
-      [
-       6429,
-       152617,
-       49334,
-       1386120,
-       58146
-      ],
-      [
-       1164,
-       24999,
-       14468,
-       106184,
-       443906
-      ]
-     ],
-     "valid_pixels": 9740867
-    }
-   }
+   ],
+   "proxy_configured": false
   },
-  "pred_d2ls_12b_a2_prev_s20261019": {
-   "r3_2023a": {
-    "development_crossfit": {
-     "periods": 166,
-     "mIoU": 0.8659694328742302,
-     "IoU": [
-      0.8771505376344086,
-      0.9369728528307014,
-      0.8800113322163646,
-      0.8253641990176115,
-      0.8103482426720651
-     ],
-     "OA": 0.9486099907948831,
-     "confusion_matrix": [
-      [
-       176202,
-       3552,
-       2504,
-       3711,
-       712
-      ],
-      [
-       6669,
-       3861490,
-       46346,
-       71170,
-       13552
-      ],
-      [
-       2431,
-       50580,
-       1046799,
-       14501,
-       6438
-      ],
-      [
-       4130,
-       60584,
-       14865,
-       904685,
-       13634
-      ],
-      [
-       969,
-       7297,
-       5065,
-       8824,
-       241376
-      ]
-     ],
-     "valid_pixels": 6568086
-    },
-    "test": {
-     "periods": 22,
-     "mIoU": 0.7890558167554831,
-     "IoU": [
-      0.8204164474178757,
-      0.8790645208343463,
-      0.8182994687413451,
-      0.7337727881347204,
-      0.6937258586491283
-     ],
-     "OA": 0.9055419816512533,
-     "confusion_matrix": [
-      [
-       21828,
-       651,
-       377,
-       853,
-       252
-      ],
-      [
-       1032,
-       451993,
-       5137,
-       21763,
-       3350
-      ],
-      [
-       416,
-       17588,
-       162502,
-       7057,
-       1717
-      ],
-      [
-       988,
-       11467,
-       2706,
-       142484,
-       3205
-      ],
-      [
-       209,
-       1194,
-       1085,
-       3657,
-       33226
-      ]
-     ],
-     "valid_pixels": 896737
-    }
-   },
-   "r3_2023b": {
-    "development_crossfit": {
-     "periods": 209,
-     "mIoU": 0.8596766700177175,
-     "IoU": [
-      0.8730726994074796,
-      0.932337643005022,
-      0.8774460458150213,
-      0.8173804241508251,
-      0.7981465377102392
-     ],
-     "OA": 0.9452459128388478,
-     "confusion_matrix": [
-      [
-       217045,
-       3724,
-       2875,
-       3860,
-       828
-      ],
-      [
-       9586,
-       4678557,
-       66332,
-       96427,
-       19907
-      ],
-      [
-       3175,
-       61280,
-       1358025,
-       20302,
-       8662
-      ],
-      [
-       6215,
-       74639,
-       20838,
-       1137335,
-       19257
-      ],
-      [
-       1291,
-       7641,
-       6213,
-       12566,
-       301954
-      ]
-     ],
-     "valid_pixels": 8138534
-    },
-    "test": {
-     "periods": 23,
-     "mIoU": 0.8018599802492752,
-     "IoU": [
-      0.8490981082270127,
-      0.8954456029707529,
-      0.8522796107095263,
-      0.7223497838079618,
-      0.6901267955311225
-     ],
-     "OA": 0.9154301088012895,
-     "confusion_matrix": [
-      [
-       23160,
-       623,
-       393,
-       420,
-       60
-      ],
-      [
-       1235,
-       449237,
-       11059,
-       17016,
-       3723
-      ],
-      [
-       437,
-       4172,
-       147735,
-       4465,
-       1431
-      ],
-      [
-       800,
-       13737,
-       3019,
-       121120,
-       3439
-      ],
-      [
-       148,
-       889,
-       630,
-       3659,
-       31133
-      ]
-     ],
-     "valid_pixels": 843740
-    }
-   },
-   "r3_2024": {
-    "development_crossfit": {
-     "periods": 233,
-     "mIoU": 0.854139691752629,
-     "IoU": [
-      0.8695846714538303,
-      0.9290535548195861,
-      0.874845817309286,
-      0.8082628180899561,
-      0.7889515970904865
-     ],
-     "OA": 0.9426238834397614,
-     "confusion_matrix": [
-      [
-       240988,
-       4083,
-       3049,
-       3923,
-       945
-      ],
-      [
-       11385,
-       5130204,
-       75686,
-       112840,
-       22964
-      ],
-      [
-       4082,
-       68134,
-       1504342,
-       23179,
-       9947
-      ],
-      [
-       7294,
-       88130,
-       24246,
-       1257408,
-       23321
-      ],
-      [
-       1381,
-       8542,
-       6886,
-       15351,
-       333964
-      ]
-     ],
-     "valid_pixels": 8982274
-    },
-    "test": {
-     "periods": 246,
-     "mIoU": 0.7543602768175184,
-     "IoU": [
-      0.833677190520485,
-      0.8651148167697298,
-      0.7931991835266331,
-      0.6832483704034198,
-      0.5965618228673242
-     ],
-     "OA": 0.8882120041265321,
-     "confusion_matrix": [
-      [
-       259016,
-       7027,
-       4918,
-       6249,
-       1795
-      ],
-      [
-       16871,
-       4961289,
-       187123,
-       214134,
-       49193
-      ],
-      [
-       5713,
-       114751,
-       1622784,
-       28428,
-       18209
-      ],
-      [
-       7163,
-       158509,
-       48875,
-       1381300,
-       56799
-      ],
-      [
-       1939,
-       25936,
-       15071,
-       120209,
-       427566
-      ]
-     ],
-     "valid_pixels": 9740867
-    }
-   }
+  "no_data_downloaded": true,
+  "gpu_steps_started": false,
+  "next_action": "Wait for canonical leader reply; do not repeat download/setup/bench/train",
+  "AB_training_reassigned": true,
+  "download_source": "authorized_GitHub_Release_8_parts",
+  "release_failure": {
+   "time": "2026-11-09T15:44:24.724691+08:00",
+   "error": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/agent_tools/agent_prepare_den_release_1109.py\", line 31, in <module>\n    if p.returncode:raise RuntimeError(f'Authorized DEN part {index} download failed rc={p.returncode}; no automatic retry')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Authorized DEN part 4 download failed rc=22; no automatic retry\n",
+   "gpu_steps_started": false
   },
-  "pred_d2ls_12b_a2_terrain_s20261018": {
-   "r3_2023a": {
-    "development_crossfit": {
-     "periods": 166,
-     "mIoU": 0.8642426362455851,
-     "IoU": [
-      0.87318311963152,
-      0.9377442140887349,
-      0.8821468178112909,
-      0.824260310778003,
-      0.8038787189183763
-     ],
-     "OA": 0.948730117114788,
-     "confusion_matrix": [
-      [
-       175357,
-       3922,
-       2956,
-       3615,
-       831
-      ],
-      [
-       6668,
-       3861204,
-       45828,
-       71723,
-       13804
-      ],
-      [
-       2474,
-       46839,
-       1050793,
-       13898,
-       6745
-      ],
-      [
-       4103,
-       59746,
-       16370,
-       903780,
-       13899
-      ],
-      [
-       899,
-       7811,
-       5274,
-       9340,
-       240207
-      ]
-     ],
-     "valid_pixels": 6568086
+  "release_resume": {
+   "time": "2026-11-09T15:43:29.514683+08:00",
+   "diagnosis": "Part4 curl35 SSL_ERROR_SYSCALL during TLS connection; first3 completed; no current downloader; no configured proxy",
+   "max_additional_resume_attempts": 1,
+   "completed_parts": {
+    "1": {
+     "path": "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip.001",
+     "size_bytes": 885727896,
+     "sha256": "05aa3ee503d5fc6fe6a8ed8e09bbbe764e89c9ff7a174c119f0e0c5ce6871ffe",
+     "original_curl_returncode": 0
     },
-    "test": {
-     "periods": 22,
-     "mIoU": 0.7913732865709149,
-     "IoU": [
-      0.8215548360686241,
-      0.8805249831260997,
-      0.8228228076979254,
-      0.7393141690974119,
-      0.6926496368645129
-     ],
-     "OA": 0.9071466884939509,
-     "confusion_matrix": [
-      [
-       22076,
-       702,
-       376,
-       617,
-       190
-      ],
-      [
-       1133,
-       451380,
-       5189,
-       22204,
-       3369
-      ],
-      [
-       488,
-       16731,
-       163369,
-       6802,
-       1890
-      ],
-      [
-       1002,
-       10638,
-       2656,
-       143458,
-       3096
-      ],
-      [
-       287,
-       1280,
-       1046,
-       3569,
-       33189
-      ]
-     ],
-     "valid_pixels": 896737
+    "2": {
+     "path": "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip.002",
+     "size_bytes": 885727896,
+     "sha256": "a06a9c6f03b14729642ad2a5d2e0e5025d40dcd44bcf77ce95bd13c299b6b99b",
+     "original_curl_returncode": 0
+    },
+    "3": {
+     "path": "/home/user/work_st3d/st3d_data/DynamicEarthNet.zip.003",
+     "size_bytes": 885727896,
+     "sha256": "a3568d2d2a75e07a7563e623cf7762b10b209bc66b27555ece85bd1914e1bbc5",
+     "original_curl_returncode": 0
     }
    },
-   "r3_2023b": {
-    "development_crossfit": {
-     "periods": 209,
-     "mIoU": 0.8593166086894145,
-     "IoU": [
-      0.8710279246496854,
-      0.9332603154699063,
-      0.8840058364448956,
-      0.8135447237919337,
-      0.7947442430906515
-     ],
-     "OA": 0.9456828465667159,
-     "confusion_matrix": [
-      [
-       216629,
-       3824,
-       3061,
-       3871,
-       947
-      ],
-      [
-       9709,
-       4675385,
-       62195,
-       103978,
-       19542
-      ],
-      [
-       3330,
-       53380,
-       1365591,
-       20097,
-       9046
-      ],
-      [
-       6062,
-       73512,
-       21389,
-       1138193,
-       19128
-      ],
-      [
-       1272,
-       8208,
-       6687,
-       12824,
-       300674
-      ]
-     ],
-     "valid_pixels": 8138534
-    },
-    "test": {
-     "periods": 23,
-     "mIoU": 0.8037374545393716,
-     "IoU": [
-      0.8458356015242243,
-      0.8972711494406685,
-      0.8575010738208286,
-      0.7245099086904381,
-      0.6935695392206984
-     ],
-     "OA": 0.9167859767226871,
-     "confusion_matrix": [
-      [
-       23307,
-       598,
-       318,
-       371,
-       62
-      ],
-      [
-       1387,
-       449252,
-       10420,
-       17552,
-       3659
-      ],
-      [
-       550,
-       3711,
-       147732,
-       4772,
-       1475
-      ],
-      [
-       805,
-       13156,
-       2785,
-       122035,
-       3334
-      ],
-      [
-       157,
-       952,
-       519,
-       3628,
-       31203
-      ]
-     ],
-     "valid_pixels": 843740
-    }
+   "original_failure": "/home/user/work_st3d/pub_st3d_pkg_1107c/results/release_preparation_failure_1109.json",
+   "service": "railseg-jia-den-release-1109-prepare.service"
+  },
+  "current_state": {
+   "time": "2026-11-09T15:44:24.724920+08:00",
+   "phase": "needs_attention",
+   "error": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/agent_tools/agent_prepare_den_release_1109.py\", line 31, in <module>\n    if p.returncode:raise RuntimeError(f'Authorized DEN part {index} download failed rc={p.returncode}; no automatic retry')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Authorized DEN part 4 download failed rc=22; no automatic retry\n",
+   "gpu_steps_started": false,
+   "AB_training_reassigned": true,
+   "download_source": "authorized_GitHub_Release"
+  },
+  "release_error_summary": "DEN第4分卷：原TLS握手失败后的一次续传返回HTTP 504（curl22），CPU准备已停，不再重试；前三卷完整保留，等待组长处理",
+  "release_download_last30": [
+   "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current",
+   "                                 Dload  Upload   Total   Spent    Left  Speed",
+   "",
+   "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0",
+   "curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 ",
+   "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current",
+   "                                 Dload  Upload   Total   Spent    Left  Speed",
+   "",
+   "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0",
+   "  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0",
+   "  0    92    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0",
+   "curl: (22) The requested URL returned error: 504"
+  ]
+ },
+ "followup_preparation_state": {
+  "time": "2026-11-09T15:44:24.724920+08:00",
+  "phase": "needs_attention",
+  "error": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/agent_tools/agent_prepare_den_release_1109.py\", line 31, in <module>\n    if p.returncode:raise RuntimeError(f'Authorized DEN part {index} download failed rc={p.returncode}; no automatic retry')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Authorized DEN part 4 download failed rc=22; no automatic retry\n",
+  "gpu_steps_started": false,
+  "AB_training_reassigned": true,
+  "download_source": "authorized_GitHub_Release"
+ },
+ "chain_state": {
+  "phase": "waiting_for_jia-st3d-1107e",
+  "updated_at": "2026-11-09T19:40:54.165617+08:00",
+  "progress": {
+   "muds_pse_s42": {
+    "completed_epochs": 172,
+    "final_exists": false,
+    "latest_epoch_line": "第 172 轮 loss 0.1829 val_in mIoU 68.91 SCS 23.74 | val_out mIoU 64.41 SCS 17.24 | 1.72 分钟",
+    "log_tail": [
+     "[Epoch 166] Step [800/1200], loss: 0.2439，event_bce 0.0079",
+     "[Epoch 166] Step [1200/1200], loss: 0.0265，event_bce 0.0014",
+     "第 166 轮 loss 0.1902 val_in mIoU 68.99 SCS 25.21 | val_out mIoU 64.19 SCS 16.92 | 1.72 分钟",
+     "[Epoch 167] Step [400/1200], loss: 0.0885，event_bce 0.0032",
+     "[Epoch 167] Step [800/1200], loss: 0.0325，event_bce 0.0004",
+     "[Epoch 167] Step [1200/1200], loss: 0.2561，event_bce 0.0006",
+     "第 167 轮 loss 0.1817 val_in mIoU 69.63 SCS 23.80 | val_out mIoU 64.64 SCS 14.65 | 1.72 分钟",
+     "[Epoch 168] Step [400/1200], loss: 0.0371，event_bce 0.0009",
+     "[Epoch 168] Step [800/1200], loss: 0.0234，event_bce 0.0001",
+     "[Epoch 168] Step [1200/1200], loss: 0.1520，event_bce 0.0008",
+     "第 168 轮 loss 0.1812 val_in mIoU 68.94 SCS 24.29 | val_out mIoU 64.43 SCS 17.55 | 1.73 分钟",
+     "[Epoch 169] Step [400/1200], loss: 0.3136，event_bce 0.0011",
+     "[Epoch 169] Step [800/1200], loss: 0.0245，event_bce 0.0038",
+     "[Epoch 169] Step [1200/1200], loss: 0.3582，event_bce 0.0079",
+     "第 169 轮 loss 0.1840 val_in mIoU 69.34 SCS 23.66 | val_out mIoU 64.84 SCS 16.80 | 1.72 分钟",
+     "[Epoch 170] Step [400/1200], loss: 0.2866，event_bce 0.0015",
+     "[Epoch 170] Step [800/1200], loss: 0.4731，event_bce 0.0244",
+     "[Epoch 170] Step [1200/1200], loss: 0.1011，event_bce 0.0004",
+     "第 170 轮 loss 0.1891 val_in mIoU 69.08 SCS 24.29 | val_out mIoU 64.39 SCS 17.01 | 1.72 分钟",
+     "[Epoch 171] Step [400/1200], loss: 0.1481，event_bce 0.0224",
+     "[Epoch 171] Step [800/1200], loss: 0.3224，event_bce 0.0145",
+     "[Epoch 171] Step [1200/1200], loss: 0.0490，event_bce 0.0003",
+     "第 171 轮 loss 0.1838 val_in mIoU 69.14 SCS 24.83 | val_out mIoU 64.31 SCS 17.04 | 1.72 分钟",
+     "[Epoch 172] Step [400/1200], loss: 0.2427，event_bce 0.0026",
+     "[Epoch 172] Step [800/1200], loss: 0.2955，event_bce 0.0261",
+     "[Epoch 172] Step [1200/1200], loss: 0.0064，event_bce 0.0003",
+     "第 172 轮 loss 0.1829 val_in mIoU 68.91 SCS 23.74 | val_out mIoU 64.41 SCS 17.24 | 1.72 分钟",
+     "[Epoch 173] Step [400/1200], loss: 0.1202，event_bce 0.0101",
+     "[Epoch 173] Step [800/1200], loss: 0.2835，event_bce 0.0114",
+     "[Epoch 173] Step [1200/1200], loss: 0.2941，event_bce 0.0432"
+    ]
    },
-   "r3_2024": {
-    "development_crossfit": {
-     "periods": 233,
-     "mIoU": 0.8547420877645526,
-     "IoU": [
-      0.8683212100427775,
-      0.9307128928055733,
-      0.8824093900488555,
-      0.8066622511894592,
-      0.7856046947360978
-     ],
-     "OA": 0.9436078213601589,
-     "confusion_matrix": [
-      [
-       240538,
-       4195,
-       3238,
-       3950,
-       1067
-      ],
-      [
-       11501,
-       5126845,
-       71916,
-       119633,
-       23184
-      ],
-      [
-       4039,
-       57830,
-       1514466,
-       23221,
-       10128
-      ],
-      [
-       7022,
-       84427,
-       24589,
-       1260559,
-       23802
-      ],
-      [
-       1465,
-       8983,
-       6858,
-       15482,
-       333336
-      ]
-     ],
-     "valid_pixels": 8982274
-    },
-    "test": {
-     "periods": 246,
-     "mIoU": 0.7617452981531335,
-     "IoU": [
-      0.8332594995036426,
-      0.8685113855286084,
-      0.8008187453586701,
-      0.6919727079452842,
-      0.6141641524294621
-     ],
-     "OA": 0.8920798323188275,
-     "confusion_matrix": [
-      [
-       257688,
-       7444,
-       5307,
-       6907,
-       1659
-      ],
-      [
-       16574,
-       4981103,
-       173944,
-       208149,
-       48840
-      ],
-      [
-       6021,
-       112128,
-       1626197,
-       27062,
-       18477
-      ],
-      [
-       6597,
-       159384,
-       46897,
-       1387188,
-       52580
-      ],
-      [
-       1056,
-       27653,
-       14635,
-       109922,
-       437455
-      ]
-     ],
-     "valid_pixels": 9740867
-    }
+   "muds_pse_s43": {
+    "completed_epochs": 172,
+    "final_exists": false,
+    "latest_epoch_line": "第 172 轮 loss 0.1830 val_in mIoU 69.52 SCS 26.77 | val_out mIoU 65.38 SCS 16.01 | 1.72 分钟",
+    "log_tail": [
+     "[Epoch 166] Step [800/1200], loss: 0.1320，event_bce 0.0023",
+     "[Epoch 166] Step [1200/1200], loss: 0.0466，event_bce 0.0073",
+     "第 166 轮 loss 0.1896 val_in mIoU 69.36 SCS 26.54 | val_out mIoU 65.71 SCS 14.85 | 1.72 分钟",
+     "[Epoch 167] Step [400/1200], loss: 0.1990，event_bce 0.0016",
+     "[Epoch 167] Step [800/1200], loss: 0.0808，event_bce 0.0016",
+     "[Epoch 167] Step [1200/1200], loss: 0.0954，event_bce 0.0082",
+     "第 167 轮 loss 0.1897 val_in mIoU 69.72 SCS 25.70 | val_out mIoU 65.65 SCS 14.82 | 1.72 分钟",
+     "[Epoch 168] Step [400/1200], loss: 0.2203，event_bce 0.0037",
+     "[Epoch 168] Step [800/1200], loss: 0.2537，event_bce 0.0067",
+     "[Epoch 168] Step [1200/1200], loss: 0.3552，event_bce 0.0456",
+     "第 168 轮 loss 0.1833 val_in mIoU 69.85 SCS 25.96 | val_out mIoU 65.67 SCS 13.39 | 1.73 分钟",
+     "[Epoch 169] Step [400/1200], loss: 0.1699，event_bce 0.0005",
+     "[Epoch 169] Step [800/1200], loss: 0.4543，event_bce 0.0011",
+     "[Epoch 169] Step [1200/1200], loss: 0.2054，event_bce 0.0108",
+     "第 169 轮 loss 0.1832 val_in mIoU 69.17 SCS 26.51 | val_out mIoU 65.23 SCS 15.06 | 1.72 分钟",
+     "[Epoch 170] Step [400/1200], loss: 0.3101，event_bce 0.0016",
+     "[Epoch 170] Step [800/1200], loss: 0.0481，event_bce 0.0144",
+     "[Epoch 170] Step [1200/1200], loss: 0.0070，event_bce 0.0007",
+     "第 170 轮 loss 0.1852 val_in mIoU 69.30 SCS 27.83 | val_out mIoU 65.26 SCS 15.13 | 1.72 分钟",
+     "[Epoch 171] Step [400/1200], loss: 0.2201，event_bce 0.0072",
+     "[Epoch 171] Step [800/1200], loss: 0.2338，event_bce 0.0108",
+     "[Epoch 171] Step [1200/1200], loss: 0.1887，event_bce 0.0009",
+     "第 171 轮 loss 0.1833 val_in mIoU 69.14 SCS 26.26 | val_out mIoU 65.24 SCS 15.93 | 1.72 分钟",
+     "[Epoch 172] Step [400/1200], loss: 0.0707，event_bce 0.0035",
+     "[Epoch 172] Step [800/1200], loss: 0.2655，event_bce 0.0002",
+     "[Epoch 172] Step [1200/1200], loss: 0.4261，event_bce 0.0082",
+     "第 172 轮 loss 0.1830 val_in mIoU 69.52 SCS 26.77 | val_out mIoU 65.38 SCS 16.01 | 1.72 分钟",
+     "[Epoch 173] Step [400/1200], loss: 0.2283，event_bce 0.0005",
+     "[Epoch 173] Step [800/1200], loss: 0.2226，event_bce 0.0005",
+     "[Epoch 173] Step [1200/1200], loss: 0.3975，event_bce 0.0103"
+    ]
    }
   }
  },
- "parts": {
-  "pred_d2ls_12b_a2_clear_s20261018/r3_2023a/state_full": {
-   "mIoU": 0.7869438609886996,
-   "OA": 0.9048728891525609,
-   "IoU": [
-    0.8140147719259176,
-    0.8777864963112815,
-    0.8145517740185639,
-    0.7372939807904137,
-    0.6910722818973218
-   ],
-   "seconds_this_session": 1701.7,
-   "peak_gpu_gb": 10.8,
-   "time": "2026-10-28T01:58:08.129425+08:00"
+ "benchmarks": {
+  "st3d": {
+   "训练 步/秒": 8.59,
+   "每轮步数": 1200,
+   "每轮训练分钟": 2.3,
+   "训练显存峰值 GB": 0.8,
+   "loss": 0.6196492314338684,
+   "val_in 评测分钟": 0.04,
+   "val_in miou": 44.0,
+   "val_out 评测分钟": 0.25,
+   "val_out miou": 51.47
   },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023a/state_A": {
-   "mIoU": 0.8627068616081234,
-   "OA": 0.9496869319415232,
-   "IoU": [
-    0.8617415342087077,
-    0.9402034373421918,
-    0.8935313502791019,
-    0.8210558214118865,
-    0.7970021647987285
-   ],
-   "seconds_this_session": 1702.3,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-27T22:13:57.019825+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023a/state_B": {
-   "mIoU": 0.8588285010776631,
-   "OA": 0.9449686471094236,
-   "IoU": [
-    0.873041067888999,
-    0.9319360705449138,
-    0.8654909075007321,
-    0.8191613564711386,
-    0.8045131029825311
-   ],
-   "seconds_this_session": 1706.9,
-   "peak_gpu_gb": 4.024,
-   "time": "2026-10-27T22:42:26.102226+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023a/state_full": {
-   "mIoU": 0.7843748921964432,
-   "OA": 0.9033507037180355,
-   "IoU": [
-    0.8175319085226634,
-    0.8761824291513703,
-    0.8134036674202462,
-    0.7311453160183843,
-    0.6836111398695517
-   ],
-   "seconds_this_session": 1693.3,
-   "peak_gpu_gb": 10.8,
-   "time": "2026-10-27T21:45:32.644703+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023b/state_A": {
-   "mIoU": 0.8464355119462527,
-   "OA": 0.9400050632727396,
-   "IoU": [
-    0.8492299351418646,
-    0.9260599097867063,
-    0.8789264631131011,
-    0.8032211024228856,
-    0.7747401492667055
-   ],
-   "seconds_this_session": 1695.8,
-   "peak_gpu_gb": 4.714,
-   "time": "2026-10-27T23:39:04.176035+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023b/state_B": {
-   "mIoU": 0.8596126040615164,
-   "OA": 0.944535744311483,
-   "IoU": [
-    0.8815596520714338,
-    0.9309912462205837,
-    0.8648363870514547,
-    0.8172272215902148,
-    0.8034485133738951
-   ],
-   "seconds_this_session": 1697.0,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-28T00:07:23.224048+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023b/state_full": {
-   "mIoU": 0.794568962648014,
-   "OA": 0.9123521463958091,
-   "IoU": [
-    0.8384884686180387,
-    0.8916083427908099,
-    0.8492982435907785,
-    0.7153600433773,
-    0.6780897148631431
-   ],
-   "seconds_this_session": 1697.2,
-   "peak_gpu_gb": 4.714,
-   "time": "2026-10-27T23:10:46.310161+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2024/state_A": {
-   "mIoU": 0.838531723400207,
-   "OA": 0.9363337397541803,
-   "IoU": [
-    0.8434403891704658,
-    0.9217990052681381,
-    0.8740428809664234,
-    0.7907371534941572,
-    0.7626391881018506
-   ],
-   "seconds_this_session": 1692.9,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-28T01:03:53.319540+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2024/state_B": {
-   "mIoU": 0.8563997674108828,
-   "OA": 0.9436405636667899,
-   "IoU": [
-    0.8759487208223596,
-    0.9300675985637443,
-    0.8676802460496565,
-    0.8121749835501878,
-    0.7961272880684656
-   ],
-   "seconds_this_session": 1688.4,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-28T01:32:03.918294+08:00"
-  },
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2024/state_full": {
-   "mIoU": 0.7519505125641968,
-   "OA": 0.8871944355671831,
-   "IoU": [
-    0.8291236434432286,
-    0.8637538236707553,
-    0.7933652679162978,
-    0.6804685240052405,
-    0.5930413037854617
-   ],
-   "seconds_this_session": 1691.9,
-   "peak_gpu_gb": 4.714,
-   "time": "2026-10-28T00:35:38.329800+08:00"
-  },
-  "pred_d2ls_12b_a2_hist_s20261017/r3_2023a/state_full": {
-   "mIoU": 0.790259287334945,
-   "OA": 0.9064207231328695,
-   "IoU": [
-    0.8165484984594825,
-    0.8798275992968481,
-    0.819225670519328,
-    0.737698900939836,
-    0.6979957674592306
-   ],
-   "seconds_this_session": 1704.6,
-   "peak_gpu_gb": 10.8,
-   "time": "2026-10-28T02:00:36.155571+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_A": {
-   "mIoU": 0.8756095238190984,
-   "OA": 0.954446568995833,
-   "IoU": [
-    0.8801906631150989,
-    0.9458265224833852,
-    0.9000511644480178,
-    0.8387187934396847,
-    0.813260475609305
-   ],
-   "seconds_this_session": 1694.9,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T17:56:24.208466+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_B": {
-   "mIoU": 0.8600534669448596,
-   "OA": 0.9451202800106784,
-   "IoU": [
-    0.877486846273304,
-    0.9321921942399277,
-    0.8645404859399793,
-    0.8196156738526047,
-    0.8064321344184825
-   ],
-   "seconds_this_session": 1699.1,
-   "peak_gpu_gb": 4.688,
-   "time": "2026-10-27T18:24:45.507563+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_full": {
-   "mIoU": 0.7915050231081706,
-   "OA": 0.9065712689450753,
-   "IoU": [
-    0.8210942453287584,
-    0.8796748220831174,
-    0.8181199631068842,
-    0.7396876560818499,
-    0.698948428940243
-   ],
-   "seconds_this_session": 1568.6,
-   "peak_gpu_gb": 10.774,
-   "time": "2026-10-27T17:28:07.211819+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023b/state_A": {
-   "mIoU": 0.8528332565446421,
-   "OA": 0.9424791624523199,
-   "IoU": [
-    0.857187696170747,
-    0.9290301694455272,
-    0.8821450760521767,
-    0.8114765956668435,
-    0.7843267453879161
-   ],
-   "seconds_this_session": 1701.0,
-   "peak_gpu_gb": 4.688,
-   "time": "2026-10-27T19:21:27.548231+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023b/state_B": {
-   "mIoU": 0.8647326386784462,
-   "OA": 0.9473734379141835,
-   "IoU": [
-    0.8810569750621613,
-    0.9348794681331308,
-    0.8770422288020925,
-    0.8198180728413779,
-    0.8108664485534683
-   ],
-   "seconds_this_session": 1697.8,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T19:49:47.461373+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023b/state_full": {
-   "mIoU": 0.8040919639539374,
-   "OA": 0.9166781235925759,
-   "IoU": [
-    0.8495857467556273,
-    0.8967928238386401,
-    0.8544874678477917,
-    0.7260583198610862,
-    0.693535461466542
-   ],
-   "seconds_this_session": 1695.8,
-   "peak_gpu_gb": 4.688,
-   "time": "2026-10-27T18:53:04.354507+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2024/state_A": {
-   "mIoU": 0.8481813147916306,
-   "OA": 0.9399246654256331,
-   "IoU": [
-    0.8594749271689852,
-    0.9256892340473934,
-    0.8795776899840876,
-    0.8029548197261784,
-    0.7732099030315083
-   ],
-   "seconds_this_session": 1689.2,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T20:46:16.720373+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2024/state_B": {
-   "mIoU": 0.8583050184505504,
-   "OA": 0.9442606918775145,
-   "IoU": [
-    0.8771884079564926,
-    0.9310638975667818,
-    0.8702185192522904,
-    0.8110522482732697,
-    0.8020020192039181
-   ],
-   "seconds_this_session": 1693.7,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T21:14:32.614956+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2024/state_full": {
-   "mIoU": 0.7597151873570924,
-   "OA": 0.8895335497343306,
-   "IoU": [
-    0.8354057877646952,
-    0.865015003610121,
-    0.7916151027076017,
-    0.6887755938671616,
-    0.6177644488358823
-   ],
-   "seconds_this_session": 1694.4,
-   "peak_gpu_gb": 3.998,
-   "time": "2026-10-27T20:18:05.317141+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_A": {
-   "mIoU": 0.8727890183452282,
-   "OA": 0.9533696607547874,
-   "IoU": [
-    0.8754469773159013,
-    0.9447388446427772,
-    0.9005519427791108,
-    0.831425226540169,
-    0.8117821004481819
-   ],
-   "seconds_this_session": 1692.5,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T17:59:25.661944+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_B": {
-   "mIoU": 0.8620816500597794,
-   "OA": 0.945951294752766,
-   "IoU": [
-    0.8781006597724442,
-    0.932747500594762,
-    0.8680741732206017,
-    0.8219558300260025,
-    0.8095300866850864
-   ],
-   "seconds_this_session": 1696.9,
-   "peak_gpu_gb": 4.688,
-   "time": "2026-10-27T18:27:44.750982+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_full": {
-   "mIoU": 0.7890546036568172,
-   "OA": 0.9055408664970889,
-   "IoU": [
-    0.8204164474178757,
-    0.8790625759712161,
-    0.8182953481111458,
-    0.7337727881347204,
-    0.6937258586491283
-   ],
-   "seconds_this_session": 1651.9,
-   "peak_gpu_gb": 10.774,
-   "time": "2026-10-27T17:31:11.072207+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023b/state_A": {
-   "mIoU": 0.8532985089315398,
-   "OA": 0.9428265053848753,
-   "IoU": [
-    0.858155096429871,
-    0.9296873293317043,
-    0.8850041392538486,
-    0.8095833506763788,
-    0.7840626289658967
-   ],
-   "seconds_this_session": 1697.1,
-   "peak_gpu_gb": 4.688,
-   "time": "2026-10-27T19:24:22.328019+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023b/state_B": {
-   "mIoU": 0.864103706021386,
-   "OA": 0.9468976631415361,
-   "IoU": [
-    0.8829334455825265,
-    0.9340482167590027,
-    0.8717795371374242,
-    0.8233010543566502,
-    0.8084562762713261
-   ],
-   "seconds_this_session": 1692.7,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T19:52:37.228961+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023b/state_full": {
-   "mIoU": 0.8018582153749154,
-   "OA": 0.9154289236020575,
-   "IoU": [
-    0.8490981082270127,
-    0.8954453945663657,
-    0.8522796107095263,
-    0.7223411678405506,
-    0.6901267955311225
-   ],
-   "seconds_this_session": 1695.5,
-   "peak_gpu_gb": 4.688,
-   "time": "2026-10-27T18:56:03.127517+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2024/state_A": {
-   "mIoU": 0.8465846210196917,
-   "OA": 0.9394057753753369,
-   "IoU": [
-    0.8552732013139049,
-    0.9254432106656768,
-    0.8794225585232678,
-    0.7988950478385746,
-    0.7738890867570342
-   ],
-   "seconds_this_session": 1691.5,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T20:49:04.631224+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2024/state_B": {
-   "mIoU": 0.8600185094402555,
-   "OA": 0.945063844039321,
-   "IoU": [
-    0.8799795678093327,
-    0.9316426577129703,
-    0.8710074379926721,
-    0.816139178344145,
-    0.801323705342158
-   ],
-   "seconds_this_session": 1685.0,
-   "peak_gpu_gb": 4.691,
-   "time": "2026-10-27T21:17:11.763359+08:00"
-  },
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2024/state_full": {
-   "mIoU": 0.754359354051169,
-   "OA": 0.8882114908252007,
-   "IoU": [
-    0.833677190520485,
-    0.8651141760485231,
-    0.7932001611048981,
-    0.6832470185539677,
-    0.5965582240279718
-   ],
-   "seconds_this_session": 1690.4,
-   "peak_gpu_gb": 3.998,
-   "time": "2026-10-27T20:20:50.963907+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023a/state_A": {
-   "mIoU": 0.8699673689355603,
-   "OA": 0.9528845210264741,
-   "IoU": [
-    0.8709431133568395,
-    0.9441321851865371,
-    0.8984968920872496,
-    0.8338597856550644,
-    0.8024048683921109
-   ],
-   "seconds_this_session": 1702.8,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-27T22:11:20.763934+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023a/state_B": {
-   "mIoU": 0.8609892771157472,
-   "OA": 0.9464097529143061,
-   "IoU": [
-    0.8744360843873994,
-    0.9342646371411572,
-    0.8726206388898485,
-    0.8188932936713325,
-    0.8047317314889983
-   ],
-   "seconds_this_session": 1709.8,
-   "peak_gpu_gb": 4.024,
-   "time": "2026-10-27T22:39:52.794796+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023a/state_full": {
-   "mIoU": 0.7913686101673234,
-   "OA": 0.9071466884939509,
-   "IoU": [
-    0.8215548360686241,
-    0.8805267008046818,
-    0.8228228076979254,
-    0.739317979189965,
-    0.6926207270754206
-   ],
-   "seconds_this_session": 1695.7,
-   "peak_gpu_gb": 10.8,
-   "time": "2026-10-27T21:42:55.832728+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023b/state_A": {
-   "mIoU": 0.8492984333485156,
-   "OA": 0.9416899944643167,
-   "IoU": [
-    0.8515946165984863,
-    0.9283285159907645,
-    0.8835638077013341,
-    0.8078421279845913,
-    0.7751630984674021
-   ],
-   "seconds_this_session": 1700.4,
-   "peak_gpu_gb": 4.714,
-   "time": "2026-10-27T23:36:32.303915+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023b/state_B": {
-   "mIoU": 0.8663788730658142,
-   "OA": 0.9484093490880053,
-   "IoU": [
-    0.8839787151339686,
-    0.9364493543868367,
-    0.8843408403972457,
-    0.8178550541294237,
-    0.8092704012815969
-   ],
-   "seconds_this_session": 1700.2,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-28T00:04:54.528871+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023b/state_full": {
-   "mIoU": 0.803735366790882,
-   "OA": 0.9167859767226871,
-   "IoU": [
-    0.8458356015242243,
-    0.8972711494406685,
-    0.8575060511606039,
-    0.7245099086904381,
-    0.6935541231384752
-   ],
-   "seconds_this_session": 1694.0,
-   "peak_gpu_gb": 4.714,
-   "time": "2026-10-27T23:08:09.880483+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2024/state_A": {
-   "mIoU": 0.844668193058167,
-   "OA": 0.9388837874739941,
-   "IoU": [
-    0.8532860835772859,
-    0.9244105517553405,
-    0.879553085414865,
-    0.7996163831899451,
-    0.7664748613533992
-   ],
-   "seconds_this_session": 1690.6,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-28T01:01:23.758622+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2024/state_B": {
-   "mIoU": 0.8626661148459128,
-   "OA": 0.94718985808499,
-   "IoU": [
-    0.8792863430073226,
-    0.9352416808249512,
-    0.8848253504013419,
-    0.81255989004335,
-    0.8014173099525985
-   ],
-   "seconds_this_session": 1693.2,
-   "peak_gpu_gb": 4.718,
-   "time": "2026-10-28T01:29:39.042546+08:00"
-  },
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2024/state_full": {
-   "mIoU": 0.7617449410625111,
-   "OA": 0.8920799349790938,
-   "IoU": [
-    0.833256265905262,
-    0.8685116883981896,
-    0.8008190416346165,
-    0.6919730152522487,
-    0.6141646941222388
-   ],
-   "seconds_this_session": 1693.4,
-   "peak_gpu_gb": 4.714,
-   "time": "2026-10-28T00:33:11.212527+08:00"
+  "mono": {
+   "训练 步/秒": 11.54,
+   "每轮步数": 1200,
+   "每轮训练分钟": 1.7,
+   "训练显存峰值 GB": 0.87,
+   "loss": 0.40826719999313354,
+   "val_in 评测分钟": 0.03,
+   "val_in miou": 44.92,
+   "val_out 评测分钟": 0.18,
+   "val_out miou": 53.44
   }
- },
- "curves": {
-  "pred_d2ls_12b_a2_clear_s20261018/r3_2023a/state_A": [
-   [
-    500,
-    0.7777
-   ],
-   [
-    1000,
-    0.8029
-   ],
-   [
-    1500,
-    0.8316
-   ],
-   [
-    2000,
-    0.8449
-   ],
-   [
-    2500,
-    0.8518
-   ],
-   [
-    3000,
-    0.858
-   ]
-  ],
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023a/state_A": [
-   [
-    500,
-    0.7643
-   ],
-   [
-    1000,
-    0.8027
-   ],
-   [
-    1500,
-    0.8275
-   ],
-   [
-    2000,
-    0.8394
-   ],
-   [
-    2500,
-    0.8499
-   ],
-   [
-    3000,
-    0.854
-   ],
-   [
-    3500,
-    0.8565
-   ],
-   [
-    4000,
-    0.857
-   ]
-  ],
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023a/state_B": [
-   [
-    500,
-    0.7562
-   ],
-   [
-    1000,
-    0.8048
-   ],
-   [
-    1500,
-    0.8262
-   ],
-   [
-    2000,
-    0.8426
-   ],
-   [
-    2500,
-    0.849
-   ],
-   [
-    3000,
-    0.8516
-   ],
-   [
-    3500,
-    0.8527
-   ],
-   [
-    4000,
-    0.8529
-   ]
-  ],
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023b/state_A": [
-   [
-    500,
-    0.7665
-   ],
-   [
-    1000,
-    0.7928
-   ],
-   [
-    1500,
-    0.8172
-   ],
-   [
-    2000,
-    0.8306
-   ],
-   [
-    2500,
-    0.8365
-   ],
-   [
-    3000,
-    0.8425
-   ],
-   [
-    3500,
-    0.8458
-   ],
-   [
-    4000,
-    0.8466
-   ]
-  ],
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2023b/state_B": [
-   [
-    500,
-    0.7626
-   ],
-   [
-    1000,
-    0.7925
-   ],
-   [
-    1500,
-    0.8261
-   ],
-   [
-    2000,
-    0.8406
-   ],
-   [
-    2500,
-    0.8485
-   ],
-   [
-    3000,
-    0.8512
-   ],
-   [
-    3500,
-    0.8534
-   ],
-   [
-    4000,
-    0.8537
-   ]
-  ],
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2024/state_A": [
-   [
-    500,
-    0.7502
-   ],
-   [
-    1000,
-    0.7749
-   ],
-   [
-    1500,
-    0.7962
-   ],
-   [
-    2000,
-    0.8156
-   ],
-   [
-    2500,
-    0.8222
-   ],
-   [
-    3000,
-    0.8291
-   ],
-   [
-    3500,
-    0.8317
-   ],
-   [
-    4000,
-    0.8323
-   ]
-  ],
-  "pred_d2ls_12b_a2_clear_s20261019/r3_2024/state_B": [
-   [
-    500,
-    0.7586
-   ],
-   [
-    1000,
-    0.798
-   ],
-   [
-    1500,
-    0.8234
-   ],
-   [
-    2000,
-    0.834
-   ],
-   [
-    2500,
-    0.8458
-   ],
-   [
-    3000,
-    0.851
-   ],
-   [
-    3500,
-    0.8542
-   ],
-   [
-    4000,
-    0.8544
-   ]
-  ],
-  "pred_d2ls_12b_a2_hist_s20261017/r3_2023a/state_A": [
-   [
-    500,
-    0.7691
-   ],
-   [
-    1000,
-    0.8039
-   ],
-   [
-    1500,
-    0.8239
-   ],
-   [
-    2000,
-    0.8441
-   ],
-   [
-    2500,
-    0.852
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_A": [
-   [
-    500,
-    0.7865
-   ],
-   [
-    1000,
-    0.8082
-   ],
-   [
-    1500,
-    0.8415
-   ],
-   [
-    2000,
-    0.8543
-   ],
-   [
-    2500,
-    0.8629
-   ],
-   [
-    3000,
-    0.8689
-   ],
-   [
-    3500,
-    0.8692
-   ],
-   [
-    4000,
-    0.8701
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023a/state_B": [
-   [
-    500,
-    0.7712
-   ],
-   [
-    1000,
-    0.8089
-   ],
-   [
-    1500,
-    0.8324
-   ],
-   [
-    2000,
-    0.8426
-   ],
-   [
-    2500,
-    0.8518
-   ],
-   [
-    3000,
-    0.8546
-   ],
-   [
-    3500,
-    0.8569
-   ],
-   [
-    4000,
-    0.8572
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023b/state_A": [
-   [
-    500,
-    0.7654
-   ],
-   [
-    1000,
-    0.804
-   ],
-   [
-    1500,
-    0.8155
-   ],
-   [
-    2000,
-    0.8373
-   ],
-   [
-    2500,
-    0.844
-   ],
-   [
-    3000,
-    0.8496
-   ],
-   [
-    3500,
-    0.8526
-   ],
-   [
-    4000,
-    0.8532
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2023b/state_B": [
-   [
-    500,
-    0.7673
-   ],
-   [
-    1000,
-    0.8032
-   ],
-   [
-    1500,
-    0.8282
-   ],
-   [
-    2000,
-    0.8378
-   ],
-   [
-    2500,
-    0.8508
-   ],
-   [
-    3000,
-    0.8563
-   ],
-   [
-    3500,
-    0.8584
-   ],
-   [
-    4000,
-    0.8588
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2024/state_A": [
-   [
-    500,
-    0.7436
-   ],
-   [
-    1000,
-    0.7872
-   ],
-   [
-    1500,
-    0.812
-   ],
-   [
-    2000,
-    0.8284
-   ],
-   [
-    2500,
-    0.8371
-   ],
-   [
-    3000,
-    0.8428
-   ],
-   [
-    3500,
-    0.8457
-   ],
-   [
-    4000,
-    0.8457
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261018/r3_2024/state_B": [
-   [
-    500,
-    0.7549
-   ],
-   [
-    1000,
-    0.7991
-   ],
-   [
-    1500,
-    0.8181
-   ],
-   [
-    2000,
-    0.8385
-   ],
-   [
-    2500,
-    0.8494
-   ],
-   [
-    3000,
-    0.8548
-   ],
-   [
-    3500,
-    0.8567
-   ],
-   [
-    4000,
-    0.8574
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_A": [
-   [
-    500,
-    0.7717
-   ],
-   [
-    1000,
-    0.8029
-   ],
-   [
-    1500,
-    0.8372
-   ],
-   [
-    2000,
-    0.8498
-   ],
-   [
-    2500,
-    0.8605
-   ],
-   [
-    3000,
-    0.8642
-   ],
-   [
-    3500,
-    0.867
-   ],
-   [
-    4000,
-    0.8674
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023a/state_B": [
-   [
-    500,
-    0.775
-   ],
-   [
-    1000,
-    0.8128
-   ],
-   [
-    1500,
-    0.8357
-   ],
-   [
-    2000,
-    0.8481
-   ],
-   [
-    2500,
-    0.8554
-   ],
-   [
-    3000,
-    0.8588
-   ],
-   [
-    3500,
-    0.8591
-   ],
-   [
-    4000,
-    0.8594
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023b/state_A": [
-   [
-    500,
-    0.7737
-   ],
-   [
-    1000,
-    0.8007
-   ],
-   [
-    1500,
-    0.8254
-   ],
-   [
-    2000,
-    0.8359
-   ],
-   [
-    2500,
-    0.842
-   ],
-   [
-    3000,
-    0.8497
-   ],
-   [
-    3500,
-    0.8522
-   ],
-   [
-    4000,
-    0.8532
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2023b/state_B": [
-   [
-    500,
-    0.7667
-   ],
-   [
-    1000,
-    0.7957
-   ],
-   [
-    1500,
-    0.8315
-   ],
-   [
-    2000,
-    0.8428
-   ],
-   [
-    2500,
-    0.8526
-   ],
-   [
-    3000,
-    0.8557
-   ],
-   [
-    3500,
-    0.8575
-   ],
-   [
-    4000,
-    0.858
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2024/state_A": [
-   [
-    500,
-    0.7548
-   ],
-   [
-    1000,
-    0.7927
-   ],
-   [
-    1500,
-    0.8089
-   ],
-   [
-    2000,
-    0.8271
-   ],
-   [
-    2500,
-    0.8356
-   ],
-   [
-    3000,
-    0.8412
-   ],
-   [
-    3500,
-    0.8434
-   ],
-   [
-    4000,
-    0.8441
-   ]
-  ],
-  "pred_d2ls_12b_a2_prev_s20261019/r3_2024/state_B": [
-   [
-    500,
-    0.7725
-   ],
-   [
-    1000,
-    0.7991
-   ],
-   [
-    1500,
-    0.8248
-   ],
-   [
-    2000,
-    0.8377
-   ],
-   [
-    2500,
-    0.8517
-   ],
-   [
-    3000,
-    0.8562
-   ],
-   [
-    3500,
-    0.8591
-   ],
-   [
-    4000,
-    0.859
-   ]
-  ],
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023a/state_A": [
-   [
-    500,
-    0.7802
-   ],
-   [
-    1000,
-    0.8011
-   ],
-   [
-    1500,
-    0.8367
-   ],
-   [
-    2000,
-    0.8499
-   ],
-   [
-    2500,
-    0.8556
-   ],
-   [
-    3000,
-    0.8621
-   ],
-   [
-    3500,
-    0.8627
-   ],
-   [
-    4000,
-    0.8633
-   ]
-  ],
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023a/state_B": [
-   [
-    500,
-    0.7724
-   ],
-   [
-    1000,
-    0.8102
-   ],
-   [
-    1500,
-    0.828
-   ],
-   [
-    2000,
-    0.8402
-   ],
-   [
-    2500,
-    0.8476
-   ],
-   [
-    3000,
-    0.8513
-   ],
-   [
-    3500,
-    0.8538
-   ],
-   [
-    4000,
-    0.8541
-   ]
-  ],
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023b/state_A": [
-   [
-    500,
-    0.763
-   ],
-   [
-    1000,
-    0.801
-   ],
-   [
-    1500,
-    0.8149
-   ],
-   [
-    2000,
-    0.8315
-   ],
-   [
-    2500,
-    0.841
-   ],
-   [
-    3000,
-    0.8459
-   ],
-   [
-    3500,
-    0.8489
-   ],
-   [
-    4000,
-    0.8493
-   ]
-  ],
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2023b/state_B": [
-   [
-    500,
-    0.7593
-   ],
-   [
-    1000,
-    0.8023
-   ],
-   [
-    1500,
-    0.8302
-   ],
-   [
-    2000,
-    0.8383
-   ],
-   [
-    2500,
-    0.8493
-   ],
-   [
-    3000,
-    0.8571
-   ],
-   [
-    3500,
-    0.8591
-   ],
-   [
-    4000,
-    0.8598
-   ]
-  ],
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2024/state_A": [
-   [
-    500,
-    0.7489
-   ],
-   [
-    1000,
-    0.7896
-   ],
-   [
-    1500,
-    0.8076
-   ],
-   [
-    2000,
-    0.8209
-   ],
-   [
-    2500,
-    0.829
-   ],
-   [
-    3000,
-    0.8351
-   ],
-   [
-    3500,
-    0.8382
-   ],
-   [
-    4000,
-    0.8386
-   ]
-  ],
-  "pred_d2ls_12b_a2_terrain_s20261018/r3_2024/state_B": [
-   [
-    500,
-    0.7628
-   ],
-   [
-    1000,
-    0.7962
-   ],
-   [
-    1500,
-    0.8251
-   ],
-   [
-    2000,
-    0.8411
-   ],
-   [
-    2500,
-    0.8497
-   ],
-   [
-    3000,
-    0.857
-   ],
-   [
-    3500,
-    0.8588
-   ],
-   [
-    4000,
-    0.8593
-   ]
-  ]
- },
- "failures": {},
- "error_logs": {
-  "d2ls_environment_check": [
-   "torch 2.5.1+cu121 CUDA 可用",
-   "显卡 NVIDIA TITAN RTX ，混合精度用 fp16",
-   "下载 ConvNeXt-Base 官方预训练权重（约 340 MB）： https://download.pytorch.org/models/convnext_base-6075fbad.pth",
-   "下载完成，校验通过",
-   "冒烟训练（几分钟）……",
-   "Traceback (most recent call last):",
-   "  File \"/home/user/d2ls_pkg_1027/code/train_foundation.py\", line 462, in <module>",
-   "    main()",
-   "  File \"/home/user/d2ls_pkg_1027/code/train_foundation.py\", line 386, in main",
-   "    settings.update(data_files={n: sha256(args.data / n) for n in ['labels_u8.npy', 'index.json', 'splits_periods.json', 'norm.json']},",
-   "  File \"/home/user/d2ls_pkg_1027/code/train_foundation.py\", line 386, in <dictcomp>",
-   "    settings.update(data_files={n: sha256(args.data / n) for n in ['labels_u8.npy', 'index.json', 'splits_periods.json', 'norm.json']},",
-   "  File \"/home/user/d2ls_pkg_1027/code/foundation_models.py\", line 15, in sha256",
-   "    with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()",
-   "AttributeError: module 'hashlib' has no attribute 'file_digest'",
-   "冒烟训练失败（返回码 1），请把上面最后 30 行报错原样报告组长",
-   "/home/user/anaconda3/envs/segpkg/bin/python failed with exit status 1."
-  ]
  }
 }
