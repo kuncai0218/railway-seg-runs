@@ -1,108 +1,360 @@
 {
  "name": "同学甲",
- "time": "2026-11-10 03:43:25",
+ "time": "2026-11-10 04:17:23",
  "instruction_id": "jia-st3d-1109",
  "phase": "running_start_verified",
  "started_at": "2026-11-09T21:57:23.641144+08:00",
  "concurrency": 2,
  "tasks": {
   "muds_gn_s42": {
-   "completed_epochs": 61,
-   "latest_epoch_line": "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟",
+   "completed_epochs": 67,
+   "latest_epoch_line": "第 67 轮 loss 0.2466 val_in mIoU 62.54 SCS 21.72 | val_out mIoU 59.90 SCS 14.44 | 5.71 分钟",
    "latest_epoch": {
-    "epoch": 61,
-    "lr": 8.615529673195139e-05,
-    "loss": 0.25290440681991944,
-    "train_min": 5.28,
+    "epoch": 67,
+    "lr": 8.346758743799546e-05,
+    "loss": 0.24662486234728326,
+    "train_min": 5.29,
     "val_in": {
-     "acc": 85.43406413886487,
-     "macc": 86.25315163949669,
-     "miou": 59.64974259796314,
-     "bc": 1.7649931627270952,
-     "sc": 39.79015187402034,
-     "scs": 20.777572518373717,
-     "not building": 84.18778088268384,
-     "building": 35.11170431324245
+     "acc": 87.73055871480281,
+     "macc": 86.31068724400899,
+     "miou": 62.544874899076106,
+     "bc": 1.7822560825755716,
+     "sc": 41.65424860511019,
+     "scs": 21.71825234384288,
+     "not building": 86.71561540098013,
+     "building": 38.374134397172085
     },
     "val_out": {
-     "acc": 88.76032344387038,
-     "macc": 85.33847901443235,
-     "miou": 57.95886604858396,
-     "bc": 1.1697743274541539,
-     "sc": 29.597427753909166,
-     "scs": 15.38360104068166,
-     "not building": 88.25553624094495,
-     "building": 27.662195856222983
+     "acc": 90.48391156019677,
+     "macc": 83.76958526343816,
+     "miou": 59.89513720045694,
+     "bc": 1.425492647854472,
+     "sc": 27.448018053761082,
+     "scs": 14.436755350807777,
+     "not building": 90.08520949700508,
+     "building": 29.705064903908806
     },
-    "min": 5.7
+    "min": 5.71
    },
    "final": null,
    "log_tail": [
-    "[Epoch 60] Step [400/1200], ce: 0.0569, loss: 0.0569",
-    "[Epoch 60] Step [800/1200], ce: 0.3991, loss: 0.3991",
-    "[Epoch 60] Step [1200/1200], ce: 0.1483, loss: 0.1483",
-    "第 60 轮 loss 0.2394 val_in mIoU 63.58 SCS 20.25 | val_out mIoU 60.30 SCS 14.06 | 5.7 分钟",
-    "[Epoch 61] Step [400/1200], ce: 0.1065, loss: 0.1065",
-    "[Epoch 61] Step [800/1200], ce: 0.1620, loss: 0.1620",
-    "[Epoch 61] Step [1200/1200], ce: 0.5370, loss: 0.5370",
-    "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟"
-   ]
+    "[Epoch 66] Step [400/1200], ce: 0.0420, loss: 0.0420",
+    "[Epoch 66] Step [800/1200], ce: 0.3969, loss: 0.3969",
+    "[Epoch 66] Step [1200/1200], ce: 0.1536, loss: 0.1536",
+    "第 66 轮 loss 0.2421 val_in mIoU 65.00 SCS 16.13 | val_out mIoU 61.88 SCS 10.42 | 5.77 分钟",
+    "[Epoch 67] Step [400/1200], ce: 0.3307, loss: 0.3307",
+    "[Epoch 67] Step [800/1200], ce: 0.2299, loss: 0.2299",
+    "[Epoch 67] Step [1200/1200], ce: 0.4523, loss: 0.4523",
+    "第 67 轮 loss 0.2466 val_in mIoU 62.54 SCS 21.72 | val_out mIoU 59.90 SCS 14.44 | 5.71 分钟"
+   ],
+   "recent_progress_samples": [
+    {
+     "observed_at": "2026-11-10T04:02:19.717892+08:00",
+     "completed_epochs": 64,
+     "latest_epoch": 64,
+     "latest_step": {
+      "epoch": 64,
+      "step": 1200,
+      "steps_per_epoch": 1200,
+      "source_line": "[Epoch 64] Step [1200/1200], ce: 0.0553, loss: 0.0553"
+     },
+     "final_exists": false,
+     "source_epoch_file_mtime": "2026-11-10T03:58:48.654592+08:00",
+     "source_log_file_mtime": "2026-11-10T03:58:48.654592+08:00"
+    },
+    {
+     "observed_at": "2026-11-10T04:17:23.669283+08:00",
+     "completed_epochs": 67,
+     "latest_epoch": 67,
+     "latest_step": {
+      "epoch": 67,
+      "step": 1200,
+      "steps_per_epoch": 1200,
+      "source_line": "[Epoch 67] Step [1200/1200], ce: 0.4523, loss: 0.4523"
+     },
+     "final_exists": false,
+     "source_epoch_file_mtime": "2026-11-10T04:16:09.767817+08:00",
+     "source_log_file_mtime": "2026-11-10T04:16:09.767817+08:00"
+    }
+   ],
+   "recent_epoch_records": [
+    {
+     "epoch": 66,
+     "lr": 8.39289740019907e-05,
+     "loss": 0.24208584639098263,
+     "train_min": 5.35,
+     "val_in": {
+      "acc": 90.25234160051248,
+      "macc": 82.5884771205477,
+      "miou": 64.99548277877774,
+      "bc": 1.130811464262328,
+      "sc": 31.124500765615355,
+      "scs": 16.12765611493884,
+      "not building": 89.56180498483923,
+      "building": 40.42916057271626
+     },
+     "val_out": {
+      "acc": 92.60409876056863,
+      "macc": 79.21100722659821,
+      "miou": 61.87858022595968,
+      "bc": 1.72796825261569,
+      "sc": 19.12081153863513,
+      "scs": 10.42438989562541,
+      "not building": 92.34479879888869,
+      "building": 31.412361653030658
+     },
+     "min": 5.77
+    },
+    {
+     "epoch": 67,
+     "lr": 8.346758743799546e-05,
+     "loss": 0.24662486234728326,
+     "train_min": 5.29,
+     "val_in": {
+      "acc": 87.73055871480281,
+      "macc": 86.31068724400899,
+      "miou": 62.544874899076106,
+      "bc": 1.7822560825755716,
+      "sc": 41.65424860511019,
+      "scs": 21.71825234384288,
+      "not building": 86.71561540098013,
+      "building": 38.374134397172085
+     },
+     "val_out": {
+      "acc": 90.48391156019677,
+      "macc": 83.76958526343816,
+      "miou": 59.89513720045694,
+      "bc": 1.425492647854472,
+      "sc": 27.448018053761082,
+      "scs": 14.436755350807777,
+      "not building": 90.08520949700508,
+      "building": 29.705064903908806
+     },
+     "min": 5.71
+    }
+   ],
+   "recent_step_records": [
+    {
+     "epoch": 67,
+     "step": 800,
+     "steps_per_epoch": 1200,
+     "source_line": "[Epoch 67] Step [800/1200], ce: 0.2299, loss: 0.2299"
+    },
+    {
+     "epoch": 67,
+     "step": 1200,
+     "steps_per_epoch": 1200,
+     "source_line": "[Epoch 67] Step [1200/1200], ce: 0.4523, loss: 0.4523"
+    }
+   ],
+   "step_time_semantics": "observed_at is the actual snapshot time; source lines have no individual wall-clock timestamp; source file mtime is reported separately",
+   "task_state": "training"
   },
   "muds_gn_s43": {
-   "completed_epochs": 61,
-   "latest_epoch_line": "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟",
+   "completed_epochs": 67,
+   "latest_epoch_line": "第 67 轮 loss 0.2330 val_in mIoU 64.16 SCS 21.83 | val_out mIoU 61.83 SCS 11.79 | 5.71 分钟",
    "latest_epoch": {
-    "epoch": 61,
-    "lr": 8.615529673195139e-05,
-    "loss": 0.24286545886595073,
-    "train_min": 5.28,
+    "epoch": 67,
+    "lr": 8.346758743799546e-05,
+    "loss": 0.2330081773812708,
+    "train_min": 5.29,
     "val_in": {
-     "acc": 86.776529382951,
-     "macc": 86.16159628464382,
-     "miou": 61.25912489809955,
-     "bc": 1.6770073188242731,
-     "sc": 38.70777745541093,
-     "scs": 20.1923923871176,
-     "not building": 85.67098878105244,
-     "building": 36.84726101514666
+     "acc": 89.15102338555104,
+     "macc": 85.09464924824219,
+     "miou": 64.16367216077134,
+     "bc": 2.123266148942856,
+     "sc": 41.543837996551545,
+     "scs": 21.8335520727472,
+     "not building": 88.30430187870303,
+     "building": 40.02304244283964
     },
     "val_out": {
-     "acc": 89.91261051781842,
-     "macc": 83.75513730362508,
-     "miou": 59.07539534418673,
-     "bc": 1.380992282414515,
-     "sc": 26.117850982681922,
-     "scs": 13.749421632548218,
-     "not building": 89.48646020328022,
-     "building": 28.664330485093252
+     "acc": 92.30797323012843,
+     "macc": 80.5993138167983,
+     "miou": 61.83058122730131,
+     "bc": 1.6086562525999561,
+     "sc": 21.980225534004106,
+     "scs": 11.794440893302031,
+     "not building": 92.02405087802417,
+     "building": 31.63711157657844
     },
-    "min": 5.7
+    "min": 5.71
    },
    "final": null,
    "log_tail": [
-    "[Epoch 60] Step [400/1200], ce: 0.3840, loss: 0.3840",
-    "[Epoch 60] Step [800/1200], ce: 0.0883, loss: 0.0883",
-    "[Epoch 60] Step [1200/1200], ce: 0.4465, loss: 0.4465",
-    "第 60 轮 loss 0.2401 val_in mIoU 66.28 SCS 15.03 | val_out mIoU 62.31 SCS 8.69 | 5.7 分钟",
-    "[Epoch 61] Step [400/1200], ce: 0.0349, loss: 0.0349",
-    "[Epoch 61] Step [800/1200], ce: 0.4215, loss: 0.4215",
-    "[Epoch 61] Step [1200/1200], ce: 0.2385, loss: 0.2385",
-    "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟"
-   ]
+    "[Epoch 66] Step [400/1200], ce: 0.3733, loss: 0.3733",
+    "[Epoch 66] Step [800/1200], ce: 0.0934, loss: 0.0934",
+    "[Epoch 66] Step [1200/1200], ce: 0.0031, loss: 0.0031",
+    "第 66 轮 loss 0.2380 val_in mIoU 63.88 SCS 22.27 | val_out mIoU 61.12 SCS 11.34 | 5.76 分钟",
+    "[Epoch 67] Step [400/1200], ce: 0.2773, loss: 0.2773",
+    "[Epoch 67] Step [800/1200], ce: 0.1429, loss: 0.1429",
+    "[Epoch 67] Step [1200/1200], ce: 0.6579, loss: 0.6579",
+    "第 67 轮 loss 0.2330 val_in mIoU 64.16 SCS 21.83 | val_out mIoU 61.83 SCS 11.79 | 5.71 分钟"
+   ],
+   "recent_progress_samples": [
+    {
+     "observed_at": "2026-11-10T04:02:19.717892+08:00",
+     "completed_epochs": 64,
+     "latest_epoch": 64,
+     "latest_step": {
+      "epoch": 64,
+      "step": 1200,
+      "steps_per_epoch": 1200,
+      "source_line": "[Epoch 64] Step [1200/1200], ce: 0.0354, loss: 0.0354"
+     },
+     "final_exists": false,
+     "source_epoch_file_mtime": "2026-11-10T03:58:48.531599+08:00",
+     "source_log_file_mtime": "2026-11-10T03:58:48.531599+08:00"
+    },
+    {
+     "observed_at": "2026-11-10T04:17:23.669283+08:00",
+     "completed_epochs": 67,
+     "latest_epoch": 67,
+     "latest_step": {
+      "epoch": 67,
+      "step": 1200,
+      "steps_per_epoch": 1200,
+      "source_line": "[Epoch 67] Step [1200/1200], ce: 0.6579, loss: 0.6579"
+     },
+     "final_exists": false,
+     "source_epoch_file_mtime": "2026-11-10T04:16:09.359833+08:00",
+     "source_log_file_mtime": "2026-11-10T04:16:09.359833+08:00"
+    }
+   ],
+   "recent_epoch_records": [
+    {
+     "epoch": 66,
+     "lr": 8.39289740019907e-05,
+     "loss": 0.2379705236486431,
+     "train_min": 5.34,
+     "val_in": {
+      "acc": 88.91892527595353,
+      "macc": 85.27124294768359,
+      "miou": 63.88149248857822,
+      "bc": 1.9426982973749882,
+      "sc": 42.59989406132307,
+      "scs": 22.27129617934903,
+      "not building": 88.04622709077178,
+      "building": 39.71675788638465
+     },
+     "val_out": {
+      "acc": 91.79047339083667,
+      "macc": 81.11805212803688,
+      "miou": 61.12293331135261,
+      "bc": 1.6356513000138386,
+      "sc": 21.048908249675232,
+      "scs": 11.342279774844535,
+      "not building": 91.47963651073702,
+      "building": 30.766230111968206
+     },
+     "min": 5.76
+    },
+    {
+     "epoch": 67,
+     "lr": 8.346758743799546e-05,
+     "loss": 0.2330081773812708,
+     "train_min": 5.29,
+     "val_in": {
+      "acc": 89.15102338555104,
+      "macc": 85.09464924824219,
+      "miou": 64.16367216077134,
+      "bc": 2.123266148942856,
+      "sc": 41.543837996551545,
+      "scs": 21.8335520727472,
+      "not building": 88.30430187870303,
+      "building": 40.02304244283964
+     },
+     "val_out": {
+      "acc": 92.30797323012843,
+      "macc": 80.5993138167983,
+      "miou": 61.83058122730131,
+      "bc": 1.6086562525999561,
+      "sc": 21.980225534004106,
+      "scs": 11.794440893302031,
+      "not building": 92.02405087802417,
+      "building": 31.63711157657844
+     },
+     "min": 5.71
+    }
+   ],
+   "recent_step_records": [
+    {
+     "epoch": 67,
+     "step": 800,
+     "steps_per_epoch": 1200,
+     "source_line": "[Epoch 67] Step [800/1200], ce: 0.1429, loss: 0.1429"
+    },
+    {
+     "epoch": 67,
+     "step": 1200,
+     "steps_per_epoch": 1200,
+     "source_line": "[Epoch 67] Step [1200/1200], ce: 0.6579, loss: 0.6579"
+    }
+   ],
+   "step_time_semantics": "observed_at is the actual snapshot time; source lines have no individual wall-clock timestamp; source file mtime is reported separately",
+   "task_state": "training"
   },
   "muds_pseg0_s42": {
    "completed_epochs": 0,
    "latest_epoch_line": null,
    "latest_epoch": null,
    "final": null,
-   "log_tail": []
+   "log_tail": [],
+   "recent_progress_samples": [
+    {
+     "observed_at": "2026-11-10T04:02:19.717892+08:00",
+     "completed_epochs": 0,
+     "latest_epoch": null,
+     "latest_step": null,
+     "final_exists": false,
+     "source_epoch_file_mtime": null,
+     "source_log_file_mtime": null
+    },
+    {
+     "observed_at": "2026-11-10T04:17:23.669283+08:00",
+     "completed_epochs": 0,
+     "latest_epoch": null,
+     "latest_step": null,
+     "final_exists": false,
+     "source_epoch_file_mtime": null,
+     "source_log_file_mtime": null
+    }
+   ],
+   "recent_epoch_records": [],
+   "recent_step_records": [],
+   "step_time_semantics": "observed_at is the actual snapshot time; source lines have no individual wall-clock timestamp; source file mtime is reported separately",
+   "task_state": "queued_not_started"
   },
   "muds_pseg0_s43": {
    "completed_epochs": 0,
    "latest_epoch_line": null,
    "latest_epoch": null,
    "final": null,
-   "log_tail": []
+   "log_tail": [],
+   "recent_progress_samples": [
+    {
+     "observed_at": "2026-11-10T04:02:19.717892+08:00",
+     "completed_epochs": 0,
+     "latest_epoch": null,
+     "latest_step": null,
+     "final_exists": false,
+     "source_epoch_file_mtime": null,
+     "source_log_file_mtime": null
+    },
+    {
+     "observed_at": "2026-11-10T04:17:23.669283+08:00",
+     "completed_epochs": 0,
+     "latest_epoch": null,
+     "latest_step": null,
+     "final_exists": false,
+     "source_epoch_file_mtime": null,
+     "source_log_file_mtime": null
+    }
+   ],
+   "recent_epoch_records": [],
+   "recent_step_records": [],
+   "step_time_semantics": "observed_at is the actual snapshot time; source lines have no individual wall-clock timestamp; source file mtime is reported separately",
+   "task_state": "queued_not_started"
   }
  },
  "processes": {
@@ -857,80 +1109,80 @@
  },
  "chain_state": {
   "phase": "waiting_for_jia-st3d-1109",
-  "updated_at": "2026-11-10T03:43:05.785494+08:00",
+  "updated_at": "2026-11-10T04:17:06.672853+08:00",
   "progress": {
    "muds_gn_s42": {
-    "completed_epochs": 61,
+    "completed_epochs": 67,
     "final_exists": false,
-    "latest_epoch_line": "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟",
+    "latest_epoch_line": "第 67 轮 loss 0.2466 val_in mIoU 62.54 SCS 21.72 | val_out mIoU 59.90 SCS 14.44 | 5.71 分钟",
     "log_tail": [
-     "[Epoch 54] Step [1200/1200], ce: 0.2648, loss: 0.2648",
-     "第 54 轮 loss 0.2590 val_in mIoU 62.47 SCS 18.64 | val_out mIoU 59.21 SCS 13.77 | 5.71 分钟",
-     "[Epoch 55] Step [400/1200], ce: 0.5089, loss: 0.5089",
-     "[Epoch 55] Step [800/1200], ce: 0.5076, loss: 0.5076",
-     "[Epoch 55] Step [1200/1200], ce: 0.0193, loss: 0.0193",
-     "第 55 轮 loss 0.2533 val_in mIoU 63.97 SCS 14.56 | val_out mIoU 61.40 SCS 9.67 | 5.7 分钟",
-     "[Epoch 56] Step [400/1200], ce: 0.4599, loss: 0.4599",
-     "[Epoch 56] Step [800/1200], ce: 0.0334, loss: 0.0334",
-     "[Epoch 56] Step [1200/1200], ce: 0.0065, loss: 0.0065",
-     "第 56 轮 loss 0.2500 val_in mIoU 61.19 SCS 19.25 | val_out mIoU 59.39 SCS 14.02 | 5.7 分钟",
-     "[Epoch 57] Step [400/1200], ce: 0.1513, loss: 0.1513",
-     "[Epoch 57] Step [800/1200], ce: 0.0363, loss: 0.0363",
-     "[Epoch 57] Step [1200/1200], ce: 0.0043, loss: 0.0043",
-     "第 57 轮 loss 0.2512 val_in mIoU 61.09 SCS 19.30 | val_out mIoU 57.67 SCS 15.43 | 5.7 分钟",
-     "[Epoch 58] Step [400/1200], ce: 0.4239, loss: 0.4239",
-     "[Epoch 58] Step [800/1200], ce: 0.1744, loss: 0.1744",
-     "[Epoch 58] Step [1200/1200], ce: 0.4731, loss: 0.4731",
-     "第 58 轮 loss 0.2497 val_in mIoU 61.06 SCS 18.91 | val_out mIoU 59.72 SCS 13.06 | 5.7 分钟",
-     "[Epoch 59] Step [400/1200], ce: 0.3095, loss: 0.3095",
-     "[Epoch 59] Step [800/1200], ce: 0.1582, loss: 0.1582",
-     "[Epoch 59] Step [1200/1200], ce: 0.2441, loss: 0.2441",
-     "第 59 轮 loss 0.2481 val_in mIoU 61.81 SCS 20.64 | val_out mIoU 59.38 SCS 15.36 | 5.7 分钟",
-     "[Epoch 60] Step [400/1200], ce: 0.0569, loss: 0.0569",
-     "[Epoch 60] Step [800/1200], ce: 0.3991, loss: 0.3991",
      "[Epoch 60] Step [1200/1200], ce: 0.1483, loss: 0.1483",
      "第 60 轮 loss 0.2394 val_in mIoU 63.58 SCS 20.25 | val_out mIoU 60.30 SCS 14.06 | 5.7 分钟",
      "[Epoch 61] Step [400/1200], ce: 0.1065, loss: 0.1065",
      "[Epoch 61] Step [800/1200], ce: 0.1620, loss: 0.1620",
      "[Epoch 61] Step [1200/1200], ce: 0.5370, loss: 0.5370",
-     "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟"
+     "第 61 轮 loss 0.2529 val_in mIoU 59.65 SCS 20.78 | val_out mIoU 57.96 SCS 15.38 | 5.7 分钟",
+     "[Epoch 62] Step [400/1200], ce: 0.4836, loss: 0.4836",
+     "[Epoch 62] Step [800/1200], ce: 0.2251, loss: 0.2251",
+     "[Epoch 62] Step [1200/1200], ce: 0.4065, loss: 0.4065",
+     "第 62 轮 loss 0.2513 val_in mIoU 65.67 SCS 16.40 | val_out mIoU 61.99 SCS 10.71 | 5.71 分钟",
+     "[Epoch 63] Step [400/1200], ce: 0.2953, loss: 0.2953",
+     "[Epoch 63] Step [800/1200], ce: 0.1115, loss: 0.1115",
+     "[Epoch 63] Step [1200/1200], ce: 0.0706, loss: 0.0706",
+     "第 63 轮 loss 0.2477 val_in mIoU 64.21 SCS 17.73 | val_out mIoU 61.12 SCS 13.10 | 5.7 分钟",
+     "[Epoch 64] Step [400/1200], ce: 0.2238, loss: 0.2238",
+     "[Epoch 64] Step [800/1200], ce: 0.3234, loss: 0.3234",
+     "[Epoch 64] Step [1200/1200], ce: 0.0553, loss: 0.0553",
+     "第 64 轮 loss 0.2423 val_in mIoU 60.06 SCS 25.32 | val_out mIoU 58.55 SCS 16.51 | 5.74 分钟",
+     "[Epoch 65] Step [400/1200], ce: 0.0641, loss: 0.0641",
+     "[Epoch 65] Step [800/1200], ce: 0.2265, loss: 0.2265",
+     "[Epoch 65] Step [1200/1200], ce: 0.0805, loss: 0.0805",
+     "第 65 轮 loss 0.2476 val_in mIoU 64.64 SCS 18.46 | val_out mIoU 60.92 SCS 12.56 | 5.87 分钟",
+     "[Epoch 66] Step [400/1200], ce: 0.0420, loss: 0.0420",
+     "[Epoch 66] Step [800/1200], ce: 0.3969, loss: 0.3969",
+     "[Epoch 66] Step [1200/1200], ce: 0.1536, loss: 0.1536",
+     "第 66 轮 loss 0.2421 val_in mIoU 65.00 SCS 16.13 | val_out mIoU 61.88 SCS 10.42 | 5.77 分钟",
+     "[Epoch 67] Step [400/1200], ce: 0.3307, loss: 0.3307",
+     "[Epoch 67] Step [800/1200], ce: 0.2299, loss: 0.2299",
+     "[Epoch 67] Step [1200/1200], ce: 0.4523, loss: 0.4523",
+     "第 67 轮 loss 0.2466 val_in mIoU 62.54 SCS 21.72 | val_out mIoU 59.90 SCS 14.44 | 5.71 分钟"
     ]
    },
    "muds_gn_s43": {
-    "completed_epochs": 61,
+    "completed_epochs": 67,
     "final_exists": false,
-    "latest_epoch_line": "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟",
+    "latest_epoch_line": "第 67 轮 loss 0.2330 val_in mIoU 64.16 SCS 21.83 | val_out mIoU 61.83 SCS 11.79 | 5.71 分钟",
     "log_tail": [
-     "[Epoch 54] Step [1200/1200], ce: 0.3457, loss: 0.3457",
-     "第 54 轮 loss 0.2452 val_in mIoU 62.93 SCS 16.76 | val_out mIoU 60.37 SCS 12.23 | 5.71 分钟",
-     "[Epoch 55] Step [400/1200], ce: 0.4396, loss: 0.4396",
-     "[Epoch 55] Step [800/1200], ce: 0.2807, loss: 0.2807",
-     "[Epoch 55] Step [1200/1200], ce: 0.1608, loss: 0.1608",
-     "第 55 轮 loss 0.2373 val_in mIoU 63.83 SCS 17.01 | val_out mIoU 60.78 SCS 10.47 | 5.7 分钟",
-     "[Epoch 56] Step [400/1200], ce: 0.2763, loss: 0.2763",
-     "[Epoch 56] Step [800/1200], ce: 0.0291, loss: 0.0291",
-     "[Epoch 56] Step [1200/1200], ce: 0.0411, loss: 0.0411",
-     "第 56 轮 loss 0.2452 val_in mIoU 62.38 SCS 17.56 | val_out mIoU 60.18 SCS 11.14 | 5.7 分钟",
-     "[Epoch 57] Step [400/1200], ce: 0.1051, loss: 0.1051",
-     "[Epoch 57] Step [800/1200], ce: 0.2995, loss: 0.2995",
-     "[Epoch 57] Step [1200/1200], ce: 0.2429, loss: 0.2429",
-     "第 57 轮 loss 0.2394 val_in mIoU 62.81 SCS 19.37 | val_out mIoU 59.45 SCS 12.75 | 5.7 分钟",
-     "[Epoch 58] Step [400/1200], ce: 0.4293, loss: 0.4293",
-     "[Epoch 58] Step [800/1200], ce: 0.3011, loss: 0.3011",
-     "[Epoch 58] Step [1200/1200], ce: 0.1679, loss: 0.1679",
-     "第 58 轮 loss 0.2373 val_in mIoU 62.28 SCS 22.72 | val_out mIoU 59.92 SCS 13.11 | 5.7 分钟",
-     "[Epoch 59] Step [400/1200], ce: 0.1122, loss: 0.1122",
-     "[Epoch 59] Step [800/1200], ce: 0.1176, loss: 0.1176",
-     "[Epoch 59] Step [1200/1200], ce: 0.0970, loss: 0.0970",
-     "第 59 轮 loss 0.2442 val_in mIoU 60.70 SCS 22.07 | val_out mIoU 58.66 SCS 14.25 | 5.7 分钟",
-     "[Epoch 60] Step [400/1200], ce: 0.3840, loss: 0.3840",
-     "[Epoch 60] Step [800/1200], ce: 0.0883, loss: 0.0883",
      "[Epoch 60] Step [1200/1200], ce: 0.4465, loss: 0.4465",
      "第 60 轮 loss 0.2401 val_in mIoU 66.28 SCS 15.03 | val_out mIoU 62.31 SCS 8.69 | 5.7 分钟",
      "[Epoch 61] Step [400/1200], ce: 0.0349, loss: 0.0349",
      "[Epoch 61] Step [800/1200], ce: 0.4215, loss: 0.4215",
      "[Epoch 61] Step [1200/1200], ce: 0.2385, loss: 0.2385",
-     "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟"
+     "第 61 轮 loss 0.2429 val_in mIoU 61.26 SCS 20.19 | val_out mIoU 59.08 SCS 13.75 | 5.7 分钟",
+     "[Epoch 62] Step [400/1200], ce: 0.3741, loss: 0.3741",
+     "[Epoch 62] Step [800/1200], ce: 0.1759, loss: 0.1759",
+     "[Epoch 62] Step [1200/1200], ce: 0.3242, loss: 0.3242",
+     "第 62 轮 loss 0.2381 val_in mIoU 64.82 SCS 17.67 | val_out mIoU 61.57 SCS 11.08 | 5.71 分钟",
+     "[Epoch 63] Step [400/1200], ce: 0.1716, loss: 0.1716",
+     "[Epoch 63] Step [800/1200], ce: 0.5058, loss: 0.5058",
+     "[Epoch 63] Step [1200/1200], ce: 0.0023, loss: 0.0023",
+     "第 63 轮 loss 0.2363 val_in mIoU 62.91 SCS 21.29 | val_out mIoU 61.27 SCS 12.15 | 5.7 分钟",
+     "[Epoch 64] Step [400/1200], ce: 0.2966, loss: 0.2966",
+     "[Epoch 64] Step [800/1200], ce: 0.2835, loss: 0.2835",
+     "[Epoch 64] Step [1200/1200], ce: 0.0354, loss: 0.0354",
+     "第 64 轮 loss 0.2387 val_in mIoU 64.48 SCS 18.75 | val_out mIoU 61.95 SCS 11.10 | 5.74 分钟",
+     "[Epoch 65] Step [400/1200], ce: 0.3500, loss: 0.3500",
+     "[Epoch 65] Step [800/1200], ce: 0.2506, loss: 0.2506",
+     "[Epoch 65] Step [1200/1200], ce: 0.0055, loss: 0.0055",
+     "第 65 轮 loss 0.2365 val_in mIoU 61.52 SCS 19.08 | val_out mIoU 60.80 SCS 12.24 | 5.87 分钟",
+     "[Epoch 66] Step [400/1200], ce: 0.3733, loss: 0.3733",
+     "[Epoch 66] Step [800/1200], ce: 0.0934, loss: 0.0934",
+     "[Epoch 66] Step [1200/1200], ce: 0.0031, loss: 0.0031",
+     "第 66 轮 loss 0.2380 val_in mIoU 63.88 SCS 22.27 | val_out mIoU 61.12 SCS 11.34 | 5.76 分钟",
+     "[Epoch 67] Step [400/1200], ce: 0.2773, loss: 0.2773",
+     "[Epoch 67] Step [800/1200], ce: 0.1429, loss: 0.1429",
+     "[Epoch 67] Step [1200/1200], ce: 0.6579, loss: 0.6579",
+     "第 67 轮 loss 0.2330 val_in mIoU 64.16 SCS 21.83 | val_out mIoU 61.83 SCS 11.79 | 5.71 分钟"
     ]
    },
    "muds_pseg0_s42": {
@@ -970,5 +1222,45 @@
    "val_out 评测分钟": 0.18,
    "val_out miou": 53.44
   }
+ },
+ "snapshot_started_at": "2026-11-10T04:17:23.669283+08:00",
+ "hardware_current": {
+  "sample_started_at": "2026-11-10T04:17:23.671482+08:00",
+  "sample_finished_at": "2026-11-10T04:17:23.698020+08:00",
+  "gpu": {
+   "sample_started_at": "2026-11-10T04:17:23.671482+08:00",
+   "command_argv": [
+    "/usr/bin/timeout",
+    "-s",
+    "KILL",
+    "5s",
+    "nvidia-smi",
+    "--query-gpu=name,utilization.gpu,memory.used,memory.total,temperature.gpu",
+    "--format=csv,noheader,nounits"
+   ],
+   "available": true,
+   "returncode": 0,
+   "stdout": "NVIDIA TITAN RTX, 100, 5551, 24576, 84\n",
+   "stderr": "",
+   "name": "NVIDIA TITAN RTX",
+   "utilization_percent": 100.0,
+   "memory_used_MiB": 5551.0,
+   "memory_total_MiB": 24576.0,
+   "temperature_c": 84.0,
+   "sample_finished_at": "2026-11-10T04:17:23.698008+08:00"
+  },
+  "memory_total_bytes": 67325550592,
+  "memory_available_bytes": 54501588992,
+  "data_disk_path": "/home/user/work_st3d",
+  "disk_total_bytes": 982240026624,
+  "disk_used_bytes": 711389544448,
+  "disk_free_bytes": 220879966208
+ },
+ "snapshot_finished_at": "2026-11-10T04:17:23.698026+08:00",
+ "takeover_acknowledgement": {
+  "instruction_id": "jia-takeover-1110",
+  "received_at": "2026-11-10T04:00:27.241413+08:00",
+  "takeover_description_sha256": "dfeb21defc245a9913022f682f2108d5985524eb6b13de77f363de41b7118ae7",
+  "message": "已收到11-10接管安排，继续1109原有四项，不重启或修改训练配置"
  }
 }

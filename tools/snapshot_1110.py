@@ -7,9 +7,9 @@ def normalize_current(snapshot):
  instruction=str(snapshot.get('instruction_id') or snapshot.get('指令编号') or '')
  if instruction.startswith('jia-st3d-1109'):
   names=['muds_gn_s42','muds_gn_s43','muds_pseg0_s42','muds_pseg0_s43'];total=250
- elif 'yi-st3d-1110' in instruction:
+ elif instruction.startswith('yi-st3d-1110'):
   names=[f'den_{arch}_3src_v2_1110_s{seed}' for arch in ['pseg0','gn'] for seed in [43,44]];total=30
- elif 'yi-st3d-1109' in instruction:
+ elif instruction.startswith('yi-st3d-1109'):
   names=[f'den_{arch}_{source}_s{seed}' for source in ['planet','3src'] for arch in ['pseg0','gn'] for seed in [43,44]];total=30
  else:return None
  current={};completed=0;active=[]

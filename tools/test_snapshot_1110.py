@@ -12,8 +12,10 @@ def main():
  assert normalize_current({'parts':{}}) is None
  d['任务进度']['den_gn_3src_s43']={'已完成轮数':3,'final.json':True}
  assert normalize_current(d)['completed_parts']==4,'Incomplete finals are not accepted'
+ d['指令编号']='yi-st3d-1109；已收到接管，后续yi-st3d-1110-v2待执行'
+ assert normalize_current(d)['completed_parts']==4,'Future batch mentioned in acknowledgment must not override active batch'
  d['指令编号']='yi-st3d-1110-v2';d['任务进度']['den_pseg0_3src_v2_1110_s43']={'已完成轮数':1}
  c=normalize_current(d)
  assert c['completed_parts']==0 and c['reported_active_tasks']==['den_pseg0_3src_v2_1110_s43']
- print('5 normalization cases passed; unrelated history and premature final.json excluded.')
+ print('6 normalization cases passed; unrelated history, future batch mentions and premature final.json excluded.')
 if __name__=='__main__':main()

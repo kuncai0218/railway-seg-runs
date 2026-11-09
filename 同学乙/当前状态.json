@@ -1,12 +1,12 @@
 {
-  "source_snapshot_at": "2026-11-10 03:13:21",
+  "source_snapshot_at": "2026-11-10 04:21:53",
   "state": "running",
   "completed_parts": 4,
   "total_parts": 8,
   "current_run_failed_tasks": [],
   "historical_failure_events": 0,
-  "latest_runner_line": "11-10 03:10:00 运行器退出",
-  "current_instruction": "yi-st3d-1109（8 任务 × 30 轮，种子 43/44，--max 2；1107e 已暂缓停在 55/250，断点保留）",
+  "latest_runner_line": "11-10 04:20:00 运行器退出",
+  "current_instruction": "yi-st3d-1109（8 任务 × 30 轮，种子 43/44，--max 2）；已收到 11-10 接管安排 yi-takeover-1110，1109 八项完成后接 yi-st3d-1110-v2 四项；1107e 暂缓停在 55/250，断点保留不恢复",
   "task_progress": {
     "den_pseg0_planet_s43": {
       "epoch": 30,
@@ -33,16 +33,16 @@
       "epoch_line": "第 30 轮 loss 0.4746 val_in mIoU 54.09 SCS 29.43 | val_out mIoU 31.40 SCS 10.74 | 8.03 分钟"
     },
     "den_pseg0_3src_s43": {
-      "epoch": 16,
+      "epoch": 28,
       "total_epochs": 30,
       "status": "reported_active",
-      "epoch_line": "第 16 轮 loss 0.3987 val_in mIoU 60.10 SCS 39.82 | val_out mIoU 41.67 SCS 17.17 | 5.59 分钟"
+      "epoch_line": "第 28 轮 loss 0.3503 val_in mIoU 61.63 SCS 42.55 | val_out mIoU 40.95 SCS 16.99 | 6.26 分钟"
     },
     "den_pseg0_3src_s44": {
-      "epoch": 16,
+      "epoch": 28,
       "total_epochs": 30,
       "status": "reported_active",
-      "epoch_line": "第 16 轮 loss 0.3920 val_in mIoU 58.61 SCS 35.77 | val_out mIoU 39.71 SCS 17.40 | 5.59 分钟"
+      "epoch_line": "第 28 轮 loss 0.3446 val_in mIoU 62.41 SCS 43.57 | val_out mIoU 40.80 SCS 18.06 | 6.26 分钟"
     },
     "den_gn_3src_s43": {
       "epoch": 0,
