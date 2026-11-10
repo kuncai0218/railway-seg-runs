@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-10T03:45:00+08:00",
+  "更新时间": "2026-11-10T09:48:26+08:00",
   "停止": [
     "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
     "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -358,7 +358,7 @@
     },
     {
       "编号": "yi-st3d-1109",
-      "状态": "待执行（做完 yi-check-1109 后立即开始）",
+      "状态": "已回报8/8完成（09:37快照）；保留全部结果，不再启动该旧队列；现场核对final后立即接v2",
       "说明": "DynamicEarthNet 上的公平结构对比，补种子 43、44（组长本机已有种子 42）。每组都是新模型去掉累乘门版（--arch pse --pse_opts gate=0）对组归一化版 ST3DUNet（--arch st3d_gn），30 轮筛选设置：先只用 Planet，再三源（Planet + S2 红边短波红外 + OlmoEarth 32 维）。三源要用 1107e 第 2—4 步已经解压好的 S2 小缓存与 OlmoEarth 缓存。共 8 个任务，预计约 12—16 小时。",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1109.zip",
       "实验包SHA256": "811bed50eb9c0498fcf242bc116548230732f56fb0c0acdd3fac16b70609ebee",
@@ -390,7 +390,7 @@
     },
     {
       "编号": "yi-st3d-1110-v2",
-      "状态": "待执行（1109八项全部完成后立即接续）",
+      "状态": "待执行（立即，1109已回报完成；按yi-resume-v2-1110-0950检查进程后接续同一批四项）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学实验接管_1110.md",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1109.zip",
       "实验包SHA256": "811bed50eb9c0498fcf242bc116548230732f56fb0c0acdd3fac16b70609ebee",
@@ -408,7 +408,31 @@
         "按说明做源占位/缺源标记核验、40步v2冒烟，再启动新四项队列。",
         "维持15分钟同步；四项完整验收后打包回报，再读取主分支后续安排。"
       ]
+    },
+    {
+      "编号": "yi-resume-v2-1110-0950",
+      "状态": "待执行（立即；接续已下发的同一v2四项，不新增或重复实验）",
+      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学实验接管_1110.md",
+      "依据": "最新09:37:41快照显示1109八项已完成、训练/保活PID为空、GPU0%；09:45重新抓取未见更新。因此明确触发已授权接续，先现场核查避免重复。",
+      "关联已有任务": "yi-st3d-1110-v2",
+      "任务文件": "tasks/yi_st3d_1110_v2.json",
+      "任务文件SHA256": "36337b4d86043832eb7d7a09a07c86061441fcb16317629b6d43e42f6b66d232",
+      "最多同时训练": 2,
+      "步骤": [
+        "1. 先立即回报已收到本编号和当前时间，现场列出run_queue_st3d.py、st3d_repro.py的PID、创建时间、完整命令及nvidia-smi。若已有任意v2_1110训练或对应运行器，保留进程，转第6步，不重复启动；若四项已全部final.epoch30则报完成。",
+        "2. 使用刚完成1109的同一Python环境及原实验包目录。核对八项1109的final.json(last.epoch=30)与last.pth；不要再运行旧1109/MUDS队列来替代v2。旧1107e继续暂缓，全部原结果保留。打包可与新训练并行，不作为GPU接续的等待条件。",
+        "3. 按原接管说明逐SHA核对已下载的tasks/yi_st3d_1110_v2.json与scripts/check_missing_source_1110.py；任务参数和原包代码不变。不重新下载数据或依赖。",
+        "4. 在包目录运行 python -X utf8 scripts/check_missing_source_1110.py ../st3d_cache --apply-metadata，需source_missing_verified=true且marker_present=true。若原40步v2冒烟bench.json存在且有限，保留并核其配置；否则按接管说明原命令做40步冒烟。失败保留日志并报告，同一项最多重试一次。",
+        "5. 只有确认当前没有任何训练和本v2运行器时，后台启动 python -X utf8 scripts/run_queue_st3d.py tasks/yi_st3d_1110_v2.json --max 2。Windows后台用隐藏窗口。包/缓存/输出路径沿用既有环境，不猜新路径。启动后维护此队列直至四项完成，勿因旧队列退出而不检查下一条。",
+        "6. 启动后立即同步：本恢复编号、实际任务yi-st3d-1110-v2、工具及任务SHA、缺源核验结果、冒烟结果、运行器PID和训练PID/创建时间、GPU/显存、可用内存和磁盘。至少相隔60秒采两次真实epoch/step证明推进；已在跑则同样采样。",
+        "7. 之后每15分钟只保留一份同步进程，并每次读主分支指令文件；当前四项进度以v2_1110实际输出为准，保留1109历史且分开列。若依然未启动，立即说明具体阻塞和原始错误，不能仅重复“已收到”。",
+        "8. 四项last.epoch30且last.pth存在后回传小型final/epoch曲线与包名/大小，完整包按原方式由本人上传；不删除任何结果，不新增付费资源，不恢复1107e。"
+      ]
     }
   ],
-  "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。"
+  "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
+  "当前执行优先": [
+    "yi-resume-v2-1110-0950",
+    "yi-st3d-1110-v2"
+  ]
 }
