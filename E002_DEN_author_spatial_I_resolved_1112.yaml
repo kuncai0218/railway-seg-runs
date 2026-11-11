@@ -1,0 +1,177 @@
+# Frozen scientific recipe; effective batch8 = micro2 x accumulation4. Grouping JSON governs path mapping.
+model:
+  network:
+    instance:
+      _target_: models.networks.multiutae.MultiUTAE
+      input_dim: 4
+      num_classes: 6
+      in_features: 512
+      str_conv_k: 4
+      str_conv_s: 2
+      str_conv_p: 1
+      agg_mode: att_group
+      encoder_norm: group
+      n_head: 16
+      d_k: 4
+      pad_value: 0
+      padding_mode: reflect
+      T: 1000
+      offset: 10
+  loss:
+    instance:
+      _target_: models.losses.Losses
+      mix:
+        focal: 1.0
+      ignore_index: 6
+  optimizer:
+    optim:
+      _target_: torch.optim.AdamW
+      lr: 0.0001
+      betas:
+      - 0.9
+      - 0.999
+      weight_decay: 0.01
+    exclude_ln_and_biases_from_weight_decay: false
+  lr_scheduler:
+    _partial_: true
+    _target_: utils.lr_scheduler.WarmupLR
+    warmup_steps: 5000
+  name: multiUTAE
+  val_metrics:
+    _target_: metrics.scd_metrics.SCDMetric
+    num_classes: 6
+    class_names: &id001
+    - impervi
+    - agricult
+    - forest
+    - wetlands
+    - soil
+    - water
+    ignore_index: 6
+  test_metrics:
+    _target_: metrics.scd_metrics.SCDMetric
+    num_classes: 6
+    class_names: *id001
+    ignore_index: 6
+computer:
+  devices: 1
+  num_workers: 4
+  progress_bar_refresh_rate: 2
+  sync_batchnorm: false
+  accelerator: gpu
+  precision: 16-mixed
+  strategy: auto
+  num_nodes: 1
+dataset:
+  name: DynamicEarthNet
+  global_batch_size: 8
+  num_channels: 4
+  num_classes: 6
+  ignore_index: 6
+  class_names: *id001
+  train_dataset:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: train
+    train_length: 12
+    date_aug_range: 2
+  val_dataset_out:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: val
+    domain_shift: true
+  val_dataset_in:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: val
+    domain_shift: false
+  test_dataset_out:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: test
+    domain_shift: true
+  test_dataset_in:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: test
+    domain_shift: false
+datamodule:
+  _target_: data.datamodule.ImageDataModule
+  train_dataset:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: train
+    train_length: 12
+    date_aug_range: 2
+  val_dataset_out:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: val
+    domain_shift: true
+  val_dataset_in:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: val
+    domain_shift: false
+  test_dataset_out:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: test
+    domain_shift: true
+  test_dataset_in:
+    _partial_: true
+    _target_: data.data.DynamicEarthNet
+    path: /home/user/work_st3d/E002_DEN_paperI_1112/data/DynamicEarthNet/
+    split: test
+    domain_shift: false
+  global_batch_size: 2
+  num_workers: 4
+  num_nodes: 1
+  num_devices: 1
+trainer:
+  _target_: pytorch_lightning.Trainer
+  devices: 1
+  accelerator: gpu
+  strategy: auto
+  num_nodes: 1
+  precision: 16-mixed
+  max_epochs: -1
+  check_val_every_n_epoch: 10
+  max_steps: 500000
+  accumulate_grad_batches: 4
+  num_sanity_val_steps: 0
+logger:
+  _target_: pytorch_lightning.loggers.WandbLogger
+  save_dir: /home/user/work_st3d/E002_DEN_paperI_1112
+  name: DEN_author_spatial_I_s42
+  project: sitsscd
+  log_model: false
+  offline: true
+  entity: imaginelab
+checkpoints:
+  _target_: pytorch_lightning.callbacks.ModelCheckpoint
+  dirpath: /home/user/work_st3d/E002_DEN_paperI_1112/checkpoints
+  filename: best_scs_ckpt
+  monitor: val/scs
+  save_last: true
+  save_top_k: 1
+  every_n_epochs: 1
+  mode: max
+  enable_version_counter: false
+progress_bar:
+  _target_: pytorch_lightning.callbacks.TQDMProgressBar
+  refresh_rate: 2
+data_dir: /home/user/work_st3d/E002_DEN_paperI_1112/data
+root_dir: /home/user/work_st3d/E002_DEN_paperI_1112
+experiment_name: DEN_author_spatial_I_s42
+mode: train
+num_classes: 6
