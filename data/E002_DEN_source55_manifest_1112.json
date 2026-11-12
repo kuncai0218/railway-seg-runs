@@ -1,0 +1,565 @@
+{
+  "time": "2026-11-12T10:54:41.623218+08:00",
+  "complete": true,
+  "public_dataset": "DynamicEarthNet",
+  "scope": "only original official train55 Planet RGB+NIR daily JPEG and monthly labels; no original val/test AOIs",
+  "source_root": "D:\\公开数据_下载_1103\\SitsSCD\\data\\DynamicEarthNet",
+  "original_source_regions": [
+    "1311_3077_13",
+    "1417_3281_13",
+    "1487_3335_13",
+    "1700_3100_13",
+    "2006_3280_13",
+    "2029_3764_13",
+    "2065_3647_13",
+    "2235_3403_13",
+    "2415_3082_13",
+    "2459_4406_13",
+    "2470_5030_13",
+    "2528_4620_13",
+    "2624_4314_13",
+    "2697_3715_13",
+    "2832_4366_13",
+    "2850_4139_13",
+    "3002_4273_13",
+    "3998_3016_13",
+    "4127_2991_13",
+    "4169_3944_13",
+    "4223_3246_13",
+    "4240_3972_13",
+    "4254_2915_13",
+    "4397_4302_13",
+    "4421_3800_13",
+    "4426_3835_13",
+    "4622_3159_13",
+    "4768_4131_13",
+    "4780_3377_13",
+    "4791_3920_13",
+    "4806_3588_13",
+    "4838_3506_13",
+    "4856_4087_13",
+    "4881_3344_13",
+    "5111_4560_13",
+    "5125_4049_13",
+    "5863_3800_13",
+    "5926_3715_13",
+    "5989_3554_13",
+    "6204_3495_13",
+    "6381_3681_13",
+    "6466_3380_13",
+    "6468_3360_13",
+    "6475_3361_13",
+    "6688_3456_13",
+    "6730_3430_13",
+    "6752_3115_13",
+    "6810_3478_13",
+    "6813_3313_13",
+    "6824_4117_13",
+    "7026_3201_13",
+    "7312_3008_13",
+    "7367_5050_13",
+    "7513_4968_13",
+    "8077_5007_13"
+  ],
+  "archive_count": 55,
+  "archives": [
+    {
+      "region": "1311_3077_13",
+      "file": "DEN_source_1311_3077_13.zip",
+      "bytes": 82017672,
+      "SHA256": "775e9325b8b0f94b5323fd6df44397210ba57bffd0749341d9165de837a7ce5e",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "1417_3281_13",
+      "file": "DEN_source_1417_3281_13.zip",
+      "bytes": 122260425,
+      "SHA256": "f966065038fba3c05713f5c8e1593278ba60b72eee4f70fbf79d2bb9560a7008",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "1487_3335_13",
+      "file": "DEN_source_1487_3335_13.zip",
+      "bytes": 38018438,
+      "SHA256": "180a156a6043be36f67f6852c36eac086e27e4a6455e237f02396cd51c97bbf7",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "1700_3100_13",
+      "file": "DEN_source_1700_3100_13.zip",
+      "bytes": 150417092,
+      "SHA256": "7f912c604fae34faa2c1e8d6222f6ae49a7a702e24a7eba8d46c06c54745b4d7",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2006_3280_13",
+      "file": "DEN_source_2006_3280_13.zip",
+      "bytes": 104495343,
+      "SHA256": "3b876564a8f8dfc7f2635ec134ffbe6c910cc693022520559a5c69fc4cccbe8c",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2029_3764_13",
+      "file": "DEN_source_2029_3764_13.zip",
+      "bytes": 88181083,
+      "SHA256": "62fcb5fe9901666339bf946c407f9e0886713def0fb9417c30e460f682abb712",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2065_3647_13",
+      "file": "DEN_source_2065_3647_13.zip",
+      "bytes": 74125288,
+      "SHA256": "2bb64dcbea5399d7bbff97d34307f311c7040740bcd82e9d3eb08729fbb375ad",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2235_3403_13",
+      "file": "DEN_source_2235_3403_13.zip",
+      "bytes": 85097849,
+      "SHA256": "c1915d631e1a0b04fc4c881d74093089d14cc5caf6dbb88af5b77e3e32318ba8",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2415_3082_13",
+      "file": "DEN_source_2415_3082_13.zip",
+      "bytes": 57209500,
+      "SHA256": "283aa22ab6dffd3a3083e079c441b33b5434f83b5b6d070b6240e374f603b5e7",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2459_4406_13",
+      "file": "DEN_source_2459_4406_13.zip",
+      "bytes": 116579441,
+      "SHA256": "e94eab486d992563a7dc09e7e2981cd8fda68f11e89435105214b917820b791e",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2470_5030_13",
+      "file": "DEN_source_2470_5030_13.zip",
+      "bytes": 119635366,
+      "SHA256": "2f6f17fc0d6f426ef5cb495713aae14e2c4956aef148f2c8385b27d965f589cc",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2528_4620_13",
+      "file": "DEN_source_2528_4620_13.zip",
+      "bytes": 104799192,
+      "SHA256": "9b6211ce0e757cffdc9e4e6ad401957f1065f5dcced24faf96d861313fd4cfed",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2624_4314_13",
+      "file": "DEN_source_2624_4314_13.zip",
+      "bytes": 96055601,
+      "SHA256": "124659d575b527dec293cb5c73a54ffeba31cc3c17b7df73260919cd1929b405",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2697_3715_13",
+      "file": "DEN_source_2697_3715_13.zip",
+      "bytes": 92164112,
+      "SHA256": "a881e2b73ffd228b4306ccc8dd8d94b71a0ca5a1ccd330e7bde040c721870103",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2832_4366_13",
+      "file": "DEN_source_2832_4366_13.zip",
+      "bytes": 74716670,
+      "SHA256": "bcff9cffc87d6602a96b2720fecbed381152e9a776dd4e8344fc41c24bf55fa9",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "2850_4139_13",
+      "file": "DEN_source_2850_4139_13.zip",
+      "bytes": 79097679,
+      "SHA256": "fb22ebaeb077db26e35431ac694fd9e1eff39454c9978ebf81a38d5d351458de",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "3002_4273_13",
+      "file": "DEN_source_3002_4273_13.zip",
+      "bytes": 90679656,
+      "SHA256": "acedba5a59139200c2eb663da66770c2d241d31f4ae126042008b6171732708d",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "3998_3016_13",
+      "file": "DEN_source_3998_3016_13.zip",
+      "bytes": 93744865,
+      "SHA256": "2984707082971a2fbc5d99ab9822dd282620abebb422c5beda3e49bba0a9ab00",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4127_2991_13",
+      "file": "DEN_source_4127_2991_13.zip",
+      "bytes": 162021291,
+      "SHA256": "d67ac55dab4913e649abf78f6543f27f4323bb71ce1edde1e3ae04b39ccb67ce",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4169_3944_13",
+      "file": "DEN_source_4169_3944_13.zip",
+      "bytes": 82887403,
+      "SHA256": "1633f5545c23847d5064db81226be45d6cdc816d7e862852f188691d6aa87bb6",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4223_3246_13",
+      "file": "DEN_source_4223_3246_13.zip",
+      "bytes": 57979590,
+      "SHA256": "83a278f1852f915989c8962aed2c374067d5924920308f043b8e99548533c412",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4240_3972_13",
+      "file": "DEN_source_4240_3972_13.zip",
+      "bytes": 60611660,
+      "SHA256": "38301d00aebe8641a4e1eb9d9c365376327e64732c6cd805c414a702c50d25e5",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4254_2915_13",
+      "file": "DEN_source_4254_2915_13.zip",
+      "bytes": 104533504,
+      "SHA256": "1295eb95a83b87cdbbec6860884be6f5e569eed78674c16ac0035514d2a75535",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4397_4302_13",
+      "file": "DEN_source_4397_4302_13.zip",
+      "bytes": 88361482,
+      "SHA256": "24440a465a710dd7eeb143f29663d0cd1f7cc99c496eb15adfca0586aad1b184",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4421_3800_13",
+      "file": "DEN_source_4421_3800_13.zip",
+      "bytes": 69430600,
+      "SHA256": "d367ebd5163b0f1c8eb39fd8b628cc6c52e0dd33e27175589849507976f571c9",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4426_3835_13",
+      "file": "DEN_source_4426_3835_13.zip",
+      "bytes": 63409460,
+      "SHA256": "d5a3d06c14ccf8165f7b57c4dbeed3e1f37da7644c6774e9a66db63121b3b5f9",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4622_3159_13",
+      "file": "DEN_source_4622_3159_13.zip",
+      "bytes": 109801792,
+      "SHA256": "8ef38e2f177c0c6e60cf5aed06cd1b8e90a344130406322bab9b2c8c45a461e6",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4768_4131_13",
+      "file": "DEN_source_4768_4131_13.zip",
+      "bytes": 100139934,
+      "SHA256": "4aca3437cb62106478120ae116ece742a5a9dfc82cc2440daa8e2fdd4729dc57",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4780_3377_13",
+      "file": "DEN_source_4780_3377_13.zip",
+      "bytes": 49676040,
+      "SHA256": "0a1ceb052e871b1d63691f31ac4f9553a9ecb7b3140efecf03ac6e64832d9201",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4791_3920_13",
+      "file": "DEN_source_4791_3920_13.zip",
+      "bytes": 63479196,
+      "SHA256": "ca06c0a032b257cfb760d1ffdd26c2fb2840e3970203c3fcc6c4af93f2fd99f3",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4806_3588_13",
+      "file": "DEN_source_4806_3588_13.zip",
+      "bytes": 81497982,
+      "SHA256": "bdf3d01ed9ff31859e0d202f0a06313b0afee73dd91563f44ac07c504c983eef",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4838_3506_13",
+      "file": "DEN_source_4838_3506_13.zip",
+      "bytes": 47699507,
+      "SHA256": "ea393ea1b1447e81d6aa82722cc557cc6ad4a5b7f65b8a44de27ff093e64132a",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4856_4087_13",
+      "file": "DEN_source_4856_4087_13.zip",
+      "bytes": 86184926,
+      "SHA256": "8f3ac8d7afe674693f4390bdc74339a8fac88290b53b348ec25828ae13dce372",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "4881_3344_13",
+      "file": "DEN_source_4881_3344_13.zip",
+      "bytes": 56516570,
+      "SHA256": "7f92f05dc6a12e2f4cb9772ca132602c765f618c63ca3550efffe2d4517b5647",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "5111_4560_13",
+      "file": "DEN_source_5111_4560_13.zip",
+      "bytes": 93125801,
+      "SHA256": "dd51499ee226637f6cc4b1835e174e2126ebbaf7f0817a43d4d7a72ce7ef60bf",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "5125_4049_13",
+      "file": "DEN_source_5125_4049_13.zip",
+      "bytes": 125390138,
+      "SHA256": "f6e95e340eefff4589cf58a047bdcd815d7d411011fb055bd6804ed8f5e069c6",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "5863_3800_13",
+      "file": "DEN_source_5863_3800_13.zip",
+      "bytes": 127836337,
+      "SHA256": "2ecf7134afa5c9807bb3169c1e93b865b8e8adaac77f5ac97234034d030d6c62",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "5926_3715_13",
+      "file": "DEN_source_5926_3715_13.zip",
+      "bytes": 79368709,
+      "SHA256": "92d4b47ab32f595883d575d4785bff3a61b89998a6fbe3aaf366a6feb473e303",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "5989_3554_13",
+      "file": "DEN_source_5989_3554_13.zip",
+      "bytes": 106163588,
+      "SHA256": "8ff1592be12ef21836b9a873002071af36ff142a95b509b2e25dec27afbf0db5",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6204_3495_13",
+      "file": "DEN_source_6204_3495_13.zip",
+      "bytes": 92307732,
+      "SHA256": "5ef709fdf6bcb4a2e6753639178ff23d5aa8e02c9b87436c538b3ff6528e8f37",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6381_3681_13",
+      "file": "DEN_source_6381_3681_13.zip",
+      "bytes": 81733686,
+      "SHA256": "b3d41c4aff201569b42b3f9fa94b106d920f47458636c42d83010889671d4a82",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6466_3380_13",
+      "file": "DEN_source_6466_3380_13.zip",
+      "bytes": 110256401,
+      "SHA256": "286bdcf8f0935e08a79013330f909ea695b4e819c513617f3e75a25920cb9cb6",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6468_3360_13",
+      "file": "DEN_source_6468_3360_13.zip",
+      "bytes": 120143652,
+      "SHA256": "65c112e5c391136032e142c59c23bd13491d22191d56137cc4210f21a21f2af9",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6475_3361_13",
+      "file": "DEN_source_6475_3361_13.zip",
+      "bytes": 111785093,
+      "SHA256": "86a1c3934a2529f713d03e9cb8d34406bba819634c134a49416dc1e49746eee0",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6688_3456_13",
+      "file": "DEN_source_6688_3456_13.zip",
+      "bytes": 87401508,
+      "SHA256": "2883f5a465e5e1f1f8c3bdea311dee43b2886e47c5b2c8b231ec99c115ec769c",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6730_3430_13",
+      "file": "DEN_source_6730_3430_13.zip",
+      "bytes": 104870326,
+      "SHA256": "823af6c311ee2ac112f74596f748cb3dcbab80c04a3edf6c53c8813585bd45f1",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6752_3115_13",
+      "file": "DEN_source_6752_3115_13.zip",
+      "bytes": 131549685,
+      "SHA256": "025727c0d527f5d84f70ae87b9b1d607ff53c0f074e71e8df17424f0bdef3e7f",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6810_3478_13",
+      "file": "DEN_source_6810_3478_13.zip",
+      "bytes": 101058978,
+      "SHA256": "7f37f6adaddb8d4d08a5fedf21bb9012ebebb47a593c2a13b8cce5930d5a7667",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6813_3313_13",
+      "file": "DEN_source_6813_3313_13.zip",
+      "bytes": 126821442,
+      "SHA256": "07a41cbceb5230af70fa9a4fffb5fe05d0bad2a5ec5717abb78fb6e0e4971726",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "6824_4117_13",
+      "file": "DEN_source_6824_4117_13.zip",
+      "bytes": 136627602,
+      "SHA256": "0280113111caf3161d56f0f36bcd9d011056bf9b21ab5cc5d486e984094dc69f",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "7026_3201_13",
+      "file": "DEN_source_7026_3201_13.zip",
+      "bytes": 108973591,
+      "SHA256": "37423e98d5bed02d2210eea00623b51ccc85d100153c325b14b4d54d5d62a0d5",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "7312_3008_13",
+      "file": "DEN_source_7312_3008_13.zip",
+      "bytes": 172079374,
+      "SHA256": "a67c6e0ace021adaef2574bb542287b2b7ea76190796b6c413095ec59378a4a5",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "7367_5050_13",
+      "file": "DEN_source_7367_5050_13.zip",
+      "bytes": 98688850,
+      "SHA256": "c14aa3268fdc0d8c4ae7eb15305463e052c71fd23b924045326bede88e6a56b7",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "7513_4968_13",
+      "file": "DEN_source_7513_4968_13.zip",
+      "bytes": 127187622,
+      "SHA256": "1ecdcf6397c0542c39d8772a03f3c063164df80b48e2b266f7a7c04ca76cc968",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    },
+    {
+      "region": "8077_5007_13",
+      "file": "DEN_source_8077_5007_13.zip",
+      "bytes": 125920302,
+      "SHA256": "cd3cbe26f0a97d1d6383af8e675d05f7e6683bff1b3b84b03b6fadb2de1846af",
+      "JPEG_count": 1460,
+      "label_count": 1,
+      "archive_entries": 1461
+    }
+  ],
+  "total_bytes": 5322816626,
+  "source_files_retained": true,
+  "author_spatial_groups_file": "E002_DEN_author_spatial_groups_1112.json"
+}

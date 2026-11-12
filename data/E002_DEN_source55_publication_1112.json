@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "archive_count": 55,
+  "manifest_SHA256": "27b81920588c4ad4b460a42d0f29c39cc0b4f95b94ab6f765d791a642ef280dd",
+  "total_bytes": 5322816626,
+  "kit_receipt_SHA256": "85e65194cacf0fd6e0f86a577e16c6e11a12bb4535e320ae27842a49be84129d",
+  "manifest_path": "data/E002_DEN_source55_manifest_1112.json",
+  "time": "2026-11-12T10:56:34.283551+08:00",
+  "scope": "public originaltrain55 RGB/NIR730daily JPEG and labels only; original val/test10 excluded"
+}

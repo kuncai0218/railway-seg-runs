@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "original_local_train_loop_AST_equal": true,
+  "model_optimizer_build_AST_equal": true,
+  "loss_accumulation_AST_equal": true,
+  "CachedAuthorDEN_class_AST_equal": true,
+  "differences": "Linux environment paths and author foldI config; use pre-existing finite-logit validation guard and completed-checkpoint recovery in archived candidate; no model/loss/training loop modification",
+  "local_live_training_source_modified": false,
+  "file_SHA256": {
+    "packages/e002_author_foldI_1112/e002_data.py": "0043753c25e691e0058ca7ba76f5aa659e1f557c0be741af1ac3b954922a65bd",
+    "packages/e002_author_foldI_1112/e002_metrics.py": "26e34d2e91d0afc330537145af7fd9450eb14c7a5effc901af003554b51a5d06",
+    "packages/e002_author_foldI_1112/e002_metric_base.py": "7756ff2116009e7da366f8339df309f6c3470e99a3a6cd28be44e98aabb675e1",
+    "packages/e002_author_foldI_1112/e002_train.py": "0d34d973f07f8de5c53564c99ec72ea971b5245f9ae2fdb174b2c53eeeeffa21",
+    "packages/e002_author_foldI_1112/protocol.json": "14df7e88ef844473dbcf2efd680608f07d780eccef30530a159bd05d5552350c",
+    "packages/e002_author_foldI_1112/source55_original_split_metadata.json": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+    "packages/e002_author_foldI_1112/vendor_source_manifest.json": "1b04e0147037f7de53b3b89d884842a931545c798229d54e7aa8b77e0c086a5f",
+    "tools/receive_DEN_source55_1112.py": "bed681b07bba6c3bf604b38c8c76c8bce9d3f9e4f5f4c11ac0e2c01b94955676",
+    "tools/prepare_DEN_author_source55_1112.py": "c2c91123cde0425bd9a49d9f2dba776e560b8281fa2b86f49f0786489b54ca97"
+  }
+}
