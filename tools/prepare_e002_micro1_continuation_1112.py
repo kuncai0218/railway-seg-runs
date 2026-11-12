@@ -13,6 +13,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import math
 import shutil
 import sys
 
@@ -51,6 +52,28 @@ def finite_tensors(value):
     return count
 
 
+def selection_history(state, parent):
+    score = float(state["best_validation_scs"])
+    if score == -float("inf"):
+        return None
+    if not math.isfinite(score):
+        raise ValueError("invalid best-validation history")
+    path = parent / "best_scs.pth"
+    if not path.is_file():
+        raise ValueError("checkpoint remembers a best score but its best_scs weights are missing")
+    digest = sha(path)
+    best = torch.load(path, map_location="cpu", weights_only=False)
+    if (best.get("source_hashes") != state["source_hashes"] or
+            abs(float(best["metrics"]["scs"]) - score) > 1e-7 or
+            best["optimizer_updates"] > state["optimizer_updates"]):
+        raise ValueError("best-selection weights do not match this continuation checkpoint")
+    finite_tensors(best["model"])
+    if sha(path) != digest:
+        raise ValueError("best-selection weights changed during preflight")
+    return {"source": str(path), "SHA256": digest,
+            "optimizer_updates": best["optimizer_updates"], "validation_scs": score}
+
+
 def validate(checkpoint, kit, parent):
     if torch.cuda.is_initialized():
         raise RuntimeError("CPU-only preflight requires no initialized CUDA")
@@ -86,7 +109,7 @@ def validate(checkpoint, kit, parent):
     if sha(checkpoint) != before:
         raise ValueError("checkpoint changed while being inspected; use a stopped run/archive")
     assert not torch.cuda.is_initialized()
-    return state, config, before, checked
+    return state, config, before, checked, selection_history(state, parent)
 
 
 def main():
@@ -105,7 +128,7 @@ def main():
         raise ValueError("use a parent-run checkpoint and a new independent output directory")
     if a.apply and not a.previous_trainer_stopped:
         raise ValueError("verify actual previous trainer has exited before applying")
-    state, config, digest, checked = validate(checkpoint, kit, parent)
+    state, config, digest, checked, best = validate(checkpoint, kit, parent)
     receipt = {
         "time": datetime.datetime.now().astimezone().isoformat(),
         "passed_CPU_preflight": True,
@@ -124,6 +147,8 @@ def main():
         "completed_epochs_restored": state["completed_epochs"],
         "complete_optimizer_scaler_sampler_months_CPU_CUDA_RNG_present": True,
         "finite_model_optimizer_tensors_checked": checked,
+        "best_selection_parent": best,
+        "best_selection_history_preserved": True,
         "scientific_protocol_SHA256": state["protocol_SHA256"],
         "frozen_source_hashes": state["source_hashes"],
         "trainer_and_scientific_protocol_edited": False,
@@ -139,6 +164,10 @@ def main():
         shutil.copyfile(checkpoint, destination / "last.pth")
         if sha(destination / "last.pth") != digest or sha(checkpoint) != digest:
             raise ValueError("copy identity failed; source/results retained, do not launch")
+        if best is not None:
+            shutil.copyfile(best["source"], destination / "best_scs.pth")
+            if sha(destination / "best_scs.pth") != best["SHA256"]:
+                raise ValueError("best-selection copy failed; do not launch")
         # Parent config is intentionally not copied: the frozen trainer writes
         # a fresh runconfig with actual micro1 and validates the same source SHA.
         with (destination / "continuation_parent_receipt.json").open("w", encoding="utf-8", newline="\n") as out:
