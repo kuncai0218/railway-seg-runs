@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-10T09:48:26+08:00",
+  "更新时间": "2026-11-12T11:07:05.609906+08:00",
   "停止": [
     "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
     "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -45,8 +45,9 @@
     },
     {
       "编号": "yi-pack-1029",
-      "状态": "待执行（立即，不占 GPU，先做这一条）",
-      "内容": "在 d2ls_pkg_1028（置零 + 一致性，种子 20261019）和 d2ls_pkg_1029（x0—x6，种子 20261019）两个目录分别运行 python code/pack_results.py --name 同学乙，把 zip 交给同学本人上传网盘、链接发组长；已回传过的不用重复。"
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
+      "内容": "在 d2ls_pkg_1028（置零 + 一致性，种子 20261019）和 d2ls_pkg_1029（x0—x6，种子 20261019）两个目录分别运行 python code/pack_results.py --name 同学乙，把 zip 交给同学本人上传网盘、链接发组长；已回传过的不用重复。",
+      "11-12接续前状态": "待执行（立即，不占 GPU，先做这一条）"
     },
     {
       "编号": "yi-d2ls-1029",
@@ -72,7 +73,7 @@
     },
     {
       "编号": "yi-d2ls-1030",
-      "状态": "待执行（立即；先做上面的回传条目，再启动本条）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_D2LS任务_1030.md",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/d2ls_pkg_1029.zip（沿用 d2ls_pkg_1029，已有就不用重新下载）",
       "实验包SHA256": "61d8298450ad4aca435141c5edcd21a421b8d40505168bf00b345954c6a088d2",
@@ -84,11 +85,12 @@
         "tasks/yi_d2ls_1030_status.json": "0c8ef463ede5c119f53612911009ddedfc897b9dd47c74f9e13056b628ba7644"
       },
       "同步用任务文件": "tasks/yi_d2ls_1030_status.json",
-      "最多同时训练": 1
+      "最多同时训练": 1,
+      "11-12接续前状态": "待执行（立即；先做上面的回传条目，再启动本条）"
     },
     {
       "编号": "yi-emn-1102",
-      "状态": "待执行（11-02 09:2x 改：只做下载、预处理和冒烟检查；任务文件 tasks/yi_emn_1102.json 里的 10 个训练已改由组长本机跑，不要启动）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_公开数据任务_1102.md",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_emn_pkg_1102.zip",
       "实验包SHA256": "3568ce52d2b6aa0d558280f9b8b38787155a370200ec36ab10f6bb6086fa8e51",
@@ -104,7 +106,8 @@
         "不要运行 tasks/yi_emn_1102.json。训练任务改为同一份数据上的两期变化检测（实验二），组长测通代码后会在本文件新增一条“yi-emn-cd-1102”并标为待执行，到时按那一条启动。",
         "预处理和冒烟检查做完后，在同步状态里写明：yi-emn-1102 预处理完成、emn_prep 目录位置、冒烟检查结果。"
       ],
-      "评价口径": "保留原有微平均及变化指标，补充时间对宏平均 LCA/GCA 与年份范围；训练配置未改"
+      "评价口径": "保留原有微平均及变化指标，补充时间对宏平均 LCA/GCA 与年份范围；训练配置未改",
+      "11-12接续前状态": "待执行（11-02 09:2x 改：只做下载、预处理和冒烟检查；任务文件 tasks/yi_emn_1102.json 里的 10 个训练已改由组长本机跑，不要启动）"
     },
     {
       "编号": "yi-emn-cd-1102",
@@ -135,7 +138,7 @@
     },
     {
       "编号": "yi-emn-cd-1102b",
-      "状态": "待执行（立即；先按“停止”停掉 yi-emn-cd-1102，再启动本条）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "原因": "代码用 torch.cuda.is_bf16_supported() 选精度，PyTorch 2.5 默认把软件模拟也算支持，Titan RTX 因此以模拟 bfloat16 运行（冒烟记录写着 bfloat16），约 2.7 秒/步；新包改为按显卡计算能力判断，Titan RTX 用 fp16。",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学乙_实验二任务_1102.md（其余步骤、同步与打包要求不变，只是换用新包目录）",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_emn_cd_pkg_1102b.zip",
@@ -153,11 +156,12 @@
         "3. 冒烟：在新包目录运行 python -X utf8 code/emn_cd_train.py --data ../emn_prep --gaps 1,2,3,4,5,6 --cond 1 --smoke --out results/_smoke_cd，确认第一行写的是“精度 torch.float16”、末行“全部完成”。若仍是 bfloat16，停下报告。",
         "4. 启动：python -X utf8 code/run_queue_pkg.py tasks/yi_emn_cd_1102.json --data ../emn_prep --max 2",
         "5. 启动 1 分钟后，间隔至少 60 秒记录两个任务日志最新的 step 行，算出每 200 步用时（预计 1—2 分钟），然后立即同步，写明执行的是 yi-emn-cd-1102b。之后照常每小时同步，12 个任务结束后在新包目录运行 python -X utf8 code/pack_results_emn.py --name 同学乙 打包回传。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（立即；先按“停止”停掉 yi-emn-cd-1102，再启动本条）"
     },
     {
       "编号": "yi-st3d-1104",
-      "状态": "待执行（立即；上一批已完成，显卡空闲）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1104.zip",
       "实验包SHA256": "15db097e9956a3d5e97b9be9c60c8c57fed40c517a44ec4863ddd1140036b163",
@@ -179,11 +183,12 @@
       "遇到问题": "先按说明“遇到问题怎么办”一节照做（pip 失败用清华镜像、gdown 失败换 --fuzzy 写法并检查本机已有代理、哈希不一致改名重下一次、内存不足改 --max 1）；做完仍不行就停下，在同步里写清情况和报错原文，等本条目“组长答复”。不要反复重试。",
       "组长答复": [
         "11-04 05:0x 组长：已收到 03:53 的同步（Google Drive 不通）。备用下载地址：https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip （GitHub Release，与官方 Google Drive 版逐字节相同）。PowerShell：Invoke-WebRequest -Uri \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip\" -OutFile ..\\st3d_data\\Muds.zip（或 curl.exe -L -o ..\\st3d_data\\Muds.zip \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-muds-1104/Muds.zip\"）；下完核对大小 245,211,794 字节、SHA256 3c544aa1693f1e8e41c0973d0be01c5ed217f709ff2e477f6151a348af2962e5，一致后从说明第 2 步（setup_st3d.py）接着做，再按第 3 步启动队列。不一致按“遇到问题怎么办”第 3 行处理。不要改任何训练参数。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（立即；上一批已完成，显卡空闲）"
     },
     {
       "编号": "yi-st3d-1105a",
-      "状态": "待执行（yi-st3d-1104 两个任务都写出 final.json 后自动开始，不必等组长）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-05 追加任务”一节）",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1105.zip",
       "实验包SHA256": "9d7ec8edfa1358ded77204aef2f25a2d70836e2e8845710dafb62dcf1ceb7f80",
@@ -205,11 +210,12 @@
       "组长答复": [
         "11-05 00:1x 更正（未开始前生效）：①方法原型（ctxdrop）任务加 --test_every 0，训练中和结束时都只评验证集（评价规范第 6 条）；②修正 --ctx_drop 抽到缺测月份时整样本无有效标签、损失为 nan 的问题。实验包和任务文件已重打，以本条目里的新 SHA256 为准；若已下载旧的第二版包，请删掉解压目录里的旧包（挪到 _待删除 也可）后重新下载解压。",
         "11-05 11:4x 组长：改为每批跑完就打包回传。现在请先打包一次已完成的结果（muds_paper_s43、muds_paper_s44），运行 python -X utf8 scripts/pack_st3d.py --name 同学乙（新旧包里的 pack_st3d.py 都可以，打包的是 work_st3d\\st3d_runs 里的全部任务），在同步里写明文件名和大小，并请同学本人尽快上传网盘；正在训练的任务不要停。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（yi-st3d-1104 两个任务都写出 final.json 后自动开始，不必等组长）"
     },
     {
       "编号": "yi-st3d-1105b",
-      "状态": "待执行（yi-st3d-1105a 两个任务都写出 final.json 后自动开始，不必等组长）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-05 追加任务”一节）",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1105.zip",
       "实验包SHA256": "9d7ec8edfa1358ded77204aef2f25a2d70836e2e8845710dafb62dcf1ceb7f80",
@@ -230,7 +236,8 @@
       "遇到问题": "同 jia/yi-st3d-1104 的“遇到问题怎么办”；新参数 --ctx_drop 和 --deterministic 都是第二版包才有的，报“unrecognized arguments”说明用错了旧包。",
       "组长答复": [
         "11-05 00:1x 更正（未开始前生效）：①方法原型（ctxdrop）任务加 --test_every 0，训练中和结束时都只评验证集（评价规范第 6 条）；②修正 --ctx_drop 抽到缺测月份时整样本无有效标签、损失为 nan 的问题。实验包和任务文件已重打，以本条目里的新 SHA256 为准；若已下载旧的第二版包，请删掉解压目录里的旧包（挪到 _待删除 也可）后重新下载解压。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（yi-st3d-1105a 两个任务都写出 final.json 后自动开始，不必等组长）"
     },
     {
       "编号": "yi-st3d-1106b",
@@ -276,7 +283,7 @@
     },
     {
       "编号": "yi-st3d-1107c",
-      "状态": "待执行：第 1—4 步（下载、解压、建缓存、核对）立即开始，不占显卡，可与当前训练并行；第 5 步起等 yi-st3d-1105b 两个任务都写出 final.json 并打包后再开始",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_ST3D任务_1104.md（见“11-07 第六版包”一节）",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107c.zip",
       "实验包SHA256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
@@ -304,11 +311,12 @@
         "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.007",
         "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.008"
       ],
-      "备用下载合并后SHA256": "38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870"
+      "备用下载合并后SHA256": "38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870",
+      "11-12接续前状态": "待执行：第 1—4 步（下载、解压、建缓存、核对）立即开始，不占显卡，可与当前训练并行；第 5 步起等 yi-st3d-1105b 两个任务都写出 final.json 并打包后再开始"
     },
     {
       "编号": "yi-st3d-1107d",
-      "状态": "待执行（立即；yi-st3d-1107c 已于 11-07 11:39 完成，显卡空闲）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "Codex 的 A/B 第 3 个种子（43）原派给同学甲；甲的显卡 11-07 04:28 报 Xid 62/119/154，要本人重启才能恢复，所以改由同学乙跑。与 yi-st3d-1107c 用同一个实验包、同一份数据和缓存，只换种子。",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1107c.zip",
       "实验包SHA256": "0a4687b5855e5f4d2f61ffa587145b77cd4691e4ef5b545d25ce33f25a9b260a",
@@ -320,7 +328,8 @@
         "4. 跑完（status.json 显示 complete）后打包回传：python -X utf8 scripts/pack_st3d.py --name 同学乙。同步里写明文件名、大小，以及 val_in、val_out 上 A_shared、B_roles、mono_anchor 的 mIoU 与 SCS（与 1107c 完成时的写法相同），由同学本人上传网盘。"
       ],
       "遇到问题": "同 1104 条目的“遇到问题怎么办”。实验包 experiments\\history_roles_20261106\\ 下的训练脚本由 Codex 编写，原样使用，任何报错都不要自己改代码，停下报告最后 30 行。显存不足时先确认没有别的训练在占显卡。",
-      "组长答复": []
+      "组长答复": [],
+      "11-12接续前状态": "待执行（立即；yi-st3d-1107c 已于 11-07 11:39 完成，显卡空闲）"
     },
     {
       "编号": "yi-st3d-1107e",
@@ -347,14 +356,15 @@
     },
     {
       "编号": "yi-check-1109",
-      "状态": "待执行（立即，先做这一条）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "内容": [
         "1. 组长从 11-07 23:20 之后就没有收到你的任何同步。请确认电脑开机、显卡正常：运行 nvidia-smi，把输出贴进同步。",
         "2. 确认同步脚本在运行；没在运行就按《给同学agent的提示词》第一节第 5 步重启，并立即同步一次。",
         "3. 查 yi-st3d-1107e 的进度：..\\st3d_runs\\den3src_s43、den3src_s44 各自 train.log 的最后一行、是否有 final.json、..\\st3d_runs\\queue.log 最后 10 行，写进同步。",
         "4. 如果 1107e 正在跑，按 yi-st3d-1107e 的新状态先停下（断点保留）；然后开始 yi-st3d-1109。",
         "5. yi-st3d-1107c、1107d 的回传包如果还没上传，请交给同学本人上传网盘，把链接发给组长。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（立即，先做这一条）"
     },
     {
       "编号": "yi-st3d-1109",
@@ -379,18 +389,19 @@
     },
     {
       "编号": "yi-takeover-1110",
-      "状态": "待执行（现在读取并衔接；不停止或重复启动1109当前训练）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学实验接管_1110.md",
       "步骤": [
         "读取《同学实验接管_1110.md》本同学部分，继续1109现有任务；确认后立即同步，注明已收到11-10接管安排。",
         "每15分钟同步带时间的真实步数、GPU/显存/温度/内存/磁盘，以及当前批次任务状态，只保留一份同步进程。",
         "任务按说明验收、自动衔接；不以历史错误文件或运行器退出码代替结果完整性验收。",
         "1109全部完成后，依新条目yi-st3d-1110-v2接续，不恢复旧1107e。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（现在读取并衔接；不停止或重复启动1109当前训练）"
     },
     {
       "编号": "yi-st3d-1110-v2",
-      "状态": "待执行（立即，1109已回报完成；按yi-resume-v2-1110-0950检查进程后接续同一批四项）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学实验接管_1110.md",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pub_st3d_pkg_1109.zip",
       "实验包SHA256": "811bed50eb9c0498fcf242bc116548230732f56fb0c0acdd3fac16b70609ebee",
@@ -407,11 +418,12 @@
         "复用1109实验包与缓存；只下载并校验新任务JSON及核验工具。",
         "按说明做源占位/缺源标记核验、40步v2冒烟，再启动新四项队列。",
         "维持15分钟同步；四项完整验收后打包回报，再读取主分支后续安排。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（立即，1109已回报完成；按yi-resume-v2-1110-0950检查进程后接续同一批四项）"
     },
     {
       "编号": "yi-resume-v2-1110-0950",
-      "状态": "待执行（立即；接续已下发的同一v2四项，不新增或重复实验）",
+      "状态": "历史保留，本轮不执行（11-12 T03范围更新；结果和断点保留）",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学实验接管_1110.md",
       "依据": "最新09:37:41快照显示1109八项已完成、训练/保活PID为空、GPU0%；09:45重新抓取未见更新。因此明确触发已授权接续，先现场核查避免重复。",
       "关联已有任务": "yi-st3d-1110-v2",
@@ -427,12 +439,25 @@
         "6. 启动后立即同步：本恢复编号、实际任务yi-st3d-1110-v2、工具及任务SHA、缺源核验结果、冒烟结果、运行器PID和训练PID/创建时间、GPU/显存、可用内存和磁盘。至少相隔60秒采两次真实epoch/step证明推进；已在跑则同样采样。",
         "7. 之后每15分钟只保留一份同步进程，并每次读主分支指令文件；当前四项进度以v2_1110实际输出为准，保留1109历史且分开列。若依然未启动，立即说明具体阻塞和原始错误，不能仅重复“已收到”。",
         "8. 四项last.epoch30且last.pth存在后回传小型final/epoch曲线与包名/大小，完整包按原方式由本人上传；不删除任何结果，不新增付费资源，不恢复1107e。"
-      ]
+      ],
+      "11-12接续前状态": "待执行（立即；接续已下发的同一v2四项，不新增或重复实验）"
+    },
+    {
+      "编号": "yi-e002-author-foldIII-1112",
+      "状态": "待执行（立即；先核已有DEN资产，准入通过直接正式训练）",
+      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/E002_乙原协议折III_1112.md",
+      "代码清单": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/packages/e002_author_foldIII_1112/portable_kit_receipt.json",
+      "代码清单SHA256": "1e7d73c0b4f17ce3e5506c8544fb54364dadc1fb748b69dde950e43f8ae1f132",
+      "协议SHA256": "28908d390d1b251caed6b8982c9ee2f07fdda3ffef2300ec7c1ad4ff251e8902",
+      "源码对象导出工具SHA256": "5ec0d045bc6439797d2621017ec7257b7dce7592205d63892cfd5a513c8f4af8",
+      "无需二次许可": true,
+      "最大同时正式训练": 1
     }
   ],
   "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
   "当前执行优先": [
-    "yi-resume-v2-1110-0950",
-    "yi-st3d-1110-v2"
-  ]
+    "yi-e002-author-foldIII-1112"
+  ],
+  "本轮批准范围": "11-12用户授权T03仅E001/E002/E006；E001/E006已完成，新训练只执行当前优先的E002作者原协议折。旧条目作为历史，不恢复PSE/旧250轮或重复已完成任务。已有健康训练保持。",
+  "最新任务已发布不等于已执行": "收到编号、启动工具PID、实际trainerPID/OS创建时间和两次真实步数分别回报。不要只转告ntfy批注；本JSON才是已授权的任务源。"
 }

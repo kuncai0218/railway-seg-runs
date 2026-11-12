@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "training_while_AST_identical_to_local_admitted": true,
+  "model_and_loss_unchanged": true,
+  "fold": "spatial_III",
+  "changes": "foldIII IDs/output label only; same environment-path adapter and finite-logit guard as Jia kit",
+  "file_SHA256": {
+    "packages/e002_author_foldIII_1112/e002_data.py": "0043753c25e691e0058ca7ba76f5aa659e1f557c0be741af1ac3b954922a65bd",
+    "packages/e002_author_foldIII_1112/e002_metrics.py": "26e34d2e91d0afc330537145af7fd9450eb14c7a5effc901af003554b51a5d06",
+    "packages/e002_author_foldIII_1112/e002_metric_base.py": "7756ff2116009e7da366f8339df309f6c3470e99a3a6cd28be44e98aabb675e1",
+    "packages/e002_author_foldIII_1112/e002_train.py": "b9917e7b73ea3e8519416a0b9ef5a29371501ff8ec40029cf81a20dfb8726b1d",
+    "packages/e002_author_foldIII_1112/protocol.json": "28908d390d1b251caed6b8982c9ee2f07fdda3ffef2300ec7c1ad4ff251e8902",
+    "packages/e002_author_foldIII_1112/source55_original_split_metadata.json": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+    "packages/e002_author_foldIII_1112/vendor_source_manifest.json": "1b04e0147037f7de53b3b89d884842a931545c798229d54e7aa8b77e0c086a5f"
+  }
+}
