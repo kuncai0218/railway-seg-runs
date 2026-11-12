@@ -7,6 +7,8 @@ import datetime
 import json
 import re
 import subprocess
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -16,6 +18,19 @@ SUFFIX = 'd4a86d'
 PEOPLE = {'jia': '同学甲', 'yi': '同学乙', 'bing': '同学丙'}
 DISPLAY_NAMES = {'同学丙': '本机3090（原丙队列）'}
 MAX_ATTACHMENT = 12 * 2**20
+
+
+def read_url(url, timeout, limit=None):
+    """Retry one read-only GET after a transient TLS/network failure."""
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(url, timeout=timeout) as response:
+                return response.read() if limit is None else response.read(limit)
+        except (urllib.error.URLError, OSError) as error:
+            retryable = not isinstance(error, urllib.error.HTTPError) or error.code in (429, 500, 502, 503, 504)
+            if attempt or not retryable:
+                raise
+            time.sleep(1)
 
 
 def instruction_identity(snapshot):
@@ -219,8 +234,7 @@ def read_attachment(att):
         raise ValueError('附件地址不是 ntfy 文件地址')
     if int(att.get('size', 0)) > MAX_ATTACHMENT:
         raise ValueError('附件超过 12 MiB，只归档小型状态文件')
-    with urllib.request.urlopen(att['url'], timeout=30) as response:
-        body = response.read(MAX_ATTACHMENT + 1)
+    body = read_url(att['url'], timeout=30, limit=MAX_ATTACHMENT + 1)
     if len(body) > MAX_ATTACHMENT:
         raise ValueError('附件超过 12 MiB')
     if not isinstance(json.loads(body), dict):
@@ -229,7 +243,7 @@ def read_attachment(att):
 
 
 def poll(topic):
-    raw = urllib.request.urlopen(f'https://ntfy.sh/{topic}/json?poll=1&since=all', timeout=60).read().decode('utf-8')
+    raw = read_url(f'https://ntfy.sh/{topic}/json?poll=1&since=all', timeout=60).decode('utf-8')
     return [json.loads(l) for l in raw.splitlines() if l.strip() and json.loads(l).get('event') == 'message']
 
 

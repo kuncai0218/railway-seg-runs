@@ -4,8 +4,27 @@ import datetime
 import json
 from pathlib import Path
 import tempfile
+import io
+import ssl
+import urllib.error
+from unittest.mock import patch
 
-from collect import runtime_status, keep_direct_e002_receipt, status_for_folder, process_created
+from collect import runtime_status, keep_direct_e002_receipt, status_for_folder, process_created, read_url
+
+
+class TransportReadTests(unittest.TestCase):
+    def test_transient_tls_eof_retries_once_with_read_limit(self):
+        first = urllib.error.URLError(ssl.SSLEOFError('temporary EOF'))
+        with patch('collect.urllib.request.urlopen', side_effect=[first, io.BytesIO(b'abcdef')]) as request, patch('collect.time.sleep'):
+            self.assertEqual(read_url('https://ntfy.sh/test', 5, limit=3), b'abc')
+            self.assertEqual(request.call_count, 2)
+
+    def test_expired_or_missing_attachment_does_not_retry(self):
+        error = urllib.error.HTTPError('https://ntfy.sh/file/missing', 404, 'missing', {}, None)
+        with patch('collect.urllib.request.urlopen', side_effect=error) as request, patch('collect.time.sleep'):
+            with self.assertRaises(urllib.error.HTTPError):
+                read_url('https://ntfy.sh/file/missing', 5)
+            self.assertEqual(request.call_count, 1)
 
 
 class RuntimeStatusTests(unittest.TestCase):
