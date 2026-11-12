@@ -155,6 +155,64 @@ class E002DedicatedReceiptTests(unittest.TestCase):
             value['future_task'] = identity
             self.assertIsNone(keep_direct_e002_receipt(Path(directory), json.dumps(value).encode()))
 
+    def narrative_status(self, latest, value=None):
+        value = value or self.fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            keep_direct_e002_receipt(folder, json.dumps(value).encode())
+            (folder / '最新状态.json').write_text(json.dumps(latest), encoding='utf-8')
+            return status_for_folder(folder)
+
+    def test_chinese_time_narrative_does_not_erase_qualified_receipt(self):
+        value = self.fixture()
+        when = (datetime.datetime.fromisoformat(value['time']) + datetime.timedelta(seconds=1)).isoformat()
+        current = self.narrative_status({'时间': when, '训练': {'pid': 2072, 'updates': 12370},
+                                        'GPU': {'mem_MiB': 11289, 'util': '95-96%'}}, value)
+        self.assertEqual(current['state'], 'running')
+        self.assertEqual(current['optimizer_updates'], 1120)
+        self.assertEqual(current['source_snapshot_at'], value['time'])
+        self.assertEqual(current['latest_legacy_snapshot_at'], when)
+
+    def test_newer_structured_zero_memory_and_utilization_conflicts(self):
+        value = self.fixture()
+        when = (datetime.datetime.fromisoformat(value['time']) + datetime.timedelta(seconds=1)).isoformat()
+        for gpu in ({'mem_MiB': 0, 'util': '0%'},
+                    {'memory_used_MiB': '0 MiB', 'utilization_percent': 0}):
+            with self.subTest(gpu=gpu):
+                current = self.narrative_status({'时间': when, 'GPU': gpu}, value)
+                self.assertNotEqual(current['state'], 'running')
+                self.assertTrue(current['conflicting_newer_idle_hardware'])
+
+    def test_unknown_time_idle_is_not_hidden_by_recent_receipt(self):
+        for when in (None, 'not a timestamp'):
+            with self.subTest(when=when):
+                current = self.narrative_status({'时间': when, 'GPU': {'mem_MiB': 0, 'util': 0}})
+                self.assertNotEqual(current['state'], 'running')
+                self.assertTrue(current['idle_hardware_time_unknown'])
+
+    def test_missing_time_busy_narrative_keeps_only_dedicated_evidence(self):
+        current = self.narrative_status({'GPU': {'mem_MiB': 11289, 'util': '95-96%'}})
+        self.assertEqual(current['state'], 'running')
+        self.assertEqual(current['optimizer_updates'], 1120)
+        self.assertFalse(current['latest_legacy_timestamp_valid'])
+
+    def test_partial_or_range_telemetry_is_not_an_explicit_idle_report(self):
+        for gpu in ({'mem_MiB': 0}, {'util': 0}, {'mem_MiB': 0, 'util': '0-5%'},
+                    {'mem_MiB': 11289, 'util': 0}, {'mem_MiB': False, 'util': False}):
+            with self.subTest(gpu=gpu):
+                current = self.narrative_status({'GPU': gpu})
+                self.assertEqual(current['state'], 'running')
+
+    def test_stale_dedicated_receipt_cannot_supply_current_liveness(self):
+        value = self.fixture()
+        anchor = datetime.datetime.fromisoformat(value['time']) - datetime.timedelta(hours=1)
+        value['time'] = anchor.isoformat()
+        for event in value['最近事件']:
+            event['time'] = anchor.isoformat()
+        current = self.narrative_status({'时间': datetime.datetime.now().isoformat(),
+                                        'GPU': {'mem_MiB': 11289, 'util': '95-96%'}}, value)
+        self.assertNotEqual(current['state'], 'running')
+
 
 if __name__ == '__main__':
     unittest.main()

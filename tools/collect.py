@@ -179,6 +179,27 @@ def runtime_status(snapshot):
     return result
 
 
+def explicit_idle_gpu(gpu):
+    """Recognize explicit zero memory AND utilization, including small reports."""
+    if isinstance(gpu, str):
+        return bool(re.search(r'(?:^|,)\s*0(?:\.0+)?\s*MiB\b', gpu) and
+                    re.search(r'(?:^|,)\s*0(?:\.0+)?\s*%', gpu))
+    if not isinstance(gpu, dict):
+        return False
+
+    def first(keys):
+        return next((gpu[k] for k in keys if k in gpu), None)
+
+    def zero(value):
+        if type(value) in (int, float):
+            return value == 0
+        return isinstance(value, str) and bool(re.fullmatch(r'0(?:\.0+)?\s*(?:MiB|%)?', value.strip()))
+
+    memory = first(('mem_MiB', 'memory_used_MiB', 'memory.used'))
+    utilization = first(('util', 'utilization_percent', 'utilization.gpu'))
+    return zero(memory) and zero(utilization)
+
+
 def status_for_folder(folder):
     """Use a recent dedicated receipt when legacy telemetry targets an old run.
 
@@ -196,14 +217,21 @@ def status_for_folder(folder):
         return status
     hardware = latest.get('机器') or {}
     gpu = hardware.get('GPU', latest.get('GPU', ''))
-    newer = timestamp(latest.get('time')) > timestamp(value.get('time'))
-    explicit_idle = isinstance(gpu, str) and re.search(r'(?:^|,)\s*0(?:\.0+)?\s*MiB\b', gpu) and re.search(r'(?:^|,)\s*0(?:\.0+)?\s*%', gpu)
-    if newer and explicit_idle:
-        status.update(conflicting_newer_idle_hardware=True,
+    # A peer's narrative attachment can use 时间 and omit trainer creation.
+    # Its date is context only: never promote its unqualified step count.
+    latest_time = latest.get('time') or latest.get('时间')
+    try:
+        newer = timestamp(latest_time) > timestamp(value.get('time'))
+    except (ValueError, TypeError):
+        newer = None
+    if explicit_idle_gpu(gpu) and newer is not False:
+        status.update(conflicting_newer_idle_hardware=newer is True,
+                      idle_hardware_time_unknown=newer is None,
                       prior_dedicated_snapshot_at=value.get('time'))
         return status
     current.update(evidence_source='recent dedicated E002 receipt',
-                   latest_legacy_snapshot_at=latest.get('time'),
+                   latest_legacy_snapshot_at=latest_time,
+                   latest_legacy_timestamp_valid=newer is not None,
                    latest_legacy_hardware_does_not_prove_steps=True)
     return current
 
