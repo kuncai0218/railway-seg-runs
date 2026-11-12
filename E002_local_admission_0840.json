@@ -1,0 +1,81 @@
+{
+  "time": "2026-11-12T08:37:50.951602+08:00",
+  "official_commit": "902f75cd1d9ffaa8c94e0bbd4d0176608ff39e99",
+  "CPU_exact_data_equivalence_cases": [
+    {
+      "region": "1311_3077_13",
+      "seed": 8101,
+      "shape": [
+        12,
+        4,
+        128,
+        128
+      ],
+      "input_dtype": "torch.float16",
+      "data_exactly_equal": true,
+      "gt_exactly_equal": true,
+      "positions_exactly_equal": true
+    },
+    {
+      "region": "4397_4302_13",
+      "seed": 8102,
+      "shape": [
+        12,
+        4,
+        128,
+        128
+      ],
+      "input_dtype": "torch.float16",
+      "data_exactly_equal": true,
+      "gt_exactly_equal": true,
+      "positions_exactly_equal": true
+    },
+    {
+      "region": "7513_4968_13",
+      "seed": 8103,
+      "shape": [
+        12,
+        4,
+        128,
+        128
+      ],
+      "input_dtype": "torch.float16",
+      "data_exactly_equal": true,
+      "gt_exactly_equal": true,
+      "positions_exactly_equal": true
+    }
+  ],
+  "original_author_network_parameter_count": 16171526,
+  "one_effective_batch8_GPU_update_passed": true,
+  "admission_micro_batch": 1,
+  "admission_accumulation": 8,
+  "finite_gradients": true,
+  "formal_weights_reused_from_admission": false,
+  "loss_reduction_check": {
+    "same_as_author_global_batch8_valid_pixel_mean": true,
+    "empty_microbatch_case_checked": true,
+    "loss_abs_difference": 0.0,
+    "gradient_max_abs_difference": 0.0
+  },
+  "attention_initialization_observation": {
+    "shape": [
+      16,
+      1,
+      12,
+      12,
+      16,
+      16
+    ],
+    "post_dropout": true,
+    "finite": true,
+    "max": 1.1111111640930176,
+    "mean_query_max": 0.9953373670578003,
+    "mean_row_sum": 1.0007328987121582
+  },
+  "attention_saturation_not_declared_resolved": true,
+  "script_SHA256": "16b67171a302a2c19a0d7b24e71c895b49576b74b086a51b0026e4859dbe961a",
+  "data_adapter_SHA256": "7ef30afd97cefec9e5d4d2cce976bb143761c367a887621ea6c177e6789a932d",
+  "protocol_SHA256": "f0adde9356db0fa5178dc526295cec47f9ff7622bf1228916f813a00a5054f57",
+  "local_formal_fold": "paper spatial II",
+  "formal_training_queued_after_E001_validation_export": true
+}
