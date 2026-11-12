@@ -18,8 +18,60 @@ DISPLAY_NAMES = {'同学丙': '本机3090（原丙队列）'}
 MAX_ATTACHMENT = 12 * 2**20
 
 
+def keep_direct_e002_receipt(folder, body):
+    """Keep typed E002 evidence separately from later legacy snapshots."""
+    snapshot = json.loads(body)
+    identity = str(snapshot.get('instruction_id', snapshot.get('指令编号', ''))).lower()
+    if not re.match(r'^(jia|yi)-e002-', identity):
+        return None
+    when = datetime.datetime.fromisoformat(str(snapshot['time']).replace('Z', '+00:00')).timestamp()
+    target = folder / '最近E002专用回执.json'
+    if target.exists():
+        previous = json.loads(target.read_bytes())
+        old = datetime.datetime.fromisoformat(str(previous['time']).replace('Z', '+00:00')).timestamp()
+        if old > when:
+            return None
+    target.write_bytes(body)
+    return target
+
+
 def runtime_status(snapshot):
     """Interpret reported runner events; retained failure.json files are history."""
+    pipeline = snapshot.get('E002_pipeline_current')
+    identity = str(snapshot.get('instruction_id', snapshot.get('指令编号', ''))).lower()
+    direct = bool(re.match(r'^(jia|yi)-e002-', identity))
+    if isinstance(pipeline, dict) and pipeline.get('observed_at'):
+        progress = pipeline.get('training_progress') or {}
+        process = pipeline.get('trainer_process') or {}
+        observed = pipeline['observed_at']
+        alive = process.get('alive') and process.get('matches_recorded_creation')
+        stage = (pipeline.get('pipeline_progress') or {}).get('stage', 'unknown')
+    elif direct:
+        events = snapshot.get('最近事件') or []
+        progress = events[-1] if events else (snapshot.get('training_progress') or snapshot.get('progress') or {})
+        observed = snapshot.get('time')
+        processes = snapshot.get('训练进程') or []
+        alive = any(p.get('ProcessId', p.get('pid')) == progress.get('PID')
+                    and (p.get('CreationDate') or p.get('create_time')) for p in processes)
+        stage = progress.get('stage', 'unknown')
+    else:
+        progress = None
+    if progress is not None:
+        try:
+            stamp = datetime.datetime.fromisoformat(str(observed).replace('Z', '+00:00')).timestamp()
+            step_time = datetime.datetime.fromisoformat(str(progress.get('time', observed)).replace('Z', '+00:00')).timestamp()
+            age = datetime.datetime.now().timestamp() - stamp
+            recent = -60 <= age <= 20 * 60 and abs(stamp - step_time) <= 300
+        except (ValueError, TypeError):
+            recent = False
+        running = bool(alive and recent and progress.get('PID') and progress.get('optimizer_updates') is not None)
+        return dict(source_snapshot_at=observed, state='running' if running else 'unknown',
+                    completed_parts=0, current_run_failed_tasks=[], historical_failure_events=0,
+                    kind='E002', stage=progress.get('stage', stage),
+                    optimizer_updates=progress.get('optimizer_updates'),
+                    trainer_PID=progress.get('PID'), process_identity_reported=bool(alive),
+                    recent_progress_at_snapshot=recent,
+                    note='receiver/preparation PID is not a trainer; old snapshots do not prove current survival')
     from snapshot_1110 import normalize_current
     normalized = normalize_current(snapshot)
     if normalized is not None:
@@ -59,6 +111,11 @@ def runtime_status(snapshot):
 
 
 def status_summary(status):
+    if status.get('kind') == 'E002':
+        count = status.get('optimizer_updates')
+        detail = f'真实更新{count}' if count is not None else '尚无正式更新回报'
+        label = '该次采样训练进程/创建身份与近期步数通过' if status['state'] == 'running' else '当前推进待新采样核实'
+        return f'E002 {status.get("stage")}；{detail}；{label}'
     label = {'running': '运行中', 'between_tasks': '上一项已完成，等待后续日志',
              'completed': '队列已结束', 'failed': '当前运行有失败', 'unknown': '等待运行记录'}[status['state']]
     if status.get('log_context_mismatch'):
@@ -124,6 +181,9 @@ def main():
                     (d / filename).write_bytes(body); rec['attachment'] = filename
                     (d / '最新状态.json').write_bytes(body)
                     written.update([d / filename, d / '最新状态.json'])
+                    dedicated = keep_direct_e002_receipt(d, body)
+                    if dedicated is not None:
+                        written.add(dedicated)
                 except Exception as e:   # noqa: BLE001  附件过期（约 3 小时）就只留消息
                     rec['attachment_error'] = str(e)
             with open(d / '消息记录.jsonl', 'a', encoding='utf-8', newline='\n') as f:
@@ -157,6 +217,16 @@ def main():
         lines.append(f"| {DISPLAY_NAMES.get(name, name)} | {when} | {summary} |")
     scope_note = '外部同学只有甲、乙两位；原“同学丙”是组长本机3090代跑队列的内部标识，目录和消息话题沿用旧名。' if all_sources else '本页记录甲、乙的带时间快照；Codex已于11-10接管本机、服务器、甲乙的统一安排与监测。'
     lines += ['', scope_note, '', '状态以所列时间的快照为准；本轮失败按最近一次运行记录判定，保留的历史错误不代表当前故障。']
+    for name, _ in rows:
+        dedicated = REPO / name / '最近E002专用回执.json'
+        if dedicated.exists():
+            value = json.loads(dedicated.read_bytes())
+            events = value.get('最近事件', [])
+            progress = events[-1] if events else value.get('progress', {})
+            count = progress.get('optimizer_updates', '未回报')
+            lines += ['', f'{name}另有E002专用回执：{value.get("time")}，'
+                      f'该次实际更新{count}。此证据独立保留；后续通用快照不覆盖它，'
+                      '也不据旧回执认定当前仍在运行。']
     table_changed = not page.exists() or page.read_text(encoding='utf-8').splitlines()[4:] != lines[4:]
     if changed or table_changed:
         page.write_text('\n'.join(lines) + '\n', encoding='utf-8', newline='\n')

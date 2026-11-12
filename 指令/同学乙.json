@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-12T11:07:05.609906+08:00",
+  "更新时间": "2026-11-12T11:46:54.989159+08:00",
   "停止": [
     "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
     "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -444,20 +444,38 @@
     },
     {
       "编号": "yi-e002-author-foldIII-1112",
-      "状态": "待执行（立即；先核已有DEN资产，准入通过直接正式训练）",
+      "状态": "已收到并实际启动（11:17专用回执80次更新）；后续存活与旧同步矛盾，按健康接续条目核实",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/E002_乙原协议折III_1112.md",
       "代码清单": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/packages/e002_author_foldIII_1112/portable_kit_receipt.json",
       "代码清单SHA256": "1e7d73c0b4f17ce3e5506c8544fb54364dadc1fb748b69dde950e43f8ae1f132",
       "协议SHA256": "28908d390d1b251caed6b8982c9ee2f07fdda3ffef2300ec7c1ad4ff251e8902",
       "源码对象导出工具SHA256": "5ec0d045bc6439797d2621017ec7257b7dce7592205d63892cfd5a513c8f4af8",
       "无需二次许可": true,
-      "最大同时正式训练": 1
+      "最大同时正式训练": 1,
+      "已证实回执": {
+        "time": "2026-11-12 11:17:40",
+        "trainer_PID": 20208,
+        "OS_created_unix": 1794453303.22,
+        "optimizer_updates": 80,
+        "admission_passed": true,
+        "receipt_file": "同学乙/e002_foldIII_status_1112_1117.json"
+      }
+    },
+    {
+      "编号": "yi-e002-health-1112-1145",
+      "状态": "待执行（立即核实并按证据接续，不停止健康训练）",
+      "关联实验": "E002 / author spatial foldIII / seed42",
+      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/E002_乙折III存活与持久接续_1112.md",
+      "观察事实": "11:17专用回执实际80更新，但11:28以后旧同步报告无训练/GPU0；当前存活待核，不能按旧字段猜测",
+      "原则": "先核进程创建身份与新目录实际推进；健康则保留，已退出才诊断修复/完整断点接续；常规工程修复无需二次许可",
+      "无需二次许可": true
     }
   ],
   "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
   "当前执行优先": [
-    "yi-e002-author-foldIII-1112"
+    "yi-e002-health-1112-1145"
   ],
   "本轮批准范围": "11-12用户授权T03仅E001/E002/E006；E001/E006已完成，新训练只执行当前优先的E002作者原协议折。旧条目作为历史，不恢复PSE/旧250轮或重复已完成任务。已有健康训练保持。",
-  "最新任务已发布不等于已执行": "收到编号、启动工具PID、实际trainerPID/OS创建时间和两次真实步数分别回报。不要只转告ntfy批注；本JSON才是已授权的任务源。"
+  "最新任务已发布不等于已执行": "收到编号、启动工具PID、实际trainerPID/OS创建时间和两次真实步数分别回报。不要只转告ntfy批注；本JSON才是已授权的任务源。",
+  "研究时间授权": "用户已允许更长研究；旧11/14不是硬截止，原协议照做，无需重新问用户。"
 }
