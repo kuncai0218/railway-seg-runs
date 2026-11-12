@@ -26,7 +26,11 @@ def instruction_identity(snapshot):
 
 
 def timestamp(value):
-    return datetime.datetime.fromisoformat(str(value).replace('Z', '+00:00')).timestamp()
+    text = str(value).replace('Z', '+00:00')
+    # PowerShell DateTime.ToString('o') emits seven fractional digits. Python
+    # 3.10 accepts microseconds, so discard only sub-microsecond precision.
+    text = re.sub(r'(\.\d{6})\d+(?=[+-]\d{2}:\d{2}$|$)', r'\1', text)
+    return datetime.datetime.fromisoformat(text).timestamp()
 
 
 def process_created(process):
@@ -50,11 +54,11 @@ def keep_direct_e002_receipt(folder, body):
     identity = instruction_identity(snapshot)
     if not re.match(r'^(jia|yi)-e002-', identity):
         return None
-    when = datetime.datetime.fromisoformat(str(snapshot['time']).replace('Z', '+00:00')).timestamp()
+    when = timestamp(snapshot['time'])
     target = folder / '最近E002专用回执.json'
     if target.exists():
         previous = json.loads(target.read_bytes())
-        old = datetime.datetime.fromisoformat(str(previous['time']).replace('Z', '+00:00')).timestamp()
+        old = timestamp(previous['time'])
         if old > when:
             return None
     target.write_bytes(body)
@@ -107,8 +111,8 @@ def runtime_status(snapshot):
         progress = None
     if progress is not None:
         try:
-            stamp = datetime.datetime.fromisoformat(str(observed).replace('Z', '+00:00')).timestamp()
-            step_time = datetime.datetime.fromisoformat(str(progress.get('time', observed)).replace('Z', '+00:00')).timestamp()
+            stamp = timestamp(observed)
+            step_time = timestamp(progress.get('time', observed))
             age = datetime.datetime.now().timestamp() - stamp
             recent = -60 <= age <= 20 * 60 and abs(stamp - step_time) <= 300
         except (ValueError, TypeError):

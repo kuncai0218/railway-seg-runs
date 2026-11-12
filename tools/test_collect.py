@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 
-from collect import runtime_status, keep_direct_e002_receipt, status_for_folder
+from collect import runtime_status, keep_direct_e002_receipt, status_for_folder, process_created
 
 
 class RuntimeStatusTests(unittest.TestCase):
@@ -60,6 +60,10 @@ class RuntimeStatusTests(unittest.TestCase):
 
 
 class E002DedicatedReceiptTests(unittest.TestCase):
+    def test_powershell_roundtrip_datetime_100ns_precision(self):
+        created = process_created({'CreationDate': '2026-11-12T08:54:32.6390540+08:00'})
+        self.assertAlmostEqual(created, 1794444872.639054, places=6)
+
     def fixture(self):
         # Shape and counters from the actual 14:27 micro1 report; no dependency
         # on the locally collected, untracked peer attachment.
