@@ -1,7 +1,11 @@
 """Regression cases from reported runner completion and recovery logs."""
 import unittest
+import datetime
+import json
+from pathlib import Path
+import tempfile
 
-from collect import runtime_status
+from collect import runtime_status, keep_direct_e002_receipt, status_for_folder
 
 
 class RuntimeStatusTests(unittest.TestCase):
@@ -53,6 +57,80 @@ class RuntimeStatusTests(unittest.TestCase):
                 self.assertEqual(result['state'], 'unknown')
                 self.assertTrue(result['log_context_mismatch'])
                 self.assertEqual(result['current_run_failed_tasks'], [])
+
+
+class E002DedicatedReceiptTests(unittest.TestCase):
+    def fixture(self):
+        # Shape and counters from the actual 14:27 micro1 report; no dependency
+        # on the locally collected, untracked peer attachment.
+        value = {
+            '指令编号': {'编号': 'yi-e002-recover-v2-1112-1340'},
+            '当前活动目录': r'C:\runs\foldIII_micro1',
+            '训练进程': [{'ProcessId': 2072, 'CreationDate': '/Date(1794462902460)/',
+                         'CommandLine': r'python e002_train.py --micro 1 --out C:\runs\foldIII_micro1'}],
+            '最近事件': [{'PID': 2072, 'stage': 'training', 'optimizer_updates': n}
+                         for n in [1090, 1100, 1110, 1120]],
+        }
+        anchor = datetime.datetime.now().astimezone()
+        value['time'] = anchor.isoformat()
+        for offset, event in zip([58, 39, 20, 1], value['最近事件']):
+            event['time'] = (anchor - datetime.timedelta(seconds=offset)).isoformat()
+        return value
+
+    def test_object_identity_and_new_micro1_events_are_recognized(self):
+        result = runtime_status(self.fixture())
+        self.assertEqual(result['state'], 'running')
+        self.assertEqual(result['optimizer_updates'], 1120)
+        self.assertEqual(result['trainer_PID'], 2072)
+        self.assertEqual(result['trainer_created_unix'], 1794462902.46)
+        self.assertTrue(result['command_matches_reported_run'])
+
+    def test_old_pid_events_do_not_supply_new_trainer_progress(self):
+        value = self.fixture()
+        for event in value['最近事件']:
+            event['PID'] = 19660
+        result = runtime_status(value)
+        self.assertEqual(result['state'], 'unknown')
+        self.assertIsNone(result['optimizer_updates'])
+
+    def test_reused_pid_event_predating_creation_is_rejected(self):
+        value = self.fixture()
+        created_ms = int((datetime.datetime.now().timestamp() + 1) * 1000)
+        value['训练进程'][0]['CreationDate'] = f'/Date({created_ms})/'
+        self.assertEqual(runtime_status(value)['state'], 'unknown')
+
+    def test_wrong_command_or_run_is_rejected(self):
+        value = self.fixture()
+        value['当前活动目录'] = 'wrong_other_run'
+        self.assertEqual(runtime_status(value)['state'], 'unknown')
+
+    def test_legacy_snapshot_does_not_erase_dedicated_but_new_idle_conflicts(self):
+        value = self.fixture()
+        anchor = datetime.datetime.fromisoformat(value['time'])
+        legacy = {'time': (anchor + datetime.timedelta(seconds=1)).isoformat(),
+                  '指令编号': 'yi-st3d-1110-v2',
+                  '机器': {'GPU': 'NVIDIA TITAN RTX, 6681 MiB, 24576 MiB, 96 %, 88'}}
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            self.assertIsNotNone(keep_direct_e002_receipt(folder, json.dumps(value).encode()))
+            self.assertIsNone(keep_direct_e002_receipt(folder, json.dumps(legacy).encode()))
+            (folder / '最新状态.json').write_text(json.dumps(legacy), encoding='utf-8')
+            current = status_for_folder(folder)
+            self.assertEqual(current['optimizer_updates'], 1120)
+            self.assertEqual(current['source_snapshot_at'], value['time'])
+            legacy['机器']['GPU'] = 'NVIDIA TITAN RTX, 0 MiB, 24576 MiB, 0 %, 36'
+            (folder / '最新状态.json').write_text(json.dumps(legacy), encoding='utf-8')
+            current = status_for_folder(folder)
+            self.assertNotEqual(current['state'], 'running')
+            self.assertTrue(current['conflicting_newer_idle_hardware'])
+
+    def test_future_nested_task_mention_is_not_direct_e002_receipt(self):
+        with tempfile.TemporaryDirectory() as directory:
+            value = self.fixture()
+            identity = value.pop('指令编号')
+            value['指令编号'] = 'yi-st3d-1110-v2'
+            value['future_task'] = identity
+            self.assertIsNone(keep_direct_e002_receipt(Path(directory), json.dumps(value).encode()))
 
 
 if __name__ == '__main__':

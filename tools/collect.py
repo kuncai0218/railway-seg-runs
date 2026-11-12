@@ -18,10 +18,36 @@ DISPLAY_NAMES = {'同学丙': '本机3090（原丙队列）'}
 MAX_ATTACHMENT = 12 * 2**20
 
 
+def instruction_identity(snapshot):
+    value = snapshot.get('instruction_id', snapshot.get('指令编号', ''))
+    if isinstance(value, dict):
+        value = value.get('编号', value.get('instruction_id', ''))
+    return value.lower() if isinstance(value, str) else ''
+
+
+def timestamp(value):
+    return datetime.datetime.fromisoformat(str(value).replace('Z', '+00:00')).timestamp()
+
+
+def process_created(process):
+    value = process.get('CreationDate', process.get('create_time'))
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        match = re.fullmatch(r'/Date\((\d+)(?:[+-]\d{4})?\)/', value)
+        if match:
+            return int(match.group(1)) / 1000
+        try:
+            return timestamp(value)
+        except ValueError:
+            pass
+    return None
+
+
 def keep_direct_e002_receipt(folder, body):
     """Keep typed E002 evidence separately from later legacy snapshots."""
     snapshot = json.loads(body)
-    identity = str(snapshot.get('instruction_id', snapshot.get('指令编号', ''))).lower()
+    identity = instruction_identity(snapshot)
     if not re.match(r'^(jia|yi)-e002-', identity):
         return None
     when = datetime.datetime.fromisoformat(str(snapshot['time']).replace('Z', '+00:00')).timestamp()
@@ -38,21 +64,44 @@ def keep_direct_e002_receipt(folder, body):
 def runtime_status(snapshot):
     """Interpret reported runner events; retained failure.json files are history."""
     pipeline = snapshot.get('E002_pipeline_current')
-    identity = str(snapshot.get('instruction_id', snapshot.get('指令编号', ''))).lower()
+    identity = instruction_identity(snapshot)
     direct = bool(re.match(r'^(jia|yi)-e002-', identity))
+    creation = None
+    command_matches = None
     if isinstance(pipeline, dict) and pipeline.get('observed_at'):
         progress = pipeline.get('training_progress') or {}
         process = pipeline.get('trainer_process') or {}
         observed = pipeline['observed_at']
         alive = process.get('alive') and process.get('matches_recorded_creation')
+        creation = process.get('os_created_epoch')
         stage = (pipeline.get('pipeline_progress') or {}).get('stage', 'unknown')
     elif direct:
         events = snapshot.get('最近事件') or []
-        progress = events[-1] if events else (snapshot.get('training_progress') or snapshot.get('progress') or {})
         observed = snapshot.get('time')
         processes = snapshot.get('训练进程') or []
-        alive = any(p.get('ProcessId', p.get('pid')) == progress.get('PID')
-                    and (p.get('CreationDate') or p.get('create_time')) for p in processes)
+        candidates = events or [snapshot.get('training_progress') or snapshot.get('progress') or {}]
+        progress = {}
+        alive = False
+        for candidate in reversed(candidates):
+            for process in processes:
+                created = process_created(process)
+                if process.get('ProcessId', process.get('pid')) != candidate.get('PID') or created is None:
+                    continue
+                try:
+                    if timestamp(candidate.get('time')) < created:
+                        continue
+                except (ValueError, TypeError):
+                    continue
+                command = process.get('CommandLine')
+                run = snapshot.get('当前活动目录')
+                matches = (('e002_train.py' in command.lower()) and
+                           (not run or run.lower() in command.lower())) if isinstance(command, str) else None
+                if matches is False:
+                    continue
+                progress, alive, creation, command_matches = candidate, True, created, matches
+                break
+            if alive:
+                break
         stage = progress.get('stage', 'unknown')
     else:
         progress = None
@@ -70,6 +119,7 @@ def runtime_status(snapshot):
                     kind='E002', stage=progress.get('stage', stage),
                     optimizer_updates=progress.get('optimizer_updates'),
                     trainer_PID=progress.get('PID'), process_identity_reported=bool(alive),
+                    trainer_created_unix=creation, command_matches_reported_run=command_matches,
                     recent_progress_at_snapshot=recent,
                     note='receiver/preparation PID is not a trainer; old snapshots do not prove current survival')
     from snapshot_1110 import normalize_current
@@ -108,6 +158,35 @@ def runtime_status(snapshot):
         result.update(state='unknown', current_run_failed_tasks=[], log_context_mismatch=True,
                       reported_task_file=snapshot['task_file'], log_task_file=context.group(1))
     return result
+
+
+def status_for_folder(folder):
+    """Use a recent dedicated receipt when legacy telemetry targets an old run.
+
+    A newer explicit zero-memory/zero-utilization hardware report conflicts with
+    the prior live receipt and must not be hidden by that fallback.
+    """
+    latest = json.loads((folder / '最新状态.json').read_bytes())
+    status = runtime_status(latest)
+    dedicated = folder / '最近E002专用回执.json'
+    if status.get('kind') == 'E002' or not dedicated.exists():
+        return status
+    value = json.loads(dedicated.read_bytes())
+    current = runtime_status(value)
+    if current.get('state') != 'running':
+        return status
+    hardware = latest.get('机器') or {}
+    gpu = hardware.get('GPU', latest.get('GPU', ''))
+    newer = timestamp(latest.get('time')) > timestamp(value.get('time'))
+    explicit_idle = isinstance(gpu, str) and re.search(r'(?:^|,)\s*0(?:\.0+)?\s*MiB\b', gpu) and re.search(r'(?:^|,)\s*0(?:\.0+)?\s*%', gpu)
+    if newer and explicit_idle:
+        status.update(conflicting_newer_idle_hardware=True,
+                      prior_dedicated_snapshot_at=value.get('time'))
+        return status
+    current.update(evidence_source='recent dedicated E002 receipt',
+                   latest_legacy_snapshot_at=latest.get('time'),
+                   latest_legacy_hardware_does_not_prove_steps=True)
+    return current
 
 
 def status_summary(status):
@@ -202,7 +281,7 @@ def main():
         summary = r['message'] if r else '还没有消息'
         if snapshot.exists():
             try:
-                status = runtime_status(json.loads(snapshot.read_text(encoding='utf-8')))
+                status = status_for_folder(REPO / name)
                 when = status['source_snapshot_at'] or when
                 summary = status_summary(status)
                 derived = REPO / name / '当前状态.json'
@@ -221,9 +300,9 @@ def main():
         dedicated = REPO / name / '最近E002专用回执.json'
         if dedicated.exists():
             value = json.loads(dedicated.read_bytes())
-            events = value.get('最近事件', [])
-            progress = events[-1] if events else value.get('progress', {})
-            count = progress.get('optimizer_updates', '未回报')
+            typed_status = runtime_status(value)
+            count = typed_status.get('optimizer_updates')
+            count = count if count is not None else '当前进程匹配步数未回报'
             lines += ['', f'{name}另有E002专用回执：{value.get("time")}，'
                       f'该次实际更新{count}。此证据独立保留；后续通用快照不覆盖它，'
                       '也不据旧回执认定当前仍在运行。']
