@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-13T05:58:40.862290+08:00",
+  "更新时间": "2026-11-13T17:27:00.504853+08:00",
   "停止": [
     "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
     "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -499,7 +499,7 @@
     },
     {
       "编号": "yi-e002-micro1-monitor-1112-1440",
-      "状态": "进行中（原训练和15分钟监测已实际验收；首次50k归档补验待到达时执行）",
+      "状态": "进行中（原训练持续；首50k CPU初验已收到，历史best副本与完整小回执待补齐）",
       "关联实验": "E002 author foldIII seed42 / micro1 effective8 continuation",
       "已验收": "14:27专用回执trainer2072/1794462902.460、supervisor13020/1794462902.404，实际1090→1120，parentstep100 SHA5e8e776482fc7c80634668379aaaeffccfa13c2fe60817b4989dc3c6a469f460。新目录/命令与微批1一致。",
       "内容": [
@@ -520,6 +520,28 @@
         "内容": "CPU核完整状态/源码协议/有限性及对应best权重保留，结果放现有15分钟快照的archive_checks字段；只回传小JSON/SHA，原权重留本端。",
         "原训练保持": true,
         "关联批准实验": "E002作者原协议；不是新训练或配方调整"
+      },
+      "17:27首50k回执补齐": {
+        "优先动作": "立即保护首50k归档对应的历史best副本，之后补齐小回执；既有E002监测子项，不新开训练。",
+        "已收到": "17:12快照真实50710，50000归档SHA5d2c2bf6a99471f000c8f8c4cb0ae817b2c0e4b32804d453a0a653d892935fe9、194213882字节，CPU张量初验PASS。",
+        "待保留best": {
+          "selection_optimizer_updates": 37035,
+          "selection_SCS": 12.2560248544918,
+          "SHA256": "e0ee361d1ba46646d909986043475d0551d18dc2c656dcbcab96c4901beb970d",
+          "动作": "把匹配活动best逐字节复制到独立历史路径，验copy_path/copy_bytes/copy_SHA256及内含选模步数/分数。若已有副本直接核实；若活动best已更换，先找历史副本，不能拿当前新best冒充旧权重。",
+          "解释": "best模型通常不是step50000模型；same_as_archive_model=false是正常现象，不取消历史best保留。"
+        },
+        "完整状态摘要": [
+          "optimizer/scaler",
+          "permutation有效排列与cursor",
+          "generator_state/month_lists",
+          "Python_RNG/NumPy_RNG/Torch_RNG/CUDA_RNG存在和格式",
+          "四个实际source_hashes与protocol_SHA256"
+        ],
+        "独立交叉核对输入": "随既有快照给截至50000更新的完整source validation.jsonl小文件/正文和SHA256、字节数。主端核其选模历史。大权重仍留本端。",
+        "完成标准": "实际历史副本及摘要写入现有archive_checks；确认收到与完成执行分开。复用已完成CPU检查，只补缺项。",
+        "训练处理": "保持当前2072/13020正常原训练及已有监测，现阶段补验只用独立CPU进程。",
+        "前序提醒": "ntfy viQingMJmWHj"
       }
     },
     {
