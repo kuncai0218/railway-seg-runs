@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-15T06:46:27.874745+08:00",
+  "更新时间": "2026-11-15T06:58:56+08:00",
   "停止": [
     "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
     "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -615,7 +615,7 @@
     },
     {
       "编号": "yi-t22-1115",
-      "状态": "已被v2评价流程修订替代；已有健康G2-G4保留，不重复启动",
+      "状态": "已被 yi-t22-1115-v2 替代（第 1 版已跑的部分按 v2 条目第 2 步处理）",
       "关联实验": "T22 阶段 1（登记号 E011）：MUDS 四组（G1—G4）× 种子 44",
       "为什么": "组长 11-15 批准：检验“判决进训练目标（按段似然）+ 短窗口变化通道”能否明显提高新区变化检测；同一种子的四组放在同一台机器上，组间比较不受机器差异影响。",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_T22任务_1115.md",
@@ -654,10 +654,10 @@
       "任务文件（包内）": "tasks/yi_event_1115.json",
       "步骤": [
         "先读取当前真实T22进程、输出目录和创建身份。若尚未启动，直接使用v2；不再新开v1的G1。",
-        "若v1已有运行：只停旧队列控制器以免重启G1，再停止v1的G1并保留其部分权重/日志，标记不用于比较。健康G2/G3/G4保持运行且不覆盖旧包。按实际运行/完成清单防止重复；新旧GPU任务合计最多2个，必要时待槽位空出后启动v2剩余任务。",
+        "若已用第 1 版开跑（如果已经用第 1 版开跑）：停掉第 1 版的运行器 run_queue_event.py 和它启动的全部训练进程（G1 的 run_st3d.py、G2 的 train_event.py，连同各自的数据加载子进程），确认都已退出。第 1 版 G1 目录 muds_t22_G1_s44 原样保留、不用于比较；G2 目录不动。然后按第 3—5 步在 v2 目录启动：G1 用新目录 muds_t22_G1_s44_v2 从头训练，G2 从 last.pth 接着跑（两版 G2—G4 的代码与参数逐字节相同）。不要让新旧两个进程同时写同一个目录，也不要自己改任务文件。",
         "下载event_pkg_1115_v2.zip，核对本条SHA256，解压到原pub_st3d_pkg_1109同一个父目录，得到event_pkg_1115_v2/；沿用st3d_data/Muds与st3d_cache/Muds，不重新下载数据。",
         "在v2目录、原Python环境运行冒烟：python -X utf8 scripts/event_1115/run_queue_event.py tasks/smoke_event_1115.json --max 1。自检全部通过、三项冒烟final_event齐全后再正式跑。",
-        "正式：python -X utf8 scripts/event_1115/run_queue_event.py tasks/yi_event_1115.json --max 2。G1正式目录为muds_t22_G1_s44_v2，G2-G4名称不变。若旧包已有健康G2-G4，先按真实PID从待运行清单排除它们，合计最多2个；完成后回传这些旧包结果即可。",
+        "正式：在 v2 目录运行 python -X utf8 scripts/event_1115/run_queue_event.py tasks/yi_event_1115.json --max 2。G1 正式目录为 muds_t22_G1_s44_v2，G2—G4 名称不变；已写出 final_event.json 的任务运行器自动跳过，没完成的从 last.pth 接着跑。",
         "立即回报收到编号和包SHA、v1是否已开始及采取的接续；然后回冒烟/正式PID、OS创建时间、命令、间隔至少60秒真实epoch/step、持续GPU样本、RAM/磁盘。收到、启动、实际推进分开。",
         "每组完成回传final_event.json、epochs.jsonl、config.json，权重/大数组留本机；同一任务两次失败保留现场，给出根因、错误尾部和可修复方案。"
       ],
@@ -665,19 +665,20 @@
       "无需二次许可": true,
       "发布时间": "2026-11-15T06:33:57+08:00",
       "实验包备用地址": [
-        "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@6cf22d1c7274e9d9f2b96fa6a3da1e61c59620ec/patches/event_pkg_1115.zip",
-        "https://ghfast.top/https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/6cf22d1c7274e9d9f2b96fa6a3da1e61c59620ec/patches/event_pkg_1115.zip"
+        "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@4e0a91250a2daff0661d3e7f7a3bdd5423722ece/patches/event_pkg_1115_v2.zip",
+        "https://ghfast.top/https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/4e0a91250a2daff0661d3e7f7a3bdd5423722ece/patches/event_pkg_1115_v2.zip"
       ],
-      "说明备用地址": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@6cf22d1c7274e9d9f2b96fa6a3da1e61c59620ec/%E5%90%8C%E5%AD%A6%E7%94%B2%E4%B9%99_T22%E4%BB%BB%E5%8A%A1_1115.md",
-      "更正": "06:33 首发版把“更新时间”误写成 07:30，已改为实际时间；任务内容不变。raw 地址不通或被缓存时，用上面固定提交 6cf22d1 的备用地址，下载后照样校验 SHA256。",
-      "本次仅修评价流程": "G1原入口每轮评价val_out、加载test标签，与T22冲突；v2新增独立G1适配器，模型/损失/训练助手函数AST不变，仅val_in逐轮，末轮统一评价一次val_out。G2-G4源码不变。"
+      "说明备用地址": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@4e0a91250a2daff0661d3e7f7a3bdd5423722ece/T22_G1%E8%AF%84%E4%BB%B7%E6%B5%81%E7%A8%8B%E4%BF%AE%E8%AE%A2_1115.md",
+      "更正": "06:58 组长更正：本条首发时备用地址误指第 1 版包，已改为第 2 版（以本条 SHA256 fd4b8b62…116ee6 为准）；第 2 步改为“第 1 版全部停下、v2 从断点接续”，避免新旧进程同写一个目录。",
+      "本次仅修评价流程": "G1原入口每轮评价val_out、加载test标签，与T22冲突；v2新增独立G1适配器，模型/损失/训练助手函数AST不变，仅val_in逐轮，末轮统一评价一次val_out。G2-G4源码不变。",
+      "更正时间": "2026-11-15T06:58:56+08:00"
     }
   ],
   "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
   "当前执行优先": [
     "yi-t22-1115-v2"
   ],
-  "本轮批准范围": "E011/T22阶段1：同学乙种子44四组，v2仅修G1评价流程；健康G2-G4保持。E002不恢复。",
+  "本轮批准范围": "E011/T22 阶段 1：同学乙种子 44 四组（yi-t22-1115-v2）。v2 只修 G1 的评价流程；第 1 版已跑的部分按该条第 2 步停下后接续。E002 不恢复。",
   "最新任务已发布不等于已执行": "收到编号、启动工具PID、实际trainerPID/OS创建时间和两次真实步数分别回报。不要只转告ntfy批注；本JSON才是已授权的任务源。",
   "研究时间授权": "用户已允许更长研究；旧11/14不是硬截止，原协议照做，无需重新问用户。",
   "T22当前修订": "v2"
