@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-14T00:51:00+08:00",
+  "更新时间": "2026-11-15T07:30:00+08:00",
   "停止": [
     "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
     "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -612,13 +612,35 @@
       "之后": "本条完成后 GPU 空闲，不启动新的训练；等组长新的指令。15 分钟同步照常。",
       "无需二次许可": true,
       "发布时间": "2026-11-14T00:51:00+08:00"
+    },
+    {
+      "编号": "yi-t22-1115",
+      "状态": "待执行",
+      "关联实验": "T22 阶段 1（登记号 E011）：MUDS 四组（G1—G4）× 种子 44",
+      "为什么": "组长 11-15 批准：检验“判决进训练目标（按段似然）+ 短窗口变化通道”能否明显提高新区变化检测；同一种子的四组放在同一台机器上，组间比较不受机器差异影响。",
+      "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/同学甲乙_T22任务_1115.md",
+      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/event_pkg_1115.zip",
+      "实验包SHA256": "462ac7a3f0afd7ee5b51e51fbf883632f9c1513e651bc3e2c25f2a06ca7313f4",
+      "冒烟任务文件（包内）": "tasks/smoke_event_1115.json",
+      "任务文件（包内）": "tasks/yi_event_1115.json",
+      "步骤": [
+        "下载实验包并校验 SHA256；不一致就停下报告。",
+        "解压到 pub_st3d_pkg_1109 所在的同一个上级目录（和 st3d_data、st3d_cache、st3d_runs 并列）。沿用已有 MUDS 数据与缓存，不下载数据。",
+        "在 event_pkg_1115 目录、用以前跑 st3d 的同一个 Python 环境，先跑冒烟：python -X utf8 scripts/event_1115/run_queue_event.py tasks/smoke_event_1115.json --max 1；三条都写出 final_event.json 才算通过，不过就回报 t22_queue.log 与 t22_check.txt。",
+        "冒烟通过后跑正式任务：python -X utf8 scripts/event_1115/run_queue_event.py tasks/yi_event_1115.json --max 2。",
+        "启动后同步编号、运行器与训练进程号、显存、间隔至少 60 秒的两次真实步数；之后每 15 分钟同步。",
+        "每个任务完成后，在状态附件里回传 final_event.json、epochs.jsonl、config.json 三个小文件；权重和大数组留本机。",
+        "同一任务失败两次运行器会停：回报 t22_queue.log 和 train.log 末尾 50 行，不改代码或参数。"
+      ],
+      "最多同时训练": 2,
+      "无需二次许可": true
     }
   ],
   "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
   "当前执行优先": [
-    "yi-e002-stop-test-1114"
+    "yi-t22-1115"
   ],
-  "本轮批准范围": "11-14 组长决定：E002 作者原协议三折都停在当前步数并补测试（yi-e002-stop-test-1114）；不再跑满 500000 更新、不开第 IV/V 折。其他旧条目只作历史，不恢复。",
+  "本轮批准范围": "11-15 组长批准 T22 阶段 1：本机器跑 MUDS 四组种子 44（yi-t22-1115）。E002 已结束，其他旧条目只作历史，不恢复。",
   "最新任务已发布不等于已执行": "收到编号、启动工具PID、实际trainerPID/OS创建时间和两次真实步数分别回报。不要只转告ntfy批注；本JSON才是已授权的任务源。",
   "研究时间授权": "用户已允许更长研究；旧11/14不是硬截止，原协议照做，无需重新问用户。"
 }

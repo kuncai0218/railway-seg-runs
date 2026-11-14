@@ -1,0 +1,149 @@
+{
+ "说明": "T22 阶段 1（登记号 E011）：MUDS 单期组归一化骨干，四组各 30 轮，种子 44，在同学乙机器上跑。任务书 T22_判决对齐训练_阶段1_MUDS.md。不读测试区，固定第 30 轮。",
+ "任务": [
+  {
+   "名称": "muds_t22_G1_s44",
+   "组": "G1",
+   "步骤": [
+    {
+     "脚本": "scripts/event_1115/run_st3d.py",
+     "参数": [
+      "--data",
+      "muds",
+      "--arch",
+      "mono_gn",
+      "--epochs",
+      "30",
+      "--lr",
+      "1e-4",
+      "--wd",
+      "1e-3",
+      "--sched",
+      "paper",
+      "--workers",
+      "2",
+      "--eval_workers",
+      "0",
+      "--eval_batch",
+      "16",
+      "--seed",
+      "44",
+      "--test_every",
+      "0"
+     ]
+    },
+    {
+     "脚本": "scripts/event_1115/eval_ckpt.py",
+     "参数": [
+      "{out}/last.pth"
+     ]
+    }
+   ]
+  },
+  {
+   "名称": "muds_t22_G2_s44",
+   "组": "G2",
+   "步骤": [
+    {
+     "脚本": "scripts/event_1115/train_event.py",
+     "参数": [
+      "--arm",
+      "G2",
+      "--data",
+      "muds",
+      "--arch",
+      "mono_gn",
+      "--epochs",
+      "30",
+      "--lr",
+      "1e-4",
+      "--wd",
+      "1e-3",
+      "--sched",
+      "paper",
+      "--workers",
+      "2",
+      "--eval_workers",
+      "0",
+      "--eval_batch",
+      "16",
+      "--seed",
+      "44",
+      "--out",
+      "{out}"
+     ]
+    }
+   ]
+  },
+  {
+   "名称": "muds_t22_G3_s44",
+   "组": "G3",
+   "步骤": [
+    {
+     "脚本": "scripts/event_1115/train_event.py",
+     "参数": [
+      "--arm",
+      "G3",
+      "--data",
+      "muds",
+      "--arch",
+      "mono_gn",
+      "--epochs",
+      "30",
+      "--lr",
+      "1e-4",
+      "--wd",
+      "1e-3",
+      "--sched",
+      "paper",
+      "--workers",
+      "2",
+      "--eval_workers",
+      "0",
+      "--eval_batch",
+      "16",
+      "--seed",
+      "44",
+      "--out",
+      "{out}"
+     ]
+    }
+   ]
+  },
+  {
+   "名称": "muds_t22_G4_s44",
+   "组": "G4",
+   "步骤": [
+    {
+     "脚本": "scripts/event_1115/train_event.py",
+     "参数": [
+      "--arm",
+      "G4",
+      "--data",
+      "muds",
+      "--arch",
+      "mono_gn",
+      "--epochs",
+      "30",
+      "--lr",
+      "1e-4",
+      "--wd",
+      "1e-3",
+      "--sched",
+      "paper",
+      "--workers",
+      "2",
+      "--eval_workers",
+      "0",
+      "--eval_batch",
+      "16",
+      "--seed",
+      "44",
+      "--out",
+      "{out}"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "说明": "T22 冒烟（几分钟）：先跑这个确认环境，三条都写出 final_event.json 后再跑正式任务。输出目录名以 _smoke 开头，可以保留。",
+ "任务": [
+  {
+   "名称": "_smoke_t22_G1",
+   "步骤": [
+    {
+     "脚本": "scripts/event_1115/run_st3d.py",
+     "参数": [
+      "--data",
+      "muds",
+      "--arch",
+      "mono_gn",
+      "--epochs",
+      "1",
+      "--max_steps",
+      "10",
+      "--workers",
+      "2",
+      "--eval_workers",
+      "0",
+      "--eval_batch",
+      "16",
+      "--seed",
+      "1",
+      "--test_every",
+      "0"
+     ]
+    },
+    {
+     "脚本": "scripts/event_1115/eval_ckpt.py",
+     "参数": [
+      "{out}/last.pth",
+      "--max_eval_batches",
+      "4"
+     ]
+    }
+   ]
+  },
+  {
+   "名称": "_smoke_t22_G3",
+   "步骤": [
+    {
+     "脚本": "scripts/event_1115/train_event.py",
+     "参数": [
+      "--arm",
+      "G3",
+      "--data",
+      "muds",
+      "--arch",
+      "mono_gn",
+      "--epochs",
+      "1",
+      "--max_steps",
+      "10",
+      "--max_eval_batches",
+      "4",
+      "--seed",
+      "1",
+      "--workers",
+      "2",
+      "--out",
+      "{out}"
+     ]
+    }
+   ]
+  },
+  {
+   "名称": "_smoke_t22_G4",
+   "步骤": [
+    {
+     "脚本": "scripts/event_1115/train_event.py",
+     "参数": [
+      "--arm",
+      "G4",
+      "--data",
+      "muds",
+      "--arch",
+      "mono_gn",
+      "--epochs",
+      "1",
+      "--max_steps",
+      "10",
+      "--max_eval_batches",
+      "4",
+      "--seed",
+      "1",
+      "--workers",
+      "2",
+      "--out",
+      "{out}"
+     ]
+    }
+   ]
+  }
+ ]
+}
