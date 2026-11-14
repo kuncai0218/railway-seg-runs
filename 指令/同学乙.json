@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-15T07:30:00+08:00",
+  "更新时间": "2026-11-15T06:39:23+08:00",
   "停止": [
     "tasks/yi_extended_1026.json 与 tasks/yi_batch3_1026.json（这两批已不再需要，没开始就不用开）",
     "tasks/yi_seg1_1027.json（Swin U-Net / U-Net 的 RGB 第 3 个种子取消，没开始就不要开）",
@@ -633,7 +633,14 @@
         "同一任务失败两次运行器会停：回报 t22_queue.log 和 train.log 末尾 50 行，不改代码或参数。"
       ],
       "最多同时训练": 2,
-      "无需二次许可": true
+      "无需二次许可": true,
+      "发布时间": "2026-11-15T06:33:57+08:00",
+      "实验包备用地址": [
+        "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@6cf22d1c7274e9d9f2b96fa6a3da1e61c59620ec/patches/event_pkg_1115.zip",
+        "https://ghfast.top/https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/6cf22d1c7274e9d9f2b96fa6a3da1e61c59620ec/patches/event_pkg_1115.zip"
+      ],
+      "说明备用地址": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@6cf22d1c7274e9d9f2b96fa6a3da1e61c59620ec/%E5%90%8C%E5%AD%A6%E7%94%B2%E4%B9%99_T22%E4%BB%BB%E5%8A%A1_1115.md",
+      "更正": "06:33 首发版把“更新时间”误写成 07:30，已改为实际时间；任务内容不变。raw 地址不通或被缓存时，用上面固定提交 6cf22d1 的备用地址，下载后照样校验 SHA256。"
     }
   ],
   "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
