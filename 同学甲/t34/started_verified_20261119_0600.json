@@ -1,0 +1,1150 @@
+{
+  "type": "T34_v2_smokes_passed_formal_orig_started_verified",
+  "observed_at": "2026-11-19T06:00:10.937357+08:00",
+  "instruction_id": "jia-t34-pair-s43-1119",
+  "seed": 43,
+  "package_receipt": {
+    "observed_at": "2026-11-19T05:39:28.188225+08:00",
+    "canonical_reference": "/home/user/work_st3d/pub_st3d_pkg_1109/results/reference/accepted_20261119_0540_instruction_T34_v2.json",
+    "canonical_SHA256": "bf96a49988f73118153dcb986fc920b5078ab534a4f8f87d84d08c5a098833ed",
+    "guide_SHA256": "c930610f5a65be02213af0f697c8d7b4ba78748d5429eba6a628b1aa0095ad0e",
+    "package_url": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_peer_1119_v2.zip",
+    "package_bytes": 74433,
+    "package_SHA256": "7a3d0a5468b8f4be61756929ac34b518f55336c12cbbe2aa9c6126d628678692",
+    "package_directory": "/home/user/work_st3d/t34_peer_1119_v2",
+    "ZIP_CRC_and_paths_passed": true,
+    "file_count": 26,
+    "frozen_source_all_match": true,
+    "attempts": [
+      {
+        "rc": 0,
+        "stderr": ""
+      }
+    ]
+  },
+  "environment": {
+    "verified_at": "2026-11-19T05:51:30.149903+08:00",
+    "python": "3.10.22",
+    "torch": "2.3.0+cu121",
+    "torchvision": "0.18.0+cu121",
+    "numpy": "1.26.4",
+    "opencv-python": "4.12.0.88",
+    "opencv_runtime": "4.12.0",
+    "rasterio": "1.4.3",
+    "pandas": "2.3.3",
+    "torchmetrics": "1.9.0",
+    "CUDA_initialized_by_this_check": false,
+    "passed": true
+  },
+  "GPU_admission": {
+    "started_at": "2026-11-19T05:50:34.297619+08:00",
+    "authorization": "jia-t34-pair-s43-1119 v2, 2026-11-19T05:02:35+08:00",
+    "GPU_settings_modified": false,
+    "GPU_reset_performed": false,
+    "CUDA_operation_count": 1,
+    "boot_id": "3d4205b5-7af9-497e-9d0c-690a0c7641a9",
+    "before_current_boot_faults": [],
+    "runtime": {
+      "python": "3.10.22 (main, Oct  9 2026, 15:21:30) [Clang 22.1.3 ]",
+      "torch": "2.3.0+cu121",
+      "torchvision": "0.18.0+cu121",
+      "numpy": "1.26.4",
+      "opencv": "4.12.0",
+      "CUDA_build": "12.1"
+    },
+    "cuda_available": true,
+    "observed_sum_of_squares": 1240.0,
+    "GPU_name": "NVIDIA TITAN RTX",
+    "after_current_boot_faults": [],
+    "passed": true,
+    "finished_at": "2026-11-19T05:50:36.265618+08:00"
+  },
+  "data": {
+    "verified_at": "2026-11-19T05:51:39.416420+08:00",
+    "passed": true,
+    "data_root": "/home/user/work_st3d/t34_data_1119/DynamicEarthNet",
+    "split_SHA256": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+    "partitions": {
+      "train": {
+        "regions": 55,
+        "RGB_NIR_files": 80300,
+        "labels": 55,
+        "all_required_files_present": true
+      },
+      "val": {
+        "regions": 10,
+        "RGB_NIR_files": 14600,
+        "labels": 10,
+        "all_required_files_present": true
+      },
+      "test": {
+        "regions": 10,
+        "RGB_NIR_files": 14600,
+        "labels": 10,
+        "all_required_files_present": true
+      }
+    },
+    "train_image_directory_reused_by_symlink": "/home/user/work_st3d/E002_1112/den_raw_source55/train",
+    "all_75_labels_from_verified_official_archive": true,
+    "selected_archive_entries_extracted": 29276,
+    "selected_uncompressed_bytes": 3811071956,
+    "selected_ZIP_entry_CRC_verified_during_extraction": true,
+    "label_arrays_loaded": false,
+    "old_data_modified": false
+  },
+  "full_archive": {
+    "verified_at": "2026-11-19T05:50:48.433379+08:00",
+    "archive": "/home/user/work_st3d/t34_download_1119/DynamicEarthNet.zip",
+    "bytes": 7085823166,
+    "SHA256": "38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870",
+    "members": 109655,
+    "uncompressed_bytes": 9025118034,
+    "all_member_paths_safe": true,
+    "sample_members": [
+      "DynamicEarthNet/labels/",
+      "DynamicEarthNet/labels/6466_3380_13.npy",
+      "DynamicEarthNet/labels/4127_2991_13.npy",
+      "DynamicEarthNet/labels/8077_5007_13.npy",
+      "DynamicEarthNet/labels/5125_4049_13.npy",
+      "DynamicEarthNet/labels/4881_3344_13.npy",
+      "DynamicEarthNet/labels/6752_3115_13.npy",
+      "DynamicEarthNet/labels/7517_4908_13.npy",
+      "DynamicEarthNet/labels/1286_2921_13.npy",
+      "DynamicEarthNet/labels/3998_3016_13.npy",
+      "DynamicEarthNet/labels/4254_2915_13.npy",
+      "DynamicEarthNet/labels/4223_3246_13.npy",
+      "DynamicEarthNet/labels/4421_3800_13.npy",
+      "DynamicEarthNet/labels/6381_3681_13.npy",
+      "DynamicEarthNet/labels/4780_3377_13.npy",
+      "DynamicEarthNet/labels/6730_3430_13.npy",
+      "DynamicEarthNet/labels/1417_3281_13.npy",
+      "DynamicEarthNet/labels/2470_5030_13.npy",
+      "DynamicEarthNet/labels/2006_3280_13.npy",
+      "DynamicEarthNet/labels/2569_4513_13.npy",
+      "DynamicEarthNet/labels/5926_3715_13.npy",
+      "DynamicEarthNet/labels/6813_3313_13.npy",
+      "DynamicEarthNet/labels/6475_3361_13.npy",
+      "DynamicEarthNet/labels/5863_3800_13.npy",
+      "DynamicEarthNet/labels/6824_4117_13.npy"
+    ],
+    "top_directories": [
+      "DynamicEarthNet"
+    ]
+  },
+  "cache": {
+    "verified_at": "2026-11-19T05:53:17.362626+08:00",
+    "passed": true,
+    "tiles": 65,
+    "train_regions": 55,
+    "val_regions": 10,
+    "total_bytes": 9101648000,
+    "decode_cache_manifest": "/home/user/work_st3d/t34_peer_1119_v2/decode_cache.json",
+    "decode_cache_manifest_SHA256": "87074cce8d43f9a3eaa6ced7f209ce80d64064017b485ad915734f45312252b4",
+    "per_tile_metadata_match": {
+      "1311_3077_13": true,
+      "1417_3281_13": true,
+      "1487_3335_13": true,
+      "1700_3100_13": true,
+      "2006_3280_13": true,
+      "2029_3764_13": true,
+      "2065_3647_13": true,
+      "2235_3403_13": true,
+      "2415_3082_13": true,
+      "2459_4406_13": true,
+      "2470_5030_13": true,
+      "2528_4620_13": true,
+      "2624_4314_13": true,
+      "2697_3715_13": true,
+      "2832_4366_13": true,
+      "2850_4139_13": true,
+      "3002_4273_13": true,
+      "3998_3016_13": true,
+      "4127_2991_13": true,
+      "4169_3944_13": true,
+      "4223_3246_13": true,
+      "4240_3972_13": true,
+      "4254_2915_13": true,
+      "4397_4302_13": true,
+      "4421_3800_13": true,
+      "4426_3835_13": true,
+      "4622_3159_13": true,
+      "4768_4131_13": true,
+      "4780_3377_13": true,
+      "4791_3920_13": true,
+      "4806_3588_13": true,
+      "4838_3506_13": true,
+      "4856_4087_13": true,
+      "4881_3344_13": true,
+      "5111_4560_13": true,
+      "5125_4049_13": true,
+      "5863_3800_13": true,
+      "5926_3715_13": true,
+      "5989_3554_13": true,
+      "6204_3495_13": true,
+      "6381_3681_13": true,
+      "6466_3380_13": true,
+      "6468_3360_13": true,
+      "6475_3361_13": true,
+      "6688_3456_13": true,
+      "6730_3430_13": true,
+      "6752_3115_13": true,
+      "6810_3478_13": true,
+      "6813_3313_13": true,
+      "6824_4117_13": true,
+      "7026_3201_13": true,
+      "7312_3008_13": true,
+      "7367_5050_13": true,
+      "7513_4968_13": true,
+      "8077_5007_13": true,
+      "1973_3709_13": true,
+      "2569_4513_13": true,
+      "2789_4694_13": true,
+      "4062_3943_13": true,
+      "4666_2369_13": true,
+      "5830_3834_13": true,
+      "6353_3661_13": true,
+      "6678_3579_13": true,
+      "6761_3129_13": true,
+      "7517_4908_13": true
+    },
+    "large_arrays_rehashed_again": false,
+    "old_E015_cache_changed": false
+  },
+  "smoke_acceptance": {
+    "verified_at": "2026-11-19T05:55:59.168831+08:00",
+    "passed": true,
+    "checks": {
+      "orig": {
+        "status_smoke_complete": true,
+        "epochs_exact_1_2": true,
+        "smoke_steps20": true,
+        "seed43": true,
+        "method_matches": true,
+        "finite_small_JSON": true,
+        "last_checkpoint_exists": true,
+        "official_test_not_run": true
+      },
+      "pse": {
+        "status_smoke_complete": true,
+        "epochs_exact_1_2": true,
+        "smoke_steps20": true,
+        "seed43": true,
+        "method_matches": true,
+        "finite_small_JSON": true,
+        "last_checkpoint_exists": true,
+        "official_test_not_run": true
+      }
+    },
+    "actual_configured_budget": "2 epochs x20 optimizer updates per arm; native smoke updates labels are full-epoch offsets, not actual counts",
+    "weights_loaded_or_rehashed": false
+  },
+  "smoke_status": {
+    "orig": {
+      "time": "2026-11-19T05:54:29+08:00",
+      "pid": 93828,
+      "created_unix": 1795038797.24,
+      "phase": "smoke_complete",
+      "best": {
+        "in": {
+          "epoch": 2,
+          "score": 4.695464958280516,
+          "weights": "epoch002.pth"
+        },
+        "out": {
+          "epoch": 2,
+          "score": 3.537105814437771,
+          "weights": "epoch002.pth"
+        }
+      }
+    },
+    "pse": {
+      "time": "2026-11-19T05:55:10+08:00",
+      "pid": 94033,
+      "created_unix": 1795038869.7,
+      "phase": "smoke_complete",
+      "best": {
+        "in": {
+          "epoch": 1,
+          "score": 22.519676593462833,
+          "weights": "epoch001.pth"
+        },
+        "out": {
+          "epoch": 1,
+          "score": 22.549917675338328,
+          "weights": "epoch001.pth"
+        }
+      }
+    }
+  },
+  "formal_start_verification": {
+    "verified_at": "2026-11-19T05:59:00.789039+08:00",
+    "passed": true,
+    "formal_job": "den_planet_orig_s43",
+    "trainer_PID": 94210,
+    "trainer_OS_created_unix": 1795038910.76,
+    "trainer_startticks": 5638976,
+    "window_seconds": 60.955328,
+    "actual_optimizer_updates_first_last": [
+      222,
+      551
+    ],
+    "samples": 7,
+    "max_trainers": 1,
+    "old_project_jobs_zero": true,
+    "temperature_min_max_C": [
+      69,
+      75
+    ],
+    "fan_min_max_percent": [
+      45,
+      53
+    ],
+    "clock_event_Active_sample_counts": {
+      "clocks_event_reason_gpu_idle": 0,
+      "clocks_event_reason_applications_clocks_setting": 0,
+      "clocks_event_reason_sw_power_cap": 5,
+      "clocks_event_reason_hw_slowdown": 0,
+      "clocks_event_reason_hw_thermal_slowdown": 0,
+      "clocks_event_reason_hw_power_brake_slowdown": 0,
+      "clocks_event_reason_sync_boost": 0,
+      "clocks_event_reason_sw_thermal_slowdown": 0,
+      "clocks_event_reason_display_clocks_setting": 0
+    },
+    "current_boot_faults": [],
+    "protocol_seed_method_epochs_lr_batch_passed": true,
+    "first_epoch_loss_not_yet_written": true,
+    "formal_epoch_checkpoint_not_yet_required": true,
+    "smoke_acceptance": "/home/user/work_st3d/t34_v2_ops_1119/smoke_acceptance.json",
+    "weights_loaded_or_hashed": false
+  },
+  "formal_orig_status": {
+    "time": "2026-11-19T05:59:59+08:00",
+    "pid": 94210,
+    "created_unix": 1795038910.76,
+    "phase": "training",
+    "epoch": 1,
+    "epochs": 250,
+    "step": 1525,
+    "steps_per_epoch": 1650,
+    "optimizer_updates": 1525,
+    "learning_rate": 0.0001,
+    "steps_per_second": 5.414629185967771,
+    "gpu_peak_MiB": 676
+  },
+  "formal_orig_protocol": {
+    "purpose": "T34: DynamicEarthNet Planet, paper-settings training, method=orig, seed=43",
+    "method": "orig",
+    "seed": 43,
+    "smoke_steps": 0,
+    "t34_entry_sha256": "6d58d07a6b76f0d75144eaa6058b6c9e05fe320e9dc7d64668ecaf5c53ce23e5",
+    "pse": null,
+    "upstream": {
+      "upstream_commit": "840f76e679a65d36fcace69225d8360b89ee3540",
+      "source_sha256": {
+        "upstream/README.md": "6152f1a9ef05c107b12f29ecce42c47f82cce4853f052949a581a9240cfb6e6d",
+        "upstream/configs/dynamicearthnet.yaml": "0025d870f0a247a1dc89019779425297a34f46d40a73674a160d3d90aaa46a26",
+        "upstream/configs/dynamicearthnetmsi.yaml": "bb7b7193b4447c6c37fee15ad5b55facb39131ebc48f6b1ab79da9fe40f2c8c2",
+        "upstream/configs/muds.yaml": "239e66424ee01e62dfe18904e95b24fe0cbd86d668dc4b57f25d1c2860a23601",
+        "upstream/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "upstream/data/data.py": "a4018daad8cf193cbd6a319b231378697b6a66d8b47dfed58c2dc5fdd425ea61",
+        "upstream/data/datamodule.py": "0605ed9780c24a30c759add9448b39da9ece914669de60af63d4e4e11c6f775b",
+        "upstream/data/transforms.py": "27c09584697481b7db2ff84e4193fdfb9e1502414f21b05d96d8167cab9445a6",
+        "upstream/main.py": "a4b8e6b54221fa65c1c58f6b278ca6a4d6e226f7345cae809fe024ea9a297557",
+        "upstream/metrics/scd_metrics.py": "aa14b3b3504789fa3c4029ecbfbc4ad9a340188e6c4a683e70046e678716c3d0",
+        "upstream/models/losses.py": "eb5d274304555e81866023e25c15299ccd24b5c95c3c02c13def48a1de84ecf6",
+        "upstream/models/ltae3d.py": "f35c4d629104067bb8d2c48f3a90d81a8bd3b52813f5edf49d9eeab094bda18a",
+        "upstream/models/positional_encoding.py": "620b98f7c51323209a483bea3e83a2caeae347ad2ba6be75af1d080daed16bb3",
+        "upstream/models/st3dunet.py": "f31d179a6751cf3416c83fff9b032c6be6c996495ff0ac8ee3357248e1296451",
+        "upstream/train.py": "bd27c580a35c343368873b7779d198a4b5d045b0bbf953663524d4fcf3058c39",
+        "upstream/utils/delete.py": "88d3d4b1d9865a628c880254ed747268aee3a600d6094dc68f33b17dee9fa6ff",
+        "upstream/utils/wrapper.py": "7fe47f7a16b975bcc3c87d769efe9cdcc95dce916a3482757acccc1843bac8b4",
+        "upstream/visualize.py": "5114676e3ffc7e51e24fc3ae6f1caa6cc09b91bf3a5350a04a93c34b0e9a1ca5",
+        "st3d_repro.py": "e5f3e28c4bc5b7ebc05fda37093c355b36a905a51eb972240ddffe648e3749f3"
+      }
+    },
+    "training_script_sha256": "6d58d07a6b76f0d75144eaa6058b6c9e05fe320e9dc7d64668ecaf5c53ce23e5",
+    "configuration": {
+      "image_size": 128,
+      "seq_len": 8,
+      "model": {
+        "name": "ST3DUnet",
+        "num_classes": 6,
+        "ignore_index": 6,
+        "num_channels": 4,
+        "class_names": [
+          "impervi",
+          "agricult",
+          "forest",
+          "wetlands",
+          "soil",
+          "water"
+        ]
+      },
+      "dataset": {
+        "name": "DynamicEarthNet",
+        "path": "/home/user/work_st3d/t34_data_1119/DynamicEarthNet",
+        "split_file": "/home/user/work_st3d/t34_data_1119/DynamicEarthNet/split.json",
+        "global_batch_size": 2,
+        "image_size": 128,
+        "true_size": 1024,
+        "num_classes": 6,
+        "ignore_index": 6,
+        "num_channels": 4,
+        "class_names": [
+          "impervi",
+          "agricult",
+          "forest",
+          "wetlands",
+          "soil",
+          "water"
+        ],
+        "seq_len": 8,
+        "data_aug_range": 2,
+        "sampling_mode": "average"
+      },
+      "computer": {
+        "num_workers": 4,
+        "accelerator": "cuda:0"
+      },
+      "trainer": {
+        "max_epochs": 250,
+        "ckpt_interval": 10,
+        "warmup_epochs": 5,
+        "warmup": false,
+        "lr": 0.0001,
+        "weight_decay": 0.001,
+        "cosine": true
+      },
+      "logger": {
+        "dir": "./logs"
+      },
+      "checkpoints": {
+        "dir": "./checkpoints"
+      },
+      "visualize": {
+        "dir": "./outputs"
+      },
+      "ST3DUNET": {
+        "INPUT_CHANNELS": 4,
+        "OUTPUT_CHANNELS": 6,
+        "ENCODER_WIDTHS": [
+          32,
+          32,
+          32,
+          64
+        ],
+        "DECODER_WIDTHS": [
+          16,
+          16,
+          32,
+          64
+        ],
+        "MLP": [
+          128,
+          64
+        ],
+        "STR_CONV_K": 4,
+        "STR_CONV_S": 2,
+        "STR_CONV_P": 1,
+        "N_HEAD": 16,
+        "D_MODEL": 128,
+        "D_K": 4,
+        "PAD_VALUE": 0,
+        "SPATIAL_ATTENTION": {
+          "IMAGE_SIZE": 128,
+          "EMB_DIM": 128,
+          "N_HEAD": 4,
+          "DEPTH": 2,
+          "PATCH_SIZE": 4,
+          "DROPOUT": 0.1
+        },
+        "CROSS_ATTENTION": {
+          "N_HEAD": 4,
+          "DROPOUT": 0.1
+        }
+      },
+      "loss": {
+        "mix": {
+          "ce": 1.0
+        },
+        "ignore_index": 6
+      },
+      "run": {
+        "seed": 43
+      }
+    },
+    "runtime": {
+      "python": "3.10.22",
+      "torch": "2.3.0+cu121",
+      "torchvision": "0.18.0+cu121",
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "numpy": "1.26.4",
+      "opencv-python": "4.12.0.88",
+      "rasterio": "1.4.3",
+      "pandas": "2.3.3",
+      "torchmetrics": "1.9.0",
+      "device": "NVIDIA TITAN RTX"
+    },
+    "split_file_sha256": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+    "cache_manifest_sha256": "87074cce8d43f9a3eaa6ced7f209ce80d64064017b485ad915734f45312252b4",
+    "rng_and_precision": {
+      "python_numpy_torch_seed": 43,
+      "autocast": false,
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "cudnn_allow_tf32": true,
+      "matmul_allow_tf32": false,
+      "cuda_launch_blocking": 1,
+      "cpu_threads": 2
+    },
+    "patches_and_decisions": {
+      "missing_attention_mode": "ltae, as required by the released forward output shape",
+      "scheduler": "step once at the end of each epoch, eta_min=1e-6",
+      "training_loop": "reuse official train_one_epoch and train loader, replace broken logging and checkpointing",
+      "storage": "lossless SSD uint8 block cache generated from author dataset JPEGs with the pinned torchvision",
+      "selection": "independently maximize val mIoU per spatial domain, first epoch wins ties",
+      "final_test": "after final checkpoint, frozen best checkpoints against explicit split=test, batch=1, original SCDMetric, raw JPEG"
+    }
+  },
+  "current_processes_and_units": {
+    "observed_at": "2026-11-19T06:00:10.862251+08:00",
+    "boot_id": "3d4205b5-7af9-497e-9d0c-690a0c7641a9",
+    "paused": false,
+    "pause_flags": {
+      "/home/user/work_st3d/pub_st3d_pkg_1109/results/AGENT_PAUSE": false,
+      "/home/user/work_st3d/pub_st3d_pkg_1109/AGENT_PAUSE": false
+    },
+    "gpu_execution_blocked": false,
+    "project_processes": [
+      {
+        "pid": 25568,
+        "ppid": 1720,
+        "argv": [
+          "/usr/bin/systemd-inhibit",
+          "--what=sleep:idle",
+          "--mode=block",
+          "--who=railseg-jia-st3d",
+          "--why=ST3D-followup",
+          "/home/user/d2ls_pkg_1027/.venv/bin/python",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/pub_st3d_pkg_1109/results/agent_sync_st3d.py",
+          "--loop",
+          "900"
+        ],
+        "cwd": "/home/user/work_st3d/pub_st3d_pkg_1109",
+        "state": "S",
+        "start_ticks": 452747,
+        "os_created_at": "2026-11-18T15:30:48.470000+08:00",
+        "role": "authorized_status_reporter"
+      },
+      {
+        "pid": 25570,
+        "ppid": 25568,
+        "argv": [
+          "/home/user/d2ls_pkg_1027/.venv/bin/python",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/pub_st3d_pkg_1109/results/agent_sync_st3d.py",
+          "--loop",
+          "900"
+        ],
+        "cwd": "/home/user/work_st3d/pub_st3d_pkg_1109",
+        "state": "S",
+        "start_ticks": 452748,
+        "os_created_at": "2026-11-18T15:30:48.480000+08:00",
+        "role": "authorized_status_reporter"
+      },
+      {
+        "pid": 25615,
+        "ppid": 1720,
+        "argv": [
+          "/home/user/work_st3d/E002_1112/env/bin/python",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/den_history_1117_v3_fp32/report_status.py",
+          "--name",
+          "jia",
+          "--out-root",
+          "/home/user/work_st3d/e015_v3_fp32_runs_s43_1117",
+          "--loop",
+          "900"
+        ],
+        "cwd": "/home/user/work_st3d",
+        "state": "S",
+        "start_ticks": 454428,
+        "os_created_at": "2026-11-18T15:31:05.280000+08:00",
+        "role": "authorized_status_reporter"
+      },
+      {
+        "pid": 93823,
+        "ppid": 1720,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_v2_ops_1119/formal_supervisor.py"
+        ],
+        "cwd": "/home/user/work_st3d",
+        "state": "S",
+        "start_ticks": 5627612,
+        "os_created_at": "2026-11-19T05:53:17.120000+08:00",
+        "role": "T34_v2_supervisor"
+      },
+      {
+        "pid": 93826,
+        "ppid": 93823,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/run_pair.py",
+          "--seed",
+          "43",
+          "--runs",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2"
+        ],
+        "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+        "state": "S",
+        "start_ticks": 5627622,
+        "os_created_at": "2026-11-19T05:53:17.220000+08:00",
+        "role": "T34_v2_official_runner"
+      },
+      {
+        "pid": 94210,
+        "ppid": 93826,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--seed",
+          "43",
+          "--method",
+          "orig",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+        ],
+        "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+        "state": "R",
+        "start_ticks": 5638976,
+        "os_created_at": "2026-11-19T05:55:10.760000+08:00",
+        "role": "T34_v2_trainer"
+      },
+      {
+        "pid": 94257,
+        "ppid": 94210,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--seed",
+          "43",
+          "--method",
+          "orig",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+        ],
+        "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+        "state": "S",
+        "start_ticks": 5639677,
+        "os_created_at": "2026-11-19T05:55:17.770000+08:00",
+        "role": "T34_v2_data_worker"
+      },
+      {
+        "pid": 94259,
+        "ppid": 94210,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--seed",
+          "43",
+          "--method",
+          "orig",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+        ],
+        "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+        "state": "S",
+        "start_ticks": 5639679,
+        "os_created_at": "2026-11-19T05:55:17.790000+08:00",
+        "role": "T34_v2_data_worker"
+      },
+      {
+        "pid": 94261,
+        "ppid": 94210,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--seed",
+          "43",
+          "--method",
+          "orig",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+        ],
+        "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+        "state": "S",
+        "start_ticks": 5639681,
+        "os_created_at": "2026-11-19T05:55:17.810000+08:00",
+        "role": "T34_v2_data_worker"
+      },
+      {
+        "pid": 94263,
+        "ppid": 94210,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--seed",
+          "43",
+          "--method",
+          "orig",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+        ],
+        "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+        "state": "S",
+        "start_ticks": 5639683,
+        "os_created_at": "2026-11-19T05:55:17.830000+08:00",
+        "role": "T34_v2_data_worker"
+      }
+    ],
+    "project_training_controller_or_export_processes": [],
+    "project_already_idle": false,
+    "old_project_jobs_zero": true,
+    "T34_trainers": [
+      {
+        "pid": 94210,
+        "ppid": 93826,
+        "argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--seed",
+          "43",
+          "--method",
+          "orig",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+        ],
+        "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+        "state": "R",
+        "start_ticks": 5638976,
+        "os_created_at": "2026-11-19T05:55:10.760000+08:00",
+        "role": "T34_v2_trainer"
+      }
+    ],
+    "units": {
+      "railseg-jia-e002-pipeline-1112.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-e002-safety-observer-1112.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-st3d-1109.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-st3d-watch-1109.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-t22-1115.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-t22-v2-1115.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-t22-v2-full-1115.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-e015-fp32-1117.service": {
+        "MainPID": "0",
+        "Result": "success",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      },
+      "railseg-jia-sync-st3d-1109.service": {
+        "MainPID": "25568",
+        "Result": "success",
+        "ActiveState": "active",
+        "SubState": "running"
+      },
+      "railseg-jia-e015-fp32-report-1117.service": {
+        "MainPID": "25615",
+        "Result": "success",
+        "ActiveState": "active",
+        "SubState": "running"
+      },
+      "railseg-jia-t34-v2-1119.service": {
+        "Restart": "no",
+        "MainPID": "93823",
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "KillMode": "control-group",
+        "ActiveState": "active",
+        "SubState": "running"
+      }
+    }
+  },
+  "formal_window_compact": [
+    {
+      "at": "2026-11-19T05:55:59.173956+08:00",
+      "status": {
+        "time": "2026-11-19T05:55:58+08:00",
+        "pid": 94210,
+        "created_unix": 1795038910.76,
+        "phase": "training",
+        "epoch": 1,
+        "epochs": 250,
+        "step": 222,
+        "steps_per_epoch": 1650,
+        "optimizer_updates": 222,
+        "learning_rate": 0.0001,
+        "steps_per_second": 5.449847297053851,
+        "gpu_peak_MiB": 676
+      },
+      "temperature": {
+        "gpu_temp": "69 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "fan_speed": "45 %",
+      "clock_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Not Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      }
+    },
+    {
+      "at": "2026-11-19T05:56:09.328371+08:00",
+      "status": {
+        "time": "2026-11-19T05:55:58+08:00",
+        "pid": 94210,
+        "created_unix": 1795038910.76,
+        "phase": "training",
+        "epoch": 1,
+        "epochs": 250,
+        "step": 222,
+        "steps_per_epoch": 1650,
+        "optimizer_updates": 222,
+        "learning_rate": 0.0001,
+        "steps_per_second": 5.449847297053851,
+        "gpu_peak_MiB": 676
+      },
+      "temperature": {
+        "gpu_temp": "70 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "fan_speed": "47 %",
+      "clock_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Not Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Not Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      }
+    },
+    {
+      "at": "2026-11-19T05:56:19.496882+08:00",
+      "status": {
+        "time": "2026-11-19T05:56:18+08:00",
+        "pid": 94210,
+        "created_unix": 1795038910.76,
+        "phase": "training",
+        "epoch": 1,
+        "epochs": 250,
+        "step": 332,
+        "steps_per_epoch": 1650,
+        "optimizer_updates": 332,
+        "learning_rate": 0.0001,
+        "steps_per_second": 5.460542535756023,
+        "gpu_peak_MiB": 676
+      },
+      "temperature": {
+        "gpu_temp": "71 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "fan_speed": "48 %",
+      "clock_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Not Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Not Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      }
+    },
+    {
+      "at": "2026-11-19T05:56:29.667206+08:00",
+      "status": {
+        "time": "2026-11-19T05:56:18+08:00",
+        "pid": 94210,
+        "created_unix": 1795038910.76,
+        "phase": "training",
+        "epoch": 1,
+        "epochs": 250,
+        "step": 332,
+        "steps_per_epoch": 1650,
+        "optimizer_updates": 332,
+        "learning_rate": 0.0001,
+        "steps_per_second": 5.460542535756023,
+        "gpu_peak_MiB": 676
+      },
+      "temperature": {
+        "gpu_temp": "72 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "fan_speed": "50 %",
+      "clock_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Not Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      }
+    },
+    {
+      "at": "2026-11-19T05:56:39.818315+08:00",
+      "status": {
+        "time": "2026-11-19T05:56:38+08:00",
+        "pid": 94210,
+        "created_unix": 1795038910.76,
+        "phase": "training",
+        "epoch": 1,
+        "epochs": 250,
+        "step": 442,
+        "steps_per_epoch": 1650,
+        "optimizer_updates": 442,
+        "learning_rate": 0.0001,
+        "steps_per_second": 5.467207415454553,
+        "gpu_peak_MiB": 676
+      },
+      "temperature": {
+        "gpu_temp": "74 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "fan_speed": "51 %",
+      "clock_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Not Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      }
+    },
+    {
+      "at": "2026-11-19T05:56:49.973829+08:00",
+      "status": {
+        "time": "2026-11-19T05:56:38+08:00",
+        "pid": 94210,
+        "created_unix": 1795038910.76,
+        "phase": "training",
+        "epoch": 1,
+        "epochs": 250,
+        "step": 442,
+        "steps_per_epoch": 1650,
+        "optimizer_updates": 442,
+        "learning_rate": 0.0001,
+        "steps_per_second": 5.467207415454553,
+        "gpu_peak_MiB": 676
+      },
+      "temperature": {
+        "gpu_temp": "74 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "fan_speed": "52 %",
+      "clock_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Not Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      }
+    },
+    {
+      "at": "2026-11-19T05:57:00.129284+08:00",
+      "status": {
+        "time": "2026-11-19T05:56:58+08:00",
+        "pid": 94210,
+        "created_unix": 1795038910.76,
+        "phase": "training",
+        "epoch": 1,
+        "epochs": 250,
+        "step": 551,
+        "steps_per_epoch": 1650,
+        "optimizer_updates": 551,
+        "learning_rate": 0.0001,
+        "steps_per_second": 5.463712082077886,
+        "gpu_peak_MiB": 676
+      },
+      "temperature": {
+        "gpu_temp": "75 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "fan_speed": "53 %",
+      "clock_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Not Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      }
+    }
+  ],
+  "source_provenance": {
+    "observed_at": "2026-11-19T05:47:15.187234+08:00",
+    "unchanged_files": [
+      "pse_net.py",
+      "run_pair.py",
+      "source_snapshot.json",
+      "st3d_repro.py",
+      "stage_den_cache.py",
+      "upstream/README.md",
+      "upstream/configs/dynamicearthnet.yaml",
+      "upstream/configs/dynamicearthnetmsi.yaml",
+      "upstream/configs/muds.yaml",
+      "upstream/data/__init__.py",
+      "upstream/data/data.py",
+      "upstream/data/datamodule.py",
+      "upstream/data/transforms.py",
+      "upstream/main.py",
+      "upstream/metrics/scd_metrics.py",
+      "upstream/models/losses.py",
+      "upstream/models/ltae3d.py",
+      "upstream/models/positional_encoding.py",
+      "upstream/models/st3dunet.py",
+      "upstream/train.py",
+      "upstream/utils/delete.py",
+      "upstream/utils/wrapper.py",
+      "upstream/visualize.py"
+    ],
+    "changed_official_files": [
+      "requirements_t34.txt",
+      "train_t34.py",
+      "说明.md"
+    ],
+    "model_PSE_and_adapter_unchanged": true,
+    "old_package_kept": true
+  },
+  "two_250_epoch_jobs_complete": false,
+  "weights_uploaded": false,
+  "science_source_modified": false
+}
