@@ -1,0 +1,435 @@
+{
+  "type": "T34_v2_received_preparing",
+  "instruction_id": "jia-t34-pair-s43-1119",
+  "observed_at": "2026-11-19T05:45:23.035596+08:00",
+  "current": {
+    "observed_at": "2026-11-19T05:45:23.039935+08:00",
+    "state.json": {
+      "instruction_id": "jia-t34-pair-s43-1119",
+      "version": "v2",
+      "stage": "T34_v2_preparing_environment_and_authorized_full_DEN_data",
+      "received_at": "2026-11-19T05:42:20.299573+08:00",
+      "canonical_reference": "/home/user/work_st3d/pub_st3d_pkg_1109/results/reference/accepted_20261119_0540_instruction_T34_v2.json",
+      "canonical_SHA256": "bf96a49988f73118153dcb986fc920b5078ab534a4f8f87d84d08c5a098833ed",
+      "canonical_updated_at": "2026-11-19T05:02:35+08:00",
+      "current_task": {
+        "编号": "jia-t34-pair-s43-1119",
+        "状态": "待执行（唯一有效任务，最高优先；第 2 版包）",
+        "更新时间": "2026-11-19T05:02:35+08:00",
+        "关联实验": "T34：DynamicEarthNet Planet，论文配方下原版 ST3DUNet 与单源 PSE 配对",
+        "用户授权": "2026-11-19 用户同意甲乙并行跑 T34 种子 43、44 配对，并要求停止之前所有任务、执行新任务",
+        "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/T34_%E7%94%B2%E4%B9%99%E9%85%8D%E5%AF%B9_1119.md",
+        "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_peer_1119_v2.zip",
+        "实验包SHA256": "7a3d0a5468b8f4be61756929ac34b518f55336c12cbbe2aa9c6126d628678692",
+        "包字节数": 74433,
+        "种子": 43,
+        "最多同时训练": 1,
+        "步骤": [
+          "确认此前全部任务仍处于停止状态，项目 GPU 进程为零；保留结果与检查点，不删除。",
+          "确认显卡正常：nvidia-smi 无报错、torch.cuda.is_available() 为 True、能在 GPU 上做一次小运算；不正常就停下回报，等同学本人重启，不改驱动或显卡设置。",
+          "下载第 2 版实验包、核对 SHA256，解压到新目录（不要覆盖第 1 版目录）；按包内《说明.md》第 1 节新建 Python 3.10 环境：先 pip install -r requirements_t34.txt，最后 pip install --no-deps opencv-python==4.12.0.88；核对 torch 2.3.0+cu121、torchvision 0.18.0+cu121、numpy 1.26.4、opencv 4.12.0.88。",
+          "数据：本机缺 val 或 test 区时，从 https://github.com/kuncai0218/railway-seg-runs/releases/tag/data-den-1107 下载 8 个分卷，合并、核对 DynamicEarthNet.zip 的 SHA256（38a846be…4870）后解压；补齐 train 55、val 10、test 10 区与 labels，核对 split.json 的 SHA256（311bc1b6…c819）；目录名须为 DynamicEarthNet。设 T34_DATA、T34_CACHE 后运行 stage_den_cache.py。",
+          "运行 run_pair.py --seed 43：先冒烟两组，再正式原版 250 轮、正式 PSE 250 轮，一次一个，不并跑；中断后重复同一命令续跑。",
+          "按《说明.md》第 4 节回报：收到第 2 版、环境与数据核对、冒烟、每日进度、每组完成后的 official_test.json 等；遇错停下回报完整报错，不改训练配方。"
+        ],
+        "第2版更新": "第 2 版（2026-11-19 组长，回应甲 04:38 的阻塞回报）：\n1. 入口在 Linux 上可运行：文件锁改为 Windows 用 msvcrt、Linux 用 fcntl；训练逻辑、配方、作者源码一字未动。\n2. 依赖安装顺序：先 `pip install -r requirements_t34.txt`（mkl/intel-openmp/tbb 只在 Windows 装），最后 `pip install --no-deps opencv-python==4.12.0.88`。opencv 元数据声明 numpy≥2 但实际与 numpy 1.26.4 可用，组长本机就是这个组合；入口会核对 numpy 1.26.4 与 opencv 4.12.0.88。\n3. 缺 val/test：用仓库已有发布 https://github.com/kuncai0218/railway-seg-runs/releases/tag/data-den-1107 的 8 个分卷（SitsSCD 原样转存，含 train/val/test/labels/split.json），合并后核对 DynamicEarthNet.zip 的 SHA256 `38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870`，解压后再核对 split.json 的 SHA256。\n4. 显卡：上次开机有 Xid 错误的机器，先确认 `nvidia-smi` 正常、`torch.cuda.is_available()` 为 True 且能跑一个小的 GPU 运算；不正常就停下回报，等同学本人重启，不要改驱动或显卡设置。\n第 1 版包（t34_peer_1119.zip）作废，不要再用。\n"
+      },
+      "seed": 43,
+      "max_concurrent_trainers": 1,
+      "package_directory": "/home/user/work_st3d/t34_peer_1119_v2",
+      "package_SHA256": "7a3d0a5468b8f4be61756929ac34b518f55336c12cbbe2aa9c6126d628678692",
+      "package_verified": true,
+      "source_manifest": "/home/user/work_st3d/t34_v2_ops_1119/package_file_SHA256.json",
+      "description": "/home/user/work_st3d/t34_v2_ops_1119/T34_甲乙配对_1119_v2.md",
+      "description_SHA256": "c930610f5a65be02213af0f697c8d7b4ba78748d5429eba6a628b1aa0095ad0e",
+      "environment": "/home/user/work_st3d/t34env_v2",
+      "environment_install_log": "/home/user/work_st3d/t34_v2_ops_1119/environment_install.log",
+      "authorized_data_release": "https://github.com/kuncai0218/railway-seg-runs/releases/tag/data-den-1107",
+      "data_download_directory": "/home/user/work_st3d/t34_download_1119",
+      "old_results_and_checkpoints_preserved": true,
+      "old_tasks_stopped": true,
+      "v1_package_superseded_and_preserved": "/home/user/work_st3d/t34_peer_1119",
+      "v1_failure_evidence_preserved": "/home/user/work_st3d/t34_ops_1119",
+      "specific_GPU_recovery_check_authorized": true,
+      "GPU_admission_completed": false,
+      "cache_started": false,
+      "CUDA_smoke_started": false,
+      "formal_queue_started": false,
+      "weights_uploaded": false,
+      "science_source_modified": false,
+      "received_delivery_receipt": "/home/user/work_st3d/t34_v2_ops_1119/v2_received_delivery_receipt.json",
+      "received_delivery_id": "LCVlzSbYpIug",
+      "last_preparation_observed_at": "2026-11-19T05:45:23.035596+08:00",
+      "data_download_resume_log": "/home/user/work_st3d/t34_v2_ops_1119/data_download_resume.log",
+      "data_download_resume_receipt": "/home/user/work_st3d/t34_v2_ops_1119/data_download_resume_receipt.json"
+    },
+    "package_receipt.json": {
+      "observed_at": "2026-11-19T05:39:28.188225+08:00",
+      "canonical_reference": "/home/user/work_st3d/pub_st3d_pkg_1109/results/reference/accepted_20261119_0540_instruction_T34_v2.json",
+      "canonical_SHA256": "bf96a49988f73118153dcb986fc920b5078ab534a4f8f87d84d08c5a098833ed",
+      "guide_SHA256": "c930610f5a65be02213af0f697c8d7b4ba78748d5429eba6a628b1aa0095ad0e",
+      "package_url": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_peer_1119_v2.zip",
+      "package_bytes": 74433,
+      "package_SHA256": "7a3d0a5468b8f4be61756929ac34b518f55336c12cbbe2aa9c6126d628678692",
+      "package_directory": "/home/user/work_st3d/t34_peer_1119_v2",
+      "ZIP_CRC_and_paths_passed": true,
+      "file_count": 26,
+      "frozen_source_all_match": true,
+      "attempts": [
+        {
+          "rc": 0,
+          "stderr": ""
+        }
+      ]
+    },
+    "data_download_receipt.json": [
+      {
+        "name": "DynamicEarthNet.zip.001",
+        "size": 885727896,
+        "url": "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.001",
+        "digest": "sha256:05aa3ee503d5fc6fe6a8ed8e09bbbe764e89c9ff7a174c119f0e0c5ce6871ffe",
+        "started_at": "2026-11-19T05:41:03.971553+08:00",
+        "reused_existing_verified": true,
+        "path": "/home/user/work_st3d/t34_download_1119/DynamicEarthNet.zip.001",
+        "success": true,
+        "sha256": "05aa3ee503d5fc6fe6a8ed8e09bbbe764e89c9ff7a174c119f0e0c5ce6871ffe"
+      },
+      {
+        "name": "DynamicEarthNet.zip.002",
+        "size": 885727896,
+        "url": "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.002",
+        "digest": "sha256:a06a9c6f03b14729642ad2a5d2e0e5025d40dcd44bcf77ce95bd13c299b6b99b",
+        "started_at": "2026-11-19T05:41:05.668630+08:00",
+        "reused_existing_verified": true,
+        "path": "/home/user/work_st3d/t34_download_1119/DynamicEarthNet.zip.002",
+        "success": true,
+        "sha256": "a06a9c6f03b14729642ad2a5d2e0e5025d40dcd44bcf77ce95bd13c299b6b99b"
+      },
+      {
+        "name": "DynamicEarthNet.zip.003",
+        "size": 885727896,
+        "url": "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.003",
+        "digest": "sha256:a3568d2d2a75e07a7563e623cf7762b10b209bc66b27555ece85bd1914e1bbc5",
+        "started_at": "2026-11-19T05:41:05.668809+08:00",
+        "reused_existing_verified": true,
+        "path": "/home/user/work_st3d/t34_download_1119/DynamicEarthNet.zip.003",
+        "success": true,
+        "sha256": "a3568d2d2a75e07a7563e623cf7762b10b209bc66b27555ece85bd1914e1bbc5"
+      },
+      {
+        "name": "DynamicEarthNet.zip.004",
+        "size": 885727896,
+        "url": "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.004",
+        "digest": "sha256:0ac6f3789af1e64c40ca4999dfe232dc697ca81bfc1aa1ca91c97449bffa1cbe",
+        "started_at": "2026-11-19T05:41:07.368276+08:00",
+        "returncode": 28,
+        "error_log": "/home/user/work_st3d/t34_v2_ops_1119/DynamicEarthNet.zip.004.curl.log",
+        "downloaded_bytes": 805240640,
+        "success": false
+      }
+    ],
+    "frozen_source_checks.json": {
+      "upstream/README.md": true,
+      "upstream/configs/dynamicearthnet.yaml": true,
+      "upstream/configs/dynamicearthnetmsi.yaml": true,
+      "upstream/configs/muds.yaml": true,
+      "upstream/data/__init__.py": true,
+      "upstream/data/data.py": true,
+      "upstream/data/datamodule.py": true,
+      "upstream/data/transforms.py": true,
+      "upstream/main.py": true,
+      "upstream/metrics/scd_metrics.py": true,
+      "upstream/models/losses.py": true,
+      "upstream/models/ltae3d.py": true,
+      "upstream/models/positional_encoding.py": true,
+      "upstream/models/st3dunet.py": true,
+      "upstream/train.py": true,
+      "upstream/utils/delete.py": true,
+      "upstream/utils/wrapper.py": true,
+      "upstream/visualize.py": true,
+      "st3d_repro.py": true
+    },
+    "environment_install.log": {
+      "path": "/home/user/work_st3d/t34_v2_ops_1119/environment_install.log",
+      "last_50_lines": [
+        "Collecting torchvision==0.18.0+cu121 (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 3))",
+        "  Downloading torchvision-0.18.0%2Bcu121-cp310-cp310-linux_x86_64.whl (7.0 MB)",
+        "     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 11.9 MB/s  0:00:00",
+        "Collecting numpy==1.26.4 (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 7))",
+        "  Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)",
+        "Collecting rasterio==1.4.3 (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 8))",
+        "  Downloading rasterio-1.4.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.1 kB)",
+        "Collecting pandas==2.3.3 (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 9))",
+        "  Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)",
+        "Collecting torchmetrics==1.9.0 (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 10))",
+        "  Using cached torchmetrics-1.9.0-py3-none-any.whl.metadata (23 kB)",
+        "Collecting psutil (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 11))",
+        "  Using cached psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)",
+        "Collecting PyYAML (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 12))",
+        "  Using cached pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)",
+        "Collecting tqdm (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 13))",
+        "  Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)",
+        "Collecting pillow (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 14))",
+        "  Using cached pillow-12.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)",
+        "Collecting matplotlib (from -r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 15))",
+        "  Downloading matplotlib-3.10.9-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (52 kB)",
+        "Collecting filelock (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Downloading filelock-4.1.0-py3-none-any.whl.metadata (2.0 kB)",
+        "Collecting typing-extensions>=4.8.0 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)",
+        "Collecting sympy (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)",
+        "Collecting networkx (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Using cached networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)",
+        "Collecting jinja2 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)",
+        "Collecting fsspec (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Using cached fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)",
+        "Collecting nvidia-cuda-nvrtc-cu12==12.1.105 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Downloading nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (23.7 MB)",
+        "     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 4.2 MB/s  0:00:06",
+        "Collecting nvidia-cuda-runtime-cu12==12.1.105 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Downloading nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (823 kB)",
+        "     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 823.6/823.6 kB 5.4 MB/s  0:00:00",
+        "Collecting nvidia-cuda-cupti-cu12==12.1.105 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Downloading nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (14.1 MB)",
+        "     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.1/14.1 MB 4.7 MB/s  0:00:02",
+        "Collecting nvidia-cudnn-cu12==8.9.2.26 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Downloading nvidia_cudnn_cu12-8.9.2.26-py3-none-manylinux1_x86_64.whl (731.7 MB)",
+        "     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 731.7/731.7 MB 5.3 MB/s  0:02:38",
+        "Collecting nvidia-cublas-cu12==12.1.3.1 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Downloading nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl (410.6 MB)",
+        "     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 410.6/410.6 MB 6.9 MB/s  0:01:02",
+        "Collecting nvidia-cufft-cu12==11.0.2.54 (from torch==2.3.0+cu121->-r /home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt (line 2))",
+        "  Downloading nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl (121.6 MB)"
+      ]
+    },
+    "data_download.log": {
+      "path": "/home/user/work_st3d/t34_v2_ops_1119/data_download.log",
+      "last_50_lines": [
+        "REUSE DynamicEarthNet.zip.001",
+        "REUSE DynamicEarthNet.zip.002",
+        "REUSE DynamicEarthNet.zip.003",
+        "RESULT {\"name\": \"DynamicEarthNet.zip.004\", \"size\": 885727896, \"url\": \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.004\", \"digest\": \"sha256:0ac6f3789af1e64c40ca4999dfe232dc697ca81bfc1aa1ca91c97449bffa1cbe\", \"started_at\": \"2026-11-19T05:41:07.368276+08:00\", \"returncode\": 28, \"error_log\": \"/home/user/work_st3d/t34_v2_ops_1119/DynamicEarthNet.zip.004.curl.log\", \"downloaded_bytes\": 805240640, \"success\": false}",
+        "RESULT {\"name\": \"DynamicEarthNet.zip.005\", \"size\": 885727896, \"url\": \"https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.005\", \"digest\": \"sha256:4f1ad472c2c1530426a6e146b0e2d94e3378f33344a3f950e484452ea5d4a68e\", \"started_at\": \"2026-11-19T05:41:07.372501+08:00\", \"returncode\": 28, \"error_log\": \"/home/user/work_st3d/t34_v2_ops_1119/DynamicEarthNet.zip.005.curl.log\", \"downloaded_bytes\": 632529408, \"success\": false}"
+      ]
+    },
+    "current_project_process_check": {
+      "observed_at": "2026-11-19T05:45:23.044721+08:00",
+      "boot_id": "3d4205b5-7af9-497e-9d0c-690a0c7641a9",
+      "paused": true,
+      "pause_flags": {
+        "/home/user/work_st3d/pub_st3d_pkg_1109/results/AGENT_PAUSE": true,
+        "/home/user/work_st3d/pub_st3d_pkg_1109/AGENT_PAUSE": true
+      },
+      "gpu_execution_blocked": true,
+      "project_processes": [
+        {
+          "pid": 25568,
+          "argv": [
+            "/usr/bin/systemd-inhibit",
+            "--what=sleep:idle",
+            "--mode=block",
+            "--who=railseg-jia-st3d",
+            "--why=ST3D-followup",
+            "/home/user/d2ls_pkg_1027/.venv/bin/python",
+            "-u",
+            "-X",
+            "utf8",
+            "/home/user/work_st3d/pub_st3d_pkg_1109/results/agent_sync_st3d.py",
+            "--loop",
+            "900"
+          ],
+          "cwd": "/home/user/work_st3d/pub_st3d_pkg_1109",
+          "state": "S",
+          "start_ticks": 452747,
+          "os_created_at": "2026-11-18T15:30:48.470000+08:00",
+          "role": "authorized_status_reporter"
+        },
+        {
+          "pid": 25570,
+          "argv": [
+            "/home/user/d2ls_pkg_1027/.venv/bin/python",
+            "-u",
+            "-X",
+            "utf8",
+            "/home/user/work_st3d/pub_st3d_pkg_1109/results/agent_sync_st3d.py",
+            "--loop",
+            "900"
+          ],
+          "cwd": "/home/user/work_st3d/pub_st3d_pkg_1109",
+          "state": "S",
+          "start_ticks": 452748,
+          "os_created_at": "2026-11-18T15:30:48.480000+08:00",
+          "role": "authorized_status_reporter"
+        },
+        {
+          "pid": 25615,
+          "argv": [
+            "/home/user/work_st3d/E002_1112/env/bin/python",
+            "-u",
+            "-X",
+            "utf8",
+            "/home/user/work_st3d/den_history_1117_v3_fp32/report_status.py",
+            "--name",
+            "jia",
+            "--out-root",
+            "/home/user/work_st3d/e015_v3_fp32_runs_s43_1117",
+            "--loop",
+            "900"
+          ],
+          "cwd": "/home/user/work_st3d",
+          "state": "S",
+          "start_ticks": 454428,
+          "os_created_at": "2026-11-18T15:31:05.280000+08:00",
+          "role": "authorized_status_reporter"
+        },
+        {
+          "pid": 92488,
+          "argv": [
+            "/home/user/work_st3d/t34env_v2/bin/python",
+            "-m",
+            "pip",
+            "install",
+            "-r",
+            "/home/user/work_st3d/t34_peer_1119_v2/requirements_t34.txt"
+          ],
+          "cwd": "/home/user/同学分割实验包_1026",
+          "state": "S",
+          "start_ticks": 5546813,
+          "os_created_at": "2026-11-19T05:39:49.130000+08:00",
+          "role": "T34_v2_environment_preparation"
+        },
+        {
+          "pid": 92926,
+          "argv": [
+            "python3",
+            "-u",
+            "/home/user/work_st3d/t34_v2_ops_1119/download_DEN_parts.py"
+          ],
+          "cwd": "/home/user/同学分割实验包_1026",
+          "state": "S",
+          "start_ticks": 5575963,
+          "os_created_at": "2026-11-19T05:44:40.630000+08:00",
+          "role": "T34_v2_authorized_data_download_controller"
+        },
+        {
+          "pid": 92931,
+          "argv": [
+            "curl",
+            "--location",
+            "--fail",
+            "--show-error",
+            "--silent",
+            "--connect-timeout",
+            "8",
+            "--max-time",
+            "1800",
+            "--continue-at",
+            "-",
+            "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.005",
+            "-o",
+            "/home/user/work_st3d/t34_download_1119/DynamicEarthNet.zip.005.partial"
+          ],
+          "cwd": "/home/user/同学分割实验包_1026",
+          "state": "S",
+          "start_ticks": 5575966,
+          "os_created_at": "2026-11-19T05:44:40.660000+08:00",
+          "role": "T34_v2_authorized_data_download"
+        },
+        {
+          "pid": 92957,
+          "argv": [
+            "curl",
+            "--location",
+            "--fail",
+            "--show-error",
+            "--silent",
+            "--connect-timeout",
+            "8",
+            "--max-time",
+            "1800",
+            "--continue-at",
+            "-",
+            "https://github.com/kuncai0218/railway-seg-runs/releases/download/data-den-1107/DynamicEarthNet.zip.006",
+            "-o",
+            "/home/user/work_st3d/t34_download_1119/DynamicEarthNet.zip.006.partial"
+          ],
+          "cwd": "/home/user/同学分割实验包_1026",
+          "state": "R",
+          "start_ticks": 5577623,
+          "os_created_at": "2026-11-19T05:44:57.230000+08:00",
+          "role": "T34_v2_authorized_data_download"
+        }
+      ],
+      "project_training_controller_or_export_processes": [],
+      "project_already_idle": true,
+      "units": {
+        "railseg-jia-e002-pipeline-1112.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-e002-safety-observer-1112.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-st3d-1109.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-st3d-watch-1109.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-t22-1115.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-t22-v2-1115.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-t22-v2-full-1115.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-e015-fp32-1117.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-sync-st3d-1109.service": {
+          "MainPID": "25568",
+          "Result": "success",
+          "ActiveState": "active",
+          "SubState": "running"
+        },
+        "railseg-jia-e015-fp32-report-1117.service": {
+          "MainPID": "25615",
+          "Result": "success",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    }
+  },
+  "old_project_training_stopped": true,
+  "formal_T34_training_started": false,
+  "CUDA_health_check_performed": false,
+  "v1_blocker_report_preserved": "/home/user/work_st3d/t34_ops_1119/received_preflight_blocked_20261119_0438.json"
+}
