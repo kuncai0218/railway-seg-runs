@@ -1,0 +1,1113 @@
+{
+  "report_type": "T34_Jia_received_and_preflight_blocked",
+  "observed_at": "2026-11-19T04:38:22.672005+08:00",
+  "instruction_id": "jia-t34-pair-s43-1119",
+  "received": true,
+  "old_project_jobs_already_stopped_verified": true,
+  "training_started": false,
+  "preflight": {
+    "observed_at": "2026-11-19T04:38:22.613666+08:00",
+    "state.json": {
+      "instruction_id": "jia-t34-pair-s43-1119",
+      "stage": "T34_received_preflight_blocked_missing_val_test_dependency_conflict_Linux_entry",
+      "received_at": "2026-11-19T04:37:59.652279+08:00",
+      "canonical_reference": "/home/user/work_st3d/pub_st3d_pkg_1109/results/reference/accepted_20261119_0438_instruction_T34.json",
+      "canonical_SHA256": "2d00ccb14191a1b1f696f8ba2ebaf52749700dbfeca03bae14dfbc4b5b21e760",
+      "canonical_updated_at": "2026-11-19T04:18:55+08:00",
+      "latest_task_explicitly_supersedes_old_top_scope_and_priority": true,
+      "stale_top_level_scope": "暂停及保存已有成果，回传本机状态；本轮未分配新的 GPU 实验。",
+      "stale_top_level_priority": [
+        "jia-den-baseline-hold-1119"
+      ],
+      "current_task": {
+        "编号": "jia-t34-pair-s43-1119",
+        "状态": "待执行（唯一有效任务，最高优先）",
+        "更新时间": "2026-11-19T04:18:55+08:00",
+        "关联实验": "T34：DynamicEarthNet Planet，论文配方下原版 ST3DUNet 与单源 PSE 配对",
+        "用户授权": "2026-11-19 用户同意甲乙并行跑 T34 种子 43、44 配对，并要求停止之前所有任务、执行新任务",
+        "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/T34_%E7%94%B2%E4%B9%99%E9%85%8D%E5%AF%B9_1119.md",
+        "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_peer_1119.zip",
+        "实验包SHA256": "b11a48f1fdd5b91907266cd36ada5d216eced12a2cc88a7699c1aae23b6cc83d",
+        "包字节数": 73754,
+        "种子": 43,
+        "最多同时训练": 1,
+        "步骤": [
+          "先停止本机本项目的所有训练、排队器和自动续跑（E021、E015、E013、E002、T28 等一切旧条目），用进程列表确认项目 GPU 进程为零；保留结果与检查点，不删除。",
+          "下载实验包、核对 SHA256，解压到新目录；按包内《说明.md》新建 D:\\t34env（Python 3.10，requirements_t34.txt 锁定版本），确认 torch 2.3.0+cu121、CUDA 可用。",
+          "在本机找 SitsSCD 版 DynamicEarthNet 全量（train/val/test、labels、split.json），核对 split.json 的 SHA256；目录名须为 DynamicEarthNet。设 T34_DATA、T34_CACHE 后运行 stage_den_cache.py。缺 val 或 test 区就回报缺项，不要自行换数据。",
+          "运行 run_pair.py --seed 43：先冒烟两组，再正式原版 250 轮、正式 PSE 250 轮，一次一个，不并跑；中断后重复同一命令续跑。",
+          "按《说明.md》第 4 节回报：收到与停止旧任务的确认、环境与数据核对、冒烟、每日进度、每组完成后的 official_test.json 等；遇错停下回报完整报错，不改训练配方。"
+        ]
+      },
+      "seed": 43,
+      "max_concurrent_trainers": 1,
+      "package_verified": true,
+      "package_directory": "/home/user/work_st3d/t34_peer_1119",
+      "package_SHA256": "b11a48f1fdd5b91907266cd36ada5d216eced12a2cc88a7699c1aae23b6cc83d",
+      "source_manifest": "/home/user/work_st3d/t34_ops_1119/package_file_SHA256.json",
+      "description": "/home/user/work_st3d/t34_ops_1119/T34_甲乙配对_1119.md",
+      "description_SHA256": "e337f8036e6518f7c3d9c0616fe002264f6a4f295eaa6735d197d3d5cd78d7f2",
+      "old_tasks_stopped_and_must_not_resume": true,
+      "old_results_and_checkpoints_preserved": true,
+      "old_tasks_processes_zero_verified": true,
+      "old_tasks_zero_process_evidence": "/home/user/work_st3d/E002_1112/heartbeat_inspection_20261119_043330.json",
+      "blocking_reasons": [
+        "Full SitsSCD DEN missing all 10 val and 10 test regions (RGB/NIR images and labels); train55 and exact split SHA present. Acquisition method required from official source.",
+        "Pinned opencv-python 4.12.0.88 requires numpy>=2,<2.3.0 on Python3.10; pinned numpy1.26.4 incompatible. Full dependency solver error retained; no pins changed.",
+        "Official train_t34.py imports Windows-only msvcrt at line7 and fails on Linux before torch/CUDA. Full traceback retained; frozen code unchanged.",
+        "Previous boot Xid62/154/109 GPU incident remains blocked; current management query recovery is not CUDA recovery."
+      ],
+      "new_environment": "/home/user/work_st3d/t34env",
+      "environment_receipt": "/home/user/work_st3d/t34_ops_1119/environment_receipt.json",
+      "data_inventory": "/home/user/work_st3d/t34_ops_1119/CPU_data_inventory.json",
+      "raw_candidate": "/home/user/work_st3d/E002_1112/den_raw_source55",
+      "split_SHA256": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+      "missing_val_regions": [
+        "1973_3709_13",
+        "2789_4694_13",
+        "4666_2369_13",
+        "6353_3661_13",
+        "6761_3129_13",
+        "2569_4513_13",
+        "4062_3943_13",
+        "5830_3834_13",
+        "7517_4908_13",
+        "6678_3579_13"
+      ],
+      "missing_test_regions": [
+        "1286_2921_13",
+        "2196_3885_13",
+        "4523_4210_13",
+        "5195_3388_13",
+        "5912_3937_13",
+        "1330_3107_13",
+        "3830_3914_13",
+        "4553_3325_13",
+        "5754_3601_13",
+        "6752_3104_13"
+      ],
+      "cache_started": false,
+      "CUDA_smoke_started": false,
+      "formal_queue_started": false,
+      "torch_weights_loaded_or_hashed": false,
+      "science_source_modified": false,
+      "GPU_settings_modified": false,
+      "status_reporters_preserved": true,
+      "pending_strict_note_id": "bt3ZFY7bR8VD"
+    },
+    "CPU_data_inventory.json": {
+      "observed_at": "2026-11-19T04:36:27.238631+08:00",
+      "search_scope": [
+        "/home/user",
+        "/mnt/check250"
+      ],
+      "search_candidates_file": "/home/user/work_st3d/t34_ops_1119/local_split_candidates.txt",
+      "candidate_root": "/home/user/work_st3d/E002_1112/den_raw_source55",
+      "required_root_basename": "DynamicEarthNet",
+      "current_basename_matches": false,
+      "split_SHA256": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+      "expected_split_SHA256": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+      "partitions": {
+        "train": {
+          "expected_regions": 55,
+          "image_regions_present": 55,
+          "label_regions_present": 55,
+          "missing_image_regions": [],
+          "missing_label_regions": [],
+          "missing_RGB_NIR_files": 0,
+          "regions": [
+            {
+              "tile": "1311_3077_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "1417_3281_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "1487_3335_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "1700_3100_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2006_3280_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2029_3764_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2065_3647_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2415_3082_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2235_3403_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2459_4406_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2470_5030_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2528_4620_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2624_4314_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2697_3715_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "3002_4273_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4223_3246_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2832_4366_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "2850_4139_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4169_3944_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4127_2991_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4622_3159_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4397_4302_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4426_3835_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4421_3800_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4240_3972_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4254_2915_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "3998_3016_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4768_4131_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "5125_4049_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4780_3377_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4791_3920_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4881_3344_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4856_4087_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4838_3506_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "4806_3588_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "5111_4560_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "7026_3201_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6381_3681_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "5989_3554_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "5926_3715_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "5863_3800_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6824_4117_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6813_3313_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6810_3478_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6752_3115_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6730_3430_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6204_3495_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "8077_5007_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "7513_4968_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "7367_5050_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "7312_3008_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6688_3456_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6466_3380_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6468_3360_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            },
+            {
+              "tile": "6475_3361_13",
+              "image_directory_exists": true,
+              "RGB_NIR_images_present": 1460,
+              "RGB_NIR_images_missing": 0,
+              "label_exists": true
+            }
+          ]
+        },
+        "val": {
+          "expected_regions": 10,
+          "image_regions_present": 0,
+          "label_regions_present": 0,
+          "missing_image_regions": [
+            "1973_3709_13",
+            "2789_4694_13",
+            "4666_2369_13",
+            "6353_3661_13",
+            "6761_3129_13",
+            "2569_4513_13",
+            "4062_3943_13",
+            "5830_3834_13",
+            "7517_4908_13",
+            "6678_3579_13"
+          ],
+          "missing_label_regions": [
+            "1973_3709_13",
+            "2789_4694_13",
+            "4666_2369_13",
+            "6353_3661_13",
+            "6761_3129_13",
+            "2569_4513_13",
+            "4062_3943_13",
+            "5830_3834_13",
+            "7517_4908_13",
+            "6678_3579_13"
+          ],
+          "missing_RGB_NIR_files": 14600,
+          "regions": [
+            {
+              "tile": "1973_3709_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "2789_4694_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "4666_2369_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "6353_3661_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "6761_3129_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "2569_4513_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "4062_3943_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "5830_3834_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "7517_4908_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "6678_3579_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            }
+          ]
+        },
+        "test": {
+          "expected_regions": 10,
+          "image_regions_present": 0,
+          "label_regions_present": 0,
+          "missing_image_regions": [
+            "1286_2921_13",
+            "2196_3885_13",
+            "4523_4210_13",
+            "5195_3388_13",
+            "5912_3937_13",
+            "1330_3107_13",
+            "3830_3914_13",
+            "4553_3325_13",
+            "5754_3601_13",
+            "6752_3104_13"
+          ],
+          "missing_label_regions": [
+            "1286_2921_13",
+            "2196_3885_13",
+            "4523_4210_13",
+            "5195_3388_13",
+            "5912_3937_13",
+            "1330_3107_13",
+            "3830_3914_13",
+            "4553_3325_13",
+            "5754_3601_13",
+            "6752_3104_13"
+          ],
+          "missing_RGB_NIR_files": 14600,
+          "regions": [
+            {
+              "tile": "1286_2921_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "2196_3885_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "4523_4210_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "5195_3388_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "5912_3937_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "1330_3107_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "3830_3914_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "4553_3325_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "5754_3601_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            },
+            {
+              "tile": "6752_3104_13",
+              "image_directory_exists": false,
+              "RGB_NIR_images_present": 0,
+              "RGB_NIR_images_missing": 1460,
+              "label_exists": false
+            }
+          ]
+        }
+      },
+      "label_arrays_loaded": false,
+      "image_pixels_decoded": false,
+      "existing_cache_rehashed_or_changed": false,
+      "T34_cache_started": false,
+      "SSD_free_bytes": 113781481472,
+      "data_complete": false
+    },
+    "environment_receipt.json": {
+      "observed_at": "2026-11-19T04:37:59.652279+08:00",
+      "OS": "Linux",
+      "new_environment": "/home/user/work_st3d/t34env",
+      "python": "Python 3.10.22",
+      "torch_installed": false,
+      "torchvision_installed": false,
+      "dependency_resolution_success": false,
+      "dependency_error_full": "Using Python 3.10.22 environment at: /home/user/work_st3d/t34env\nerror: No solution found when resolving dependencies\n  cause: Because opencv-python==4.12.0.88 depends on numpy>=2,<2.3.0 and you require numpy==1.26.4, we can conclude that your requirements and opencv-python==4.12.0.88 are incompatible.\n         And because you require opencv-python==4.12.0.88, we can conclude that your requirements are unsatisfiable.\n",
+      "official_entry_import_check_returncode": 1,
+      "official_entry_error_full": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/t34_peer_1119/train_t34.py\", line 7, in <module>\n    import msvcrt\nModuleNotFoundError: No module named 'msvcrt'\n",
+      "CUDA_initialized": false,
+      "old_environments_modified": false,
+      "requirements_modified": false,
+      "initial_pip_dry_run_log": "/home/user/work_st3d/t34_ops_1119/environment_resolve.log",
+      "initial_pip_dry_run_interrupted_to_avoid_unneeded_781MB_download": true,
+      "metadata_only_resolution_used": true
+    },
+    "fetch_receipts.json": {
+      "guide": {
+        "url": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/T34_%E7%94%B2%E4%B9%99%E9%85%8D%E5%AF%B9_1119.md",
+        "attempts": [
+          {
+            "rc": 0,
+            "stderr": "",
+            "path": "/home/user/work_st3d/t34_ops_1119/guide_fetch_attempt1.raw"
+          }
+        ],
+        "success": true,
+        "observed_at": "2026-11-19T04:34:18.763941+08:00",
+        "path": "/home/user/work_st3d/t34_ops_1119/T34_甲乙配对_1119.md",
+        "bytes": 3738,
+        "SHA256": "e337f8036e6518f7c3d9c0616fe002264f6a4f295eaa6735d197d3d5cd78d7f2"
+      },
+      "package": {
+        "url": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_peer_1119.zip",
+        "attempts": [
+          {
+            "rc": 0,
+            "stderr": "",
+            "path": "/home/user/work_st3d/t34_ops_1119/package_fetch_attempt1.raw"
+          }
+        ],
+        "success": true,
+        "observed_at": "2026-11-19T04:34:19.725356+08:00",
+        "path": "/home/user/work_st3d/t34_ops_1119/t34_peer_1119.zip",
+        "bytes": 73754,
+        "SHA256": "b11a48f1fdd5b91907266cd36ada5d216eced12a2cc88a7699c1aae23b6cc83d",
+        "ZIP_members": [
+          "t34_peer_1119/pse_net.py",
+          "t34_peer_1119/requirements_t34.txt",
+          "t34_peer_1119/run_pair.py",
+          "t34_peer_1119/source_snapshot.json",
+          "t34_peer_1119/st3d_repro.py",
+          "t34_peer_1119/stage_den_cache.py",
+          "t34_peer_1119/train_t34.py",
+          "t34_peer_1119/upstream/configs/dynamicearthnet.yaml",
+          "t34_peer_1119/upstream/configs/dynamicearthnetmsi.yaml",
+          "t34_peer_1119/upstream/configs/muds.yaml",
+          "t34_peer_1119/upstream/data/__init__.py",
+          "t34_peer_1119/upstream/data/data.py",
+          "t34_peer_1119/upstream/data/datamodule.py",
+          "t34_peer_1119/upstream/data/transforms.py",
+          "t34_peer_1119/upstream/main.py",
+          "t34_peer_1119/upstream/metrics/scd_metrics.py",
+          "t34_peer_1119/upstream/models/losses.py",
+          "t34_peer_1119/upstream/models/ltae3d.py",
+          "t34_peer_1119/upstream/models/positional_encoding.py",
+          "t34_peer_1119/upstream/models/st3dunet.py",
+          "t34_peer_1119/upstream/README.md",
+          "t34_peer_1119/upstream/train.py",
+          "t34_peer_1119/upstream/utils/delete.py",
+          "t34_peer_1119/upstream/utils/wrapper.py",
+          "t34_peer_1119/upstream/visualize.py",
+          "t34_peer_1119/说明.md"
+        ]
+      }
+    },
+    "frozen_source_checks.json": {
+      "upstream/README.md": true,
+      "upstream/configs/dynamicearthnet.yaml": true,
+      "upstream/configs/dynamicearthnetmsi.yaml": true,
+      "upstream/configs/muds.yaml": true,
+      "upstream/data/__init__.py": true,
+      "upstream/data/data.py": true,
+      "upstream/data/datamodule.py": true,
+      "upstream/data/transforms.py": true,
+      "upstream/main.py": true,
+      "upstream/metrics/scd_metrics.py": true,
+      "upstream/models/losses.py": true,
+      "upstream/models/ltae3d.py": true,
+      "upstream/models/positional_encoding.py": true,
+      "upstream/models/st3dunet.py": true,
+      "upstream/train.py": true,
+      "upstream/utils/delete.py": true,
+      "upstream/utils/wrapper.py": true,
+      "upstream/visualize.py": true,
+      "st3d_repro.py": true
+    },
+    "official_entry_import_check.log": {
+      "path": "/home/user/work_st3d/t34_ops_1119/official_entry_import_check.log",
+      "text": "Traceback (most recent call last):\n  File \"/home/user/work_st3d/t34_peer_1119/train_t34.py\", line 7, in <module>\n    import msvcrt\nModuleNotFoundError: No module named 'msvcrt'\n"
+    },
+    "environment_resolve_metadata.log": {
+      "path": "/home/user/work_st3d/t34_ops_1119/environment_resolve_metadata.log",
+      "text": "Using Python 3.10.22 environment at: /home/user/work_st3d/t34env\nerror: No solution found when resolving dependencies\n  cause: Because opencv-python==4.12.0.88 depends on numpy>=2,<2.3.0 and you require numpy==1.26.4, we can conclude that your requirements and opencv-python==4.12.0.88 are incompatible.\n         And because you require opencv-python==4.12.0.88, we can conclude that your requirements are unsatisfiable.\n"
+    },
+    "current_project_process_check": {
+      "observed_at": "2026-11-19T04:38:22.615345+08:00",
+      "boot_id": "3d4205b5-7af9-497e-9d0c-690a0c7641a9",
+      "paused": true,
+      "pause_flags": {
+        "/home/user/work_st3d/pub_st3d_pkg_1109/results/AGENT_PAUSE": true,
+        "/home/user/work_st3d/pub_st3d_pkg_1109/AGENT_PAUSE": true
+      },
+      "gpu_execution_blocked": true,
+      "project_processes": [
+        {
+          "pid": 25568,
+          "argv": [
+            "/usr/bin/systemd-inhibit",
+            "--what=sleep:idle",
+            "--mode=block",
+            "--who=railseg-jia-st3d",
+            "--why=ST3D-followup",
+            "/home/user/d2ls_pkg_1027/.venv/bin/python",
+            "-u",
+            "-X",
+            "utf8",
+            "/home/user/work_st3d/pub_st3d_pkg_1109/results/agent_sync_st3d.py",
+            "--loop",
+            "900"
+          ],
+          "cwd": "/home/user/work_st3d/pub_st3d_pkg_1109",
+          "state": "S",
+          "start_ticks": 452747,
+          "os_created_at": "2026-11-18T15:30:48.470000+08:00",
+          "role": "authorized_status_reporter"
+        },
+        {
+          "pid": 25570,
+          "argv": [
+            "/home/user/d2ls_pkg_1027/.venv/bin/python",
+            "-u",
+            "-X",
+            "utf8",
+            "/home/user/work_st3d/pub_st3d_pkg_1109/results/agent_sync_st3d.py",
+            "--loop",
+            "900"
+          ],
+          "cwd": "/home/user/work_st3d/pub_st3d_pkg_1109",
+          "state": "S",
+          "start_ticks": 452748,
+          "os_created_at": "2026-11-18T15:30:48.480000+08:00",
+          "role": "authorized_status_reporter"
+        },
+        {
+          "pid": 25615,
+          "argv": [
+            "/home/user/work_st3d/E002_1112/env/bin/python",
+            "-u",
+            "-X",
+            "utf8",
+            "/home/user/work_st3d/den_history_1117_v3_fp32/report_status.py",
+            "--name",
+            "jia",
+            "--out-root",
+            "/home/user/work_st3d/e015_v3_fp32_runs_s43_1117",
+            "--loop",
+            "900"
+          ],
+          "cwd": "/home/user/work_st3d",
+          "state": "S",
+          "start_ticks": 454428,
+          "os_created_at": "2026-11-18T15:31:05.280000+08:00",
+          "role": "authorized_status_reporter"
+        }
+      ],
+      "project_training_controller_or_export_processes": [],
+      "project_already_idle": true,
+      "units": {
+        "railseg-jia-e002-pipeline-1112.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-e002-safety-observer-1112.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-st3d-1109.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-st3d-watch-1109.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-t22-1115.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-t22-v2-1115.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-t22-v2-full-1115.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-e015-fp32-1117.service": {
+          "MainPID": "0",
+          "Result": "success",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        },
+        "railseg-jia-sync-st3d-1109.service": {
+          "MainPID": "25568",
+          "Result": "success",
+          "ActiveState": "active",
+          "SubState": "running"
+        },
+        "railseg-jia-e015-fp32-report-1117.service": {
+          "MainPID": "25615",
+          "Result": "success",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    }
+  },
+  "current_readonly_gpu_sample": {
+    "boot_id": "3d4205b5-7af9-497e-9d0c-690a0c7641a9",
+    "thermal_current": {
+      "sample_started_at": "2026-11-19T04:33:30.827947+08:00",
+      "available": true,
+      "command_argv": [
+        "/usr/bin/timeout",
+        "-s",
+        "KILL",
+        "5s",
+        "nvidia-smi",
+        "-q",
+        "-x"
+      ],
+      "settings_modified": false,
+      "returncode": 0,
+      "stderr": "",
+      "driver_version": "580.178.04",
+      "GPU_name": "NVIDIA TITAN RTX",
+      "fan_speed": "41 %",
+      "performance_state": "P8",
+      "temperature": {
+        "gpu_temp": "36 C",
+        "gpu_temp_tlimit": "N/A",
+        "gpu_temp_max_threshold": "94 C",
+        "gpu_temp_slow_threshold": "91 C",
+        "gpu_temp_max_gpu_threshold": "89 C",
+        "gpu_target_temperature": "84 C",
+        "memory_temp": "N/A",
+        "gpu_temp_max_mem_threshold": "N/A"
+      },
+      "clocks_event_reasons": {
+        "clocks_event_reason_gpu_idle": "Active",
+        "clocks_event_reason_applications_clocks_setting": "Not Active",
+        "clocks_event_reason_sw_power_cap": "Not Active",
+        "clocks_event_reason_hw_slowdown": "Not Active",
+        "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+        "clocks_event_reason_sync_boost": "Not Active",
+        "clocks_event_reason_sw_thermal_slowdown": "Not Active",
+        "clocks_event_reason_display_clocks_setting": "Not Active"
+      },
+      "clocks_event_reasons_counters": {
+        "clocks_event_reasons_counters_sw_power_cap": "0 us",
+        "clocks_event_reasons_counters_sync_boost": "0 us",
+        "clocks_event_reasons_counters_sw_therm_slowdown": "0 us",
+        "clocks_event_reasons_counters_hw_therm_slowdown": "0 us",
+        "clocks_event_reasons_counters_hw_power_brake": "0 us"
+      },
+      "clocks": {
+        "graphics_clock": "420 MHz",
+        "sm_clock": "420 MHz",
+        "mem_clock": "405 MHz",
+        "video_clock": "540 MHz"
+      },
+      "applications_clocks": {
+        "graphics_clock": "1350 MHz",
+        "mem_clock": "7001 MHz"
+      },
+      "default_applications_clocks": {
+        "graphics_clock": "1350 MHz",
+        "mem_clock": "7001 MHz"
+      },
+      "max_clocks": {
+        "graphics_clock": "2100 MHz",
+        "sm_clock": "2100 MHz",
+        "mem_clock": "7001 MHz",
+        "video_clock": "1950 MHz"
+      },
+      "gpu_power_readings": {
+        "power_state": "P8",
+        "average_power_draw": "N/A",
+        "instant_power_draw": "27.99 W",
+        "current_power_limit": "280.00 W",
+        "requested_power_limit": "280.00 W",
+        "default_power_limit": "280.00 W",
+        "min_power_limit": "100.00 W",
+        "max_power_limit": "320.00 W"
+      },
+      "GPU_processes": [
+        {
+          "pid": "1864",
+          "type": "G",
+          "process_name": "/usr/lib/xorg/Xorg",
+          "used_memory": "317 MiB"
+        },
+        {
+          "pid": "2103",
+          "type": "G",
+          "process_name": "/usr/bin/gnome-shell",
+          "used_memory": "60 MiB"
+        },
+        {
+          "pid": "2343",
+          "type": "G",
+          "process_name": "/usr/local/awesun/awesun",
+          "used_memory": "22 MiB"
+        },
+        {
+          "pid": "2585",
+          "type": "G",
+          "process_name": "/usr/libexec/xdg-desktop-portal-gnome",
+          "used_memory": "3 MiB"
+        },
+        {
+          "pid": "7420",
+          "type": "G",
+          "process_name": "/usr/bin/FlClash",
+          "used_memory": "49 MiB"
+        },
+        {
+          "pid": "9452",
+          "type": "G",
+          "process_name": "/snap/firefox/9036/usr/lib/firefox/firefox",
+          "used_memory": "34 MiB"
+        },
+        {
+          "pid": "15537",
+          "type": "G",
+          "process_name": "/usr/lib/chatgpt/ChatGPT --type=gpu-process --gpu-recent-crash-count=0 --ozone-platform=x11 --crashpad-handler-pid=15494 --enable-crash-reporter=, --user-data-dir=/home/user/.config/Codex --change-stack-guard-on-fork=enable --gpu-preferences=YAAAAAAAAACgAAACAAAAAAAAAAAAAGAASAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAMAAAAAQAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --metrics-shmem-handle=4,i,5968352096296467270,11481039027553377265,262144 --field-trial-handle=3,i,10150720741886494872,16270881762956229479,262144 --enable-features=DevToolsWebMCPSupport,DocumentPolicyIncludeJSCallStacksInCrashReports,ReportStuckThrottle --disable-features=DropInputEventsWhilePaintHolding,OwlNativeCaret,WebUIOmniboxAimPopup,WebUIOmniboxPopup --variations-seed-version --pseudonymization-salt-handle=7,i,13107169400453237057,13439590157931755671,4 --trace-process-track-uuid=3190708988185955192",
+          "used_memory": "30 MiB"
+        },
+        {
+          "pid": "19883",
+          "type": "G",
+          "process_name": "/usr/bin/nautilus",
+          "used_memory": "15 MiB"
+        },
+        {
+          "pid": "27693",
+          "type": "G",
+          "process_name": "/opt/QQ/qq",
+          "used_memory": "15 MiB"
+        }
+      ],
+      "sample_finished_at": "2026-11-19T04:33:30.956604+08:00"
+    },
+    "kernel_query_returncode": 0,
+    "current_boot_faults": []
+  },
+  "requested_official_remedies": [
+    "Publish Linux-compatible frozen T34 package; original imports msvcrt and locks with msvcrt.locking. No local patch applied.",
+    "Publish compatible pinned dependency versions; numpy1.26.4 and opencv-python4.12.0.88 cannot resolve on Python3.10. No version substituted.",
+    "Provide approved acquisition method for all 10 val and 10 test image regions plus matching labels. Exact split.json SHA already matches.",
+    "Confirm fault-recovery procedure before CUDA use, given previous boot Xid62/154/109; no GPU reset/setting changes performed."
+  ],
+  "non_control_note_verbatim": {
+    "id": "OF8jUKkWtEvI",
+    "message": "You received a file: attachment.txt"
+  },
+  "weights_uploaded": false
+}
