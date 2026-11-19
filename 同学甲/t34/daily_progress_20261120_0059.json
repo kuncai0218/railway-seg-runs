@@ -1,0 +1,137 @@
+{
+  "observed_at": "2026-11-20T00:59:48.585832+08:00",
+  "instruction_id": "jia-t34-pair-s43-1119",
+  "version": "v2",
+  "seed": 43,
+  "canonical_SHA256": "a98d5104c74bdb47f02a2da7d792c91bb0da62f55c76c2969a29d295d726c041",
+  "package_SHA256": "7a3d0a5468b8f4be61756929ac34b518f55336c12cbbe2aa9c6126d628678692",
+  "formal_status": {
+    "time": "2026-11-20T00:59:31+08:00",
+    "pid": 94210,
+    "created_unix": 1795038910.76,
+    "phase": "training",
+    "epoch": 217,
+    "epochs": 250,
+    "step": 547,
+    "steps_per_epoch": 1650,
+    "optimizer_updates": 356947,
+    "learning_rate": 5.449754451092711e-06,
+    "steps_per_second": 5.430641126761766,
+    "gpu_peak_MiB": 676
+  },
+  "completed_epochs": 216,
+  "last_complete_epoch_record": {
+    "epoch": 216,
+    "lr_used": 5.711060902932039e-06,
+    "lr_next": 5.449754451092711e-06,
+    "loss": {
+      "ce": 0.38892664312413244,
+      "loss": 0.38892664312413244
+    },
+    "train_seconds": 286.8197118889948,
+    "val_in": {
+      "acc": 80.22184076493313,
+      "macc": 68.1299939421239,
+      "miou": 55.50232996252779,
+      "bc": 32.419779826626765,
+      "sc": 46.36328629091211,
+      "scs": 39.39153305876944,
+      "impervi": 36.67357673024895,
+      "agricult": 62.78188075940935,
+      "forest": 80.18281800644782,
+      "wetlands": 12.14860883168735,
+      "soil": 58.8365013253816,
+      "water": 82.39059412199164
+    },
+    "val_out": {
+      "acc": 70.34593224525452,
+      "macc": 44.79251940018412,
+      "miou": 33.24458063629801,
+      "bc": 10.77427853406982,
+      "sc": 14.625760332805585,
+      "scs": 12.700019433437703,
+      "impervi": 35.384221210613084,
+      "agricult": 7.734609389403818,
+      "forest": 75.65080697564348,
+      "wetlands": 0.01244005619608982,
+      "soil": 29.649917926034973,
+      "water": 51.03548825989659
+    }
+  },
+  "trainer": {
+    "pid": 94210,
+    "ppid": 93826,
+    "argv": [
+      "/home/user/work_st3d/t34env_v2/bin/python",
+      "-B",
+      "-u",
+      "-X",
+      "utf8",
+      "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+      "--seed",
+      "43",
+      "--method",
+      "orig",
+      "--out",
+      "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+    ],
+    "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+    "state": "S",
+    "start_ticks": 5638976,
+    "os_created_at": "2026-11-19T05:55:10.760000+08:00",
+    "role": "T34_v2_trainer"
+  },
+  "concurrent_trainers": 1,
+  "last_checkpoint": {
+    "path": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43/last.pth",
+    "bytes": 20162836,
+    "mtime_ns": 1795107470947771668,
+    "tmp_exists": false,
+    "weights_loaded_or_hashed": false
+  },
+  "source_checks": {
+    "source_all_match": true,
+    "t22_source_all_match": true,
+    "t22_v2_source_all_match": true,
+    "e013_source_all_match": true,
+    "e015_v3_source_all_match": true,
+    "E015": true,
+    "E021": true,
+    "T34": true
+  },
+  "thermal_sample": {
+    "time": "2026-11-20T00:58:38.082058+08:00",
+    "temperature": {
+      "gpu_temp": "84 C",
+      "gpu_temp_tlimit": "N/A",
+      "gpu_temp_max_threshold": "94 C",
+      "gpu_temp_slow_threshold": "91 C",
+      "gpu_temp_max_gpu_threshold": "89 C",
+      "gpu_target_temperature": "84 C",
+      "memory_temp": "N/A",
+      "gpu_temp_max_mem_threshold": "N/A"
+    },
+    "fan_speed": "67 %",
+    "clocks_event_reasons": {
+      "clocks_event_reason_gpu_idle": "Not Active",
+      "clocks_event_reason_applications_clocks_setting": "Not Active",
+      "clocks_event_reason_sw_power_cap": "Not Active",
+      "clocks_event_reason_hw_slowdown": "Not Active",
+      "clocks_event_reason_hw_thermal_slowdown": "Not Active",
+      "clocks_event_reason_hw_power_brake_slowdown": "Not Active",
+      "clocks_event_reason_sync_boost": "Not Active",
+      "clocks_event_reason_sw_thermal_slowdown": "Active",
+      "clocks_event_reason_display_clocks_setting": "Not Active"
+    }
+  },
+  "current_boot_faults": [],
+  "PSE_started": false,
+  "last_epoch_tests": {
+    "orig": "waiting_for_250_epochs_and_official_test",
+    "pse": "waiting_for_250_epochs_and_official_test"
+  },
+  "evidence": "/home/user/work_st3d/t34_v2_ops_1119/heartbeat_T34_orig_progress_20261120_0059.json",
+  "weights_uploaded": false,
+  "training_recipe_changed": false,
+  "services_restarted": false
+}
