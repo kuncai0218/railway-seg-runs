@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-19T05:02:35+08:00",
+  "更新时间": "2026-11-19T11:54:22+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -18,7 +18,7 @@
     {
       "编号": "jia-t34-pair-s43-1119",
       "状态": "待执行（唯一有效任务，最高优先；第 2 版包）",
-      "更新时间": "2026-11-19T05:02:35+08:00",
+      "更新时间": "2026-11-19T11:54:22+08:00",
       "关联实验": "T34：DynamicEarthNet Planet，论文配方下原版 ST3DUNet 与单源 PSE 配对",
       "用户授权": "2026-11-19 用户同意甲乙并行跑 T34 种子 43、44 配对，并要求停止之前所有任务、执行新任务",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/T34_%E7%94%B2%E4%B9%99%E9%85%8D%E5%AF%B9_1119.md",
@@ -33,9 +33,18 @@
         "下载第 2 版实验包、核对 SHA256，解压到新目录（不要覆盖第 1 版目录）；按包内《说明.md》第 1 节新建 Python 3.10 环境：先 pip install -r requirements_t34.txt，最后 pip install --no-deps opencv-python==4.12.0.88；核对 torch 2.3.0+cu121、torchvision 0.18.0+cu121、numpy 1.26.4、opencv 4.12.0.88。",
         "数据：本机缺 val 或 test 区时，从 https://github.com/kuncai0218/railway-seg-runs/releases/tag/data-den-1107 下载 8 个分卷，合并、核对 DynamicEarthNet.zip 的 SHA256（38a846be…4870）后解压；补齐 train 55、val 10、test 10 区与 labels，核对 split.json 的 SHA256（311bc1b6…c819）；目录名须为 DynamicEarthNet。设 T34_DATA、T34_CACHE 后运行 stage_den_cache.py。",
         "运行 run_pair.py --seed 43：先冒烟两组，再正式原版 250 轮、正式 PSE 250 轮，一次一个，不并跑；中断后重复同一命令续跑。",
-        "按《说明.md》第 4 节回报：收到第 2 版、环境与数据核对、冒烟、每日进度、每组完成后的 official_test.json 等；遇错停下回报完整报错，不改训练配方。"
+        "按《说明.md》第 4 节回报：收到第 2 版、环境与数据核对、冒烟、每日进度、每组完成后的 official_test.json 等；遇错停下回报完整报错，不改训练配方。",
+        "每组正式完成后按“补充_最后一轮测试”用第 250 轮权重补测一次，回报 official_test_last.json。"
       ],
-      "第2版更新": "第 2 版（2026-11-19 组长，回应甲 04:38 的阻塞回报）：\n1. 入口在 Linux 上可运行：文件锁改为 Windows 用 msvcrt、Linux 用 fcntl；训练逻辑、配方、作者源码一字未动。\n2. 依赖安装顺序：先 `pip install -r requirements_t34.txt`（mkl/intel-openmp/tbb 只在 Windows 装），最后 `pip install --no-deps opencv-python==4.12.0.88`。opencv 元数据声明 numpy≥2 但实际与 numpy 1.26.4 可用，组长本机就是这个组合；入口会核对 numpy 1.26.4 与 opencv 4.12.0.88。\n3. 缺 val/test：用仓库已有发布 https://github.com/kuncai0218/railway-seg-runs/releases/tag/data-den-1107 的 8 个分卷（SitsSCD 原样转存，含 train/val/test/labels/split.json），合并后核对 DynamicEarthNet.zip 的 SHA256 `38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870`，解压后再核对 split.json 的 SHA256。\n4. 显卡：上次开机有 Xid 错误的机器，先确认 `nvidia-smi` 正常、`torch.cuda.is_available()` 为 True 且能跑一个小的 GPU 运算；不正常就停下回报，等同学本人重启，不要改驱动或显卡设置。\n第 1 版包（t34_peer_1119.zip）作废，不要再用。\n"
+      "第2版更新": "第 2 版（2026-11-19 组长，回应甲 04:38 的阻塞回报）：\n1. 入口在 Linux 上可运行：文件锁改为 Windows 用 msvcrt、Linux 用 fcntl；训练逻辑、配方、作者源码一字未动。\n2. 依赖安装顺序：先 `pip install -r requirements_t34.txt`（mkl/intel-openmp/tbb 只在 Windows 装），最后 `pip install --no-deps opencv-python==4.12.0.88`。opencv 元数据声明 numpy≥2 但实际与 numpy 1.26.4 可用，组长本机就是这个组合；入口会核对 numpy 1.26.4 与 opencv 4.12.0.88。\n3. 缺 val/test：用仓库已有发布 https://github.com/kuncai0218/railway-seg-runs/releases/tag/data-den-1107 的 8 个分卷（SitsSCD 原样转存，含 train/val/test/labels/split.json），合并后核对 DynamicEarthNet.zip 的 SHA256 `38a846be3c54df7b3e22a364aa8711c1839a681676b43f9b7a97b49d943a4870`，解压后再核对 split.json 的 SHA256。\n4. 显卡：上次开机有 Xid 错误的机器，先确认 `nvidia-smi` 正常、`torch.cuda.is_available()` 为 True 且能跑一个小的 GPU 运算；不正常就停下回报，等同学本人重启，不要改驱动或显卡设置。\n第 1 版包（t34_peer_1119.zip）作废，不要再用。\n",
+      "补充_最后一轮测试": {
+        "说明": "2026-11-19 组长（用户要求）：每组正式训练完成、official_test.json 写出后，再用第 250 轮权重在正式测试集上评一次，作参考单独报告，不参与任何选择；不改动作业目录里已有文件。",
+        "脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_test_last_1119.py",
+        "脚本SHA256": "b17adbf2ad94eab54a56f2b2fce6092036d482fbb07f7adb4719aea6ceb5a0b2",
+        "命令": "在第 2 版包目录下（与 train_t34.py 同目录），设好 T34_DATA、T34_CACHE 后：python -X utf8 t34_test_last_1119.py --entry train_t34.py --out <runs>/den_planet_orig_s43 --seed 43 --method orig ；PSE 组把 orig 换成 pse、目录换成 den_planet_pse_s43",
+        "顺序": "原版正式完成 → 跑原版的最后一轮测试（约 10—20 分钟）→ 再开 PSE 正式训练；PSE 完成后同样补测。不要与训练并跑。",
+        "回报": "official_test_last.json 与正式结果一起上传到 t34/ 目录"
+      }
     },
     {
       "编号": "jia-den-baseline-hold-1119",
