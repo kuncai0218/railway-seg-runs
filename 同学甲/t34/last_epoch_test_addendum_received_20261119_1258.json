@@ -1,0 +1,141 @@
+{
+  "report_type": "T34_last_epoch_test_addendum_received",
+  "observed_at": "2026-11-19T12:57:31.315615+08:00",
+  "instruction_id": "jia-t34-pair-s43-1119",
+  "current_canonical_SHA256": "a98d5104c74bdb47f02a2da7d792c91bb0da62f55c76c2969a29d295d726c041",
+  "launch_canonical_SHA256": "bf96a49988f73118153dcb986fc920b5078ab534a4f8f87d84d08c5a098833ed",
+  "unchanged_training_maintained": true,
+  "current_status": {
+    "time": "2026-11-19T12:57:17+08:00",
+    "pid": 94210,
+    "created_unix": 1795038910.76,
+    "phase": "training",
+    "epoch": 80,
+    "epochs": 250,
+    "step": 842,
+    "steps_per_epoch": 1650,
+    "optimizer_updates": 131192,
+    "learning_rate": 7.754652016334631e-05,
+    "steps_per_second": 5.22884106553745,
+    "gpu_peak_MiB": 676
+  },
+  "actual_trainer": {
+    "pid": 94210,
+    "ppid": 93826,
+    "argv": [
+      "/home/user/work_st3d/t34env_v2/bin/python",
+      "-B",
+      "-u",
+      "-X",
+      "utf8",
+      "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+      "--seed",
+      "43",
+      "--method",
+      "orig",
+      "--out",
+      "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43"
+    ],
+    "cwd": "/home/user/work_st3d/t34_peer_1119_v2",
+    "state": "S",
+    "start_ticks": 5638976,
+    "os_created_at": "2026-11-19T05:55:10.760000+08:00",
+    "role": "T34_v2_trainer"
+  },
+  "acceptance": {
+    "accepted_at": "2026-11-19T12:54:17.333942+08:00",
+    "current_canonical_SHA256": "a98d5104c74bdb47f02a2da7d792c91bb0da62f55c76c2969a29d295d726c041",
+    "current_canonical_reference": "/home/user/work_st3d/pub_st3d_pkg_1109/results/reference/accepted_20261119_1254_instruction_T34_last_test.json",
+    "launch_guard_SHA256_retained": "bf96a49988f73118153dcb986fc920b5078ab534a4f8f87d84d08c5a098833ed",
+    "reason": "Only additive post-completion test requirement changed. Keep existing supervisor/runner/trainer and launch provenance; new accepted instruction tracked separately, no model/recipe/queue changes.",
+    "original26_files_still_match": true,
+    "script_verified_CPU_compile_only": true,
+    "current_trainers_unchanged": true
+  },
+  "script_receipt": {
+    "observed_at": "2026-11-19T12:53:07.346296+08:00",
+    "url": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_test_last_1119.py",
+    "attempts": [
+      {
+        "rc": 0,
+        "stderr": "",
+        "path": "/home/user/work_st3d/t34_v2_ops_1119/t34_test_last_fetch_attempt1.raw"
+      }
+    ],
+    "success": true,
+    "bytes": 5343,
+    "SHA256": "b17adbf2ad94eab54a56f2b2fce6092036d482fbb07f7adb4719aea6ceb5a0b2",
+    "SHA256_matches": true
+  },
+  "pending_last_tests": {
+    "received_at": "2026-11-19T12:54:17.333942+08:00",
+    "canonical_reference": "/home/user/work_st3d/pub_st3d_pkg_1109/results/reference/accepted_20261119_1254_instruction_T34_last_test.json",
+    "canonical_SHA256": "a98d5104c74bdb47f02a2da7d792c91bb0da62f55c76c2969a29d295d726c041",
+    "script": "/home/user/work_st3d/t34_peer_1119_v2/t34_test_last_1119.py",
+    "script_SHA256": "b17adbf2ad94eab54a56f2b2fce6092036d482fbb07f7adb4719aea6ceb5a0b2",
+    "script_bytes": 5343,
+    "CUDA_or_dry_run_executed": false,
+    "training_recipe_unchanged": true,
+    "training_must_not_be_interrupted": true,
+    "jobs": {
+      "orig": {
+        "status": "waiting_for_250_epochs_and_official_test",
+        "out": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43",
+        "required_checkpoint": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43/epoch250.pth",
+        "required_existing_official_test": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43/official_test.json",
+        "output": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43/official_test_last.json",
+        "command_argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/t34_test_last_1119.py",
+          "--entry",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_orig_s43",
+          "--seed",
+          "43",
+          "--method",
+          "orig"
+        ],
+        "when": "orig after its official_test, alongside ongoing PSE without stopping it; pse after PSE official_test; at most one last-test evaluator",
+        "weights_uploaded": false
+      },
+      "pse": {
+        "status": "waiting_for_250_epochs_and_official_test",
+        "out": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_pse_s43",
+        "required_checkpoint": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_pse_s43/epoch250.pth",
+        "required_existing_official_test": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_pse_s43/official_test.json",
+        "output": "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_pse_s43/official_test_last.json",
+        "command_argv": [
+          "/home/user/work_st3d/t34env_v2/bin/python",
+          "-B",
+          "-u",
+          "-X",
+          "utf8",
+          "/home/user/work_st3d/t34_peer_1119_v2/t34_test_last_1119.py",
+          "--entry",
+          "/home/user/work_st3d/t34_peer_1119_v2/train_t34.py",
+          "--out",
+          "/home/user/work_st3d/t34_runs_s43_1119_v2/den_planet_pse_s43",
+          "--seed",
+          "43",
+          "--method",
+          "pse"
+        ],
+        "when": "orig after its official_test, alongside ongoing PSE without stopping it; pse after PSE official_test; at most one last-test evaluator",
+        "weights_uploaded": false
+      }
+    }
+  },
+  "no_dry_run_or_evaluation_started": true,
+  "original26_files_unchanged": true,
+  "immediate_sync_receipt": {
+    "message_id": "fwBZwttnzx0K",
+    "strict_note_id": "8sR8An0K8gDh",
+    "attachment_GET_verified": true
+  },
+  "weights_uploaded": false
+}
