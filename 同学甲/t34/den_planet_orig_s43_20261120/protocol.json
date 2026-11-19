@@ -1,0 +1,176 @@
+{
+  "purpose": "T34: DynamicEarthNet Planet, paper-settings training, method=orig, seed=43",
+  "method": "orig",
+  "seed": 43,
+  "smoke_steps": 0,
+  "t34_entry_sha256": "6d58d07a6b76f0d75144eaa6058b6c9e05fe320e9dc7d64668ecaf5c53ce23e5",
+  "pse": null,
+  "upstream": {
+    "upstream_commit": "840f76e679a65d36fcace69225d8360b89ee3540",
+    "source_sha256": {
+      "upstream/README.md": "6152f1a9ef05c107b12f29ecce42c47f82cce4853f052949a581a9240cfb6e6d",
+      "upstream/configs/dynamicearthnet.yaml": "0025d870f0a247a1dc89019779425297a34f46d40a73674a160d3d90aaa46a26",
+      "upstream/configs/dynamicearthnetmsi.yaml": "bb7b7193b4447c6c37fee15ad5b55facb39131ebc48f6b1ab79da9fe40f2c8c2",
+      "upstream/configs/muds.yaml": "239e66424ee01e62dfe18904e95b24fe0cbd86d668dc4b57f25d1c2860a23601",
+      "upstream/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "upstream/data/data.py": "a4018daad8cf193cbd6a319b231378697b6a66d8b47dfed58c2dc5fdd425ea61",
+      "upstream/data/datamodule.py": "0605ed9780c24a30c759add9448b39da9ece914669de60af63d4e4e11c6f775b",
+      "upstream/data/transforms.py": "27c09584697481b7db2ff84e4193fdfb9e1502414f21b05d96d8167cab9445a6",
+      "upstream/main.py": "a4b8e6b54221fa65c1c58f6b278ca6a4d6e226f7345cae809fe024ea9a297557",
+      "upstream/metrics/scd_metrics.py": "aa14b3b3504789fa3c4029ecbfbc4ad9a340188e6c4a683e70046e678716c3d0",
+      "upstream/models/losses.py": "eb5d274304555e81866023e25c15299ccd24b5c95c3c02c13def48a1de84ecf6",
+      "upstream/models/ltae3d.py": "f35c4d629104067bb8d2c48f3a90d81a8bd3b52813f5edf49d9eeab094bda18a",
+      "upstream/models/positional_encoding.py": "620b98f7c51323209a483bea3e83a2caeae347ad2ba6be75af1d080daed16bb3",
+      "upstream/models/st3dunet.py": "f31d179a6751cf3416c83fff9b032c6be6c996495ff0ac8ee3357248e1296451",
+      "upstream/train.py": "bd27c580a35c343368873b7779d198a4b5d045b0bbf953663524d4fcf3058c39",
+      "upstream/utils/delete.py": "88d3d4b1d9865a628c880254ed747268aee3a600d6094dc68f33b17dee9fa6ff",
+      "upstream/utils/wrapper.py": "7fe47f7a16b975bcc3c87d769efe9cdcc95dce916a3482757acccc1843bac8b4",
+      "upstream/visualize.py": "5114676e3ffc7e51e24fc3ae6f1caa6cc09b91bf3a5350a04a93c34b0e9a1ca5",
+      "st3d_repro.py": "e5f3e28c4bc5b7ebc05fda37093c355b36a905a51eb972240ddffe648e3749f3"
+    }
+  },
+  "training_script_sha256": "6d58d07a6b76f0d75144eaa6058b6c9e05fe320e9dc7d64668ecaf5c53ce23e5",
+  "configuration": {
+    "image_size": 128,
+    "seq_len": 8,
+    "model": {
+      "name": "ST3DUnet",
+      "num_classes": 6,
+      "ignore_index": 6,
+      "num_channels": 4,
+      "class_names": [
+        "impervi",
+        "agricult",
+        "forest",
+        "wetlands",
+        "soil",
+        "water"
+      ]
+    },
+    "dataset": {
+      "name": "DynamicEarthNet",
+      "path": "/home/user/work_st3d/t34_data_1119/DynamicEarthNet",
+      "split_file": "/home/user/work_st3d/t34_data_1119/DynamicEarthNet/split.json",
+      "global_batch_size": 2,
+      "image_size": 128,
+      "true_size": 1024,
+      "num_classes": 6,
+      "ignore_index": 6,
+      "num_channels": 4,
+      "class_names": [
+        "impervi",
+        "agricult",
+        "forest",
+        "wetlands",
+        "soil",
+        "water"
+      ],
+      "seq_len": 8,
+      "data_aug_range": 2,
+      "sampling_mode": "average"
+    },
+    "computer": {
+      "num_workers": 4,
+      "accelerator": "cuda:0"
+    },
+    "trainer": {
+      "max_epochs": 250,
+      "ckpt_interval": 10,
+      "warmup_epochs": 5,
+      "warmup": false,
+      "lr": 0.0001,
+      "weight_decay": 0.001,
+      "cosine": true
+    },
+    "logger": {
+      "dir": "./logs"
+    },
+    "checkpoints": {
+      "dir": "./checkpoints"
+    },
+    "visualize": {
+      "dir": "./outputs"
+    },
+    "ST3DUNET": {
+      "INPUT_CHANNELS": 4,
+      "OUTPUT_CHANNELS": 6,
+      "ENCODER_WIDTHS": [
+        32,
+        32,
+        32,
+        64
+      ],
+      "DECODER_WIDTHS": [
+        16,
+        16,
+        32,
+        64
+      ],
+      "MLP": [
+        128,
+        64
+      ],
+      "STR_CONV_K": 4,
+      "STR_CONV_S": 2,
+      "STR_CONV_P": 1,
+      "N_HEAD": 16,
+      "D_MODEL": 128,
+      "D_K": 4,
+      "PAD_VALUE": 0,
+      "SPATIAL_ATTENTION": {
+        "IMAGE_SIZE": 128,
+        "EMB_DIM": 128,
+        "N_HEAD": 4,
+        "DEPTH": 2,
+        "PATCH_SIZE": 4,
+        "DROPOUT": 0.1
+      },
+      "CROSS_ATTENTION": {
+        "N_HEAD": 4,
+        "DROPOUT": 0.1
+      }
+    },
+    "loss": {
+      "mix": {
+        "ce": 1.0
+      },
+      "ignore_index": 6
+    },
+    "run": {
+      "seed": 43
+    }
+  },
+  "runtime": {
+    "python": "3.10.22",
+    "torch": "2.3.0+cu121",
+    "torchvision": "0.18.0+cu121",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "numpy": "1.26.4",
+    "opencv-python": "4.12.0.88",
+    "rasterio": "1.4.3",
+    "pandas": "2.3.3",
+    "torchmetrics": "1.9.0",
+    "device": "NVIDIA TITAN RTX"
+  },
+  "split_file_sha256": "311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819",
+  "cache_manifest_sha256": "87074cce8d43f9a3eaa6ced7f209ce80d64064017b485ad915734f45312252b4",
+  "rng_and_precision": {
+    "python_numpy_torch_seed": 43,
+    "autocast": false,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false,
+    "cuda_launch_blocking": 1,
+    "cpu_threads": 2
+  },
+  "patches_and_decisions": {
+    "missing_attention_mode": "ltae, as required by the released forward output shape",
+    "scheduler": "step once at the end of each epoch, eta_min=1e-6",
+    "training_loop": "reuse official train_one_epoch and train loader, replace broken logging and checkpointing",
+    "storage": "lossless SSD uint8 block cache generated from author dataset JPEGs with the pinned torchvision",
+    "selection": "independently maximize val mIoU per spatial domain, first epoch wins ties",
+    "final_test": "after final checkpoint, frozen best checkpoints against explicit split=test, batch=1, original SCDMetric, raw JPEG"
+  }
+}
