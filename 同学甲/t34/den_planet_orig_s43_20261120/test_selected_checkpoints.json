@@ -1,0 +1,14 @@
+{
+  "in": {
+    "epoch": 211,
+    "score": 58.67214909615517,
+    "weights": "epoch211.pth",
+    "weight_sha256": "31837c75c352053e6dcc132cb80ae15607143dadc6267575e228e911cd8f11d3"
+  },
+  "out": {
+    "epoch": 80,
+    "score": 35.386982567022244,
+    "weights": "epoch080.pth",
+    "weight_sha256": "c7e924472802fdb44dd0340c3e873f8530f2fb0c080b4a277488f3161325bac7"
+  }
+}
