@@ -42,7 +42,7 @@
         "脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_test_last_1119.py",
         "脚本SHA256": "b17adbf2ad94eab54a56f2b2fce6092036d482fbb07f7adb4719aea6ceb5a0b2",
         "命令": "在第 2 版包目录下（与 train_t34.py 同目录），设好 T34_DATA、T34_CACHE 后：python -X utf8 t34_test_last_1119.py --entry train_t34.py --out <runs>/den_planet_orig_s43 --seed 43 --method orig ；PSE 组把 orig 换成 pse、目录换成 den_planet_pse_s43",
-        "顺序": "原版正式完成 → 跑原版的最后一轮测试（约 10—20 分钟）→ 再开 PSE 正式训练；PSE 完成后同样补测。不要与训练并跑。",
+        "顺序": "run_pair.py 会在原版完成后自动接 PSE，不要打断它；原版的最后一轮测试在 PSE 训练进行中另开一个进程跑即可（只读原版目录，显存与算力占用小，单次约 10—20 分钟）；PSE 完成后再补测 PSE。",
         "回报": "official_test_last.json 与正式结果一起上传到 t34/ 目录"
       }
     },
