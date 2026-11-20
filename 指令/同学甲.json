@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-19T11:54:22+08:00",
+  "更新时间": "2026-11-20T14:40:08+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -45,6 +45,25 @@
         "顺序": "run_pair.py 会在原版完成后自动接 PSE，不要打断它；原版的最后一轮测试在 PSE 训练进行中另开一个进程跑即可（只读原版目录，显存与算力占用小，单次约 10—20 分钟）；PSE 完成后再补测 PSE。",
         "回报": "official_test_last.json 与正式结果一起上传到 t34/ 目录"
       }
+    },
+    {
+      "编号": "jia-t34-gnorig-s43-1120",
+      "状态": "待执行（在 jia-t34-pair-s43-1119 全部完成后开始；不要打断正在跑的 PSE 43）",
+      "更新时间": "2026-11-20T14:40:08+08:00",
+      "关联实验": "T34 对照：原版 ST3DUNet 只把全部 BatchNorm 换成 GroupNorm，其余与原版完全一致；用于拆分 PSE 提升中归一化与结构的贡献",
+      "用户授权": "2026-11-20 用户同意加入“原版改 GroupNorm”对照；种子 43 放在甲本机，与原版 43、PSE 43 同机",
+      "入口脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_train_gnorig_1120.py",
+      "入口SHA256": "e7a962e28573b6617f083e188528a2b7d5bcb9baf06222dbd70e12d6ebf6b2d4",
+      "种子": 43,
+      "最多同时训练": 1,
+      "步骤": [
+        "等 jia-t34-pair-s43-1119 的 PSE 43 正式训练、正式测试、最后一轮补测全部完成（不要并跑、不要打断）。",
+        "下载入口脚本、核对 SHA256，另存为第 2 版包目录下的 train_t34_gnorig.py（与 train_t34.py 同目录；包内其他文件一律不改）。",
+        "设好 T34_DATA、T34_CACHE（与配对任务相同），先冒烟：python -X utf8 train_t34_gnorig.py --seed 43 --method orig --out <runs>/_smoke_gnorig_s43 --smoke_steps 20；确认 status.json 为 smoke_complete、protocol.json 含 normalization 字段、可训练参数 1652262。",
+        "正式：python -X utf8 train_t34_gnorig.py --seed 43 --method orig --out <runs>/den_gnorig_s43（中断后加 --resume 续跑）。",
+        "完成后补测第 250 轮：python -X utf8 t34_test_last_1119.py --entry train_t34_gnorig.py --out <runs>/den_gnorig_s43 --seed 43 --method orig。",
+        "回报：与配对任务相同的文件（protocol.json、epochs.json、test_selected_checkpoints.json、official_test.json、official_test_last.json、日志最后 50 行），上传到 同学甲/t34/den_gnorig_s43_<日期>/；权重不上传。"
+      ]
     },
     {
       "编号": "jia-den-baseline-hold-1119",
