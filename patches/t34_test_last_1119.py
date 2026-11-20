@@ -19,6 +19,8 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--method", choices=["orig", "pse"], default="orig")
+    ap.add_argument("--epoch", type=int, default=0, help="与 --dry 合用：指定评哪一轮的权重（中途监看，用户 11-19 12:0x 要求）")
+    ap.add_argument("--show", action="store_true", help="打印分数")
     ap.add_argument("--dry", default="", help="只验流程：用冒烟作业目录的最后一个权重，结果写到这个文件，不读 official_test.json")
     a = ap.parse_args()
     out = Path(a.out)
@@ -44,9 +46,19 @@ def main():
         from pse_net import make_pse
         model = make_pse(cfg, "").to(device)
     else:
-        model = m.load_model(cfg).to(device)
-    metric = m.SCDMetric(cfg["dataset"]["num_classes"], cfg["dataset"]["class_names"], cfg["dataset"]["ignore_index"])
-    last_epoch = max(int(p.stem[5:]) for p in out.glob("epoch[0-9][0-9][0-9].pth")) if a.dry else m.EPOCHS
+        model = m.load_model(cfg)
+        if "normalization" in contract.get("patches_and_decisions", {}):  # 11-20：GroupNorm 对照（train_t34_gnorig.py）要按入口同规则换归一化后再载权重
+            def _to_gn(mm):
+                for n, ch in mm.named_children():
+                    if isinstance(ch, torch.nn.modules.batchnorm._BatchNorm):
+                        c = ch.num_features
+                        setattr(mm, n, torch.nn.GroupNorm(max(1, min(8, c // 8)), c))
+                    else:
+                        _to_gn(ch)
+            _to_gn(model)
+        model = model.to(device)
+    metric =m.SCDMetric(cfg["dataset"]["num_classes"], cfg["dataset"]["class_names"], cfg["dataset"]["ignore_index"])
+    last_epoch = (a.epoch or max(int(p.stem[5:]) for p in out.glob("epoch[0-9][0-9][0-9].pth"))) if a.dry else m.EPOCHS
     weights = out / f"epoch{last_epoch:03d}.pth"
     ckpt = torch.load(weights, map_location="cpu", weights_only=True)
     assert ckpt["epoch"] == last_epoch and ckpt["protocol_sha256"] == m.sha256(protocol)
@@ -79,7 +91,7 @@ def main():
     m.save_json(target, {"purpose": "最后一轮（第 250 轮）权重的正式测试，作参考单独报告，不参与选择；正式成绩仍为 official_test.json（按验证集选）",
                          "results": evidence, "entry": str(entry), "entry_sha256": m.sha256(entry),
                          "protocol_sha256": m.sha256(protocol), "finished": m.now()})
-    print("完成", "（试跑，不显示分数）" if a.dry else {d: round(v["scores"]["miou"], 2) for d, v in evidence.items()}, flush=True)
+    print("完成", "（试跑，不显示分数）" if a.dry and not a.show else {d: round(v["scores"]["miou"], 2) for d, v in evidence.items()}, flush=True)
 
 
 if __name__ == "__main__":
