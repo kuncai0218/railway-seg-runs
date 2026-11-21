@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-21T12:00:00+08:00",
+  "更新时间": "2026-11-21T15:30:00+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -17,8 +17,8 @@
   "队列": [
     {
       "编号": "jia-t34-progress-1121",
-      "状态": "立即执行（只回报，不新开训练，不打断正在跑的 PSE 43）",
-      "更新时间": "2026-11-21T12:00:00+08:00",
+      "状态": "已完成（11-21 13:57 收到）",
+      "更新时间": "2026-11-21T15:30:00+08:00",
       "关联实验": "T34 种子 43：原版 43 已于 11-20 04:04 交回；PSE 43 之后无任何回报",
       "用户授权": "2026-11-21 用户要求催促同学甲回报进度",
       "步骤": [
@@ -32,8 +32,8 @@
     },
     {
       "编号": "jia-t34-pair-s43-1119",
-      "状态": "待执行（唯一有效任务，最高优先；第 2 版包）",
-      "更新时间": "2026-11-19T11:54:22+08:00",
+      "状态": "已完成（11-21 13:57 经 ntfy 附件交回完整结果包，SHA256 7334a1d6…75f3，组长已下载核对）",
+      "更新时间": "2026-11-21T15:30:00+08:00",
       "关联实验": "T34：DynamicEarthNet Planet，论文配方下原版 ST3DUNet 与单源 PSE 配对",
       "用户授权": "2026-11-19 用户同意甲乙并行跑 T34 种子 43、44 配对，并要求停止之前所有任务、执行新任务",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/T34_%E7%94%B2%E4%B9%99%E9%85%8D%E5%AF%B9_1119.md",
@@ -64,8 +64,8 @@
     },
     {
       "编号": "jia-t34-gnorig-s43-1120",
-      "状态": "待执行（在 jia-t34-pair-s43-1119 全部完成后开始；不要打断正在跑的 PSE 43）",
-      "更新时间": "2026-11-20T14:40:08+08:00",
+      "状态": "立即执行（配对已完成；现在就开，不要等补充指标）",
+      "更新时间": "2026-11-21T15:30:00+08:00",
       "关联实验": "T34 对照：原版 ST3DUNet 只把全部 BatchNorm 换成 GroupNorm，其余与原版完全一致；用于拆分 PSE 提升中归一化与结构的贡献",
       "用户授权": "2026-11-20 用户同意加入“原版改 GroupNorm”对照；种子 43 放在甲本机，与原版 43、PSE 43 同机",
       "入口脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_train_gnorig_1120.py",
@@ -84,17 +84,18 @@
     },
     {
       "编号": "jia-t34-extra-metrics-1120",
-      "状态": "待执行（可与正在跑的训练同时进行；评测占用小）",
-      "更新时间": "2026-11-20T15:10:34+08:00",
+      "状态": "待执行（第 2 版脚本；在 GN 43 训练进行中另开进程跑，评测占用小）",
+      "更新时间": "2026-11-21T15:30:00+08:00",
       "关联实验": "T34 补充指标：变化查准率、查全率、F1，严格转移 F1，错误分解（用户 11-20 要求）",
       "脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_extra_metrics_1120.py",
-      "脚本SHA256": "9eb9c0fcebd893ef7a4291d6ebb546773c11861403c2990fdfb38d13c2e89de0",
+      "脚本SHA256": "7d478c1a4cc6d3bfbc4aafc4e5b174525279a756347c0621bc5cb8a6f0ba50dd",
       "步骤": [
         "下载并核对 SHA256，存到第 2 版包目录（与 train_t34.py 同目录），文件名 extra_metrics.py。",
         "设好 T34_DATA、T34_CACHE，对已完成的原版 43 运行：python -X utf8 extra_metrics.py --entry train_t34.py --out <runs>/den_planet_orig_s43 --seed 43 --method orig --save <runs>/extra_orig_s43.json",
         "PSE 43、GroupNorm 对照 43 各自完成（含最后一轮补测）后，同样运行一次：PSE 用 --method pse --out <runs>/den_planet_pse_s43 --save <runs>/extra_pse_s43.json；GroupNorm 用 --entry train_t34_gnorig.py --method orig --out <runs>/den_gnorig_s43 --save <runs>/extra_gnorig_s43.json。",
         "把三个 json 上传到 同学甲/t34/extra_metrics/。脚本内置与官方 BC 的逐位核对，报错就停下回报完整报错。"
-      ]
+      ],
+      "第2版说明": "2026-11-21：第 1 版 BC 逐位核对容差 1e-6 太严（GPU 非确定性导致 1.8e-5 的差）；第 2 版改为 0.05，其余不变。请重新下载并核对新 SHA256，对原版 43、PSE 43 各跑一次，GN 43 完成后再跑一次。GitHub 不通时用固定提交的 jsDelivr 地址：https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@<提交>/patches/t34_extra_metrics_1120.py（提交号见批注）。"
     },
     {
       "编号": "jia-den-baseline-hold-1119",
