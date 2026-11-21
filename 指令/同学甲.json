@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-21T15:30:00+08:00",
+  "更新时间": "2026-11-21T23:05:00+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -15,6 +15,19 @@
     "jia-e002-monitor-1112-1440（E002 作者折 I 的训练与监测）：组长 11-14 决定——作者五折复现只作核对，三折都停在当前步数，不再跑满 500000 更新；按队列里 jia-e002-stop-test-1114 的步骤停训并补测试。保留全部结果和检查点，不删除。"
   ],
   "队列": [
+    {
+      "编号": "jia-t34-extra-deliver-1121",
+      "状态": "立即执行（只回传，不新开训练，不打断正在跑的 GN 43）",
+      "更新时间": "2026-11-21T23:05:00+08:00",
+      "关联实验": "T34 种子 43 补充指标：原版 43、PSE 43 已按第 2 版脚本算完并核对通过（状态 complete_verified），组长需要现在拿到，用于填三个种子的严格转移 F1",
+      "用户授权": "2026-11-21 用户询问甲缺什么补充指标；组长按既有任务改回传方式",
+      "步骤": [
+        "不要重算：直接取已生成的 extra_orig_s43.json、extra_pse_s43.json，以及 extra_metrics_v2_acceptance_1121.json 和两次运行的日志最后 50 行。",
+        "打成一个 zip（文件名 jia_t34_extra_s43_1121.zip），算 SHA256。",
+        "GitHub 推不上去，就把 zip 作为 ntfy 状态话题（railseg-d4a86d-status-jia）的附件发出，标题写 T34 extra metrics s43，正文写 SHA256 和两个 json 各自的字节数。",
+        "发出后把本条状态写成已完成；GN 43 照常训练。"
+      ]
+    },
     {
       "编号": "jia-t34-progress-1121",
       "状态": "已完成（11-21 13:57 收到）",
@@ -84,8 +97,8 @@
     },
     {
       "编号": "jia-t34-extra-metrics-1120",
-      "状态": "待执行（第 2 版脚本；在 GN 43 训练进行中另开进程跑，评测占用小）",
-      "更新时间": "2026-11-21T15:30:00+08:00",
+      "状态": "原版 43、PSE 43 已完成（回传见 jia-t34-extra-deliver-1121）；GN 43 完成并补测第 250 轮后再跑一次并立即回传",
+      "更新时间": "2026-11-21T23:05:00+08:00",
       "关联实验": "T34 补充指标：变化查准率、查全率、F1，严格转移 F1，错误分解（用户 11-20 要求）",
       "脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_extra_metrics_1120.py",
       "脚本SHA256": "7d478c1a4cc6d3bfbc4aafc4e5b174525279a756347c0621bc5cb8a6f0ba50dd",
@@ -93,7 +106,7 @@
         "下载并核对 SHA256，存到第 2 版包目录（与 train_t34.py 同目录），文件名 extra_metrics.py。",
         "设好 T34_DATA、T34_CACHE，对已完成的原版 43 运行：python -X utf8 extra_metrics.py --entry train_t34.py --out <runs>/den_planet_orig_s43 --seed 43 --method orig --save <runs>/extra_orig_s43.json",
         "PSE 43、GroupNorm 对照 43 各自完成（含最后一轮补测）后，同样运行一次：PSE 用 --method pse --out <runs>/den_planet_pse_s43 --save <runs>/extra_pse_s43.json；GroupNorm 用 --entry train_t34_gnorig.py --method orig --out <runs>/den_gnorig_s43 --save <runs>/extra_gnorig_s43.json。",
-        "把三个 json 上传到 同学甲/t34/extra_metrics/。脚本内置与官方 BC 的逐位核对，报错就停下回报完整报错。"
+        "每完成一个就立即回传，不要等三个都齐：优先上传到 同学甲/t34/extra_metrics/；GitHub 不通就打成 zip 作为 ntfy 状态话题附件发送，正文写 SHA256。脚本内置与官方 BC 的核对，报错就停下回报完整报错。"
       ],
       "第2版说明": "2026-11-21：第 1 版 BC 逐位核对容差 1e-6 太严（GPU 非确定性导致 1.8e-5 的差）；第 2 版改为 0.05，其余不变。请重新下载并核对新 SHA256，对原版 43、PSE 43 各跑一次，GN 43 完成后再跑一次。GitHub 不通时用固定提交的 jsDelivr 地址：https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@<提交>/patches/t34_extra_metrics_1120.py（提交号见批注）。"
     },
