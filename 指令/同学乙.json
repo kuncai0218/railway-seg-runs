@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-19T11:54:22+08:00",
+  "更新时间": "2026-11-21T16:00:00+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 yi-t34-pair-s44-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "yi-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -13,9 +13,39 @@
   ],
   "队列": [
     {
+      "编号": "yi-t34-gnorig-s44-1121",
+      "状态": "立即执行（唯一有效任务，最高优先）",
+      "更新时间": "2026-11-21T16:00:00+08:00",
+      "关联实验": "T34 对照：原版 ST3DUNet 只把全部 BatchNorm 换成 GroupNorm，其余与原版完全一致，种子 44；用于拆分 PSE 提升中归一化与结构的贡献（种子 42 在组长本机、43 在同学甲）",
+      "用户授权": "2026-11-21 用户同意给同学乙派 T34 任务",
+      "最多同时训练": 1,
+      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_peer_1119_v2.zip",
+      "实验包备用": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@44ce88ac8b3846279dfbded015f0254764e193b1/patches/t34_peer_1119_v2.zip",
+      "实验包SHA256": "7a3d0a5468b8f4be61756929ac34b518f55336c12cbbe2aa9c6126d628678692",
+      "入口脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_train_gnorig_1120.py",
+      "入口脚本备用": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@44ce88ac8b3846279dfbded015f0254764e193b1/patches/t34_train_gnorig_1120.py",
+      "入口SHA256": "e7a962e28573b6617f083e188528a2b7d5bcb9baf06222dbd70e12d6ebf6b2d4",
+      "补测脚本备用": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@44ce88ac8b3846279dfbded015f0254764e193b1/patches/t34_test_last_1119.py",
+      "补测脚本SHA256": "73b6ae68c3d894005e2bc131f4695d51fb8def52e41857f733e29ad830cdb3a8",
+      "补充指标脚本备用": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@44ce88ac8b3846279dfbded015f0254764e193b1/patches/t34_extra_metrics_1120.py",
+      "补充指标脚本SHA256": "7d478c1a4cc6d3bfbc4aafc4e5b174525279a756347c0621bc5cb8a6f0ba50dd",
+      "步骤": [
+        "确认此前全部任务（含 E002、E015、E021、DEN 旧队列）都已停止、本项目 GPU 进程为零；保留结果与检查点，不删除。",
+        "确认显卡正常：nvidia-smi 无报错、torch.cuda.is_available() 为 True、能在 GPU 上做一次小运算；不正常就停下回报，等同学本人处理，不改驱动或显卡设置。",
+        "下载第 2 版实验包（GitHub 不通就用“实验包备用”地址）并核对 SHA256，解压到新目录；按包内《说明.md》第 1 节新建 Python 3.10 环境：先 pip install -r requirements_t34.txt，最后 pip install --no-deps opencv-python==4.12.0.88；核对 torch 2.3.0+cu121、torchvision 0.18.0+cu121、numpy 1.26.4、opencv 4.12.0.88。",
+        "数据：优先用本机已有的 DynamicEarthNet（需含 train 55、val 10、test 10 区与 labels，目录名 DynamicEarthNet），核对 split.json 的 SHA256 以 311bc1b6 开头、以 c819 结尾；不全再从 https://github.com/kuncai0218/railway-seg-runs/releases/tag/data-den-1107 下载 8 个分卷（GitHub 不通就停下回报，不要换来源）。设 T34_DATA、T34_CACHE 后运行 stage_den_cache.py。",
+        "下载 GroupNorm 入口（GitHub 不通用“入口脚本备用”），核对 SHA256，存到实验包目录，文件名 train_t34_gnorig.py。",
+        "冒烟：python -X utf8 train_t34_gnorig.py --seed 44 --method orig --out <runs>/_smoke_gnorig_s44 --smoke_steps 20，状态出现 smoke_complete 才算通过。",
+        "正式：python -X utf8 train_t34_gnorig.py --seed 44 --method orig --out <runs>/den_gnorig_s44，250 轮；中断后同一命令加 --resume 续跑；不改任何配方。",
+        "完成后补测第 250 轮：下载补测脚本存为 t34_test_last_1119.py，python -X utf8 t34_test_last_1119.py --entry train_t34_gnorig.py --out <runs>/den_gnorig_s44 --seed 44 --method orig。",
+        "再算补充指标：下载补充指标脚本存为 extra_metrics.py，python -X utf8 extra_metrics.py --entry train_t34_gnorig.py --out <runs>/den_gnorig_s44 --seed 44 --method orig --save <runs>/extra_gnorig_s44.json。",
+        "回报：收到本条后先回“收到 yi-t34-gnorig-s44-1121”及环境、数据核对结果；冒烟通过后回进程号和两次真实步数；之后每天至少一次进度；完成后上传 protocol.json、epochs.json、test_selected_checkpoints.json、official_test.json、official_test_last.json、extra_gnorig_s44.json、日志最后 50 行（不传权重）。GitHub 不通就打包成 zip 作为 ntfy 状态话题附件发送，并写明 SHA256。遇错停下回报完整报错。"
+      ]
+    },
+    {
       "编号": "yi-t34-pair-s44-1119",
-      "状态": "待执行（唯一有效任务，最高优先；第 2 版包）",
-      "更新时间": "2026-11-19T11:54:22+08:00",
+      "状态": "取消（2026-11-19 起种子 44 配对改由组长云端跑，已完成 PSE 44；不要再开）",
+      "更新时间": "2026-11-21T16:00:00+08:00",
       "关联实验": "T34：DynamicEarthNet Planet，论文配方下原版 ST3DUNet 与单源 PSE 配对",
       "用户授权": "2026-11-19 用户同意甲乙并行跑 T34 种子 43、44 配对，并要求停止之前所有任务、执行新任务",
       "说明": "https://github.com/kuncai0218/railway-seg-runs/blob/main/T34_%E7%94%B2%E4%B9%99%E9%85%8D%E5%AF%B9_1119.md",
