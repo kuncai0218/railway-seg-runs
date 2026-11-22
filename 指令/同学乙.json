@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-21T16:00:00+08:00",
+  "更新时间": "2026-11-23T03:00:00+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 yi-t34-pair-s44-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "yi-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -12,6 +12,30 @@
     "yi-e002-micro1-monitor-1112-1440（E002 作者折 III 的训练与监测）：组长 11-14 决定——作者五折复现只作核对，三折都停在当前步数，不再跑满 500000 更新；按队列里 yi-e002-stop-test-1114 的步骤停训并补测试。保留全部结果和检查点，不删除。"
   ],
   "队列": [
+    {
+      "编号": "yi-t34-psebn-s44-1123",
+      "状态": "立即执行（唯一有效任务，最高优先；本机最多同时 1 个训练）",
+      "更新时间": "2026-11-23T03:00:00+08:00",
+      "关联实验": "T34 PSE+BN 2×2 缺角：PSE 骨干把全部 GroupNorm 换成 BatchNorm2d（时间注意力里的 LayerNorm 不动），论文配方、T_max=250 余弦不变、只跑到第 120 轮截停；种子 44。乙本机已有 GN 44，加上这一格，种子 44 就有“原版 / GN / PSE+BN”三格可并表（原版 44、PSE 44 在云端与本机跑）",
+      "用户授权": "2026-11-22 用户提出补 PSE+BN 这一格；2026-11-23 03:0x 用户要求给乙派新任务（乙已完成 GN 44 并交付）",
+      "最多同时训练": 1,
+      "入口脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_train_psebn_1123.py",
+      "入口脚本备用": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@a9d32f869b6486b8d76cd465bdb472ad9687dde5/patches/t34_train_psebn_1123.py",
+      "入口备用2": "https://ghfast.top/https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_train_psebn_1123.py",
+      "入口SHA256": "71367e22e8d9d34486e6b0ec711d1119aaed396be5c6d849b657c17dd04d646a",
+      "补充指标脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_extra_metrics_psebn_1123.py",
+      "补充指标脚本备用": "https://cdn.jsdelivr.net/gh/kuncai0218/railway-seg-runs@a9d32f869b6486b8d76cd465bdb472ad9687dde5/patches/t34_extra_metrics_psebn_1123.py",
+      "补充指标脚本备用2": "https://ghfast.top/https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_extra_metrics_psebn_1123.py",
+      "补充指标脚本SHA256": "90cb4d79ff108b76fc092a17f113b7426a46159dbb7271265592799e688ce6e5",
+      "步骤": [
+        "确认本机没有其它训练在跑（T34 已交付、EMN 停机状态保持）；本任务最多同时 1 个训练。",
+        "下载两个脚本（raw 直连不通就走“入口脚本备用”或“入口备用2”），核对 SHA256，在已装好的第 2 版包目录下另存为 train_t34_psebn.py 与 extra_metrics_psebn.py（与 train_t34.py、train_t34_gnorig.py、pse_net.py 同级；包内其它文件一律不改）。",
+        "设好 T34_DATA、T34_CACHE（与 GN 44 任务相同），先冒烟：python -B -u -X utf8 train_t34_psebn.py --seed 44 --method pse --smoke_steps 20 --out <runs>/_smoke_psebn_s44；确认 status.json 的 phase=smoke_complete、protocol.json 的 normalization 为“all GroupNorm layers in PSENet replaced by BatchNorm2d(C); LayerNorm in temporal attention unchanged”、可训练参数 1798313。",
+        "正式跑 120 轮（脚本内置 T_max=250 余弦，必须保持，不要改）：python -B -u -X utf8 train_t34_psebn.py --seed 44 --method pse --stop_epoch 120 --out <runs>/abl_psebn_s44；中断后加 --resume 续跑。不要跑满 250 轮，也不要传任何 official test 开关。",
+        "完成后算补充指标（验证集选轮 + 第 120 轮）：python -u -X utf8 extra_metrics_psebn.py --entry train_t34_psebn.py --out <runs>/abl_psebn_s44 --seed 44 --stop_epoch 120 --save <runs>/planet_psebn_s44_ep120.json",
+        "回报：经 ntfy 状态话题附件发回 official_test.json、test_selected_checkpoints.json、epochs.json、planet_psebn_s44_ep120.json 与日志最后 50 行，写明 zip 的 SHA256；权重不上传。"
+      ]
+    },
     {
       "编号": "yi-t34-gnorig-s44-1121",
       "状态": "立即执行（唯一有效任务，最高优先）",
@@ -841,11 +865,11 @@
   ],
   "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
   "当前执行优先": [
-    "yi-den-baseline-hold-1119"
+    "yi-t34-psebn-s44-1123"
   ],
-  "本轮批准范围": "暂停及保存已有成果，回传本机状态；本轮未分配新的 GPU 实验。",
+  "本轮批准范围": "只批准 yi-t34-psebn-s44-1123（T34 PSE+BN 种子 44，120 轮截停，最多同时 1 个训练）；其余实验继续暂停，已有成果与检查点保留。",
   "最新任务已发布不等于已执行": "收到编号、启动工具PID、实际trainerPID/OS创建时间和两次真实步数分别回报。不要只转告ntfy批注；本JSON才是已授权的任务源。",
   "研究时间授权": "用户已允许更长研究；旧11/14不是硬截止，原协议照做，无需重新问用户。",
   "T22当前修订": "v2",
-  "当前优先级说明": "用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。"
+  "当前优先级说明": "2026-11-23 03:0x 组长：本轮只批准 PSE+BN 种子 44 这一条（补 2×2 因子表的缺角，120 轮、T_max=250）。11-19 的暂停令对其它实验仍然有效：不启动、不续跑，已有结果与检查点保留不删。"
 }
