@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-23T03:00:00+08:00",
+  "更新时间": "2026-11-24T03:00:00+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 yi-t34-pair-s44-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "yi-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -12,6 +12,54 @@
     "yi-e002-micro1-monitor-1112-1440（E002 作者折 III 的训练与监测）：组长 11-14 决定——作者五折复现只作核对，三折都停在当前步数，不再跑满 500000 更新；按队列里 yi-e002-stop-test-1114 的步骤停训并补测试。保留全部结果和检查点，不删除。"
   ],
   "队列": [
+    {
+      "编号": "yi-t34-snt-m3-s44-1124",
+      "状态": "立即执行（唯一有效任务，最高优先）",
+      "更新时间": "2026-11-24T03:00:00+08:00",
+      "关联实验": "SNT-v2.1 Phase 2 第三种子：完整版（h3 头 + SCPC + rad_aug + AOI bank），种子 44，120 轮、T_max=250；与组长本机/云端的 s42、s43 构成三种子，用来判断跨区峰值轮次（s42 在 91 轮、s43 在 55 轮）是收敛行为还是种子噪声",
+      "用户授权": "2026-11-24 02:5x 用户要求给甲乙排新增任务，云端不动",
+      "最多同时训练": 1,
+      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pkg_snt_v2_1_1123.zip",
+      "实验包SHA256": "4f83ce457f4c459135e7d587d629e5db5221096b29c8a46043700ce236b667b9",
+      "评测脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/snt_midtest_v2_1124.py",
+      "评测脚本SHA256": "f6d07c17cfa8a2f2cb835d4eae8b520b23255ed2a547ba17de7229974ba80ab6",
+      "三权重测试脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/snt_test_three_v2_1124.py",
+      "三权重测试脚本SHA256": "5393f92845be859c0aaa608c1dcb7f84069565f97cb64122a1259aa60e5c8d57",
+      "种子": 44,
+      "步骤": [
+        "确认本机没有其它训练在跑（E015 等如有，等它跑完再开）；本任务最多同时 1 个训练。",
+        "下载 v2.1 包（GitHub 直连不通就用 ghfast.top / ghproxy.net 镜像）并核对 SHA256 = 4f83ce457f4c459135e7d587d629e5db5221096b29c8a46043700ce236b667b9，解压到新目录 snt_1123_v2/，确认 train_snt.py、snt_model.py、normalcy_crf.py、scene_proto_cal.py 在顶层。",
+        "环境变量沿用之前跑 PSE+BN 时那一套：SNT_T34_DIR 与 SNT_HERE_DIR 指向你本机已有的 t34_peer_1119 目录（里面有 pse_net.py、st3d_repro.py、upstream/）；T34_DATA、T34_CACHE 与 PSE+BN 任务完全相同。",
+        "冒烟（必须先做）：python -B -u -X utf8 train_snt.py --dataset planet --seed 44 --head h3 --scpc 1 --rad_aug 1 --backbone_opts \"event=0,gate=0\" --epochs 120 --lr_tmax 250 --eval_aoi_bank 1 --smoke_steps 20 --out <runs>/_smoke_p2v21_M3_s44；横幅必须出现 [SNT-v2.1] ... total=1,753,457；若报 ModuleNotFoundError，只补缺的包、不要升级 torch；任何与预期不符就停下原文回报，不要硬跑。",
+        "正式训练（120 轮，T_max=250 余弦必须保持）：python -B -u -X utf8 train_snt.py --dataset planet --seed 44 --head h3 --scpc 1 --rad_aug 1 --backbone_opts \"event=0,gate=0\" --epochs 120 --lr_tmax 250 --lr 1e-4 --head_lr 1e-4 --eval_aoi_bank 1 --out <runs>/p2v21_M3_s44；中断加 --resume。不要传 --run_official_test（训练脚本里它默认关闭）。",
+        "训练完成后跑三权重官方测试：先下载 snt_midtest_v2_1124.py 与 snt_test_three_v2_1124.py（SHA256 分别为 f6d07c17cfa8a2f2cb835d4eae8b520b23255ed2a547ba17de7229974ba80ab6 与 5393f92845be859c0aaa608c1dcb7f84069565f97cb64122a1259aa60e5c8d57），放在 train_snt.py 同目录，然后 python -u -X utf8 test_three_v2.py --run <runs>/p2v21_M3_s44；它会自动挑「末轮 / 最佳val mIoU / 最佳val SCS」三个权重，各跑 test_in 与 test_out，产出 6 个 midtest_ep*_test_*.json（每个约 4 KB）。",
+        "回报：经 ntfy 状态话题附件发回 epochs.json、config_snt.json、dev_val_summary.json（若有）、6 个 midtest_ep*_test_*.json、日志最后 50 行，写明你打的 zip 的 SHA256；权重不上传。另外回报 split.json 的 SHA256（应为 311bc1b6 开头、c819 结尾），以便确认与组长同一份划分。"
+      ]
+    },
+    {
+      "编号": "yi-t34-snt-m1-s44-1124",
+      "状态": "排队（等 yi-t34-snt-m3-s44-1124 完全结束再开，不要并跑）",
+      "更新时间": "2026-11-24T03:00:00+08:00",
+      "关联实验": "SNT-v2.1 Phase 2 第三种子：只留 h3 头（无 SCPC、无 rad_aug、不启用 AOI bank），种子 44，120 轮；与 M3_s44 同种子配对，直接量出 SCPC+rad_aug 的贡献",
+      "用户授权": "2026-11-24 02:5x 用户要求给甲乙排新增任务，云端不动",
+      "最多同时训练": 1,
+      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/pkg_snt_v2_1_1123.zip",
+      "实验包SHA256": "4f83ce457f4c459135e7d587d629e5db5221096b29c8a46043700ce236b667b9",
+      "评测脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/snt_midtest_v2_1124.py",
+      "评测脚本SHA256": "f6d07c17cfa8a2f2cb835d4eae8b520b23255ed2a547ba17de7229974ba80ab6",
+      "三权重测试脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/snt_test_three_v2_1124.py",
+      "三权重测试脚本SHA256": "5393f92845be859c0aaa608c1dcb7f84069565f97cb64122a1259aa60e5c8d57",
+      "种子": 44,
+      "步骤": [
+        "确认本机没有其它训练在跑（E015 等如有，等它跑完再开）；本任务最多同时 1 个训练。",
+        "下载 v2.1 包（GitHub 直连不通就用 ghfast.top / ghproxy.net 镜像）并核对 SHA256 = 4f83ce457f4c459135e7d587d629e5db5221096b29c8a46043700ce236b667b9，解压到新目录 snt_1123_v2/，确认 train_snt.py、snt_model.py、normalcy_crf.py、scene_proto_cal.py 在顶层。",
+        "环境变量沿用之前跑 PSE+BN 时那一套：SNT_T34_DIR 与 SNT_HERE_DIR 指向你本机已有的 t34_peer_1119 目录（里面有 pse_net.py、st3d_repro.py、upstream/）；T34_DATA、T34_CACHE 与 PSE+BN 任务完全相同。",
+        "冒烟（必须先做）：python -B -u -X utf8 train_snt.py --dataset planet --seed 44 --head h3 --scpc 0 --rad_aug 0 --backbone_opts \"event=0,gate=0\" --epochs 120 --lr_tmax 250 --eval_aoi_bank 0 --smoke_steps 20 --out <runs>/_smoke_p2v21_M1_s44；横幅必须出现 [SNT-v2.1] ... total=1,753,457；若报 ModuleNotFoundError，只补缺的包、不要升级 torch；任何与预期不符就停下原文回报，不要硬跑。",
+        "正式训练（120 轮，T_max=250 余弦必须保持）：python -B -u -X utf8 train_snt.py --dataset planet --seed 44 --head h3 --scpc 0 --rad_aug 0 --backbone_opts \"event=0,gate=0\" --epochs 120 --lr_tmax 250 --lr 1e-4 --head_lr 1e-4 --eval_aoi_bank 0 --out <runs>/p2v21_M1_s44；中断加 --resume。不要传 --run_official_test（训练脚本里它默认关闭）。",
+        "训练完成后跑三权重官方测试：先下载 snt_midtest_v2_1124.py 与 snt_test_three_v2_1124.py（SHA256 分别为 f6d07c17cfa8a2f2cb835d4eae8b520b23255ed2a547ba17de7229974ba80ab6 与 5393f92845be859c0aaa608c1dcb7f84069565f97cb64122a1259aa60e5c8d57），放在 train_snt.py 同目录，然后 python -u -X utf8 test_three_v2.py --run <runs>/p2v21_M1_s44；它会自动挑「末轮 / 最佳val mIoU / 最佳val SCS」三个权重，各跑 test_in 与 test_out，产出 6 个 midtest_ep*_test_*.json（每个约 4 KB）。",
+        "回报：经 ntfy 状态话题附件发回 epochs.json、config_snt.json、dev_val_summary.json（若有）、6 个 midtest_ep*_test_*.json、日志最后 50 行，写明你打的 zip 的 SHA256；权重不上传。另外回报 split.json 的 SHA256（应为 311bc1b6 开头、c819 结尾），以便确认与组长同一份划分。"
+      ]
+    },
     {
       "编号": "yi-t34-psebn-s44-1123",
       "状态": "立即执行（唯一有效任务，最高优先；本机最多同时 1 个训练）",
@@ -865,11 +913,11 @@
   ],
   "更正": "10-27 18:00 组长更正：17:40 那版误写“停掉 tasks/yi_d2ls_1027b.json”，作废。d2ls_rgb 种子 20261019 请照常跑完（b 队列跑完即结束）；a 队列照常。yi_seg1_1027 仍然取消，a、b 都结束后直接打包回传，不再回原包。",
   "当前执行优先": [
-    "yi-t34-psebn-s44-1123"
+    "yi-t34-snt-m3-s44-1124"
   ],
-  "本轮批准范围": "只批准 yi-t34-psebn-s44-1123（T34 PSE+BN 种子 44，120 轮截停，最多同时 1 个训练）；其余实验继续暂停，已有成果与检查点保留。",
+  "本轮批准范围": "只批准 yi-t34-snt-m3-s44-1124 与 yi-t34-snt-m1-s44-1124 两条（SNT-v2.1 第三种子，120 轮截停，最多同时 1 个训练，先 M3 后 M1）；其余实验继续暂停，已有成果与检查点保留。",
   "最新任务已发布不等于已执行": "收到编号、启动工具PID、实际trainerPID/OS创建时间和两次真实步数分别回报。不要只转告ntfy批注；本JSON才是已授权的任务源。",
   "研究时间授权": "用户已允许更长研究；旧11/14不是硬截止，原协议照做，无需重新问用户。",
   "T22当前修订": "v2",
-  "当前优先级说明": "2026-11-23 03:0x 组长：本轮只批准 PSE+BN 种子 44 这一条（补 2×2 因子表的缺角，120 轮、T_max=250）。11-19 的暂停令对其它实验仍然有效：不启动、不续跑，已有结果与检查点保留不删。"
+  "当前优先级说明": "2026-11-24 03:0x 组长：本轮只批准 SNT-v2.1 的种子 44 两个臂（先 M3 后 M1，串行）。11-19 的暂停令对其它实验仍然有效：不启动、不续跑，已有结果与检查点保留不删。"
 }
