@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-25T04:21:07+08:00",
+  "更新时间": "2026-11-25T04:42:08+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 yi-t34-pair-s44-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "yi-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -15,7 +15,7 @@
     {
       "编号": "yi-railway-multisource-overnight-20261125",
       "状态": "待执行（收到后立即优先）",
-      "更新时间": "2026-11-25T04:21:07+08:00",
+      "更新时间": "2026-11-25T04:42:08+08:00",
       "关联实验": "铁路 DEM 坡面照明、坡向、HAND 与雷达联合纠偏",
       "用户授权": "组长 11 月 25 日要求甲乙优先做本轮铁路多源融合实验，持续探索并每 30 分钟回报。",
       "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/rail_multisource_peer_20261125.zip",
@@ -23,7 +23,7 @@
       "步骤": [
         "把现有训练保存到最近完整断点，立即接手这条铁路任务。收到后回报编号、实际GPU和本机能接入的铁路训练资产。",
         "解压实验包，查看 README.md，并按其中 同学乙 的命令连续训练。优先核实全量验证增益，再核实共同合格配对与具体场景的变化。",
-        "立即核对 rail-development 数据包和原项目 A255/C23、S1、DEM 等数据。若需补数据，通过原来的项目内部链路与组长配合，同时准备训练环境和输入核查。",
+        "从专用传输入口接收两折 railway A255/C23 数据并校验所有五个文件。两份训练 NPZ 保留 x、anchor、y、flags、scene 五个键，验证 NPZ 另含 outside、negatives 两键。四份 x 均为 105 列。现有 check_rail_ready.py 如对训练文件也要求 outside、negatives，请按训练与验证的角色分别检查。通过后直接按 README 的乙组命令训练。",
         "启动后回传PID、显存和两次真实更新步数，之后每30分钟回传进度。有实验完成时立即发验证汇总、误检漏检分析和拟接续实验。",
         "铁路数据上继续优先做能解释提升或退化的下一组。确实跑透后，再从近期公开方法的复现和结构性改进接续。"
       ],
@@ -45,7 +45,26 @@
           "接收器原址": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/d4b98e7a2c040e216eeb1e0acc1eb116404e3569/patches/rail_multisource_receive_20261125.py",
           "清单原址": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/d4b98e7a2c040e216eeb1e0acc1eb116404e3569/patches/rail_multisource_receive_manifest_20261125.json"
         },
-        "接收脚本原址": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/d4b98e7a2c040e216eeb1e0acc1eb116404e3569/patches/rail_multisource_pull_20261125.py"
+        "接收脚本原址": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/d4b98e7a2c040e216eeb1e0acc1eb116404e3569/patches/rail_multisource_pull_20261125.py",
+        "文件结构": {
+          "train": [
+            "x",
+            "anchor",
+            "y",
+            "flags",
+            "scene"
+          ],
+          "val": [
+            "x",
+            "anchor",
+            "y",
+            "flags",
+            "scene",
+            "outside",
+            "negatives"
+          ],
+          "x_columns": 105
+        }
       }
     },
     {
