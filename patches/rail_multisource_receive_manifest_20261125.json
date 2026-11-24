@@ -1,0 +1,32 @@
+{
+  "complete": true,
+  "archive_count": 5,
+  "total_bytes": 74703587,
+  "archives": [
+    {
+      "file": "r3_2023a_train.npz",
+      "bytes": 16510576,
+      "SHA256": "8a90eb953f99e39f15e38673b914509486c90aac810735db46cb4af10f3a6c13"
+    },
+    {
+      "file": "r3_2023a_val.npz",
+      "bytes": 17869007,
+      "SHA256": "d16f6b612890c465cc03aaa623556cfe6749975c28dc61fc6b3e92a0813ff6a3"
+    },
+    {
+      "file": "r3_2023b_train.npz",
+      "bytes": 34414108,
+      "SHA256": "86b1d882adcc394a330627ddeee59a501af869115eff0918d3e1a60960250661"
+    },
+    {
+      "file": "r3_2023b_val.npz",
+      "bytes": 5908869,
+      "SHA256": "e6fbb4697808950da5b5709fd33df3660f45081cc3ba7dad7eec7976530cd4a5"
+    },
+    {
+      "file": "schema.json",
+      "bytes": 1027,
+      "SHA256": "d76561c82e4d6c334e398a2f5763aa006b552387366d59eb2a5145b126196467"
+    }
+  ]
+}
