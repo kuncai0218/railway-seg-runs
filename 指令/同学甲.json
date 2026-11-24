@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-25T05:59:25+08:00",
+  "更新时间": "2026-11-25T07:10:30+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -16,8 +16,23 @@
   ],
   "队列": [
     {
-      "编号": "jia-railway-outer-candidate-20261125",
+      "编号": "jia-railway-outer-calibration-20261125",
       "状态": "待执行（收到后立即优先）",
+      "更新时间": "2026-11-25T07:10:30+08:00",
+      "无需二次许可": true,
+      "关联实验": "冻结种子 73 候选外分数的逐景高分尾部校准",
+      "实验包": "https://ghfast.top/https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/railway_candidate_calibration_20261125.py",
+      "实验包SHA256": "81a5d33a4a69eef1c5f80041ce1dfe66e96548bb47a03edf075471a0a926ceb6",
+      "步骤": [
+        "保存已完成种子 73 的权重、旧指标和原始回放。把校验过的新脚本与现用 spatial_worker.py、fusion_worker.py 放在同一目录。",
+        "用已验收的两折完整校内数据和 seed73 权重，运行 python -u railway_candidate_calibration_20261125.py --data <两折空间数据根目录> --run <种子73权重目录> --seed 73 --scene-normalization --output independent_candidate_seed73_scene_tail.json。将新回放放在独立输出文件中。",
+        "固定原流程判定，在同一候选外空间比较原光学、光学尾部分位、光学高分尾部标准化、真实和同景错位的 S1 尾部标准化。尾部参照计算只使用当前可观察分数。比较新增误报 0、4、10、25 档和各次留出事件，报告可比较正例数与首次检中伴随的误报成本。",
+        "按收到、启动、进程与完成回传。回传原始 JSON、日志和 SHA256，继续每半小时同步实际状态。"
+      ]
+    },
+    {
+      "编号": "jia-railway-outer-candidate-20261125",
+      "状态": "本轮训练与六模式回放已完成，原始归档核验通过",
       "更新时间": "2026-11-25T05:59:25+08:00",
       "关联实验": "完整栅格的候选外补漏与误报预算，种子73，匹配真实/错位S1",
       "用户授权": "沿用本轮铁路和候选外独立补漏的研究授权，保持两折开发口径。",
@@ -36,7 +51,14 @@
         "接收命令": "python -u receive_spatial_development.py --address 10.102.21.27 --port 41990 --interface 10.102.21.82 --nonce 321b0cf13cca42a48a81ad7bec285828 --prior-pack /home/user/work_st3d/rail_multisource_ops_1125/rail-development/r3_2023a_train.npz --manifest 82de9f8cb5b7f82f89fa0957d832f4c4f47bf794f9e0a4465147b4b6c268e9bd --probe 662bc245fa337eb5f94d88e5e7043875e26e4027b7fd4ebed58aa6edfc6f881c --out rail-spatial-development"
       },
       "训练命令": "python -u spatial_worker.py --data rail-spatial-development --output rail-jia-outer-s73 --seed 73 --epochs 16 --steps 80 --arms optical_context radar_rescue",
-      "回放命令": "python -u independent_candidate_replay.py --data rail-spatial-development --run rail-jia-outer-s73 --seed 73 --output rail-jia-outer-s73/independent_candidate_budget.json"
+      "回放命令": "python -u independent_candidate_replay.py --data rail-spatial-development --run rail-jia-outer-s73 --seed 73 --output rail-jia-outer-s73/independent_candidate_budget.json",
+      "结果回执": {
+        "编号": "CpvqYhRaxmdd",
+        "训练折次": 4,
+        "共用支持正样本": 10,
+        "相同预算逐事件增检": 0,
+        "归档SHA256": "927dd6adf11b4110532a454ab11d0a1736a955d5f786dff4b2379c0f9b43b289"
+      }
     },
     {
       "编号": "jia-railway-multisource-overnight-20261125",
@@ -746,12 +768,12 @@
       "暂停前状态_1119": "待执行"
     }
   ],
-  "本轮批准范围": "优先完成上述同一铁路数据的候选外补漏对照与误报预算验证。",
+  "本轮批准范围": "完成已核验 seed73 输出的铁路候选外逐景校准对照。",
   "当前执行优先": [
-    "jia-railway-outer-candidate-20261125"
+    "jia-railway-outer-calibration-20261125"
   ],
   "最新任务已发布不等于已执行": "收到、启动、真实训练推进、阶段结果分别回报，每 30 分钟同步。",
   "研究时间授权": "用户允许更长研究；旧11/14不是硬截止。",
   "T22当前修订": "v2",
-  "当前优先级说明": "已提供完整逐像元开发网格，接续甲的候选外补漏研究。"
+  "当前优先级说明": "组长本次指令置顶，复用种子 73 权重与原数据。"
 }
