@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-26T04:24:10+08:00",
+  "更新时间": "2026-11-26T04:31:24+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -19,18 +19,19 @@
     {
       "编号": "jia-den-transition-competition-s43-1126",
       "状态": "立即确认收件，GPU 空闲时开始。已有正常训练完成后接续",
-      "更新时间": "2026-11-26T04:24:10+08:00",
+      "更新时间": "2026-11-26T04:31:24+08:00",
       "关联实验": "DEN-Planet 种子 43。用同一份冻结 PSE 权重训练四个等容量的语义转移头",
       "本轮最高并发": 1,
       "任务书": "tasks/den_transition_competition_1126.md",
-      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/den_transition_competition_1126.zip",
-      "实验包备用": "https://github.com/kuncai0218/railway-seg-runs/blob/main/patches/den_transition_competition_1126.zip",
-      "实验包SHA256": "50bf76acfc516c85b6698ee0f02e2ceaea3ae29fd15d1f599a5b1b82fdf4d9d5",
+      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/den_transition_competition_1126_v2.zip",
+      "实验包备用": "https://github.com/kuncai0218/railway-seg-runs/blob/main/patches/den_transition_competition_1126_v2.zip",
+      "实验包SHA256": "4c93506dd4164e0f2c7e242b09c6f72f2747ec797705d4317dbf48fbe874f53e",
+      "修订": "v2 分别校验 Planet 55/10/10 与 MSI 47/10/7。甲此前启动用的旧包遇划分报错，请用新包接续。",
       "收到即回执": "用原 ntfy 状态话题回‘收到 jia-den-transition-competition-s43-1126’，附实际读到的 main 提交号、实验包 SHA256 核验结果、当前 GPU 进程和可用内存。如果在忙也先回执。",
       "步骤": [
         "组长消息‘立即同步’对应这条队列。优先 git fetch origin main 取指定文件。raw 失败用已验证过的 ghfast.top 包装 raw 链接，HTTP 200 后核对 SHA256 再解压到空目录。保留已有任务和实验环境。",
         "检查当前实际 CUDA 进程及近两次训练更新。已有任务在真实推进，保留并排在其后。旧状态出现‘训练中’但没有存活进程及新步数，回传核查后可直接启动本任务。",
-        "先找已交付的 T34 单源 DEN-Planet PSE s43 目录。若未做过该配对或无权重，使用已经完成的同源 PSE+BN、A1 或 SNT 的本地兼容权重。 正常优先 epoch120.pth，若无用第250轮的留存权重。记录它的配置、真实轮次和 SHA256。检查现成 4 波段作者 DynamicEarthNet 数据和 split.json。",
+        "先找已交付的 T34 单源 DEN-Planet PSE s43 目录。若未做过该配对或无权重，使用已经完成的同源 PSE+BN、A1 或 SNT 的本地兼容权重。 正常优先 epoch120.pth，若无用第250轮的留存权重。记录配置、实际轮次和 SHA256。正式 Planet 划分为 55/10/10，split.json SHA256 为 311bc1b644a5a4f85a7315a1c6917eb9cc96c68786c2670eb878162bd6c7c819。直接读取作者 Planet 数据。",
         "在已完成设备检查的原环境内运行 python -B -u -X utf8 run_pilot.py --sensor planet --seed 43 --data \"<作者DynamicEarthNet目录>\" --checkpoint \"<核验过的本机PSE权重.pth>\" --out \"<新输出目录>\" --device cuda:0",
         "找不到兼容权重时继续做这条预定义分支 python -B -u -X utf8 warm_start.py --sensor planet --seed 43 --data \"<作者DynamicEarthNet目录>\" --out \"<新A1目录>\" --steps 768 --device cuda:0，然后把 last.pth 用于相同的四组训练。无需下载 MSI 或迁移现有数据。",
         "先回验收与启动记录。输出 features/progress.json 出现真实区域后附当前 GPU 时间样本。日志出现 [FIT] step 1 后报 pid、创建时间、队列编号、步数及近一分钟利用率。",
