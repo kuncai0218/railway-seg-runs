@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-25T15:04:34+08:00",
+  "更新时间": "2026-11-25T15:20:03+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 yi-t34-pair-s44-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "yi-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -15,16 +15,16 @@
     {
       "编号": "yi-railway-frozen-159-40-s20261019",
       "状态": "待执行（收到后立即优先）",
-      "更新时间": "2026-11-25T15:04:34+08:00",
+      "更新时间": "2026-11-25T15:20:03+08:00",
       "无需二次许可": true,
-      "关联实验": "原版 D2LS + LightGBM 42 项在固定 159/40 数据上的种子 20261019，运行 full/A/B。",
-      "接收脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/receive_peer_original_d2ls_20261125.py",
-      "脚本SHA256": "ef0f32c1e0a0c397b96782a9369e1f9c9804c79e2f4f4003e018380bdecb9e14",
-      "取件命令": "python -u receive_peer_original_d2ls_20261125.py --address 10.102.21.27 --port 41993 --interface <当前物理网卡IPv4> --prior-pack <已校验的r3_2023a_train.npz路径> --nonce d2ls-frozen-159-40-20261125 --probe c38ea7b578136f2b041719fdf2eb6b3424d3488c0c3259f67380afbbfe2a005e --manifest 9c7439b4f5dca4519c833efaac6272dbcac9d9a832143664164d35b5e0ae2728 --seed 20261019 --output railway_frozen_159_40_s20261019",
+      "关联实验": "原版 D2LS 20261019 在 159/40 数据上的 A、B 交叉拟合；全量分割已安排给本地 3090。",
+      "接收脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/receive_peer_original_d2ls_20261125_ab.py",
+      "脚本SHA256": "b6007118aca4dbddca04e339c4bacfff6f4abc0ab1494043f505685d733dc927",
+      "取件命令": "python -u receive_peer_original_d2ls_20261125_ab.py --address 10.102.21.27 --port 41993 --interface <当前物理网卡IPv4> --prior-pack <已校验的r3_2023a_train.npz路径> --nonce d2ls-frozen-159-40-20261125 --probe c38ea7b578136f2b041719fdf2eb6b3424d3488c0c3259f67380afbbfe2a005e --manifest 9c7439b4f5dca4519c833efaac6272dbcac9d9a832143664164d35b5e0ae2728 --seed 20261019 --parts A B --output railway_frozen_159_40_s20261019",
       "步骤": [
         "优先开始本条任务。用上一次已校验的 r3_2023a_train.npz 取件，确认当前物理网卡 IPv4。接收脚本先验证 4 KiB，再验证 11 月 1 日归档源码、分割 C23 数据和权重。",
         "有原 C23 时在命令加 --c23 <含 inputs_f16.npy 的文件夹>，有原 ImageNet ConvNeXt 权重时加 --convnext <convnext_base-6075fbad.pth 路径>。校验失败或缺少的文件由同一校园网端口补齐，包已在发送端就绪。",
-        "用现有 D2LS CUDA 环境执行全量、A、B 三个原版训练，每个 4000 步，批量 8，256 像元，使用原存档 BF16 和学习率。主机在收到概率后接同一套独立 RFE42 LightGBM。",
+        "运行 A、B，每部分 4000 步，批量 8，256 像元，使用原存档 BF16 和学习率。主机负责全量分割和同一套独立 RFE42 LightGBM。",
         "收到、首个真实更新、完成或报错时通过现有回执发任务编号、GPU、环境、PID、步数和结果目录。完整分割预测通过既有校园网通道收回。"
       ]
     },
