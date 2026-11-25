@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-25T15:45:50+08:00",
+  "更新时间": "2026-11-25T15:53:02+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -16,6 +16,23 @@
     "jia-railway-frozen-159-40-s20261018"
   ],
   "队列": [
+    {
+      "编号": "jia-railway-joint-s1-dem-s20261017-B",
+      "状态": "待执行（立即优先）",
+      "更新日期": "2026-11-25T15:53:02+08:00",
+      "更新时间": "2026-11-25T15:53:02+08:00",
+      "无需二次许可": true,
+      "关联实验": "原版 D2LS 单种子17，S1与DEM输入，负责B交叉拟合。4000步、批量8、256裁块、BF16。",
+      "接收脚本": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/receive_joint_d2ls_20261125.py",
+      "脚本SHA256": "3f822b73b1ffe873fc7eb07824ea6b916ad2b116d7e7f330bf9b116455aef46b",
+      "取件命令": "/home/user/d2ls_pkg_1027/.venv/bin/python -u receive_joint_d2ls_20261125.py --address 10.102.21.27 --port 41994 --interface <当前物理网卡IPv4> --prior-pack <已校验的r3_2023a_train.npz路径> --nonce rail-joint-s1-dem-17-1125 --probe 1b1c564c0ad66d3d761db2bad93e850d8899f7360ac2db78c4ac8764710b34cf --manifest c4d59086817042674ac835606cce3c5df2af99b61eac624edf3d11f3a8de651e --seed 20261017 --parts B --auxiliary --return-port 41995 --c23 /home/user/work_st3d/rail_frozen_159_40_ops_1125/railway_frozen_159_40_s20261018/c23 --convnext /home/user/work_st3d/rail_frozen_159_40_ops_1125/railway_frozen_159_40_s20261018/assets/weights/convnext_base-6075fbad.pth --output /home/user/work_st3d/rail_frozen_159_40_ops_1125/railway_joint_s1_dem_s20261017",
+      "步骤": [
+        "保存并停止旧补种子18任务，立即用同一GPU执行本条主种子17联合输入B。",
+        "使用当前物理网卡与已核验的 r3_2023a_train.npz 取件。复用同行校验过的 C23 与 ConvNeXt。取件脚本验证 4 KiB 实测路径并发送 308 期中的分割传感器输入。",
+        "仅运行命令中的B交叉拟合，实际前反向开始后马上回报GPU、PID、完成步数和运行路径。",
+        "训练脚本完毕后会打包交叉拟合概率并启动已有校园网回传服务。回传口41995，主机接着训练独立变化头。"
+      ]
+    },
     {
       "编号": "jia-railway-frozen-159-40-s20261018",
       "状态": "已停止（用户改为单种子联合输入，保存已完成结果与断点）",
@@ -802,10 +819,12 @@
       "暂停前状态_1119": "待执行"
     }
   ],
-  "本轮批准范围": "用户 11 月 25 日改为单种子联合输入，归档补种子的检查点。",
-  "当前执行优先": [],
+  "本轮批准范围": "立即执行 jia-railway-joint-s1-dem-s20261017-B，并交付单位置日期的分割概率。",
+  "当前执行优先": [
+    "jia-railway-joint-s1-dem-s20261017-B"
+  ],
   "最新任务已发布不等于已执行": "收到、GPU启动、阶段结果按事件回报。",
   "研究时间授权": "用户允许更长研究；旧11/14不是硬截止。",
   "T22当前修订": "v2",
-  "当前优先级说明": "本轮优先主种子17的S1与DEM联合输入。"
+  "当前优先级说明": "本轮按组长要求只跑主种子17，分割和变化检测两阶段都接S1与DEM。"
 }
