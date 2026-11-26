@@ -8,7 +8,8 @@
 
 ## 包
 
-- 附加包：`patches/t34_mutae_addon_1127.zip`，SHA256 `befc0085705d81279ea25c38c70208c6c27af5878ae976247bf92cd7a4f10fe4`（20,372 字节）。
+- 附加包（**第 2 版**）：`patches/t34_mutae_addon_1127_v2.zip`，SHA256 `7c40a33e410257cc936ba3fe7f0ced90676d6524d335c36f8fffbaf1c03b5962`（20,493 字节）。第 1 版 `t34_mutae_addon_1127.zip` 作废，不要用。
+- 第 2 版只改一处：Multi-UTAE 入口不再设 `CUDA_LAUNCH_BLOCKING=1`。这一项是 ST3DUNet 作者 `main.py` 里的设置，统一入口照抄而来；它只让 GPU 内核同步启动，不改变任何计算结果，SitsSCD 作者训练 Multi-UTAE 时也不设。组长本机实测训练快约 12%、验证快约 30%。协议里 `cuda_launch_blocking` 相应记为 0。
 - **解压到本机已有的 `t34_peer_1119` 目录的上一级**（也就是 11-19 原包解压的位置），选“不覆盖已有文件”。它只新增文件，不改原包任何文件。解压后应当有：
   - `t34_peer_1119/train_t34_mutae.py`（与 `train_t34.py` 同目录）
   - `t34_peer_1119/test_last_mutae.py`
@@ -32,7 +33,7 @@ python -X utf8 run_mutae.py --seed <S> --runs <runs>
 
 中断后重复同一命令即可：已完成的步骤跳过，有 `last.pth` 的会带 `--resume` 续跑。失败会停下并在 `<runs>/mutae_s<S>_state.json` 里写明，不会自动改配方。
 
-预计时长：3090 上约一天到一天半（网络约 1617 万参数，比 PSE 大）。
+预计时长：比 PSE 慢得多。组长本机与另外两个作业共用一张 3090 时实测约 1.2 秒/步（每轮 1650 步），另加每轮验证；独占一张 3090 估计两天半到三天。期间每天报一次进度即可，不要为了提速改任何设置（混合精度、批大小、轮数、验证频率都不改）。
 
 ## 回报
 

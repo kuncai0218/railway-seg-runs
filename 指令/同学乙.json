@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-27T06:44:03+08:00",
+  "更新时间": "2026-11-27T07:08:29+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 yi-t34-pair-s44-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "yi-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -16,24 +16,25 @@
     {
       "编号": "yi-mutae-planet-s44-1127",
       "状态": "新派发。排在 yi-snt-clean-s44-1127（修正版分类常态、无头、固定转移三个臂）之后；那三个臂全部完成并回传后启动，不并跑。有了本条，yi-snt-clean-s44-1127 最后一步说的兜底臂（共享常态、有向观测）改到本条之后再做",
-      "更新时间": "2026-11-27T06:44:03+08:00",
+      "更新时间": "2026-11-27T07:08:29+08:00",
       "关联实验": "DynamicEarthNet Planet · 官方 Multi-UTAE（SitsSCD 作者代码原样）· 种子 44 · 与 11-19 T34 配对同一份论文配方（批 2、250 轮、AdamW 1e-4 余弦、按验证 mIoU 分域选轮、正式测试）。组长本机做种子 42",
       "用户授权": "2026-11-27 用户要求把补充实验排进本机和甲乙的队列，任何 GPU 不能空闲",
       "本轮最高并发": 1,
       "任务书": "tasks/mutae_planet_1127.md",
-      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_mutae_addon_1127.zip",
-      "实验包备用": "https://github.com/kuncai0218/railway-seg-runs/blob/main/patches/t34_mutae_addon_1127.zip",
-      "实验包SHA256": "befc0085705d81279ea25c38c70208c6c27af5878ae976247bf92cd7a4f10fe4",
-      "包字节数": 20372,
+      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/t34_mutae_addon_1127_v2.zip",
+      "实验包备用": "https://github.com/kuncai0218/railway-seg-runs/blob/main/patches/t34_mutae_addon_1127_v2.zip",
+      "实验包SHA256": "7c40a33e410257cc936ba3fe7f0ced90676d6524d335c36f8fffbaf1c03b5962",
+      "包字节数": 20493,
       "收到即回执": "在原状态通道回「收到 yi-mutae-planet-s44-1127」，附实际读到的 main 提交号和当前在跑的任务及轮次。下载核验放到真正开始本条时再做。",
       "步骤": [
         "收到先回执。不打断正在跑的训练和测试；本条排在上面写明的任务之后。",
-        "开始时下载附加包，核对 SHA256 = befc0085705d81279ea25c38c70208c6c27af5878ae976247bf92cd7a4f10fe4，解压到本机已有 t34_peer_1119 目录的上一级（11-19 原包解压的位置），选“不覆盖已有文件”；核对任务书列的 8 个新文件都在。环境、T34_DATA、T34_CACHE 沿用之前 T34 / PSE / SNT 任务，不升级任何包、不重做缓存。",
+        "开始时下载附加包，核对 SHA256 = 7c40a33e410257cc936ba3fe7f0ced90676d6524d335c36f8fffbaf1c03b5962，解压到本机已有 t34_peer_1119 目录的上一级（11-19 原包解压的位置），选“不覆盖已有文件”；核对任务书列的 8 个新文件都在。环境、T34_DATA、T34_CACHE 沿用之前 T34 / PSE / SNT 任务，不升级任何包、不重做缓存。",
         "在 t34_peer_1119 目录下运行：python -X utf8 run_mutae.py --seed 44 --runs <之前 T34 作业的根目录>。它先冒烟 20 步（日志 model 一行 trainable 必须是 16171526，不一致就停下回报原文），再正式训练 250 轮（结束时入口自动做分域选轮与正式测试），最后用第 250 轮权重补测。中断后重复同一命令续跑。",
         "冒烟通过、正式训练开始后回报 PID、创建时间、epoch、step 和 GPU 采样；正式训练期间每天至少报一次 status.json。",
         "完成后回传：protocol.json、epochs.json、test_selected_checkpoints.json、official_test.json、official_test_last.json、三份日志最后 50 行、选中权重与第 250 轮权重的 SHA256、zip 的 SHA256。权重留在本机。GitHub 不通走 ntfy 附件。",
         "完成后若队列里没有更新的条目，回到 yi-snt-clean-s44-1127 最后一步的兜底：同一修正版包的 h2、hdir 两个臂（种子 44），然后 MUDS M3 种子 42。"
-      ]
+      ],
+      "第2版更新": "第 2 版（2026-11-27 07:2x 组长）：附加包改为 patches/t34_mutae_addon_1127_v2.zip（SHA256 7c40a33e410257cc936ba3fe7f0ced90676d6524d335c36f8fffbaf1c03b5962，20,493 字节），第 1 版作废。只改一处：Multi-UTAE 入口不再设 CUDA_LAUNCH_BLOCKING=1（ST3DUNet 作者 main.py 的设置，统一入口照抄而来；只影响内核启动同步、不改任何数值；SitsSCD 作者训练 Multi-UTAE 也不设），协议里 cuda_launch_blocking 记为 0。组长本机实测训练快约 12%、验证快约 30%。预计时长比原写的长：独占一张 3090 估计两天半到三天。不要为提速改任何设置。"
     },
     {
       "编号": "yi-snt-clean-s44-1127",
