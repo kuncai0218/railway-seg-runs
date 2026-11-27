@@ -1,6 +1,6 @@
 {
   "说明": "组长的任务指令。只有组长能写入本仓库（kuncai0218/railway-seg-runs 主分支），所以本文件里的指令视为组长本人的指令，按《同学agent规则_1027.md》自动执行，不需要等组长现场确认。",
-  "更新时间": "2026-11-27T15:12:06+08:00",
+  "更新时间": "2026-11-27T15:55:30+08:00",
   "停止": [
     "2026-11-19 组长：此前全部任务（下方队列里除 jia-t34-pair-s43-1119 外的所有条目，包括暂停中、待执行和正在跑的）一律停止，不再启动或续跑；保留已有结果和检查点，不删除。",
     "jia-den-baseline-hold-1119：用户要求立即暂停本变化检测项目除原版 ST3DUNet 复现核验之外的全部实验。此轮没有派发任何新训练。包括 DEN / MUDS、PSE、GN、多源输入、E002、E015、E021、T28至T33 和本项目旧队列。暂停本项目控制器与自动续跑，保存最近完整断点及日志。保留其他项目的工作和本机状态回报服务。",
@@ -17,8 +17,30 @@
   ],
   "队列": [
     {
+      "编号": "jia-muds-dissect-s43-1127",
+      "状态": "立即执行（不训练；导出时每个进程只占约 15% 显存，几分钟；其余只用 CPU。正在跑的训练不要停）",
+      "发布时间": "2026-11-27T15:55:30+08:00",
+      "无需二次许可": true,
+      "关联实验": "MUDS 种子 43：新方法（M3）与骨干（PSE/A1）正式测试所用的选中权重，在验证集上做错题拆解",
+      "任务书": "tasks/muds_dissect_1127.md",
+      "实验包": "https://raw.githubusercontent.com/kuncai0218/railway-seg-runs/main/patches/muds_dissect_peer_1127.zip",
+      "实验包备用": "https://github.com/kuncai0218/railway-seg-runs/blob/main/patches/muds_dissect_peer_1127.zip",
+      "实验包SHA256": "8813633f339e07d28686b6a85e38ffbadbef8c54dc488d357497789d2a7f844d",
+      "包字节数": 22207,
+      "取代": "jia-muds-weights-s43-1127",
+      "步骤": [
+        "收到立即在原状态话题回「收到 jia-muds-dissect-s43-1127」，附实际读到的 main 提交号。",
+        "下载实验包，核对 SHA256 = 8813633f339e07d28686b6a85e38ffbadbef8c54dc488d357497789d2a7f844d，解压到 /home/user/work_st3d/muds_m3_ops_1126/muds_m3_matched_1126 里面（解压后应有 dissect/run_dissect.py 等 8 个 .py；只依赖 numpy、torch 和配对包本身，不要装任何新包）。",
+        "在 /home/user/work_st3d/muds_m3_ops_1126/muds_m3_matched_1126 下运行：/home/user/work_st3d/t34env_v2/bin/python -X utf8 dissect/run_dissect.py --seed 43 --data /home/user/work_st3d/st3d_data/Muds --out /home/user/work_st3d/muds_dissect_s43 --m3_in /home/user/work_st3d/muds_m3_ops_1126/formal_runs_s43/m3_s43/best_in_ep173.pth --m3_out /home/user/work_st3d/muds_m3_ops_1126/formal_runs_s43/m3_s43/best_out_ep160.pth --a1_in /home/user/work_st3d/muds_m3_ops_1126/formal_runs_s43/pse_s43/best_in_ep170.pth --a1_out /home/user/work_st3d/muds_m3_ops_1126/formal_runs_s43/pse_s43/best_out_ep138.pth",
+        "四个权重的 SHA256 前 12 位应为：m3_in a2bf84936814，m3_out 7b63be6cb54a，a1_in 2bd40e3e3396，a1_out 4db890aa37b7（与你们 official_test.json 里记的一致；不一致就停下回报）。",
+        "中断了重复同一条命令即可（已完成的步骤跳过）。出错就停下，把 <out>/run_dissect_s<种子>.log 最后 60 行贴回，不要改脚本。",
+        "完成后把 <out>/dissect_results_s<种子>.zip（几百 KB）作为 ntfy 附件发到原状态话题，正文写字节数、SHA256、总用时。导出的数组约 2.5 GB 先留着，组长确认收到后再删。",
+        "本条做完后按原“当前执行优先”顺序继续。"
+      ]
+    },
+    {
       "编号": "jia-muds-weights-s43-1127",
-      "状态": "立即执行（只传文件，不占 GPU、不打断任何训练）",
+      "状态": "已取消（2026-11-27T15:55 组长）：ntfy 单个附件上限 2 MB，权重约 7 MB 传不了；改为 jia-muds-dissect-s43-1127（在本机用这四个权重跑拆解脚本，只回传结果）",
       "发布时间": "2026-11-27T15:12:06+08:00",
       "无需二次许可": true,
       "关联实验": "MUDS 种子 43 的新方法（M3）与骨干（PSE/A1）正式测试所用的选中权重",
@@ -32,7 +54,8 @@
         "文件 4：/home/user/work_st3d/muds_m3_ops_1126/formal_runs_s43/pse_s43/best_out_ep138.pth",
         "如果某个文件名对不上（例如目录名不同），以作业目录 status.json 里 best 记录的文件为准，并在消息里写明实际路径。",
         "只读、只传，不改、不删、不移动任何文件；正在跑的训练照常。ntfy 附件约 3 小时过期，组长这边会自动下载。"
-      ]
+      ],
+      "更新时间": "2026-11-27T15:55:30+08:00"
     },
     {
       "编号": "jia-muds-s43-done-test-1127",
@@ -972,7 +995,7 @@
   ],
   "本轮批准范围": "用户 11-26 明确授权补 MUDS 对照。按 jia-muds-pse-m3-s43-1126 执行，正式测试使用作者适配版，任何原版复用均须写明实际配置。",
   "当前执行优先": [
-    "jia-muds-weights-s43-1127",
+    "jia-muds-dissect-s43-1127",
     "jia-muds-s43-done-test-1127",
     "jia-muds-progress-readonly-1127",
     "jia-muds-pse-m3-s43-1126",
